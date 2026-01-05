@@ -1,0 +1,17 @@
+#########################################################################################################
+#                                                                                                       #
+# The following files will be ignored/skipped when website files get pushed to WP Engine using the      #
+# 'Local Connect' feature (i.e. https://localwp.com/connect/) available within the Local WP software.   #
+# This prevents these files from being inadvertently overwritten.                                       #
+#                                                                                                       #
+# For further details, see:                                                                             #
+# https://community.localwp.com/t/how-to-ignore-certain-folders-from-pull-and-push-in-wpengine/17568/13 #
+#                                                                                                       #
+#########################################################################################################
+
+#--------------------------------------------------------------------------------------------------------
+# Prevent **ALL** files from being pushed directly to WP Engine from Local WP by default - files should
+# be deployed using GitHub Actions instead! See the project README file for further details.
+#---------------------------------------------------------------------------------------------------------
+
+*

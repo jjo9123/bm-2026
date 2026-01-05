@@ -1,0 +1,224 @@
+################################################################
+#                                                              #
+# The following files in this repository are excluded/ignored: #
+#                                                              #
+################################################################
+
+#--------------------------------------
+# Files containing sensitive data:
+#--------------------------------------
+
+# These files should *never* be stored within source control:
+
+**/wp-config.php
+**/wp-content/mysql.sql
+**/_wpeprivate*
+**/.env
+**/.env.*
+**/auth.json
+**/local-phpinfo.php
+**/local-xdebuginfo.php
+**/phpinfo.php
+**/phpminiadmin.php
+**/adminer.php
+**/searchreplacedb2.php
+**/searchreplacedb3/
+**/Search-Replace-DB/
+
+# However it is safe to store a `.env.example` file (if applicable):
+
+**/!.env.example
+
+#--------------------------------------
+# WordPress core files:
+#--------------------------------------
+
+# These files are maintained separately by WordPress:
+
+/db-config.php
+/index.php
+/license.txt
+/readme.html
+/wp-activate.php
+/wp-app.php
+/wp-atom.php
+/wp-blog-header.php
+/wp-comments-post.php
+/wp-commentsrss2.php
+/wp-config-sample.php
+/wp-cron.php
+/wp-feed.php
+/wp-links-opml.php
+/wp-load.php
+/wp-login.php
+/wp-mail.php
+/wp-rdf.php
+/wp-rss.php
+/wp-rss2.php
+/wp-pass.php
+/wp-register.php
+/wp-settings.php
+/wp-signup.php
+/wp-trackback.php
+/xmlrpc.php
+/wp-admin/
+/wp-includes/
+/wp-content/index.php
+
+#--------------------------------------
+# Themes:
+#--------------------------------------
+
+# Ignore all themes:
+
+/wp-content/themes/*
+
+# Except for themes containing custom code managed by Generate UK:
+
+!/wp-content/themes/MY_THEME
+
+#--------------------------------------
+# Plugins:
+#--------------------------------------
+
+# Ignore all plugins:
+
+/wp-content/plugins/*
+
+# Except for plugins containing custom code managed by Generate UK:
+
+!/wp-content/plugins/site-data-updates
+!/wp-content/plugins/MY_PLUGIN
+
+#--------------------------------------
+# Language files:
+#--------------------------------------
+
+# Ignore all language files:
+
+/wp-content/languages/*
+
+# Except for custom language files managed by Generate UK:
+
+# !/wp-content/languages/MY_LANGUAGE_FILE-en_GB.po
+
+#--------------------------------------
+# MU plugins:
+#--------------------------------------
+
+# These files are managed by WP Engine:
+
+/wp-content/mu-plugins/*
+
+# Except for MU plugins containing custom code managed by Generate UK:
+
+!/wp-content/mu-plugins/disable-wp-file-editors.php
+
+#--------------------------------------
+# WP Engine files:
+#--------------------------------------
+
+**/.smushit-status
+/wp-content/object-cache.php
+/wp-content/advanced-cache.php
+/wp-content/wp-cache-config.php
+
+#--------------------------------------
+# Uploads directory:
+#--------------------------------------
+
+# These files are managed by WordPress:
+
+/wp-content/uploads/
+
+#--------------------------------------
+# Upgrade files:
+#--------------------------------------
+
+# These files are managed by WordPress:
+
+/wp-content/upgrade/
+/wp-content/upgrade-temp-backup/
+
+#--------------------------------------
+# Dynamically generated sitemap files:
+#--------------------------------------
+
+/sitemap.xml
+/sitemap.xml.gz
+
+#--------------------------------------
+# Files managed using Composer or NPM:
+#--------------------------------------
+
+**/vendor/*
+**/node_modules/*
+
+#--------------------------------------
+# PhpStorm & VSCode project files:
+#--------------------------------------
+
+**/.idea/
+**/.vscode/
+
+#--------------------------------------
+# Temporary or system files:
+#--------------------------------------
+
+**/~
+**/.DS_Store
+**/.svn
+**/.cvs
+**/*.bak
+**/*.swp
+**/Thumbs.db
+**/*.log
+**/*.log.*.gz
+**/error_log
+**/logs/*
+**/cache/*
+
+#--------------------------------------
+# Large/disallowed file types:
+#--------------------------------------
+
+# A CDN should be used for these files instead:
+
+**/*.hqx
+**/*.bin
+**/*.exe
+**/*.dll
+**/*.deb
+**/*.dmg
+**/*.iso
+**/*.img
+**/*.msi
+**/*.msp
+**/*.msm
+**/*.mid
+**/*.midi
+**/*.kar
+**/*.mp3
+**/*.ogg
+**/*.m4a
+**/*.ra
+**/*.3gpp
+**/*.3gp
+**/*.mp4
+**/*.mpeg
+**/*.mpg
+**/*.mov
+**/*.webm
+**/*.flv
+**/*.m4v
+**/*.mng
+**/*.asx
+**/*.asf
+**/*.wmv
+**/*.avi
+
+#--------------------------------------
+# Don't ignore .gitkeep files:
+#--------------------------------------
+
+!**/.gitkeep

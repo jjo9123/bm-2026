@@ -1,0 +1,23 @@
+name: Deploy to Production Env on WP Engine
+on:
+    workflow_dispatch:
+    push:
+        branches:
+            - production
+jobs:
+    deploy-code-production:
+        name: Deploy Code to Production
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+            - name: Deploy Custom Code Inside wp-content Directory to Production Environment on WP Engine
+              uses: wpengine/github-action-wpe-site-deploy@v3
+              with:
+                  # Deploy vars
+                  WPE_SSHG_KEY_PRIVATE: ${{ secrets.WPE_SSHG_KEY_PRIVATE }}
+                  WPE_ENV: ${{ vars.WPE_ENV_PRODUCTION }}
+                  # Deploy Options
+                  SRC_PATH: "wp-content/"
+                  REMOTE_PATH: "wp-content/"
+                  PHP_LINT: TRUE
+                  CACHE_CLEAR: TRUE

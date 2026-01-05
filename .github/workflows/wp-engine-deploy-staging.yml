@@ -1,0 +1,23 @@
+name: Deploy to Staging Env on WP Engine
+on:
+    workflow_dispatch:
+    push:
+        branches:
+            - staging
+jobs:
+    deploy-code-staging:
+        name: Deploy Code to Staging
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+            - name: Deploy Custom Code Inside wp-content Directory to Staging Environment on WP Engine
+              uses: wpengine/github-action-wpe-site-deploy@v3
+              with:
+                  # Deploy vars
+                  WPE_SSHG_KEY_PRIVATE: ${{ secrets.WPE_SSHG_KEY_PRIVATE }}
+                  WPE_ENV: ${{ vars.WPE_ENV_STAGING }}
+                  # Deploy Options
+                  SRC_PATH: "wp-content/"
+                  REMOTE_PATH: "wp-content/"
+                  PHP_LINT: TRUE
+                  CACHE_CLEAR: TRUE

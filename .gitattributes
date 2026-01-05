@@ -1,0 +1,21 @@
+# By default, require all files to have LF line endings on checkout, to fix potential issues on Windows.
+* text eol=lf
+
+# Specify all files that are truly binary and should not be modified.
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.svgz binary
+*.mo binary
+*.ttf binary
+*.otf binary
+*.eot binary
+*.woff binary
+*.woff2 binary
+*.phar binary
+*.gz binary
+*.exe binary
+/bin/* binary
+**/vendor/bin/* binary

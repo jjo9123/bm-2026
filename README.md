@@ -1,8 +1,7 @@
-# [SITE-NAME-HERE] WordPress Website
+# BM WordPress Website
 
-This repo contains the custom code for the [SITE-NAME-HERE] website, which is built on
-WordPress and hosted on [WP Engine](https://wpengine.com/). It was taken on by 
-Generate UK in [MONTH] [YEAR]. The live website can be accessed from [LIVE-SITE-URL-HERE]
+This repo contains the custom code for the BM website, which is built on
+WordPress and hosted on [WP Engine](https://wpengine.com/). The live website can be accessed from [LIVE-SITE-URL-HERE]
 and the staging website can be accessed from [STAGING-SITE-URL-HERE].
 
 To start working with the files in this repo, follow the instructions in the

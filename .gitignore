@@ -75,15 +75,24 @@
 
 # Except for themes containing custom code managed by Generate UK:
 
-!/wp-content/themes/MY_THEME
+!/wp-content/themes/bm
 
 #--------------------------------------
 # Plugins:
 #--------------------------------------
 
 # Ignore all plugins:
-
+/imagify-backup/*
+/fonts/*
 /wp-content/plugins/*
+/wp-content/backups-dup-lite/*
+/wp-content/wflogs/*
+/.htaccess_bak
+/nginx.conf
+/robots.txt
+/wordfence-waf.php
+/siteaudit-ZjU4NjczYT.txt
+
 
 # Except for plugins containing custom code managed by Generate UK:
 

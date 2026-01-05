@@ -1,0 +1,292 @@
+@media (max-width: 1199px) {
+  .searchandfilter ul li.sf-field-taxonomy-location {
+    width: 31.3%;
+  }
+
+  .footer-sra {
+    max-width: 150px;
+  }
+  .footer-contact-locations {
+    margin-left: 10px;
+  }
+  section.blog .blog-filter, section.people-listing .blog-filter {
+    margin-top: 0;
+  }
+}
+
+
+@media (max-width: 991px) {
+  nav#navtop {
+    display: none;
+  }
+  #search-filter-form-686 ul li {
+    width: 100%!important;
+  }
+  .slick-prev.slick-arrow, .slick-next.slick-arrow {
+    display: none!important;
+  }
+  nav#navbar {
+    /* position: fixed;
+    top: 0;
+    z-index: 999;
+    width: 100%;
+    max-height: calc(100% - 5px);
+    overflow-y: auto; */
+  }
+  body.admin-bar nav#navbar {
+    top: 28px;
+  }
+
+  section.contact p {
+    text-align: center;
+  }
+
+  .modal-dialog {
+    max-width: calc(100% - 30px);
+  }
+
+  .searchandfilter ul li.sf-field-taxonomy-location {
+    width: 30.3%;
+  }
+  
+  section.hero p {
+    font-size: 1.5rem!important;
+  }
+  /*.col-12.blog-filter {
+    margin-top: 30px!important;
+  }*/
+  
+  section.blog .row, section.staff-details .row {
+    padding-top: 30px;
+  }
+
+  .slick-prev {
+    left: -20px !important;
+    display: none!important;
+  }
+  .slick-next {
+    right: -20px !important;
+    display: none!important;
+  }
+
+  .footer-contact {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  .footer-sra {
+    margin: auto;
+  }
+  .footer-contact-locations {
+    margin: auto;
+  }
+  .footer a.btn {
+    padding: 10px 15px!important;
+  }
+  .regional-info .col-lg-7 {
+    padding-top: 20px;
+  }
+}
+
+
+@media (max-width: 767px) {
+  .infographic-row .divider {
+    display: none;
+  }
+  .cta-banner .slick-slide > .container > .row, .cta-banner > .container .row {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+    -ms-flex-direction: column-reverse;
+        flex-direction: column-reverse;
+  }
+  .cta-banner .ml-auto img {
+    max-width: 100px;
+  }
+  section.cta-banner .row .col-12 {
+    display: block;
+  }
+  .cta-banner .slick-slide > .container > .row .col-12 > div, .cta-banner > .container .row .col-12 > div {
+    text-align: center!important;
+    padding-bottom: 20px;
+  }
+  .cta-banner div.ml-auto {
+    margin: auto!important;
+  }
+  .cta-banner .slick-slide img, .cta-banner img {
+    padding-bottom: 30px;
+  }
+  .modal-content {
+
+  }
+  .modal-body {
+    display: block;
+  }
+  .modal-copy {
+    margin-bottom: 60px;
+    width: 100%;
+    min-height: initial!Important;
+  }
+  .modal-form {
+    width: 100%;
+  }
+
+  .searchandfilter ul li.sf-field-taxonomy-expertise,
+  .searchandfilter ul li.sf-field-category,
+  .searchandfilter ul li.sf-field-taxonomy-location,
+  section.staff-details .searchandfilter ul li.sf-field-search{
+    margin-right: 0;
+    width: 100%;
+  }
+
+  .media-body {
+    margin-top: 40px;
+  }
+
+  footer .footer-socials {
+    order: 2;
+  }
+  footer .footer-mid {
+    margin-top: 40px;
+    order: 1;
+  }
+  footer .footer-contact {
+    order: 3;
+  }
+  .h5.author-title {
+    padding-bottom: 20px;
+  }
+  .author-bio.mt-3 {
+    display: none;
+  }
+  .author-img img {
+    max-width: 150px;
+    display: block;
+  }
+  .media-body.author-detail {
+    margin-top: 20px;
+  }
+  .pull-out-section .img-box {
+    display: none;
+  }
+}
+
+
+@media (max-width: 575px) {
+  section.exp-clients .client-logo img {
+    max-width: 160px;
+  }
+  .single-lp h1 {
+    font-size: 1.5rem;
+  }
+
+  .navbar-brand img {
+    max-width: 100px;
+  }
+
+  section.cards .supporting-documents .recent-item {
+    max-width: 240px;
+  }
+
+  section.cards .item {
+    max-width: 260px;
+  }
+
+  section.careers .client-logo img {
+    padding-bottom: 20px;
+    max-width: 200px;
+  }
+
+  section.blog .item {
+    max-width: 260px;
+  }
+
+  footer .footer-socials {
+    
+    text-align: center;
+  }
+  .footer .social-icons {
+    margin: auto;
+    max-width: 135px;
+  }
+  .footer .newsletter-signup a {
+    max-width: unset;
+  }
+  footer .footer-mid {
+    margin-top: 40px;
+    
+  }
+  footer .footer-contact {
+    margin-bottom: 40px;
+   
+    text-align: center;
+  }
+  ul.footer-locations li {
+    margin-bottom: 5px;
+  }
+  .footer ul.sitemap-nav {
+    display: inline-block;
+  }
+  .footer ul.sitemap-nav li {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+}
+
+
+@media (max-width: 525px) {
+  section.blog .item {
+    max-width: 400px;
+  }
+}
+
+
+@media (max-width: 500px) {
+  .media-body .btn {
+    margin-top: 20px;
+  }
+  section.cards .supporting-documents .recent-item {
+    max-width: none!important;
+    margin-left: auto!important;
+    margin-right: auto!important;
+  }
+  section.staff-details .blog-filter {
+    padding: 10px 15px!important;
+  }
+  section.staff-details.people-listing .container-fluid.news,
+  section.staff-details.people-listing .container-fluid.news > .container {
+    padding: 0!important;
+  }
+}
+
+
+@media (max-width: 475px) {
+  section.cards .supporting-documents .recent-item {
+    max-width: 300px;
+  }
+
+  .modal-copy img {
+    display: none;
+  }
+  .accordion a {
+    font-size: 0.8rem;
+  }
+}
+
+
+@media (max-width: 425px) {
+  section.exp-clients .client-logo img {
+    max-width: 120px;
+  }
+  h1 {
+    font-size: 1.8rem;
+  }
+}
+
+
+@media (max-width: 375px) {
+  section.services ul.cols {
+    display: block;
+  }
+  section.services ul.cols li {
+    width: 100%;
+  }
+}

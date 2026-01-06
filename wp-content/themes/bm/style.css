@@ -2670,32 +2670,3 @@ p.lp_form-txt {
   order: 1;
   font-weight: 600;
 }
-/* Two-column Gravity Forms address field */
-.gf_address_two_column .ginput_address_line_1,
-.gf_address_two_column .ginput_address_line_2,
-.gf_address_two_column .ginput_address_city,
-.gf_address_two_column .ginput_address_state,
-.gf_address_two_column .ginput_address_zip,
-.gf_address_two_column .ginput_address_country {
-  width: 48%;
-  display: inline-block;
-}
-
-.gf_address_two_column .ginput_address_line_1,
-.gf_address_two_column .ginput_address_city,
-.gf_address_two_column .ginput_address_zip {
-  margin-right: 4%;
-}
-
-/* Stack nicely on mobile */
-@media (max-width: 600px) {
-  .gf_address_two_column .ginput_address_line_1,
-  .gf_address_two_column .ginput_address_line_2,
-  .gf_address_two_column .ginput_address_city,
-  .gf_address_two_column .ginput_address_state,
-  .gf_address_two_column .ginput_address_zip,
-  .gf_address_two_column .ginput_address_country {
-    width: 100%;
-    margin-right: 0;
-  }
-}

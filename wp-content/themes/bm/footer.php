@@ -10,7 +10,59 @@
   <section class="footer" style="background-color: #ffffff;">
     <div class="container">
       <div class="row">
-        <div class="col-12 col-sm-6 col-md-4 mx-auto footer-socials">
+        <div class="col-12 col-md-9 mx-auto footer-socials">
+          <?php if( get_field('office_show', 'option') == 'yes' ): ?>
+            <div class="footer-contact-locations">
+              <h3 style="color: #32204c;">
+                <?php the_field('office_heading', 'option'); ?>
+              </h3>
+
+              <?php
+                $posts = get_field('offices', 'option');
+                if( $posts ):
+              ?>
+              <ul class="footer-locations">
+                <?php foreach( $posts as $post): ?>
+                  <?php setup_postdata($post); ?>
+
+                  
+                    <li>
+                      <a href="<?php the_permalink(); ?>#contact-footer">
+                        <?php the_title(); ?>
+                      </a>
+                    </li>
+                  
+
+                  <?php wp_reset_postdata(); ?>
+                <?php endforeach; ?>
+                </ul>
+              <?php endif; ?>
+            </div>
+          <?php endif; ?>
+
+          <div>
+
+          <?php
+            $posts = get_field('links', 'option');
+            if( $posts ):
+          ?>
+
+            <ul class="sitemap-nav">
+              <?php foreach( $posts as $post): ?>
+                <?php setup_postdata($post); ?>
+
+                <li>
+                  <a href="<?php the_permalink(); ?>">
+                    <?php the_title(); ?>
+                  </a>
+                </li>
+
+                <?php wp_reset_postdata(); ?>
+              <?php endforeach; ?>
+            </ul>
+          <?php endif; ?>
+          </div>
+
           <?php if( get_field('social_show', 'option') == 'yes' ): ?>
             <div class="social-links">
               <h3 style="color: #32204c;">
@@ -77,33 +129,6 @@
 
         <div class="col-12 col-sm-6 col-md-4 mx-auto footer-contact">
 
-
-          <?php if( get_field('office_show', 'option') == 'yes' ): ?>
-            <div class="footer-contact-locations">
-              <h3 style="color: #32204c;">
-                <?php the_field('office_heading', 'option'); ?>
-              </h3>
-
-              <?php
-                $posts = get_field('offices', 'option');
-                if( $posts ):
-              ?>
-                <?php foreach( $posts as $post): ?>
-                  <?php setup_postdata($post); ?>
-
-                  <ul class="footer-locations">
-                    <li>
-                      <a href="<?php the_permalink(); ?>#contact-footer">
-                        <?php the_title(); ?>
-                      </a>
-                    </li>
-                  </ul>
-
-                  <?php wp_reset_postdata(); ?>
-                <?php endforeach; ?>
-              <?php endif; ?>
-            </div>
-          <?php endif; ?>
         </div>
       </div>
 
@@ -231,10 +256,6 @@
 </section>
 
 <style>
-body.home h1.header {
-  font-size: 2.3rem;
-  margin-bottom: 40px;
-}
 #cookiebtn {
   background-color: rgb(255, 255, 255);
   color: rgb(50, 33, 76);

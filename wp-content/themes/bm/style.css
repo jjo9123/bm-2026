@@ -18,18 +18,17 @@ Version: 5.7
 
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: gill-sans-nova, sans-serif;
+  font-family: "Sitka Display", Georgia, serif;
   font-style: normal;
-  font-weight: 600;
-  text-transform: uppercase;
+  font-weight: 700;
+  text-transform: none;
+  letter-spacing: -0.6px;
 }
 
 body {
   color: #32214c;
-  font-family: gill-sans-nova, sans-serif;
-  font-style: normal;
-  font-weight: 300;
-  letter-spacing: .045em;
+  font-family: corbel, sans-serif;
+  font-weight: 400;
   word-break: break-word;
 }
 strong {
@@ -37,14 +36,17 @@ strong {
 }
 
 .regular {
-  font-family: gill-sans-nova, sans-serif;
+  font-family: corbel, sans-serif;
   font-style: normal;
   font-weight: 400;
+  letter-spacing: -0.33px;
 }
 .header {
-  font-family: gill-sans-nova, sans-serif;
+  font-family: "Sitka Display", Georgia, serif;
   font-style: normal;
-  font-weight: 600;
+  font-weight: 700;
+  text-transform: none;
+  letter-spacing: -0.6px;
 }
 .white {
   color: #FFFFFF;
@@ -76,14 +78,22 @@ a:hover {
 }
 
 a.btn, .btn {
-  border-radius: 40px;
+  border-radius: 6px;
   padding: 10px 40px;
-  text-transform: capitalize;
   white-space: normal;
 }
 a.btn-green, .btn-green {
-  background-color: #8ed300;
+  background-color: #AF8D41;
   color: #FFFFFF;
+  transition: background-color 0.2s ease,
+              color 0.2s ease,
+              border-color 0.2s ease,
+              box-shadow 0.2s ease;
+}
+a.btn-green:hover,
+a.btn-green:focus,
+a.btn-green:focus-visible {
+  background-color: #A93690;
 }
 a.btn-purple {
   background-color: #a395b7;
@@ -358,7 +368,7 @@ section.contact .gform_wrapper li.hidden_label input {
 }
 /* END OF GRAVITY FORMS */
 nav.bg-light {
-  background-color: #fff!important;
+  background-color: #340F53!important;
 }
 nav#navtop {
   background-color: #a395b7;
@@ -678,6 +688,20 @@ section.hero .slick-slide, section.cta-banner.slider .slick-slide {
 section.hero .home-slide p {
   font-size: 2.4rem;
   margin-top: 15px;
+}
+section.hero .home-slide.hero--dark p {
+  color: #3C3C3B;
+}
+section.hero .home-slide.hero--dark h1, section.hero .home-slide.hero--dark p.header {
+  color: #340F53;
+}
+body.home h1.header, body.home p.header {
+  color: #340F53;
+  font-weight: 700;
+  font-size: 4rem;
+  text-transform: none;
+  letter-spacing: -0.6px;
+  line-height: 1.2;
 }
 section.cta-banner img {
   max-width: 300px;
@@ -1110,9 +1134,11 @@ section.blog .ievents .header {
 }
 section.blog h6, section.blog h3 {
   color: #FFFFFF;
-  font-family: gill-sans-nova, sans-serif;
+  font-family: "Sitka Display", Georgia, serif;
   font-style: normal;
-  font-weight: 400;
+  font-weight: 700;
+  text-transform: none;
+  letter-spacing: -0.6px;
   font-size: 1rem;
 }
 section.blog .excerpt {
@@ -1428,10 +1454,12 @@ section.cards .practice .header {
 }
 
 section.cards h6 {
-  font-family: gill-sans-nova, sans-serif;
-  font-size: 1.4rem;
+  font-family: "Sitka Display", Georgia, serif;
   font-style: normal;
-  font-weight: 400;
+  font-weight: 700;
+  text-transform: none;
+  letter-spacing: -0.6px;
+  font-size: 1.4rem;
 }
 section.cards .excerpt {
   background-color: #FFFFFF;
@@ -1924,9 +1952,12 @@ div.modal {
 .modal-header button.close {
   border: 0;
   color: #32214c;
-  font-family: gill-sans-nova;
+  font-family: "Sitka Display", Georgia, serif;
+  font-style: normal;
+  font-weight: 700;
+  text-transform: none;
+  letter-spacing: -0.6px;
   font-size: 2rem;
-  font-weight: 100;
   line-height: 0px;
   opacity: 1;
   text-shadow: none;
@@ -2669,4 +2700,71 @@ p.lp_form-txt {
 .post-5 .hero.slider .home-slide[data-slick-index="0"] .col-12.col-lg-10.mx-auto p {
   order: 1;
   font-weight: 600;
+}
+/* new modules */
+.four-col-row .btn {
+    width: auto;
+    align-self: flex-start;
+}
+.four-col-row {
+  background-color: #340F53;
+  color: #ffffff;
+}
+/* accordion update */
+.services-columns {
+  column-count: 3;
+  column-gap: 3rem;
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.services-columns li {
+  break-inside: avoid;
+  margin-bottom: .75rem;
+}
+
+@media (max-width: 991.98px) {
+  .services-columns { column-count: 2; }
+}
+
+@media (max-width: 575.98px) {
+  .services-columns { column-count: 1; }
+}
+.white {
+  background-color: #ffffff;
+}
+/* nav search */
+.nav-search { position: relative; display: flex; align-items: center; }
+
+.nav-search__toggle{
+  background: transparent;
+  border: 0;
+  padding: .5rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+}
+
+.nav-search__svg{ display:block; width:22px; height:22px; }
+
+/* popup panel */
+.nav-search__panel{
+  position:absolute;
+  right:0;
+  top:100%;
+  margin-top:.5rem;
+  z-index:1000;
+  background:#fff;
+  border:1px solid rgba(0,0,0,.12);
+  border-radius:.5rem;
+  padding:.75rem;
+  min-width:280px;
+  box-shadow:0 10px 30px rgba(0,0,0,.15);
+}
+
+/* make the plugin inputs fill the panel nicely */
+.nav-search__panel .searchandfilter input[type="text"],
+.nav-search__panel .searchandfilter select{
+  width:100%;
 }

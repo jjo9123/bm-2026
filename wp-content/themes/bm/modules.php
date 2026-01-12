@@ -22,6 +22,9 @@ if( have_rows('options') ):
     elseif( get_row_layout() == 'twocol_block' ):
       get_template_part('modules/2col-block');
 
+    elseif( get_row_layout() == 'four_col_row' ):
+      get_template_part('modules/four-col-row');
+
     elseif( get_row_layout() == 'accordion' ):
       get_template_part('modules/accordion');
 

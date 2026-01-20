@@ -74,8 +74,32 @@
             <?php endif;
           endif; ?>
         </div>
+        <div class="col-12 col-md-2 mx-auto footer-contact">
+          <?php
+            $posts = get_field('q_links', 'option');
+            if( $posts ):
+          ?>
+            <div class="footer-links">
+              <h3>
+                Quicklinks:
+              </h3>
+              <ul class="footer-locations">
+                <?php foreach( $posts as $post): ?>
+                  <?php setup_postdata($post); ?>
 
-        <div class="col-12 col-sm-6 col-md-4 mx-auto footer-contact">
+                  <li>
+                    <a href="<?php the_permalink(); ?>">
+                      <?php the_title(); ?>
+                    </a>
+                  </li>
+
+                  <?php wp_reset_postdata(); ?>
+                <?php endforeach; ?>
+              </ul>
+            </div>
+          <?php endif; ?>
+        </div>
+        <div class="col-12 col-md-2 mx-auto footer-contact">
 
 
           <?php if( get_field('office_show', 'option') == 'yes' ): ?>

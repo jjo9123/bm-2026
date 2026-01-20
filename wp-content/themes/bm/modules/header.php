@@ -27,18 +27,30 @@ if ( empty($header_choice) || $header_choice === 'none' ) {
   .hero--dark,  .hero--dark  h1, .hero--dark  p { color: #111; }
 </style>
 
-<?php 
+<?php
 if ( $header_choice === 'slider' && ! empty($slider_section) ) {
   get_template_part('modules/hero/hero-slider');
   return;
 }
 
 if ( $header_choice === 'banner' && ! empty($banner_section) ) {
+
+  // ACF safety: default to img if missing/empty/unexpected
   $type = $banner_section['image_or_video'] ?? 'img';
+  if ( ! in_array($type, ['img', 'video', 'colour'], true) ) {
+    $type = 'img';
+  }
 
   if ( $type === 'video' ) {
     get_template_part('modules/hero/hero-video');
-  } else {
-    get_template_part('modules/hero/hero-img');
+    return;
   }
+
+  if ( $type === 'colour' ) {
+    get_template_part('modules/hero/hero-colour');
+    return;
+  }
+
+  // default
+  get_template_part('modules/hero/hero-img');
 }

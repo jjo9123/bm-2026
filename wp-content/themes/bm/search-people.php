@@ -6,10 +6,10 @@
 <main id="main" class="blog post-type-archive-people">
   <div id="content" role="main">
 
-    <section class="hero text-center" style="background: url('/wp-content/uploads/home/home_hero.jpg') 50%/cover no-repeat; color: #FFFFFF;">
+    <section class="hero" style="background: url('/wp-content/uploads/home/home_hero.jpg') 50%/cover no-repeat; color: #FFFFFF;">
       <div class="container">
         <div class="row">
-          <div class="col-12">
+          <div class="col-12 col-md-7">
             <h1 class="header">Our People</h1>
 
           </div>

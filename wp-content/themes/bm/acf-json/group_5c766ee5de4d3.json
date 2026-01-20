@@ -341,15 +341,54 @@
                         "class": "",
                         "id": ""
                     },
+                    "relevanssi_exclude": 0,
                     "choices": {
                         "img": "Image",
-                        "video": "Video"
+                        "video": "Video",
+                        "colour": "Solid colour"
                     },
+                    "default_value": "img",
+                    "return_format": "value",
                     "allow_null": 0,
                     "other_choice": 0,
-                    "default_value": "img",
+                    "allow_in_bindings": 1,
                     "layout": "vertical",
+                    "save_other_choice": 0
+                },
+                {
+                    "key": "field_6967786566822",
+                    "label": "Background colour",
+                    "name": "bg_colour",
+                    "aria-label": "",
+                    "type": "radio",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_5c80e37b95404",
+                                "operator": "==",
+                                "value": "colour"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "relevanssi_exclude": 0,
+                    "choices": {
+                        "bm-pink": "Pink",
+                        "bm-purple": "Purple",
+                        "bm-beige": "Beige"
+                    },
+                    "default_value": "bm-pink",
                     "return_format": "value",
+                    "allow_null": 0,
+                    "other_choice": 0,
+                    "allow_in_bindings": 1,
+                    "layout": "vertical",
                     "save_other_choice": 0
                 },
                 {
@@ -756,5 +795,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1767796185
+    "modified": 1768390014
 }

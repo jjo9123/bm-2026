@@ -6,20 +6,20 @@
 ?>
 
 <main id="main" class="blog">
-  <div id="content" role="main">
+  <div id="content test" role="main">
 
     <?php if( $banner_section OR $slider_section ): ?>
       <?php if( get_field('header_choice', 'option') == 'slider'):
         if( have_rows('header_section', 'option') ): while ( have_rows('header_section', 'option') ) : the_row();
           if( have_rows('slides') ): ?>
-              <section class="hero slider text-center">
+              <section class="hero slider">
                 <div class="home-slider">
                   <?php $count = 0; ?>
                   <?php while ( have_rows('slides', 'option') ) : the_row(); ?>
                     <div class="home-slide" style="background: url('<?php echo the_sub_field('background_image'); ?>') 50%/cover no-repeat; color: #FFFFFF;">
                       <div class="container">
                         <div class="row">
-                          <div class="col-12 col-lg-10 mx-auto">
+                          <div class="col-12 col-md-7">
                             <?php if ($count == 0): ?>
                               <h1 class="header"><?php echo the_sub_field('title'); ?></h1>
                             <?php else: ?>
@@ -49,10 +49,10 @@
     <?php elseif( get_field('header_choice', 'option') == 'banner'): ?>
 
       <?php if( $banner_section['image_or_video'] == 'img'): ?>
-        <section class="hero text-center" style="<?php if( $banner_section['background_image'] ): ?>background: url('<?php echo $banner_section['background_image']; ?>') 50%/cover no-repeat; color: #FFFFFF;<?php else: ?>background-color:#e7e7e7;<?php endif; ?>">
+        <section class="hero" style="<?php if( $banner_section['background_image'] ): ?>background: url('<?php echo $banner_section['background_image']; ?>') 50%/cover no-repeat; color: #FFFFFF;<?php else: ?>background-color:#e7e7e7;<?php endif; ?>">
           <div class="container">
             <div class="row">
-              <div class="col-12">
+              <div class="col-12 col-md-7">
                   <h1 class="header"><?php echo $banner_section['title']; ?></h1>
 
                   <p><?php echo $banner_section['sub_title']; ?></p>

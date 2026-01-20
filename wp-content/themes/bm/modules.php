@@ -25,8 +25,17 @@ if( have_rows('options') ):
     elseif( get_row_layout() == 'four_col_row' ):
       get_template_part('modules/four-col-row');
 
+    elseif ( get_row_layout() === 'latest_content' ) :
+      get_template_part('modules/latest-content/latest-content');
+
+    elseif ( get_row_layout() === 'latest_events' ) :
+      get_template_part('modules/latest-events/latest-events');
+
     elseif( get_row_layout() == 'accordion' ):
       get_template_part('modules/accordion');
+
+    elseif( get_row_layout() == 'latest_news' ):
+      get_template_part('modules/latest-press');
 
     elseif( get_row_layout() == 'service_accordion' ):
       get_template_part('modules/service-accordion');

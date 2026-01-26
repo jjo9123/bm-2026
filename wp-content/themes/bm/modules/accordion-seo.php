@@ -4,7 +4,7 @@
     <div class="row">
       <div class="col-12 col-lg-10 mx-auto">
         <h2 class="text-center purple"><?php the_sub_field('heading'); ?></h2>
-         <hr class="heading green">
+        
        </div>
       <?php if( have_rows('org_tabs') ): ?>
         <div class="left-tab col-12 col-lg-10 col-xl-6">

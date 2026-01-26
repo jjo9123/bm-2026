@@ -27,7 +27,7 @@ $get_event_label = function(int $post_id) use ($events_term_id) : string {
 };
 ?>
 
-<section class="py-5 latest-content latest-events">
+<section class="py-5 latest-content latest-events <?php echo esc_attr($bg_class); ?>">
   <div class="container">
 
     <?php if (!empty($intro)) : ?>
@@ -71,14 +71,14 @@ $get_event_label = function(int $post_id) use ($events_term_id) : string {
               </span>
             </a>
 
-            <p class="latest-card__date mb-2"><?php echo esc_html($date); ?></p>
+            
 
             <h3 class="latest-card__title mb-2">
               <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
             </h3>
 
             <p class="latest-card__excerpt mb-4">
-              <?php echo esc_html( wp_trim_words($excerpt, 18, '…') ); ?>
+              <?php echo esc_html($date); ?>
             </p>
 
             <div class="mt-auto">
@@ -104,7 +104,7 @@ $get_event_label = function(int $post_id) use ($events_term_id) : string {
             <?php echo $rel ? 'rel="' . esc_attr($rel) . '"' : ''; ?>
             class="latest-content__cta"
           >
-            <?php echo esc_html($cta['title']); ?> <span aria-hidden="true">›</span>
+            <?php echo esc_html($cta['title']); ?>
           </a>
         </div>
       </div>

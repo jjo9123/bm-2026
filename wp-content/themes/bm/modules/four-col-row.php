@@ -1,4 +1,6 @@
-<section class="py-5 four-col-row">
+<?php $bg_class = get_sub_field('bg_colour') ?: 'bm-purple'; ?>
+
+<section class="py-5 four-col-row <?php echo esc_attr($bg_class); ?>">
   <div class="container">
 
     <?php $intro = get_sub_field('intro'); ?>

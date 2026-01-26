@@ -5,7 +5,6 @@
         <div class="col-lg-12">
           <h2><?php the_sub_field('heading'); ?></h2>
 
-          <hr class="heading purple">
         </div>
       </div>
 

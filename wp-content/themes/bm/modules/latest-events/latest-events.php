@@ -1,6 +1,6 @@
 <?php
 // modules/latest-events/latest-events.php
-
+$bg_class = get_sub_field('bg_colour') ?: 'bm-white';
 $intro = get_sub_field('intro');     // optional WYSIWYG
 $cta   = get_sub_field('btn_link');  // optional ACF link
 

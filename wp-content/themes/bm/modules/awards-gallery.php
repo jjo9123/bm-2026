@@ -89,7 +89,6 @@
               <?php echo get_field('heading', $mypost->ID); ?>
             </h2>
 
-            <hr class="heading green">
 
             <?php the_field('text', $mypost->ID); ?>
           </div>

@@ -5,7 +5,7 @@
       <div class="row">
         <div class="col-12 text-center">
           <h2 class="green"><?php the_sub_field('title'); ?></h2>
-          <hr class="heading purple">
+         
         </div>
       </div>
     <?php endif; ?>

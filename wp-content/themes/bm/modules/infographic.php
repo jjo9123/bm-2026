@@ -6,8 +6,7 @@
 					<h2 class="text-center green">
 						<?php the_sub_field('heading'); ?>
 					</h2>
-
-					<hr class="heading white">
+					
 					<p>
 						<?php the_sub_field('text'); ?>
 					</p>

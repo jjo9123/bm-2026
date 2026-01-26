@@ -728,3 +728,41 @@ add_action( 'wp_footer', function () {
   <?php
 });
 
+add_filter( 'gform_form_tag', function( $form_tag, $form ) {
+
+    $target_id = isset($GLOBALS['bm_contact_footer_form_id']) ? (int) $GLOBALS['bm_contact_footer_form_id'] : 0;
+    if ( ! $target_id || (int) $form['id'] !== $target_id ) {
+        return $form_tag;
+    }
+
+    // Add gf-contact-split to existing class attribute
+    $form_tag = preg_replace(
+        '/\bclass=("|\')([^"\']*)\1/',
+        'class=$1gf-contact-split $2$1',
+        $form_tag,
+        1
+    );
+
+    return $form_tag;
+
+}, 10, 2 );
+
+add_filter( 'gform_field_container', function( $field_container, $field, $form ) {
+
+    $target_id = isset($GLOBALS['bm_contact_footer_form_id']) ? (int) $GLOBALS['bm_contact_footer_form_id'] : 0;
+    if ( ! $target_id || (int) $form['id'] !== $target_id ) {
+        return $field_container;
+    }
+
+    static $marked = false;
+
+    if ( ! $marked && isset($field->type) && $field->type === 'textarea' ) {
+        $marked = true;
+
+        $field_container = str_replace( "class='gfield ", "class='gfield gf-split-message ", $field_container );
+        $field_container = str_replace( 'class="gfield ', 'class="gfield gf-split-message ', $field_container );
+    }
+
+    return $field_container;
+
+}, 10, 3 );

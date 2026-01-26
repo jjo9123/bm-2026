@@ -7,8 +7,6 @@
             <?php the_sub_field('heading'); ?>
           </h2>
 
-          <hr class="heading green">
-
           <?php if( get_sub_field('add_text_section') == 'yes' ): ?>
             <?php the_sub_field('text'); ?>
           <?php endif; ?>

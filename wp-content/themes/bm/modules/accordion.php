@@ -1,4 +1,4 @@
-<section class="tabbed-navigation" style="background-color: #3C3C3B; color:#ffffff;">
+<section class="tabbed-navigation py-4" style="background-color: #3C3C3B; color:#ffffff;">
   <div class="container">
     <div class="row">
 
@@ -52,8 +52,8 @@
 
       <?php if (!empty($org_items)) : ?>
         <div class="left-tab col-12 col-lg-12 mx-auto">
-          <h3>For organisations</h3>
-          <hr class="white"> 
+          <h3 class="pb-3">For organisations</h3>
+          <hr class="bm-white">
 
           <div class="row">
             <?php for ($c = 0; $c < 3; $c++) :
@@ -89,7 +89,7 @@
                         </h4>
                       </div>
 
-                      <?php if (!empty($services)) : ?>
+                      
                         <div
                           id="<?php echo esc_attr($collapse_id); ?>"
                           class="collapse"
@@ -102,7 +102,7 @@
                                 <?php echo esc_html(get_the_title($exp_id)); ?>
                               </a>
                             </h5>
-
+                            <?php if (!empty($services)) : ?>
                             <ul>
                               <?php foreach ($services as $svc) :
                                 $svc_id = $to_id($svc);
@@ -117,9 +117,10 @@
                                 </li>
                               <?php endforeach; ?>
                             </ul>
+                            <?php endif; ?>
                           </div>
                         </div>
-                      <?php endif; ?>
+                      
                     </div>
                   <?php endforeach; ?>
                 </div>
@@ -132,8 +133,8 @@
 
       <?php if (!empty($ind_items)) : ?>
         <div class="right-tab col-12 col-lg-12 mx-auto">
-          <h3>For individuals</h3>
-          <hr class="white"> 
+          <h3 class="pb-3">For individuals</h3>
+          <hr class="bm-white">
           <div class="row">
             <?php for ($c = 0; $c < 3; $c++) :
               $col_items = $ind_cols[$c] ?? [];
@@ -168,7 +169,7 @@
                         </h4>
                       </div>
 
-                      <?php if (!empty($services)) : ?>
+                      
                         <div
                           id="<?php echo esc_attr($collapse_id); ?>"
                           class="collapse"
@@ -176,12 +177,12 @@
                           data-parent="#<?php echo esc_attr($acc_id); ?>"
                         >
                           <div class="card-body">
-                            <h4 class="pt-2">
+                            <h5 class="pt-2">
                               <a href="<?php echo esc_url(get_permalink($exp_id)); ?>" class="expertise-link">
                                 <?php echo esc_html(get_the_title($exp_id)); ?>
                               </a>
-                            </h4>
-
+                            </h5>
+                            <?php if (!empty($services)) : ?>
                             <ul>
                               <?php foreach ($services as $svc) :
                                 $svc_id = $to_id($svc);
@@ -194,9 +195,10 @@
                                 </li>
                               <?php endforeach; ?>
                             </ul>
+                            <?php endif; ?>
                           </div>
                         </div>
-                      <?php endif; ?>
+                      
                     </div>
                   <?php endforeach; ?>
                 </div>

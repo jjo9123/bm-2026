@@ -2,7 +2,7 @@
 if (!isset($query) || !$query instanceof WP_Query || !$query->have_posts()) return;
 ?>
 
-<section class="py-5 latest-content">
+<section class="py-5 latest-content <?php echo esc_attr($bg_class); ?>">
   <div class="container">
 
     <?php if ($intro) : ?>
@@ -87,7 +87,7 @@ if (!isset($query) || !$query instanceof WP_Query || !$query->have_posts()) retu
             <?php echo $rel ? 'rel="' . esc_attr($rel) . '"' : ''; ?>
             class="latest-content__cta"
           >
-            <?php echo esc_html($cta['title']); ?> <span aria-hidden="true">›</span>
+            <?php echo esc_html($cta['title']); ?>
           </a>
         </div>
       </div>

@@ -3,6 +3,7 @@
 
 $intro = get_sub_field('intro');
 $cta   = get_sub_field('btn_link');
+$bg_class = get_sub_field('bg_colour') ?: 'bm-white';
 
 // Defaults
 $post_types = ['post', 'case_study', 'guide', 'newsletter'];

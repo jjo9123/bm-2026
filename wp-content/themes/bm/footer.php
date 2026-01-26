@@ -70,7 +70,7 @@
             $posts = get_field('links', 'option');
             if( $posts ):
           ?>
-            <ul class="sitemap-nav">
+            <ul class="sitemap-nav privacy">
               <?php foreach( $posts as $post): ?>
                 <?php setup_postdata($post); ?>
 
@@ -112,11 +112,11 @@
         
       <div class="container legal pb-4 pt-4">
       <div class="row align-items-center">
-        <div class="col-12 col-md-9">
+        <div class="col-12 col-md-10">
           <p>&copy; Blake Morgan <?php echo date('Y'); ?>. All Rights reserved.</p>
         </div>
           <?php if( get_field('social_show', 'option') == 'yes' ): ?>
-            <div class="col-12 col-md-3">
+            <div class="col-12 col-md-2">
             <div class="social-links">
 
               <div class="social-icons">

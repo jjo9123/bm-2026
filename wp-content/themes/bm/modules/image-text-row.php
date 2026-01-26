@@ -4,7 +4,6 @@
       <div class="col-12">
         <h2 class="text-center green"><?php the_sub_field('title'); ?></h2>
 
-        <hr class="heading purple">
       </div>
     </div>
 

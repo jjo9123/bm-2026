@@ -1,110 +1,203 @@
 <?php
-// modules/insights/insights-grid.php
+/**
+ * Latest-style shared grid renderer (matches latest posts/events card styling)
+ *
+ * Expects:
+ *  - $query (WP_Query)
+ *  - $intro (string|html) optional (WYSIWYG)
+ *  - $cta (array ACF link) optional
+ *  - $cta_text (string) optional fallback
+ *  - $show_label (bool) optional (default true)
+ *  - $exclude_events_label (bool) optional (default false)
+ */
 
-$bg        = isset($bg) ? $bg : '';
-$cat_slug  = isset($cat_slug) ? $cat_slug : '';
-$title     = isset($title) && $title ? $title : 'BM Insights';
-$more_link = isset($more_link) && $more_link ? $more_link : '/blog';
+if ( empty($query) || ! ($query instanceof WP_Query) ) return;
 
-// Normalise to an array of posts
-$grid_posts = [];
+$intro               = $intro ?? '';
+$title = $title ?? '';
+$cta                 = $cta ?? null;
+$cta_text            = $cta_text ?? '';
+$show_label          = isset($show_label) ? (bool)$show_label : true;
+$exclude_events_label = isset($exclude_events_label) ? (bool)$exclude_events_label : false;
 
-if (isset($query) && $query instanceof WP_Query) {
-  $grid_posts = $query->posts;
-} elseif (isset($posts) && is_array($posts)) {
-  $grid_posts = $posts;
+// Resolve CTA
+if (is_array($cta) && !empty($cta['url'])) {
+  $cta_url    = $cta['url'];
+  $cta_title  = !empty($cta['title']) ? $cta['title'] : ($cta_text ?: 'More Insights');
+  $cta_target = !empty($cta['target']) ? $cta['target'] : '_self';
+} else {
+  $cta_url    = '/blog';
+  $cta_title  = 'More Insights';
+  $cta_target = '_self';
 }
+
+$cta_rel = ($cta_target === '_blank') ? 'noopener' : '';
+
+// Events parent term (for subcategory label fallback)
+$events_term = get_category_by_slug('events');
+$events_id   = ($events_term && !is_wp_error($events_term)) ? (int) $events_term->term_id : 0;
+
+$event_label_for_post = function($post_id) use ($events_id) {
+  if (!$events_id) return 'Event';
+
+  $cats = get_the_category($post_id);
+  if (empty($cats)) return 'Event';
+
+  // Prefer child-of-events category name
+  foreach ($cats as $c) {
+    if ((int)$c->parent === $events_id) {
+      return $c->name ?: 'Event';
+    }
+  }
+
+  // Else if the post is in Events itself
+  foreach ($cats as $c) {
+    if ((int)$c->term_id === $events_id) {
+      return $c->name ?: 'Event';
+    }
+  }
+
+  return 'Event';
+};
+
+$content_label_for_post = function($post_id) use ($events_id, $exclude_events_label) {
+  $pt = get_post_type($post_id);
+
+  // If it's a standard blog post, label = category (but optionally avoid Events children)
+  if ($pt === 'post') {
+    $cats = get_the_category($post_id);
+    if (empty($cats)) return 'Article';
+
+    foreach ($cats as $c) {
+      if ($events_id) {
+        $is_events_parent = ((int)$c->term_id === $events_id);
+        $is_events_child  = ((int)$c->parent === $events_id);
+
+        if ($exclude_events_label && ($is_events_parent || $is_events_child)) {
+          continue; // skip events categories for label
+        }
+      }
+      return $c->name ?: 'Article';
+    }
+
+    // If we skipped everything, fall back
+    return 'Article';
+  }
+
+  // CPTs: use post type singular label
+  $obj = get_post_type_object($pt);
+  return ($obj && !empty($obj->labels->singular_name)) ? $obj->labels->singular_name : 'Update';
+};
+
 ?>
 
-<section class="blog recent <?php echo esc_attr($bg); ?>"
-         style="background: #404040 url('/wp-content/uploads/2019/01/recent_bg.jpg') 50%/cover no-repeat; color: #FFFFFF;">
-  <div class="container-fluid <?php echo esc_attr($cat_slug); ?>">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <h2 class="text-center"><?php echo esc_html($title); ?></h2>
-          <hr class="heading green">
-        </div>
+<section class="latest-content py-5 <?php echo esc_attr($bg_class); ?>">
+  <div class="container">
 
-        <?php if (!empty($grid_posts)) : ?>
-          <?php foreach ($grid_posts as $p) : ?>
-            <?php
-              $post_id = $p->ID;
+  <?php
+// Default heading text when no intro or title
+$default_heading = 'Insights';
+?>
 
-              // Category badges/classes (safe)
-              $categories = get_the_category($post_id);
-              $category_slug  = '';
-              $category_slug2 = '';
-              $category_name  = '';
+<?php if ($intro || $title || $cta_url) : ?>
+  <div class="d-flex justify-content-between align-items-center mb-4">
 
-              if (!empty($categories)) {
-                $category_slug = $categories[0]->slug ?? '';
-                $category_name = $categories[0]->name ?? '';
+    <div class="latest-content__intro">
+      <?php if ($intro) : ?>
+        <?php echo wpautop(wp_kses_post($intro)); ?>
 
-                if (isset($categories[1])) {
-                  $category_slug2 = $categories[1]->slug ?? '';
-                }
-              }
+      <?php elseif ($title) : ?>
+        <h2 class="mb-0"><?php echo esc_html($title); ?></h2>
 
-              $item_classes = 'i' . sanitize_html_class($category_slug);
-              if (!empty($category_slug2)) {
-                $item_classes .= ' ' . sanitize_html_class($category_slug2);
-              }
+      <?php else : ?>
+        <h2 class="mb-0"><?php echo esc_html($default_heading); ?></h2>
+      <?php endif; ?>
+    </div>
 
-              $thumb = get_the_post_thumbnail_url($post_id, 'recent_fimg');
-              $permalink = get_permalink($post_id);
-              $post_title = get_the_title($post_id);
+    <?php if ($cta_url && $cta_title) : ?>
+      <a
+        class="latest-content__cta"
+        href="<?php echo esc_url($cta_url); ?>"
+        target="<?php echo esc_attr($cta_target); ?>"
+        <?php echo $cta_rel ? 'rel="' . esc_attr($cta_rel) . '"' : ''; ?>
+      >
+        <?php echo esc_html($cta_title); ?>
+      </a>
+    <?php endif; ?>
 
-              // Excerpt logic preserved
-              if ($category_slug === 'events' || $category_slug === 'training') {
-                $excerpt = get_field('intro_title', $post_id);
-              } elseif (get_field('new_blog_layout', $post_id) === 'yes') {
-                $excerpt = get_field('blog_intro', $post_id);
-              } else {
-                $excerpt = get_post_field('post_content', $post_id);
-              }
-              if (!is_string($excerpt)) $excerpt = '';
-            ?>
+  </div>
 
-            <div class="col-sm-6 col-md-4 text-center item <?php echo esc_attr($item_classes); ?>">
+<?php else : ?>
 
-              <?php if ($category_slug === 'events') : ?>
-                <div class="recent-event"><?php echo esc_html($category_name); ?></div>
-              <?php else : ?>
-                <div class="title"><p><?php echo esc_html($category_name); ?></p></div>
+  <div class="mb-4">
+    <h2 class="mb-0"><?php echo esc_html($default_heading); ?></h2>
+  </div>
+
+<?php endif; ?>
+
+
+
+    <div class="row g-4">
+      <?php while ($query->have_posts()) : $query->the_post(); ?>
+        <?php
+          $post_id = get_the_ID();
+          $pt      = get_post_type($post_id);
+
+          $thumb = get_the_post_thumbnail_url($post_id, 'large');
+
+          // Excerpt logic (re-uses your existing ACF rules)
+          $cats = get_the_category($post_id);
+          $first_slug = (!empty($cats) && !empty($cats[0]->slug)) ? $cats[0]->slug : '';
+
+          if ($first_slug === 'events' || $first_slug === 'training') {
+            $excerpt_src = get_field('intro_title', $post_id);
+          } elseif (get_field('new_blog_layout', $post_id) === 'yes') {
+            $excerpt_src = get_field('blog_intro', $post_id);
+          } else {
+            $excerpt_src = get_post_field('post_content', $post_id);
+          }
+
+          if (!is_string($excerpt_src)) $excerpt_src = '';
+          $excerpt = wp_trim_words(wp_strip_all_tags($excerpt_src), 22, '…');
+
+          // Label: for events module we want subcategory; for content module we want type/category
+          $is_event_post = ($pt === 'post' && $events_id) ? has_category($events_id, $post_id) : false;
+          $label = $is_event_post ? $event_label_for_post($post_id) : $content_label_for_post($post_id);
+        ?>
+
+        <div class="col-12 col-md-6 col-lg-4 pb-5">
+          <a class="latest-card d-block h-100 text-decoration-none" href="<?php the_permalink(); ?>">
+
+            <div class="latest-card__image-wrap position-relative">
+              <?php if ($show_label) : ?>
+                <span class="latest-card__label position-absolute">
+                  <?php echo esc_html($label); ?>
+                </span>
               <?php endif; ?>
 
-              <div class="img"
-                   style="background: url('<?php echo esc_url($thumb); ?>') 50%/cover no-repeat; color: #FFFFFF;"></div>
-
-              <div class="header">
-                <?php if ($category_slug === 'events') : ?>
-                  <div class="recent-event">
-                    <a href="<?php echo esc_url($permalink); ?>">
-                      <h3><?php echo esc_html($post_title); ?></h3>
-                    </a>
-                  </div>
-                <?php else : ?>
-                  <a href="<?php echo esc_url($permalink); ?>">
-                    <h3><?php echo esc_html($post_title); ?></h3>
-                  </a>
-                <?php endif; ?>
-              </div>
-
-              <div class="excerpt">
-                <p><?php echo esc_html( wp_trim_words($excerpt, 30, '...') ); ?></p>
-                <a href="<?php echo esc_url($permalink); ?>" class="btn btn-purple" data-name="<?php echo esc_attr($post_title); ?>">Read More</a>
-              </div>
+              <?php if ($thumb) : ?>
+                <img class="latest-card__image w-100" src="<?php echo esc_url($thumb); ?>" alt="<?php echo esc_attr(get_the_title($post_id)); ?>" loading="lazy">
+              <?php endif; ?>
             </div>
 
-          <?php endforeach; ?>
-        <?php endif; ?>
+            <div class="latest-card__body">
+              <h3 class="latest-card__title py-3">
+                <?php the_title(); ?>
+              </h3>
 
-        <div class="row justify-content-center" style="padding-top:20px; padding-bottom: 40px;">
-          <a href="<?php echo esc_url($more_link); ?>" class="btn btn-green">Click here for more Insights</a>
+              <?php if ($excerpt) : ?>
+                <p class="latest-card__excerpt mb-0">
+                  <?php echo esc_html($excerpt); ?>
+                </p>
+              <?php endif; ?>
+            </div>
+
+          </a>
         </div>
 
-      </div>
+      <?php endwhile; ?>
+      <?php wp_reset_postdata(); ?>
     </div>
+
   </div>
 </section>

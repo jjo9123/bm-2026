@@ -3,8 +3,6 @@
         <div class="row">
           <div class="col-md-8 mx-auto">
             <h2 style="color: #32214c;"><?php the_sub_field('heading'); ?></h2>
-
-            <hr class="heading purple">
             <?php the_sub_field('text'); ?>
           </div>
 

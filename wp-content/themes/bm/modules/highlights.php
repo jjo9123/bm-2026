@@ -4,7 +4,6 @@
       <div class="col-12">
         <h2><?php the_sub_field('heading'); ?></h2>
 
-        <hr class="heading dpurple">
       </div>
 
       <div class="col-10 mx-auto">
@@ -13,7 +12,7 @@
             if( have_rows('highlight') ):
               while ( have_rows('highlight') ) : the_row(); ?>
               <div class="highlights-slide">
-                <p><?php the_sub_field('txt'); ?> </p>
+                <p><?php the_sub_field('txt'); ?></p>
               </div>
               <?php endwhile;
             endif;

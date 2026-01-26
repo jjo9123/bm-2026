@@ -1,137 +1,179 @@
-<?php 
-$tag_name   = get_sub_field('tag_name'); 
-$post_count = get_sub_field('number_of_posts') ?: 3;
-
-// Safely get terms for the current post
-function bm_get_terms_slugs($post_id, $taxonomy) {
-    $terms = get_the_terms($post_id, $taxonomy);
-    $slugs = [];
-
-    if (!empty($terms) && !is_wp_error($terms)) {
-        foreach ($terms as $term) {
-            $slugs[] = $term->slug;
-        }
-    }
-
-    return $slugs;
-}
-
-$current_id = get_the_ID();
-?>
-
 <?php
-// Determine query based on context
-$expertise_slugs = bm_get_terms_slugs($current_id, 'expertise');
-$location_slugs  = bm_get_terms_slugs($current_id, 'location');
+// Safely get term slugs for the current post
+$get_term_slugs = function ($post_id, $taxonomy) {
+  $terms = get_the_terms($post_id, $taxonomy);
+  $slugs = [];
 
-// Default args
+  if (!empty($terms) && !is_wp_error($terms)) {
+    foreach ($terms as $term) {
+      if (!empty($term->slug)) {
+        $slugs[] = $term->slug;
+      }
+    }
+  }
+
+  return $slugs;
+};
+
+$heading     = get_sub_field('heading');
+$tag_name    = get_sub_field('tag_name');
+$list_count   = 6;
+$total_needed = 1 + $list_count;
+$bg_class = get_sub_field('bg_colour') ?: 'bm-white';
+
+$current_id      = get_the_ID();
+$expertise_slugs = $get_term_slugs($current_id, 'expertise');
+$location_slugs  = $get_term_slugs($current_id, 'location');
+
+// Base args (convert from get_posts -> WP_Query so ordering + splitting is consistent)
 $args = [
-    'showposts' => $post_count,
-    'post_type' => 'press'
+  'post_type'      => 'press',
+  'post_status'    => 'publish',
+  'posts_per_page' => $total_needed,
+  'orderby'        => 'date',
+  'order'          => 'DESC',
 ];
 
+// Apply your existing logic
 if (is_front_page()) {
-    $args['post_type'] = 'press';
-
+  // just latest press
 } elseif (is_singular('location') && get_sub_field('filter_by_tag') === 'no') {
 
-    if (!empty($location_slugs)) {
-        $args['tax_query'] = [[
-            'taxonomy' => 'location',
-            'field'    => 'slug',
-            'terms'    => $location_slugs,
-        ]];
-    }
+  if (!empty($location_slugs)) {
+    $args['tax_query'] = [[
+      'taxonomy' => 'location',
+      'field'    => 'slug',
+      'terms'    => $location_slugs,
+    ]];
+  } else {
+    $args['posts_per_page'] = 0;
+  }
 
 } elseif (is_page() && get_sub_field('filter_by_tag') === 'no') {
-    // No filter: just press posts
+  // no filter: just press posts
 
 } elseif (get_sub_field('filter_by_tag') === 'yes') {
 
+  if (!empty($tag_name)) {
     $args['tag'] = $tag_name;
+  } else {
+    $args['posts_per_page'] = 0;
+  }
 
 } else {
 
-    if (!empty($expertise_slugs)) {
-        $args['tax_query'] = [[
-            'taxonomy' => 'expertise',
-            'field'    => 'slug',
-            'terms'    => $expertise_slugs,
-        ]];
-    }
+  if (!empty($expertise_slugs)) {
+    $args['tax_query'] = [[
+      'taxonomy' => 'expertise',
+      'field'    => 'slug',
+      'terms'    => $expertise_slugs,
+    ]];
+  } else {
+    $args['posts_per_page'] = 0;
+  }
 }
 
-$myposts = get_posts($args);
+$q = new WP_Query($args);
+
+if (!$q->have_posts()) {
+  wp_reset_postdata();
+  return;
+}
+
+$posts    = $q->posts;
+$featured = array_shift($posts);
+$list     = array_slice($posts, 0, $list_count);
+
+wp_reset_postdata();
 ?>
 
-<section class="blog recent" 
-         style="background: #404040 url('/wp-content/uploads/2019/01/recent_bg.jpg') 50%/cover no-repeat; color: #FFFFFF;">
-    <div class="container-fluid">
-        <div class="container news">
-            <div class="row">
+<section class="press-module <?php echo esc_attr($bg_class); ?>">
+  <div class="container">
 
-                <div class="col-lg-12">
-                    <h2 class="text-center"><?php echo esc_html(get_sub_field('heading')); ?></h2>
-                    <hr class="heading green">
-                </div>
+    <!-- Header row -->
+    <div class="d-flex justify-content-between align-items-center mb-4">
+      <div>
+        <?php if ($heading) : ?>
+          <h2 class="mb-0"><?php echo esc_html($heading); ?></h2>
+        <?php else : ?>
+          <h2 class="mb-0">Press</h2>
+        <?php endif; ?>
+      </div>
 
-                <?php foreach ($myposts as $mypost): ?>
-                    <?php 
-                    $post_id = $mypost->ID;
-
-                    // Terms for tags display (safe)
-                    $expertise_terms = get_the_term_list($post_id, 'expertise', '', ' | ', '');
-                    $expertise_terms = $expertise_terms ? strip_tags($expertise_terms) : '';
-
-                    // Excerpt logic
-                    $excerpt = $mypost->post_content;
-
-                    if (empty($excerpt)) {
-                        $acf_intro = get_field('blog_intro', $post_id);
-                        if (!empty($acf_intro)) {
-                            $excerpt = $acf_intro;
-                        }
-                    }
-
-                    if (!is_string($excerpt)) {
-                        $excerpt = '';
-                    }
-                    ?>
-
-                    <div class="col-sm-6 col-md-4 text-center item">
-                        <div class="header">
-                            <a href="<?php echo esc_url(get_permalink($post_id)); ?>">
-                                <h6><?php echo esc_html($mypost->post_title); ?></h6>
-                            </a>
-                        </div>
-
-                        <div class="excerpt">
-                            <div class="excerpt-top">
-
-                                <div class="date"></div>
-
-                                <div class="tags">
-                                    <?php echo esc_html($expertise_terms); ?>
-                                </div>
-
-                                <p><?php echo esc_html(wp_trim_words($excerpt, 30, '...')); ?></p>
-                            </div>
-
-                            <div class="excerpt-bottom">
-                                <a href="<?php echo esc_url(get_permalink($post_id)); ?>" class="btn btn-purple">
-                                    Read More
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                <?php endforeach; ?>
-
-                <div class="row justify-content-center" style="padding-top:20px; padding-bottom: 40px;">
-                    <a href="/press" class="btn btn-green">Click here for more news features</a>
-                </div>
-
-            </div>
-        </div>
+      <a class="press-module__all" href="/press">
+        More news features
+      </a>
     </div>
+
+    <div class="row align-items-stretch">
+
+      <!-- LEFT: list -->
+      <div class="col-12 col-lg-6 d-flex">
+        <div class="press-module__list flex-fill d-flex flex-column justify-content-between">
+
+          <?php foreach ($list as $p) : ?>
+            <a
+              class="press-module__item d-flex justify-content-between align-items-center"
+              href="<?php echo esc_url(get_permalink($p)); ?>"
+            >
+              <span class="press-module__item-title">
+                <?php echo esc_html(get_the_title($p)); ?>
+              </span>
+              
+            </a>
+          <?php endforeach; ?>
+
+        </div>
+      </div>
+
+      <!-- RIGHT: featured -->
+      <div class="col-12 col-lg-6 mt-4 mt-lg-0 d-flex">
+        <?php
+          $featured_id    = $featured->ID;
+          $featured_url   = get_permalink($featured_id);
+          $featured_title = get_the_title($featured_id);
+          $featured_date  = get_the_date('d F', $featured_id);
+
+          // Expertise tags display (safe)
+          $expertise_terms = get_the_term_list($featured_id, 'expertise', '', ' | ', '');
+          $expertise_terms = $expertise_terms ? strip_tags($expertise_terms) : '';
+
+          // Excerpt logic (your original approach)
+          $excerpt = get_post_field('post_content', $featured_id);
+
+          if (empty($excerpt)) {
+            $acf_intro = get_field('blog_intro', $featured_id);
+            if (!empty($acf_intro)) $excerpt = $acf_intro;
+          }
+
+          if (!is_string($excerpt)) $excerpt = '';
+
+          $excerpt = wp_trim_words(wp_strip_all_tags($excerpt), 26, '…');
+        ?>
+
+        <div class="press-module__featured flex-fill d-flex flex-column justify-content-center py-4">
+          <p class="press-module__date mb-2"><?php echo esc_html($featured_date); ?></p>
+
+          <?php if ($expertise_terms) : ?>
+            <p class="press-module__tags mb-3"><?php echo esc_html($expertise_terms); ?></p>
+          <?php endif; ?>
+
+          <h3 class="press-module__featured-title mb-3">
+            <a href="<?php echo esc_url($featured_url); ?>">
+              <?php echo esc_html($featured_title); ?>
+            </a>
+          </h3>
+
+          <?php if ($excerpt) : ?>
+            <p class="press-module__featured-excerpt mb-4">
+              <?php echo esc_html($excerpt); ?>
+            </p>
+          <?php endif; ?>
+
+          <a class="btn btn-green" href="<?php echo esc_url($featured_url); ?>">Read More</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
 </section>

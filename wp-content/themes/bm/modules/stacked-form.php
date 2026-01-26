@@ -9,7 +9,6 @@
           <?php the_sub_field('heading'); ?>
         </h2>
 
-        <hr class="heading purple">
       </div>
 
       <div class="col-12 col-md-10 form-left mx-auto">

@@ -8,7 +8,7 @@
             if( have_rows('quote') ):
               while ( have_rows('quote') ) : the_row(); ?>
               <div class="highlights-slide">
-                <p><?php the_sub_field('txt'); ?> </p>
+                <p><?php the_sub_field('txt'); ?></p>
               </div>
               <?php endwhile;
             endif;

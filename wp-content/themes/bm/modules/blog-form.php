@@ -9,8 +9,6 @@
           <?php the_field('heading'); ?>
         </h2>
 
-        <hr class="heading green">
-
         <?php if( get_field('form_txt') ): ?>
           <p class="text-center"><?php the_field('form_txt'); ?></p>
         <?php endif; ?>

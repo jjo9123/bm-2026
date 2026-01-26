@@ -8,10 +8,10 @@
 <main id="main" class="blog">
   <div id="content" role="main">
 
-    <section class="hero text-center" style="background: url('<?php echo $banner_section['background_image']; ?>') 50%/cover no-repeat; color: #FFFFFF;">
+    <section class="hero" style="background: url('<?php echo $banner_section['background_image']; ?>') 50%/cover no-repeat; color: #FFFFFF;">
       <div class="container">
         <div class="row">
-          <div class="col-12">
+          <div class="col-12 col-md-7">
             <h1 class="header">Search Results</h1>
           </div>
         </div>

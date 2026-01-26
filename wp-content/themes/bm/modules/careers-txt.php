@@ -5,7 +5,6 @@
         <?php if( get_sub_field('heading') ): ?>
           <h2><?php the_sub_field('heading'); ?></h2>
 
-          <hr class="heading green">
         <?php endif; ?>
 
         <?php the_sub_field('txt'); ?>

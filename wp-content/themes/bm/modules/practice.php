@@ -5,7 +5,6 @@
 				<div class="col-lg-10 text-center">
 					<h2 class="text-center green"><?php the_sub_field('heading'); ?></h2>
 
-					<hr class="heading purple">
 					<p><?php the_sub_field('txt'); ?></p>
 				</div>
 			</div>

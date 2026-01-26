@@ -1,29 +1,49 @@
-<section class="contact" style="background: #404040 url('<?php the_sub_field('bg_image'); ?>') 50%/cover no-repeat; color: #FFFFFF;">
+<?php $bg_class = get_sub_field('bg_colour') ?: 'bm-pink'; ?>
+
+<section class="contact <?php echo esc_attr($bg_class); ?>">
   <div class="container">
     <div class="row" id="contact-footer">
       <div class="col-lg-12 mb-4">
-        <h2 class="text-center white">
+        <h2 class="text-center">
           <?php the_sub_field('heading'); ?>
         </h2>
-
-        <hr class="heading purple">
       </div>
 
-      <div class="col-lg-4 form-left">
-      <h2><?php the_sub_field('heading'); ?></h2>
-        <?php if( get_sub_field('txt_choice') == 'global'): ?>
-          <p><?php the_field('txt', 'options'); ?></p>
-        <?php else: ?>
-          <p><?php the_sub_field('txt'); ?></p>
-        <?php endif; ?>
-      </div>
+      
+        <?php
+          /*
+          if ( get_sub_field('txt_choice') == 'global' ): ?>
+            <p><?php the_field('txt', 'options'); ?></p>
+          <?php else: ?>
+            <p><?php the_sub_field('txt'); ?></p>
+          <?php endif;
+          */
+          ?>
+      
 
-      <div class="col-lg-7 ml-auto">
+      <div class="col-12 col-md-10 mx-auto">
         <?php
           $form_object = get_sub_field('form');
+
           gravity_form_enqueue_scripts($form_object['id'], true);
-          gravity_form($form_object['id'], false, false, false, '', true, 1);
-        ?>
+
+          // Set a global "current module form id" just for this render
+          $GLOBALS['bm_contact_footer_form_id'] = (int) $form_object['id'];
+
+          gravity_form(
+            $form_object['id'],
+            false,
+            false,
+            false,
+            null,   // no field_values needed
+            true,
+            1
+          );
+
+          // Unset so it can't affect anything else later on the page
+          unset($GLOBALS['bm_contact_footer_form_id']);
+          ?>
+
       </div>
     </div>
   </div>

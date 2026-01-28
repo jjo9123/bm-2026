@@ -40,10 +40,13 @@ html { scroll-behavior: smooth; }
 .bm-dark-grey {
   color: var(--bm-text-light);
 }
-.bm-pink .gfield_required.gfield_required_asterisk, .bm-white .gfield_required.gfield_required_asterisk, 
+.bm-white .gfield_required.gfield_required_asterisk, 
 .bm-beige .gfield_required.gfield_required_asterisk
 {
   color: var(--bm-purple);
+}
+.bm-pink .gfield_required.gfield_required_asterisk {
+  color: var(--bm-text-light);
 }
 .bm-purple .gfield_required.gfield_required_asterisk, .bm-dark-grey .gfield_required.gfield_required_asterisk {
   color: var(--bm-pink);
@@ -104,14 +107,14 @@ strong {
 .gform_wrapper.gf_browser_gecko .top_label li.gsection.gf_scroll_text h2.gsection_title {
   font-family: var(--font-body);
   font-size: 1.1rem;
-}/*
+}
 .header {
   font-family: "sitka-heading", Georgia, serif;
   font-style: normal;
   font-weight: 600;
   text-transform: none;
   letter-spacing: -0.6px;
-}*/
+}
 .white {
   color: #FFFFFF;
 }
@@ -173,12 +176,21 @@ a.btn-green:focus-visible {
 .bm-pink  a.btn-green:focus-visible {
   background-color: var(--bm-gold);
 }
-.bm-pink .validation_message.gfield_validation_message, .bm-pink .gform_submission_error.hide_summary {
+.bm-pink .validation_message.gfield_validation_message, .bm-pink .gform_submission_error.hide_summary,
+.bm-pink .gform_legacy_markup_wrapper .gfield_error .gfield_label {
   color: var(--bm-text-light);
 }
 .bm-pink .gform_legacy_markup_wrapper .gform_validation_errors {
   border: 1px solid var(--bm-text-light)!important;
 }
+.contact .gfield--input-type-select label {
+  clip: rect(1px, 1px, 1px, 1px)!important;
+  position: absolute !important;
+  height: 1px!important;
+  width: 1px!important;
+  overflow: hidden!important;
+}
+
 a.btn-purple {
   background-color: #a395b7;
   color: #FFFFFF;
@@ -334,7 +346,7 @@ section.contact .gform_wrapper .ginput_container textarea,
 .modal-content .modal-form .gform_wrapper .ginput_container input,
 .modal-content .modal-form .gform_wrapper .ginput_container select,
 .modal-content .modal-form .gform_wrapper .ginput_container textarea {
-  border: 1px solid #32214c;
+  border: 1px solid #ede9f5;
   color: #32214c !important;
   font-size: 1.2rem;
 }
@@ -834,7 +846,7 @@ section.hero .home-slide.hero--dark h1, section.hero .home-slide.hero--dark p.he
 }
 body.home h1.header, body.home p.header {
   color: #340F53;
-  font-weight: 700;
+  font-weight: 600;
   font-size: 4rem;
   text-transform: none;
   letter-spacing: -0.6px;

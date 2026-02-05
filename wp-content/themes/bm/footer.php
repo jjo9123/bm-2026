@@ -248,11 +248,11 @@
   </script>
 <?php endif; ?>
 
-<section role="region" aria-label="Cookie preferences">
+<!--<section role="region" aria-label="Cookie preferences">
   <div id="cookiebtn">
     <a id="cookiechange" role="button" tabindex="0" onclick="Cookiebot.show();" onkeydown="if(event.key === 'Enter' || event.key === ' ') { Cookiebot.show(); event.preventDefault(); }">Change your cookie consent</a>
   </div>
-</section>
+</section>-->
 
 <style>
 body.home h1.header {

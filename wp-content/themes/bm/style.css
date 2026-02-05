@@ -24,7 +24,7 @@ html { scroll-behavior: smooth; }
   background-color: var(--bm-pink);
 }
 .bm-purple {
-  background-color: var(--bm-purple);
+  background-color: var(--bm-purple)!important;
 }
 .bm-beige {
   background-color: var(--bm-beige);
@@ -859,7 +859,7 @@ body.home h1.header, body.home p.header {
 }
 section.cta-banner img {
   max-width: 300px;
-  max-height: 400px;
+  max-height: 200px;
   margin:auto;
 }
 section.cta-banner .col-12.w-image {
@@ -979,9 +979,9 @@ section.services ul li a {
 section.exp-clients {
   padding: 60px 0 20px;
 }
-section.exp-clients .row {
+/*section.exp-clients .row {
   justify-content: center;
-}
+}*/
 section.exp-clients .text-section p {
   font-size: 1.2rem;
   margin-top: 40px;
@@ -1111,7 +1111,6 @@ section.clients {
   padding: 80px 0 60px;
 }
 section.clients .row {
-  justify-content: center;
   padding: 20px 0 40px;
 }
 section.clients .client-logo {
@@ -1392,11 +1391,15 @@ section.contact p {
 }
 
 /***** ON PAGE TABBED NAVIGATION & MOBILE TABBED NAV *****/
-.tabbed-navigation button.btn-link {
+/*.tabbed-navigation button.btn-link {
   white-space: inherit;
 }
 .single-post .accordion.accordion-block h4 {
   color: #32214c;
+}*/
+.accordion-block .title-inline {
+  color: var(--bm-purple);
+  padding-bottom: 8px;
 }
 .tabbed-navigation .left-tab, .tabbed-navigation .right-tab {
   padding-top: 30px;
@@ -1424,6 +1427,7 @@ section.contact p {
 .tabbed-navigation .card-header i {
   padding-top: 5px;
   padding-bottom: 5px;
+  color: var(--bm-purple)
 }
 .card-header .fas {
   transition: .3s transform ease-in-out;
@@ -1457,7 +1461,6 @@ section.contact p {
 }
 .accordion .card-header .btn:focus {
 outline: 2px solid #A93690;
-outline-offset: 2px;
 }
   .tabbed-navigation .card .collapse.show {
     border-bottom: 2px solid #A93690;
@@ -1624,7 +1627,7 @@ section.cards .excerpt {
   justify-content: space-between;
 }
 section.cards .excerpt a.btn {
-  margin: 0 auto;
+  /*margin: 0 auto;*/
   padding: 1px 20px;
 }
 ul.related-expertise {
@@ -1661,6 +1664,10 @@ section.cards .supporting-documents .recent-item .title {
 section.cards .supporting-documents .recent-item .title p {
   margin-bottom: 0;
 }
+.txt.script-block {
+  padding-top: 0!important;
+  padding-bottom:0!important;
+}
 section.cards .supporting-documents .recent-item h6 {
   font-size: 1rem;
   margin-bottom: 30px;
@@ -1668,9 +1675,13 @@ section.cards .supporting-documents .recent-item h6 {
 section.cards .supporting-documents .recent-item .img.title-box {
   min-height: 120px!Important;
 }
+.supporting-documents h3 {
+  color: var(--bm-text-light);
+  font-size: 1.4rem;
+}
 section.cards .supporting-documents .excerpt {
-  background-color: #a395b7;
-  padding: 20 40px;
+  /*background-color: #a395b7;*/
+  padding: 20px 20px;
 }
 section.cards .experts h5, section.cards .experts .excerpt h5, section.cards .supporting-documents h6, section.cards .experts .excerpt p {
   color: #fff;
@@ -3321,6 +3332,7 @@ section.cta-banner.slider .home-slider[data-theme="bm-beige"] .slick-arrow {
   position: relative;
   padding-left: 1.5rem;
   display: inline-block;
+  padding-bottom: 15px;
 }
 
 .services.bm-purple .services-list li a::before, .services.bm-dark-grey .services-list li a::before {
@@ -3438,4 +3450,38 @@ section.cta-banner.slider .home-slider[data-theme="bm-beige"] .slick-arrow {
 }
 .ubermenu-submenu .ubermenu-current-menu-item > a > span {
   color: var(--bm-pink);
+}
+.pricing-list .pricing-link {
+  position: relative;
+  padding-left: 1.5rem;
+  display: inline-block;
+  color: var(--bm-purple);
+  font-size: 1.1rem;
+}
+.pricing-list .pricing-link::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: .75em;
+  width: 16px;
+  height: 16px;
+  background: url('/wp-content/themes/bm/theme/img/purple-arrow.svg') no-repeat center;
+  background-size: contain;
+}
+.pricing-list .pricing-link::before {
+  transition: transform 0.2s ease;
+}
+
+.pricing-list .pricing-link:hover::before {
+  transform: translateX(3px);
+}
+.accordion-block .fa-chevron-up::before {
+  color: var(--bm-purple);
+}
+.tabbed-navigation .accordion-block button.btn-link:hover, .tabbed-navigation .accordion-block button.btn-link[aria-expanded="true"] {
+  background-color: var(--bm-beige);
+  text-decoration: none;
+}
+.tabbed-navigation.grey .accordion-block button.btn-link:hover, .tabbed-navigation.grey .accordion-block button.btn-link[aria-expanded="true"] {
+  background-color: #ffffff;
 }

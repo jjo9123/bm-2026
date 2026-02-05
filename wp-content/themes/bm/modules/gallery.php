@@ -1,9 +1,9 @@
 <?php if( get_sub_field('text') || get_sub_field('images') ): ?>
-  <section class="exp-clients text-center">
+  <section class="exp-clients">
     <div class="container">
       <div class="row">
         <div class="col-12 col-lg-10 col-xl-12 mx-auto text-section">
-          <h2 style="color: #32214c;">
+          <h2 class="pb-4">
             <?php the_sub_field('heading'); ?>
           </h2>
 

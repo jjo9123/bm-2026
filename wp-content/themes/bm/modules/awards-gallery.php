@@ -1,3 +1,5 @@
+<?php $bg_class = get_sub_field('bg_colour') ?: 'bm-white'; ?>
+
 <style>
   .exp-clients .slick-slide {
   display: flex !important;
@@ -77,11 +79,11 @@
 ?>
 
 <?php if ($myposts): ?>
-  <section class="exp-clients text-center">
+  <section class="exp-clients <?php echo $bg_class; ?>">
     <div class="container">
       <?php foreach ($myposts as $mypost): ?>
         <div class="row">
-          <div class="col-12 col-lg-10 col-xl-12 mx-auto text-section">
+          <div class="col-12 col-lg-12 col-xl-12 mx-auto text-section">
             <h2 class="pb-4">
               <?php echo get_field('heading', $mypost->ID); ?>
             </h2>

@@ -3,7 +3,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-10 text-center mx-auto">
-					<h2 class="text-center green">
+					<h2 class="text-center">
 						<?php the_sub_field('heading'); ?>
 					</h2>
 					

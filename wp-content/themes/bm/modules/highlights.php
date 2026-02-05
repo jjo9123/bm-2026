@@ -1,4 +1,5 @@
-<section class="highlights text-center" style="background: url('<?php the_sub_field('bg_image'); ?>') 50%/cover no-repeat; color: #FFFFFF;">
+<?php $bg_class = get_sub_field('bg_colour') ?: 'bm-beige'; ?>
+<section class="highlights text-center <?php echo esc_attr($bg_class); ?>">
   <div class="container">
     <div class="row">
       <div class="col-12">

@@ -1,4 +1,4 @@
-<section class="cta-banner text-center" style="background: url('<?php echo the_sub_field('background_image'); ?>') 50%/cover no-repeat; color: #FFFFFF;">
+<section class="cta-banner text-center">
   <div class="container">
     <div class="row">
       <?php if( get_sub_field('add_image') == 'yes' ): ?>

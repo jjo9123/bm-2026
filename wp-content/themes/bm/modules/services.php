@@ -1,4 +1,7 @@
-<section class="services text-center" style="background: #352c3f; color: #FFFFFF;">
+<?php
+$bg_class = get_sub_field('bg_colour') ?: 'bm-purple';
+?>
+<section class="services <?php echo esc_attr($bg_class); ?>">
   <div class="container">
     <div class="row">
       <div class="col-12 col-lg-10 col-xl-12 mx-auto mb-4">
@@ -8,8 +11,6 @@
         <?php if ($heading) : ?>
           <h2 class="white"><?php echo esc_html($heading); ?></h2>
         <?php endif; ?>
-
-        <hr class="heading green">
 
         <?php if ($txt) : ?>
           <p><?php echo wp_kses_post($txt); ?></p>
@@ -21,10 +22,11 @@
       if ($services) :
       ?>
         <div class="col-12 col-lg-10 col-xl-12 mx-auto text-left">
-          <ul class="row g-3 list-unstyled mb-0">
+          <ul class="services-list row g-3 list-unstyled mb-0">
             <?php foreach ($services as $post) : setup_postdata($post); ?>
               <li class="col-12 col-md-6 col-lg-4">
-                <a class="d-block py-2" href="<?php the_permalink(); ?>">
+                <a href="<?php the_permalink(); ?>" class="services-link">
+                  
                   <?php the_title(); ?>
                 </a>
               </li>

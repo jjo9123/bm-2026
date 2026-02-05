@@ -1,4 +1,4 @@
-<section class="clients text-center" style="background: url('/wp-content/uploads/2019/01/clients-bg.jpg') 50%/cover no-repeat; color: #FFFFFF;">
+<section class="clients bm-dark-grey">
   <div class="container-fluid">
     <div class="container">
       <div class="row">
@@ -16,7 +16,7 @@
 
             <div class="row clients-txt">
               <div class="col-12 col-lg-10 col-xl-12">
-                <h3 class="green"><?php the_sub_field('heading'); ?></h3>
+                <h3><?php the_sub_field('heading'); ?></h3>
 
                 <p><?php the_sub_field('txt'); ?></p>
               </div>

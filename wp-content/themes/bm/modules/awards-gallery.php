@@ -1,3 +1,5 @@
+<?php $bg_class = get_sub_field('bg_colour') ?: 'bm-white'; ?>
+
 <style>
   .exp-clients .slick-slide {
   display: flex !important;
@@ -8,9 +10,6 @@
   max-width: 200px!important;
   object-fit: contain!important;
   max-height: 125px!important;
-}
-.exp-clients .slick-arrow {
-  color: #8ed300!important;
 }
 .exp-clients .client-logo {
   display: flex;
@@ -80,12 +79,12 @@
 ?>
 
 <?php if ($myposts): ?>
-  <section class="exp-clients text-center">
+  <section class="exp-clients <?php echo $bg_class; ?>">
     <div class="container">
       <?php foreach ($myposts as $mypost): ?>
         <div class="row">
-          <div class="col-12 col-lg-10 col-xl-12 mx-auto text-section">
-            <h2 style="color: #32214c;">
+          <div class="col-12 col-lg-12 col-xl-12 mx-auto text-section">
+            <h2 class="pb-4">
               <?php echo get_field('heading', $mypost->ID); ?>
             </h2>
 

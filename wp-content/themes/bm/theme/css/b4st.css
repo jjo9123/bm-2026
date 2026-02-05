@@ -116,7 +116,6 @@ textarea:focus::-moz-placeholder { color: transparent; } /* FF 19+ */
 
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: gill-sans-nova, sans-serif;
   font-style: normal;
   font-weight: 600;
   text-transform: uppercase;
@@ -124,10 +123,9 @@ h1, h2, h3, h4, h5, h6 {
 
 body {
   color: #32214c;
-  font-family: gill-sans-nova, sans-serif;
   font-style: normal;
   font-weight: 300;
-  letter-spacing: .045em;
+  letter-spacing: .015em;
   word-break: break-word;
 }
 strong {
@@ -135,12 +133,10 @@ strong {
 }
 
 .regular {
-  font-family: gill-sans-nova, sans-serif;
   font-style: normal;
   font-weight: 400;
 }
 .header {
-  font-family: gill-sans-nova, sans-serif;
   font-style: normal;
   font-weight: 600;
 }
@@ -166,12 +162,12 @@ strong {
   color: #32214c;
 }
 
-a {
+/*a {
   color: #8ed300;
 }
 a:hover {
   color: #8ed300;
-}
+}*/
 
 a.btn {
   border-radius: 40px;
@@ -811,7 +807,7 @@ section.services ul {
   padding: 0 1em;
   font-size: 1.1rem;
 }
-section.services ul li:before {
+/*section.services ul li:before {
   border-color: transparent #8ed300;
   border-style: solid;
   border-width: 0.35em 0 0.35em 0.45em;
@@ -822,7 +818,7 @@ section.services ul li:before {
   position: relative;
   left: -1em;
   top: 1.2em;
-}
+}*/
 section.services ul.cols li a:hover {
   color: #8ed300;
 }
@@ -840,9 +836,9 @@ section.services ul li a {
 section.exp-clients {
   padding: 60px 0 20px;
 }
-section.exp-clients .row {
+/*section.exp-clients .row {
   justify-content: center;
-}
+}*/
 section.exp-clients .text-section p {
   font-size: 1.2rem;
   margin-top: 40px;
@@ -935,7 +931,7 @@ section.quotes .quotes-slider .slick-track {
 section.quotes .quotes-slider .highlights-slide {
   align-self: center;
 }
-section.quotes .quotes-slider .highlights-slide:before {
+/*section.quotes .quotes-slider .highlights-slide:before {
   color: #8ed300;
   content: '“';
   display: block;
@@ -954,7 +950,7 @@ section.quotes .quotes-slider .highlights-slide:after {
   font-weight: 500;
   line-height: 10px;
   margin-top: 40px;
-}
+}*/
 section.quotes .quote {
   margin-bottom: 20px;
 }
@@ -972,15 +968,11 @@ section.quotes p {
   margin: auto;
   max-width: 700px;
 }
-section.quotes .slick-arrow {
-  color: #8ed300 !important;
-}
 
 section.clients {
   padding: 80px 0 60px;
 }
 section.clients .row {
-  justify-content: center;
   padding: 20px 0 40px;
 }
 section.clients .client-logo {
@@ -1501,7 +1493,7 @@ section.cards .excerpt {
   justify-content: space-between;
 }
 section.cards .excerpt a.btn {
-  margin: 0 auto;
+  /*margin: 0 auto;*/
   padding: 1px 20px;
 }
 ul.related-expertise {
@@ -1546,8 +1538,8 @@ section.cards .supporting-documents .recent-item .img.title-box {
   min-height: 120px!Important;
 }
 section.cards .supporting-documents .excerpt {
-  background-color: #a395b7;
-  padding: 20 40px;
+  /*background-color: #a395b7;*/
+  padding: 20px 40px;
 }
 section.cards .experts h5, section.cards .experts .excerpt h5, section.cards .supporting-documents h6, section.cards .experts .excerpt p {
   color: #fff;
@@ -2246,7 +2238,7 @@ a#cookie_action_close_header {
     margin: auto;
     padding-top: 10px;
   }
-  section.staff-details blockquote:before, section.highlights.people-page blockquote:before, blockquote:before {
+  /*section.staff-details blockquote:before, section.highlights.people-page blockquote:before, blockquote:before {
     content: '“';
     display: block;
     font-family: gil-sans-nova;
@@ -2259,7 +2251,7 @@ a#cookie_action_close_header {
     font-family: gil-sans-nova;
     font-size: 3rem;
     font-weight: 500;
-  }
+  }*/
   body .quote-section blockquote footer {
     text-transform: uppercase;
     background-color: transparent;
@@ -2761,16 +2753,6 @@ section.new-blog img.aligncenter {
   justify-content: space-between;
   width: 100%;
   text-align: left;
-}
-.tabbed-navigation .accordion-block button.btn-link:hover, .tabbed-navigation .accordion-block button.btn-link[aria-expanded="true"] {
-  background-color: #e7e7e7;
-  text-decoration: none;
-}
-.tabbed-navigation.grey .accordion-block button.btn-link:hover, .tabbed-navigation.grey .accordion-block button.btn-link[aria-expanded="true"] {
-  background-color: #ffffff;
-}
-.accordion-block .fa-chevron-up::before {
-  color: #8ed300;
 }
 @media only screen and (max-width: 767px) {
   .accordion-block h4 {

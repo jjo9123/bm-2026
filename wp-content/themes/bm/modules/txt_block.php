@@ -1,24 +1,18 @@
-<section class="txt <?php if( get_sub_field('left_or_centered') == 'center'): ?>text-center<?php endif; ?> <?php if( get_sub_field('background_colour') == 'grey'): ?> grey<?php endif; ?>" <?php if( get_sub_field('bg_choice') == 'img'): ?>style="background: #404040 url('<?php the_sub_field('bg_image'); ?>') 50% / cover no-repeat; color: #FFFFFF; "<?php endif; ?>>
+<section class="txt <?php if( get_sub_field('left_or_centered') == 'center'): ?>text-center<?php endif; ?> <?php if( get_sub_field('background_colour') == 'grey'): ?> grey<?php endif; ?>">
   <div class="container">
     <div class="row">
       <?php if( get_sub_field('heading_show') == 'yes'): ?>
-        <div class="col-12 col-lg-10 mx-auto">
+        <div class="col-12 mx-auto">
           <?php if( get_sub_field('heading') ): ?>
-            <h2 class="<?php if( get_sub_field('bg_choice') == 'img'): ?>green<?php else: ?>purple<?php endif; ?>">
+            <h2>
               <?php the_sub_field('heading'); ?>
             </h2>
-
-            <?php if( get_sub_field('bg_choice') == 'img'): ?>
-              <hr class="heading purple" <?php if( get_sub_field('left_or_centered') == 'left'): ?>style="text-align: left; margin-left: 0;"<?php endif; ?>>
-            <?php else: ?>
-              <hr class="heading green" <?php if( get_sub_field('left_or_centered') == 'left'): ?>style="text-align: left; margin-left: 0;"<?php endif; ?>>
-            <?php endif; ?>
           <?php endif; ?>
         </div>
       <?php endif; ?>
 
       <?php if( get_sub_field('quote_show') == 'yes'): ?>
-        <div class="col-12 col-lg-10 col-xl-12 mx-auto quote">
+        <div class="col-12 col-xl-12 mx-auto quote">
           <p><?php the_sub_field('quote'); ?></p>
         </div>
 
@@ -27,7 +21,7 @@
         <?php endif; ?>
       <?php endif; ?>
 
-      <div class="col-12 col-lg-10 mx-auto">
+      <div class="col-12 mx-auto">
         <?php the_sub_field('txt'); ?>
 
         <div class="btn-row">

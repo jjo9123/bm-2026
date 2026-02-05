@@ -9,9 +9,6 @@
   object-fit: contain!important;
   max-height: 125px!important;
 }
-.exp-clients .slick-arrow {
-  color: #8ed300!important;
-}
 .exp-clients .client-logo {
   display: flex;
   flex-direction: column;
@@ -85,7 +82,7 @@
       <?php foreach ($myposts as $mypost): ?>
         <div class="row">
           <div class="col-12 col-lg-10 col-xl-12 mx-auto text-section">
-            <h2 style="color: #32214c;">
+            <h2 class="pb-4">
               <?php echo get_field('heading', $mypost->ID); ?>
             </h2>
 

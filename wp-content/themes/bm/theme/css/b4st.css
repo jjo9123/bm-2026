@@ -116,7 +116,6 @@ textarea:focus::-moz-placeholder { color: transparent; } /* FF 19+ */
 
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: gill-sans-nova, sans-serif;
   font-style: normal;
   font-weight: 600;
   text-transform: uppercase;
@@ -124,10 +123,9 @@ h1, h2, h3, h4, h5, h6 {
 
 body {
   color: #32214c;
-  font-family: gill-sans-nova, sans-serif;
   font-style: normal;
   font-weight: 300;
-  letter-spacing: .045em;
+  letter-spacing: .015em;
   word-break: break-word;
 }
 strong {
@@ -135,12 +133,10 @@ strong {
 }
 
 .regular {
-  font-family: gill-sans-nova, sans-serif;
   font-style: normal;
   font-weight: 400;
 }
 .header {
-  font-family: gill-sans-nova, sans-serif;
   font-style: normal;
   font-weight: 600;
 }
@@ -811,7 +807,7 @@ section.services ul {
   padding: 0 1em;
   font-size: 1.1rem;
 }
-section.services ul li:before {
+/*section.services ul li:before {
   border-color: transparent #8ed300;
   border-style: solid;
   border-width: 0.35em 0 0.35em 0.45em;
@@ -822,7 +818,7 @@ section.services ul li:before {
   position: relative;
   left: -1em;
   top: 1.2em;
-}
+}*/
 section.services ul.cols li a:hover {
   color: #8ed300;
 }
@@ -935,7 +931,7 @@ section.quotes .quotes-slider .slick-track {
 section.quotes .quotes-slider .highlights-slide {
   align-self: center;
 }
-section.quotes .quotes-slider .highlights-slide:before {
+/*section.quotes .quotes-slider .highlights-slide:before {
   color: #8ed300;
   content: '“';
   display: block;
@@ -954,7 +950,7 @@ section.quotes .quotes-slider .highlights-slide:after {
   font-weight: 500;
   line-height: 10px;
   margin-top: 40px;
-}
+}*/
 section.quotes .quote {
   margin-bottom: 20px;
 }
@@ -971,9 +967,6 @@ section.quotes p {
   font-weight: 400;
   margin: auto;
   max-width: 700px;
-}
-section.quotes .slick-arrow {
-  color: #8ed300 !important;
 }
 
 section.clients {
@@ -2246,7 +2239,7 @@ a#cookie_action_close_header {
     margin: auto;
     padding-top: 10px;
   }
-  section.staff-details blockquote:before, section.highlights.people-page blockquote:before, blockquote:before {
+  /*section.staff-details blockquote:before, section.highlights.people-page blockquote:before, blockquote:before {
     content: '“';
     display: block;
     font-family: gil-sans-nova;
@@ -2259,7 +2252,7 @@ a#cookie_action_close_header {
     font-family: gil-sans-nova;
     font-size: 3rem;
     font-weight: 500;
-  }
+  }*/
   body .quote-section blockquote footer {
     text-transform: uppercase;
     background-color: transparent;

@@ -1,9 +1,9 @@
-<section class="cards" style="background: url('<?php the_sub_field('bg_image'); ?>') 50%/cover no-repeat; color: #FFFFFF; background-color: #352c3f;">
+<section class="cards bm-beige">
 	<div class="container-fluid practice">
 		<div class="container">
 			<div class="row justify-content-center">
 				<div class="col-lg-10 text-center">
-					<h2 class="text-center green"><?php the_sub_field('heading'); ?></h2>
+					<h2 class="text-center"><?php the_sub_field('heading'); ?></h2>
 
 					<p><?php the_sub_field('txt'); ?></p>
 				</div>
@@ -13,8 +13,8 @@
 			if( have_rows('areas') ): ?>
 				<div class="row">
 	    	<?php while ( have_rows('areas') ) : the_row(); ?>
-					<div class="col-lg-4 mx-auto text-center recent-item">
-						<div class="img title-box" style="background: url('<?php the_sub_field('bg_img'); ?>') 50%/cover no-repeat; color: #FFFFFF;">
+					<div class="col-lg-4 recent-item">
+						<div class="img title-box bm-purple">
 							<h6><?php the_sub_field('heading'); ?></h6>
 						</div>
 

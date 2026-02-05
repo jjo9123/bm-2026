@@ -119,6 +119,7 @@ wp_reset_postdata();
               <span class="press-module__item-title">
                 <?php echo esc_html(get_the_title($p)); ?>
               </span>
+              <span class="press-module__arrow" aria-hidden="true">›</span>
               
             </a>
           <?php endforeach; ?>

@@ -1,4 +1,6 @@
-<section class="quotes text-center">
+<?php $bg_class = get_sub_field('bg_colour') ?: 'bm-beige'; ?>
+
+<section class="quotes text-center <?php echo esc_attr($bg_class); ?>">
   <div class="container">
     <div class="row">
 

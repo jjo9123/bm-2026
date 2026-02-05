@@ -48,7 +48,7 @@ while ( have_rows('header_section') ) : the_row();
                 
 
                 <?php if ( $add_btn && $btn_link && $btn_text ) : ?>
-                  <a href="<?php echo esc_url($btn_link); ?>" class="btn btn-green header" tabindex="0">
+                  <a href="<?php echo esc_url($btn_link); ?>" class="btn btn-green" tabindex="0">
                     <?php echo esc_html($btn_text); ?>
                   </a>
                 <?php endif; ?>

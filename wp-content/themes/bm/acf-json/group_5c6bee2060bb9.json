@@ -930,6 +930,32 @@
                             "return_format": "id",
                             "ui": 1,
                             "bidirectional_target": []
+                        },
+                        {
+                            "key": "field_6980ce835e0bc",
+                            "label": "Background colour",
+                            "name": "bg_colour",
+                            "aria-label": "",
+                            "type": "button_group",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "relevanssi_exclude": 0,
+                            "choices": {
+                                "bm-purple": "BM Purple",
+                                "bm-beige": "BM Beige",
+                                "bm-dark-grey": "Bm Dark Grey"
+                            },
+                            "default_value": "bm-purple",
+                            "return_format": "value",
+                            "allow_null": 0,
+                            "allow_in_bindings": 0,
+                            "layout": "horizontal"
                         }
                     ],
                     "min": "",
@@ -2354,6 +2380,32 @@
                             "default_value": 36
                         },
                         {
+                            "key": "field_6980690a7516f",
+                            "label": "Background colour",
+                            "name": "bg_colour",
+                            "aria-label": "",
+                            "type": "button_group",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "relevanssi_exclude": 0,
+                            "choices": {
+                                "bm-pink": "Pink",
+                                "bm-purple": "Purple",
+                                "bm-beige": "Beige"
+                            },
+                            "default_value": "bm-beige",
+                            "return_format": "value",
+                            "allow_null": 0,
+                            "allow_in_bindings": 0,
+                            "layout": "horizontal"
+                        },
+                        {
                             "key": "field_5c6e86a35aad2",
                             "label": "Heading",
                             "name": "heading",
@@ -2427,6 +2479,32 @@
                     "label": "Quotes",
                     "display": "block",
                     "sub_fields": [
+                        {
+                            "key": "field_698068b50c38c",
+                            "label": "Background colour",
+                            "name": "bg_colour",
+                            "aria-label": "",
+                            "type": "button_group",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "relevanssi_exclude": 0,
+                            "choices": {
+                                "bm-pink": "Pink",
+                                "bm-purple": "Purple",
+                                "bm-beige": "Beige"
+                            },
+                            "default_value": "bm-beige",
+                            "return_format": "value",
+                            "allow_null": 0,
+                            "allow_in_bindings": 0,
+                            "layout": "horizontal"
+                        },
                         {
                             "key": "field_5cb8811debae0",
                             "label": "Quote",
@@ -4137,6 +4215,32 @@
                             "maxlength": "",
                             "rows": "",
                             "new_lines": ""
+                        },
+                        {
+                            "key": "field_698355133d000",
+                            "label": "Background colour",
+                            "name": "bg_colour",
+                            "aria-label": "",
+                            "type": "button_group",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "relevanssi_exclude": 0,
+                            "choices": {
+                                "bm-beige": "BM Beige",
+                                "bm-purple": "BM Purple",
+                                "bm-pink": "BM Pink"
+                            },
+                            "default_value": "bm-beige",
+                            "return_format": "value",
+                            "allow_null": 0,
+                            "allow_in_bindings": 0,
+                            "layout": "horizontal"
                         }
                     ],
                     "min": "",
@@ -4187,6 +4291,32 @@
                             "toolbar": "full",
                             "media_upload": 1,
                             "delay": 0
+                        },
+                        {
+                            "key": "field_698353dd66197",
+                            "label": "Background colour",
+                            "name": "bg_colour",
+                            "aria-label": "",
+                            "type": "button_group",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "relevanssi_exclude": 0,
+                            "choices": {
+                                "bm-beige": "BM Beige",
+                                "bm-purple": "BM Purple",
+                                "bm-pink": "BM Pink"
+                            },
+                            "default_value": "bm-beige",
+                            "return_format": "value",
+                            "allow_null": 0,
+                            "allow_in_bindings": 0,
+                            "layout": "horizontal"
                         }
                     ],
                     "min": "",
@@ -6176,5 +6306,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1769097156
+    "modified": 1770214697
 }

@@ -17,7 +17,7 @@ Version: 5.7
   --bm-text-light: #ffffff;
   --font-heading: "sitka-heading", Georgia, serif;
   --font-body: Corbel, "Segoe UI", Arial, sans-serif;
-  --btn-lspacing: -0.13px;
+  --btn-lspacing: 1.1px;
 }
 html { scroll-behavior: smooth; }
 .bm-pink {
@@ -150,6 +150,7 @@ a.btn, .btn {
   white-space: normal;
   font-weight: 700;
   letter-spacing: var(--btn-lspacing);
+  font-size: 1.1rem;
 }
 a.btn-green, .btn-green, .gform_wrapper form .gform_footer input[type=submit] {
   background-color: var(--bm-gold);
@@ -159,6 +160,10 @@ a.btn-green, .btn-green, .gform_wrapper form .gform_footer input[type=submit] {
               border-color 0.2s ease,
               box-shadow 0.2s ease;
   letter-spacing: var(--btn-lspacing);
+}
+section.cta-banner div a {
+  font-family: var(--font-body);
+  font-weight: 600;
 }
 a.btn-green:hover,
 a.btn-green:focus,
@@ -1064,7 +1069,7 @@ section.quotes .quotes-slider .slick-track {
 section.quotes .quotes-slider .highlights-slide {
   align-self: center;
 }
-section.quotes .quotes-slider .highlights-slide:before {
+/*section.quotes .quotes-slider .highlights-slide:before {
   color: #8ed300;
   content: '“';
   display: block;
@@ -1083,7 +1088,7 @@ section.quotes .quotes-slider .highlights-slide:after {
   font-weight: 500;
   line-height: 10px;
   margin-top: 40px;
-}
+}*/
 section.quotes .quote {
   margin-bottom: 20px;
 }
@@ -1100,9 +1105,6 @@ section.quotes p {
   font-weight: 400;
   margin: auto;
   max-width: 700px;
-}
-section.quotes .slick-arrow {
-  color: #8ed300 !important;
 }
 
 section.clients {
@@ -2353,7 +2355,7 @@ a#cookie_action_close_header {
     margin: auto;
     padding-top: 10px;
   }
-  section.staff-details blockquote:before, section.highlights.people-page blockquote:before, blockquote:before {
+  /*section.staff-details blockquote:before, section.highlights.people-page blockquote:before, blockquote:before {
     content: '“';
     display: block;
     font-family: gil-sans-nova;
@@ -2366,7 +2368,7 @@ a#cookie_action_close_header {
     font-family: gil-sans-nova;
     font-size: 3rem;
     font-weight: 500;
-  }
+  }*/
   body .quote-section blockquote footer {
     text-transform: uppercase;
     background-color: transparent;
@@ -2955,7 +2957,7 @@ ul.sitemap-nav.privacy li > a{
 /* latest content block */
 /*.latest-content h2, .latest-card__excerpt, a.latest-card:hover {color: var(--bm-purple); }*/
 .latest-card__image-wrap { overflow: hidden; }
-.latest-card__label {
+.latest-card__label, .expert-card__label {
   top: 0px;
   right: 0px;
   padding: 8px 14px;
@@ -2966,6 +2968,9 @@ ul.sitemap-nav.privacy li > a{
   font-size: 14px;
   min-width: 150px;
   text-align: right;
+}
+.expert-card__label {
+  min-width: 120px;
 }
 .latest-card__title, .press-module__item-title, .press-module__featured-title {
   font-family: var(--font-body);
@@ -3029,7 +3034,7 @@ ul.sitemap-nav.privacy li > a{
   background-image: url("/wp-content/themes/bm/theme/img/purple-arrow.svg");
 }
 
-.latest-card h3, .latest-card h3>a, .press-module__featured-title>a { font-size: 1.4rem;}
+.latest-card h3, .latest-card h3>a, .press-module__featured-title>a { font-size: 1.2rem;}
 /*.latest-card h3, .latest-card h3>a {  color: var(--bm-purple); }*/
 .latest-card__date { font-size: 12px; opacity: .75; }
 .latest-content__cta, .press-module__all { font-weight: 700; text-decoration: none; letter-spacing: var(--btn-lspacing); }
@@ -3219,4 +3224,218 @@ ul.sitemap-nav.privacy li > a{
         flex-wrap: nowrap;
         align-items: end;
     }
+}
+/* Slide layout: let the quote icon take up real space */
+section.quotes .highlights-slide,
+section.highlights .highlights-slide {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Quote SVG (IN FLOW — no absolute positioning) */
+section.quotes .highlights-slide::before,
+section.highlights .highlights-slide::before {
+  content: "";
+  display: block;
+  width: 55px;
+  height: 55px;
+  margin: 20px 0 12px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+/* If you want it "higher", use margin-top (still in-flow) */
+section.quotes .quotes-slider .highlights-slide::before{
+  margin-top: 20px; /* tweak this instead of top:-20px */
+}
+
+section.quotes.bm-purple .highlights-slide::before,
+section.quotes.bm-pink   .highlights-slide::before,
+section.highlights.bm-purple .highlights-slide::before,
+section.highlights.bm-pink   .highlights-slide::before {
+  background-image: url("/wp-content/themes/bm/theme/img/quotes-gold.svg");
+}
+
+/* Beige → purple quote */
+section.quotes.bm-beige .highlights-slide::before,
+section.highlights.bm-beige .highlights-slide::before {
+  background-image: url("/wp-content/themes/bm/theme/img/quotes-purp.svg");
+}
+
+section.quotes.bm-purple .slick-arrow,
+section.quotes.bm-beige  .slick-arrow,
+section.highlights.bm-beige .slick-arrow,
+section.highlights.bm-purple .slick-arrow, .exp-clients .slick-arrow {
+  color: var(--bm-gold)!important;
+}
+section.quotes.bm-pink .slick-arrow, section.highlights.bm-pink .slick-arrow {
+  color: var(--bm-text-light)!important;
+}
+/* Make slider a column so dots are part of its height */
+section.cta-banner.slider .home-slider {
+  display: flex;
+  flex-direction: column;
+
+  /* background comes from JS via CSS variable */
+  background: var(--slide-bg, transparent);
+}
+
+/* Slick list stays above dots */
+section.cta-banner.slider .home-slider .slick-list {
+  flex: 1 1 auto;
+}
+
+/* Keep dots in normal flow (inside background) */
+section.cta-banner.slider .home-slider > .slick-dots {
+  position: static !important;
+  margin: 15px 0 0;
+  padding: 0;
+}
+
+
+section.cta-banner.slider .home-slider {
+  transition: background-color 400ms ease;
+}
+/* Default */
+section.cta-banner.slider .home-slider {
+  color: #fff;
+}
+
+/* Pink + Purple: white text */
+section.cta-banner.slider .home-slider[data-theme="bm-pink"],
+section.cta-banner.slider .home-slider[data-theme="bm-purple"] {
+  color: #fff;
+}
+
+section.cta-banner.slider .home-slider[data-theme="bm-beige"] .header,
+section.cta-banner.slider .home-slider[data-theme="bm-beige"] .regular,
+section.cta-banner.slider .home-slider[data-theme="bm-beige"] h1,
+section.cta-banner.slider .home-slider[data-theme="bm-beige"] h2,
+section.cta-banner.slider .home-slider[data-theme="bm-beige"] h3,
+section.cta-banner.slider .home-slider[data-theme="bm-beige"] p,
+section.cta-banner.slider .home-slider[data-theme="bm-beige"] .slick-arrow {
+  color: var(--bm-purple)!important;
+}
+.services-list li a {
+  position: relative;
+  padding-left: 1.5rem;
+  display: inline-block;
+}
+
+.services.bm-purple .services-list li a::before, .services.bm-dark-grey .services-list li a::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.35em;
+  width: 16px;
+  height: 16px;
+  background: url('/wp-content/themes/bm/theme/img/white-arrow.svg') no-repeat center;
+  background-size: contain;
+}
+.services.bm-beige .services-list li a::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.35em;
+  width: 16px;
+  height: 16px;
+  background: url('/wp-content/themes/bm/theme/img/grey-arrow.svg') no-repeat center;
+  background-size: contain;
+}
+.services-list li a::before {
+  transition: transform 0.2s ease;
+}
+
+.services-list li a:hover::before {
+  transform: translateX(3px);
+}
+/* --- quick “latest cards” style (scoped to this module only) --- */
+.experts-cards .expert-card {
+  text-decoration: none;
+  color: inherit;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  /*box-shadow: 0 10px 30px rgba(0,0,0,.08);*/
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.experts-cards .expert-card:hover {
+  transform: translateY(-3px);
+  /*box-shadow: 0 14px 40px rgba(0,0,0,.12);*/
+}
+
+.experts-cards .expert-card__image-wrap {
+  position: relative;
+  overflow: hidden;
+  background: #f2f2f2;
+}
+
+.experts-cards .expert-card__image {
+  width: 100%;
+  height: 100%;
+  max-height: 200px;
+  object-fit: cover;
+  display: block;
+}
+
+.experts-cards .expert-card__body {
+  padding: 18px 0px 20px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 8px;
+}
+
+.experts-cards .expert-card__name {
+  margin: 0;
+  color: #340F53;
+  font-size: 1.35rem;
+  line-height: 1.15;
+  font-weight: 700;
+}
+
+.experts-cards .expert-card__role {
+  margin: 0;
+  color: #444;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.experts-cards .expert-card__location {
+  margin: 0;
+  color: #666;
+  font-size: .95rem;
+}
+
+.experts-cards .expert-card__cta {
+  margin-top: auto;
+  padding-top: 10px;
+}
+.expert-card__cta .btn {
+  padding: 5px 10px;
+}
+.cards .practice .excerpt {
+  padding: 20px 0px;
+  background: unset;
+}
+
+/* keep button from stretching full width unless your btn styles force it */
+.experts-cards .expert-card__cta .btn {
+  display: inline-block;
+}
+.cards.experts-cards {
+  background-color: var(--bm-beige);
+}
+.ubermenu .ubermenu-item.ubermenu-active > .ubermenu-target,
+.ubermenu .ubermenu-item:hover > .ubermenu-target {
+  font-weight: 600;
+}
+.ubermenu-submenu .ubermenu-current-menu-item > a {
+  background-color: var(--bm-text-light)!important;
+}
+.ubermenu-submenu .ubermenu-current-menu-item > a > span {
+  color: var(--bm-pink);
 }

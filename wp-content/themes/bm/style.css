@@ -353,7 +353,10 @@ section.contact .gform_wrapper .ginput_container textarea,
 .modal-content .modal-form .gform_wrapper .ginput_container textarea {
   border: 1px solid #ede9f5;
   color: #32214c !important;
-  font-size: 1.2rem;
+  font-size: 1rem;
+}
+section.contact .gform_wrapper input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]) {
+  font-size: 1rem;
 }
 .sf-field-search input {
   border: 1px solid #ffffff!important;
@@ -437,7 +440,10 @@ section.contact .gform_wrapper :-moz-placeholder,
 }
 section.contact .gform_wrapper input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]),
 .modal-content .modal-form {
-  font-size: 1.2rem;
+  font-size: 1rem;
+}
+.gform_legacy_markup_wrapper .gfield_required {
+  margin-left: 0!important;
 }
 .gfield--input-type-captcha .gform-field-label {
   display: none!important;
@@ -1428,6 +1434,9 @@ section.contact p {
   padding-top: 5px;
   padding-bottom: 5px;
   color: var(--bm-purple)
+}
+.tabbed-navigation.bm-dark-grey .card-header i {
+  color: var(--bm-text-light);
 }
 .card-header .fas {
   transition: .3s transform ease-in-out;
@@ -2723,7 +2732,6 @@ footer .btn-purple {
   justify-content: space-around;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
-  padding-top: 15px;
 }
 .footer .newsletter-signup {
   padding-top: 30px;
@@ -3302,6 +3310,7 @@ section.cta-banner.slider .home-slider > .slick-dots {
   position: static !important;
   margin: 15px 0 0;
   padding: 0;
+  padding-bottom: 15px;
 }
 
 

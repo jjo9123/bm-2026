@@ -1,4 +1,4 @@
-<section class="tabbed-navigation py-4" style="background-color: #3C3C3B; color:#ffffff;">
+<section class="tabbed-navigation py-4 bm-dark-grey">
   <div class="container">
     <div class="row">
 

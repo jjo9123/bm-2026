@@ -69,7 +69,7 @@
                 
 
                 <div class="expert-card__cta">
-                  <span class="btn btn-green">View Profile</span>
+                  <span class="btn btn-green">View profile</span>
                 </div>
               </div>
 

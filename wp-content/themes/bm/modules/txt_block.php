@@ -33,8 +33,8 @@
                 $link_url   = $link['url'];
                 $link_title = $link['title'];
           ?>
-                <a href="<?php echo esc_url($link_url); ?>" class="btn btn-green header">
-                  <?php echo esc_html($link_title); ?>
+                <a href="<?php echo esc_url($link_url); ?>" class="btn btn-green">
+                  <?php echo esc_html(ucfirst(strtolower($link_title))); ?>
                 </a>
           <?php
               endif;
@@ -43,8 +43,9 @@
             elseif( get_sub_field('btn_show') == 'yes' && get_sub_field('btn_modal') == 'yes'):
               $btn_txt = get_sub_field('btn_txt') ? get_sub_field('btn_txt') : 'Get in touch';
           ?>
-              <a href="#contact-footer" class="btn btn-green header">
-                <?php echo esc_html($btn_txt); ?>
+              <a href="#contact-footer" class="btn btn-green">
+                <?php echo esc_html(ucfirst(strtolower($btn_txt))); ?>
+
               </a>
 
           <?php
@@ -72,14 +73,14 @@
 
             <!--- Additional blogs button 1 ----->
             <?php if( get_sub_field('add_1_text') && get_sub_field('add_1_link') ): ?>
-              <a href="<?php the_sub_field('add_1_link'); ?>" target="_blank" class="btn btn-green header">
+              <a href="<?php the_sub_field('add_1_link'); ?>" target="_blank" class="btn btn-green">
                 <?php the_sub_field('add_1_text'); ?>
               </a>
             <?php endif; ?>
 
             <!--- Additional events button 2 ----->
             <?php if( get_sub_field('add_2_text') && get_sub_field('add_2_link') ): ?>
-              <a href="<?php the_sub_field('add_2_link'); ?>" target="_blank" class="btn btn-green header">
+              <a href="<?php the_sub_field('add_2_link'); ?>" target="_blank" class="btn btn-green">
                 <?php the_sub_field('add_2_text'); ?>
               </a>
             <?php endif; ?>

@@ -83,13 +83,13 @@ if ( is_singular( 'expertise' ) ) {
             <?php if ( $add_image === 'yes' ):
               $image = get_field('image', $mypost->ID); ?>
 
-              <div class="col-8 col-md-6 ml-auto">
+              <div class="col-8 col-md-4 ml-auto">
                 <?php if ( !empty($image) ): ?>
                   <img src="<?php echo esc_url($image['url']); ?>" loading="lazy" alt="<?php echo esc_attr($image['alt']); ?>">
                 <?php endif; ?>
               </div>
 
-              <div class="col-12 w-image col-md-6" style="text-align:left;">
+              <div class="col-12 w-image col-md-8" style="text-align:left;">
                 <div>
                   <?php if ( $title ): ?><h2 class="header"><?php echo esc_html($title); ?></h2><?php endif; ?>
                   <p class="regular"><?php echo esc_html($sub_title); ?></p>

@@ -117,9 +117,9 @@
         </div>
           <?php if( get_field('social_show', 'option') == 'yes' ): ?>
             <div class="col-12 col-md-2">
-            <div class="social-links">
+            <div class="social-links pt-3 pt-md-0">
 
-              <div class="social-icons">
+              <div class="social-icons ">
                 <?php if( get_field('social_fb', 'option') ): ?>
                   <a href="<?php the_field('social_fb', 'option'); ?>" target="_blank" rel="noopener" aria-label="Visit Our Facebook.com Profile (opens in a new tab)">
                     <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36" fill="none">

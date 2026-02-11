@@ -71,26 +71,20 @@
       <?php endif; ?>
     <?php endif; ?>
 
-    <section class="blog" style="background: url('/wp-content/uploads/2019/02/blog-bg.jpg') 50%/cover no-repeat; color: #FFFFFF;">
-      <div class="container">
-        <div class="row">
-          <div class="col-12 blog-filter">
-            <div class="text-center">
-              <h2 class="white">Search Insights</h2>
-
-              <hr class="heading green">
-            </div>
-          </div>
-        </div>
+    <section class="blog">
+      <div class="container-fluid bm-pink">
 
         <div class="row search">
           <div class="col-12 col-md-10">
+            <div class="text-center pb-4">
+              <h2>Search Insights</h2>
+            </div>
             <?php echo do_shortcode('[searchandfilter id="455"]'); ?>
           </div>
         </div>
       </div>
 
-      <div class="container news">
+      <div class="container news bm-white">
         <?php get_template_part('loops/index-loop'); ?>
       </div>
     </section>

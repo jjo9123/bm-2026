@@ -8,13 +8,13 @@
     padding-top: 20px;
   }
 </style>
-<section class="txt new-blog <?php if( get_sub_field('white_or_grey') == 'grey'): ?> grey<?php endif; ?>">
+<section class="txt new-blog <?php if( get_sub_field('white_or_grey') == 'grey'): ?> bm-beige<?php endif; ?>">
   <div class="container">
     <div class="row">
       
         <div class="col-12 col-lg-12 mx-auto">
            <?php if( get_sub_field('title') ): ?>
-                <h2 class="purple">
+                <h2>
                   <?php the_sub_field('title'); ?>
                 </h2>
            <?php endif; ?>

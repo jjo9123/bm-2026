@@ -3,12 +3,12 @@
     b4st_main_before();
 ?>
 
-<main id="main" class="container mt-5">
+<main id="main" class="bm-white container mt-5">
   <div class="row">
 
     <div class="col-sm">
       <div id="content" role="main">
-        <header class="mb-4 border-bottom">
+        <header class="mb-4">
           <h1>
             <?php _e('Category: ', 'b4st'); echo single_cat_title(); ?>
           </h1>
@@ -17,7 +17,6 @@
       </div><!-- /#content -->
     </div>
 
-    <?php get_sidebar(); ?>
 
   </div><!-- /.row -->
 </main><!-- /.container -->

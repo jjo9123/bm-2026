@@ -80,7 +80,7 @@ html { scroll-behavior: smooth; }
 .highlights-slider.slick-initialized {
     visibility: visible;
 }
-body p>a {
+body p>a, body p>em>a, :is(h1, h2, h3, h4, h5, h6) a {
   color: var(--bm-purple);
   text-decoration: underline;
 }
@@ -942,7 +942,7 @@ section.txt h1, section.txt h2, section.txt h3, section.txt h4, section.txt h5, 
 section.txt p {
   font-size: 1.2rem;
 }
-section.txt .quote:before {
+/*section.txt .quote:before {
   color: #8ed300;
   content: '“';
   display: block;
@@ -960,7 +960,7 @@ section.txt .quote:after {
   font-weight: 500;
   line-height: 10px;
   margin-top: 40px;
-}
+}*/
 section.txt .quote {
   margin-bottom: 20px;
 }
@@ -1606,9 +1606,7 @@ section.cards .img.title-box {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
+  justify-content: flex-start;
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
@@ -3263,7 +3261,7 @@ section.highlights .highlights-slide, .quotes .quote {
 
 /* Quote SVG (IN FLOW — no absolute positioning) */
 section.quotes .highlights-slide::before,
-section.highlights .highlights-slide::before, .quotes .quote:before {
+section.highlights .highlights-slide::before, .txt.quotes .quote:before {
   content: "";
   display: block;
   width: 55px;
@@ -3274,7 +3272,7 @@ section.highlights .highlights-slide::before, .quotes .quote:before {
   background-position: center;
 }
 /* If you want it "higher", use margin-top (still in-flow) */
-section.quotes .quotes-slider .highlights-slide::before, .quotes .quote:before{
+section.quotes .quotes-slider .highlights-slide::before, .txt.quotes .quote:before{
   margin-top: 20px; /* tweak this instead of top:-20px */
 }
 
@@ -3282,14 +3280,14 @@ section.quotes.bm-purple .highlights-slide::before,
 section.quotes.bm-pink   .highlights-slide::before,
 section.highlights.bm-purple .highlights-slide::before,
 section.highlights.bm-pink   .highlights-slide::before, 
-.quotes.bm-pink .quote:before, .quotes.bm-purple .quote:before {
+.txt.quotes.bm-pink .quote:before, .txt.quotes.bm-purple .quote:before {
   background-image: url("/wp-content/themes/bm/theme/img/quotes-gold.svg");
 }
 
 /* Beige → purple quote */
 section.quotes.bm-beige .highlights-slide::before,
 section.highlights.bm-beige .highlights-slide::before, 
-.quotes.bm-beige .quote:before, .quotes.bm-white .quote:before {
+.txt.quotes.bm-beige .quote:before, .txt.quotes.bm-white .quote:before {
   background-image: url("/wp-content/themes/bm/theme/img/quotes-purp.svg");
 }
 
@@ -3364,6 +3362,9 @@ section.cta-banner.slider .home-slider[data-theme="bm-beige"] .slick-arrow {
   height: 16px;
   background: url('/wp-content/themes/bm/theme/img/white-arrow.svg') no-repeat center;
   background-size: contain;
+}
+.txt.services .services-list li a:before{
+	top: 0.7em;
 }
 .services.bm-beige .services-list li a::before {
   content: '';

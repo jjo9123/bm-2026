@@ -758,7 +758,7 @@ section.txt h1, section.txt h2, section.txt h3, section.txt h4, section.txt h5, 
 section.txt p {
   font-size: 1.2rem;
 }
-section.txt .quote:before {
+/*section.txt .quote:before {
   color: #8ed300;
   content: '“';
   display: block;
@@ -776,7 +776,7 @@ section.txt .quote:after {
   font-weight: 500;
   line-height: 10px;
   margin-top: 40px;
-}
+}*/
 section.txt .quote {
   margin-bottom: 20px;
 }
@@ -1439,14 +1439,14 @@ section.cards .recent-item .excerpt {
              -ms-flex-positive: 1;
                  flex-grow: 1;
 }
-section.cards .img.title-box {
+/*section.cards .img.title-box {
   min-height: 175px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
-  justify-content: center;
+  justify-content: flex-start;
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
@@ -1458,7 +1458,7 @@ section.cards .excerpt {
 }
 section.cards .experts .excerpt {
   padding: 20px 15px;
-}
+}*/
 section.cards .experts .excerpt h6, section.cards .experts .excerpt p {
   font-size: 1rem!important;
 }

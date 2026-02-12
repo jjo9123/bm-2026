@@ -4,7 +4,7 @@
     padding: 20px 0 30px;
   }
 </style>
-<section class="quotes text-center bm-white <?php if( get_sub_field('white_or_grey') == 'grey'): ?> bm-beige<?php endif; ?>">
+<section class="txt quotes text-center bm-white <?php if( get_sub_field('white_or_grey') == 'grey'): ?> bm-beige<?php endif; ?>">
   <div class="container">
     <div class="row">
       

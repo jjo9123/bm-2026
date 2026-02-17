@@ -9,7 +9,7 @@ $bg_class = get_sub_field('bg_colour') ?: 'bm-purple';
         <?php $txt = get_sub_field('txt'); ?>
 
         <?php if ($heading) : ?>
-          <h2 class="white"><?php echo esc_html($heading); ?></h2>
+          <h2><?php echo esc_html($heading); ?></h2>
         <?php endif; ?>
 
         <?php if ($txt) : ?>

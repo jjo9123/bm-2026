@@ -86,6 +86,7 @@
           <div class="col-12 col-lg-12 col-xl-12 mx-auto text-section">
             <h2 class="pb-4">
               <?php echo get_field('heading', $mypost->ID); ?>
+              
             </h2>
 
 

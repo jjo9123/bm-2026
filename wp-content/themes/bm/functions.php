@@ -766,3 +766,8 @@ add_filter( 'gform_field_container', function( $field_container, $field, $form )
     return $field_container;
 
 }, 10, 3 );
+
+function inc_sentence_case($text) {
+    $text = mb_strtolower($text);
+    return mb_strtoupper(mb_substr($text, 0, 1)) . mb_substr($text, 1);
+}

@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-12 col-lg-10 col-xl-12 mx-auto">
         <?php if( the_sub_field('heading') ): ?>
-          <h2 style="<?php if( get_sub_field('bg_choice') == 'img'): ?>color: #a2c754;<?php else: ?>color: #a395b7;<?php endif; ?> text-align: center;">
+          <h2 style="text-align: center;">
             <?php the_sub_field('heading'); ?>
           </h2>
         <?php endif; ?>

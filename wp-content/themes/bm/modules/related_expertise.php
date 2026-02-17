@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-12 col-lg-10 col-xl-12 mx-auto">
 
-        <h2>Related Expertise</h2>
+        <h2>Related expertise</h2>
 
         <?php
         $expertises = get_sub_field('expertise');

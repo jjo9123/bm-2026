@@ -75,16 +75,17 @@
                       <div class="card-header" id="<?php echo esc_attr($heading_id); ?>">
                         <h4 class="mb-0">
                           <button
-                            class="btn btn-link collapsed"
+                            class="btn btn-link collapsed d-flex align-items-start text-left"
                             type="button"
                             data-toggle="collapse"
                             data-target="#<?php echo esc_attr($collapse_id); ?>"
                             aria-expanded="false"
                             aria-controls="<?php echo esc_attr($collapse_id); ?>"
                           >
-                            <i class="fas fa-chevron-up"></i>
-                            <?php echo esc_html(get_the_title($exp_id)); ?>
-                            
+                            <i class="fas fa-chevron-up mr-2 flex-shrink-0"></i>
+                            <span class="flex-fill">
+                              <?php echo esc_html(get_the_title($exp_id)); ?>
+                            </span>
                           </button>
                         </h4>
                       </div>
@@ -155,16 +156,17 @@
                       <div class="card-header" id="<?php echo esc_attr($heading_id); ?>">
                         <h4 class="mb-0">
                           <button
-                            class="btn btn-link collapsed"
+                            class="btn btn-link collapsed d-flex align-items-start text-left w-100"
                             type="button"
                             data-toggle="collapse"
                             data-target="#<?php echo esc_attr($collapse_id); ?>"
                             aria-expanded="false"
                             aria-controls="<?php echo esc_attr($collapse_id); ?>"
                           >
-                            <i class="fas fa-chevron-up"></i>
-                            <?php echo esc_html(get_the_title($exp_id)); ?>
-                            
+                            <i class="fas fa-chevron-up mr-2 flex-shrink-0"></i>
+                            <span class="flex-fill">
+                              <?php echo esc_html(get_the_title($exp_id)); ?>
+                            </span>
                           </button>
                         </h4>
                       </div>

@@ -80,7 +80,7 @@ html { scroll-behavior: smooth; }
 .highlights-slider.slick-initialized {
     visibility: visible;
 }
-body p>a {
+body p>a, body p>em>a, :is(h1, h2, h3, h4, h5, h6) a {
   color: var(--bm-purple);
   text-decoration: underline;
 }
@@ -858,6 +858,11 @@ section.hero .home-slide p {
   font-size: 2.4rem;
   margin-top: 15px;
 }
+
+.hero--light, .hero--light h1, .hero--light p { color: #fff; }
+.hero--dark, .hero--dark  p { color: var(--bm-dark-grey)!important; }
+.hero--dark  h1, .hero--dark p.header { color: var(--bm-purple)!important;}
+
 section.hero .home-slide.hero--dark p {
   color: #3C3C3B;
 }
@@ -942,7 +947,7 @@ section.txt h1, section.txt h2, section.txt h3, section.txt h4, section.txt h5, 
 section.txt p {
   font-size: 1.2rem;
 }
-section.txt .quote:before {
+/*section.txt .quote:before {
   color: #8ed300;
   content: '“';
   display: block;
@@ -960,13 +965,12 @@ section.txt .quote:after {
   font-weight: 500;
   line-height: 10px;
   margin-top: 40px;
-}
+}*/
 section.txt .quote {
   margin-bottom: 20px;
 }
 section.txt .quote p {
   font-size: 1.4rem;
-  font-style: italic;
 }
 
 /* SERVICES */
@@ -1063,7 +1067,6 @@ section.highlights .slider {
 }
 section.highlights p {
   font-size: 1.3rem;
-  font-style: italic;
   font-weight: 400;
   margin: auto;
   max-width: 500px;
@@ -1109,14 +1112,12 @@ section.quotes .quote {
 }
 section.quotes .quote p {
   font-size: 1.4rem;
-  font-style: italic;
 }
 section.quotes .slider {
   margin-top: 20px;
 }
 section.quotes p {
   font-size: 1.3rem;
-  font-style: italic;
   font-weight: 400;
   margin: auto;
   max-width: 700px;
@@ -1606,9 +1607,7 @@ section.cards .img.title-box {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
+  justify-content: flex-start;
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
@@ -2002,7 +2001,6 @@ body.single-post .header-meta,
 body.single-press .header-meta {
   color: #a395b7;
   font-size: 1.4rem;
-  font-style: italic;
   font-weight: 400;
 }
 body.single-post .author-bio {
@@ -2365,7 +2363,6 @@ a#cookie_action_close_header {
     font-weight: normal;
   }
   section.staff-details blockquote p, section.highlights.people-page blockquote p, blockquote p {
-    font-style: italic;
     font-size: 1.3rem;
   }
   section.staff-details blockquote footer, section.highlights.people-page blockquote footer, blockquote footer {
@@ -2733,6 +2730,14 @@ footer .btn-purple {
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
 }
+.social-icons a img {
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.social-icons a:hover img {
+    opacity: 0.7;
+    transform: translateY(-2px);
+}
 .footer .newsletter-signup {
   padding-top: 30px;
 }
@@ -2959,7 +2964,7 @@ ul.sitemap-nav.privacy li > a{
   font-weight: 700;
 }
 .footer-links h3 {
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-family: var(--font-body);
 }
 .footer .legal p {
@@ -3263,7 +3268,7 @@ section.highlights .highlights-slide, .quotes .quote {
 
 /* Quote SVG (IN FLOW — no absolute positioning) */
 section.quotes .highlights-slide::before,
-section.highlights .highlights-slide::before, .quotes .quote:before {
+section.highlights .highlights-slide::before, .txt.quotes .quote:before {
   content: "";
   display: block;
   width: 55px;
@@ -3274,7 +3279,7 @@ section.highlights .highlights-slide::before, .quotes .quote:before {
   background-position: center;
 }
 /* If you want it "higher", use margin-top (still in-flow) */
-section.quotes .quotes-slider .highlights-slide::before, .quotes .quote:before{
+section.quotes .quotes-slider .highlights-slide::before, .txt.quotes .quote:before{
   margin-top: 20px; /* tweak this instead of top:-20px */
 }
 
@@ -3282,14 +3287,14 @@ section.quotes.bm-purple .highlights-slide::before,
 section.quotes.bm-pink   .highlights-slide::before,
 section.highlights.bm-purple .highlights-slide::before,
 section.highlights.bm-pink   .highlights-slide::before, 
-.quotes.bm-pink .quote:before, .quotes.bm-purple .quote:before {
+.txt.quotes.bm-pink .quote:before, .txt.quotes.bm-purple .quote:before {
   background-image: url("/wp-content/themes/bm/theme/img/quotes-gold.svg");
 }
 
-/* Beige → purple quote */
+/* Beige purple quote */
 section.quotes.bm-beige .highlights-slide::before,
 section.highlights.bm-beige .highlights-slide::before, 
-.quotes.bm-beige .quote:before, .quotes.bm-white .quote:before {
+.txt.quotes.bm-beige .quote:before, .txt.quotes.bm-white .quote:before {
   background-image: url("/wp-content/themes/bm/theme/img/quotes-purp.svg");
 }
 
@@ -3364,6 +3369,9 @@ section.cta-banner.slider .home-slider[data-theme="bm-beige"] .slick-arrow {
   height: 16px;
   background: url('/wp-content/themes/bm/theme/img/white-arrow.svg') no-repeat center;
   background-size: contain;
+}
+.txt.services .services-list li a:before{
+	top: 0.7em;
 }
 .services.bm-beige .services-list li a::before {
   content: '';
@@ -3834,7 +3842,6 @@ section.cta-banner.slider .home-slider[data-theme="bm-beige"] .slick-arrow {
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  border-radius: 0.75rem;
 }
 
 @media (min-width: 992px){
@@ -3864,6 +3871,14 @@ section.cta-banner.slider .home-slider[data-theme="bm-beige"] .slick-arrow {
   font-size: 1rem;
   font-weight: 500;
 }
-.hero__image-wrap img{
-  border-radius: 12px;
+.hero.img-banner {
+  background-image: var(--hero-bg);
+  background-position: center top;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  min-height: clamp(500px, 45vh, 600px);
+  display: flex;
+  align-items: center;
+  padding:0;
 }

@@ -2,7 +2,7 @@
       <div class="container">
         <div class="row">
           <div class="col-md-8 mx-auto">
-            <h2 style="color: #32214c;"><?php the_sub_field('heading'); ?></h2>
+            <h2><?php the_sub_field('heading'); ?></h2>
             <?php the_sub_field('text'); ?>
           </div>
 

@@ -21,10 +21,6 @@ if ( empty($header_choice) || $header_choice === 'none' ) {
   .home-slide p {
     color: #fff;
   }
-
-  /* Text colour helpers */
-  .hero--light, .hero--light h1, .hero--light p { color: #fff; }
-  .hero--dark,  .hero--dark  h1, .hero--dark  p { color: #111; }
 </style>
 
 <?php

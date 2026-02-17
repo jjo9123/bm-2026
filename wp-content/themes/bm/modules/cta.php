@@ -57,7 +57,7 @@ if ( is_singular( 'expertise' ) ) {
 
     <?php
     $i = 0;
-    $fallbacks = array('bm-pink','bm-purple','bm-beige');
+    $fallbacks = array('bm-pink','bm-purple');
     ?>
 
     <?php foreach ( $myposts as $mypost ): ?>
@@ -145,7 +145,6 @@ jQuery(function($){
         k=$c.attr("data-bg"),bg="";
     "bm-pink"===k&&(bg="#A93690"),
     "bm-purple"===k&&(bg="#340F53"),
-    "bm-beige"===k&&(bg="#F1EFE6"),
     bg&&($s[0].style.backgroundColor=bg),
     k&&$s.attr("data-theme",k);
   }

@@ -29,7 +29,7 @@
             <?php else: ?>
               <div class="col-12">
   
-                <h2 class="header"><?php the_sub_field('title'); ?></h2>
+                <h2 class="header"><?php echo esc_html(inc_sentence_case(get_sub_field('title'))); ?></h2>
   
                 <p class="regular"><?php the_sub_field('sub_title'); ?></p>
   

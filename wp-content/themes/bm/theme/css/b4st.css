@@ -782,7 +782,6 @@ section.txt .quote {
 }
 section.txt .quote p {
   font-size: 1.4rem;
-  font-style: italic;
 }
 section.txt.text-center ul {
   list-style-position: inside;
@@ -913,7 +912,6 @@ section.highlights .slider {
 }
 section.highlights p {
   font-size: 1.3rem;
-  font-style: italic;
   font-weight: 400;
   margin: auto;
   max-width: 500px;
@@ -959,14 +957,12 @@ section.quotes .quote {
 }
 section.quotes .quote p {
   font-size: 1.4rem;
-  font-style: italic;
 }
 section.quotes .slider {
   margin-top: 20px;
 }
 section.quotes p {
   font-size: 1.3rem;
-  font-style: italic;
   font-weight: 400;
   margin: auto;
   max-width: 700px;
@@ -2166,7 +2162,6 @@ a#cookie_action_close_header {
     font-weight: normal;
   }
   section.staff-details blockquote p, section.highlights.people-page blockquote p, blockquote p {
-    font-style: italic;
     font-size: 1.3rem;
   }
   section.staff-details blockquote footer, section.highlights.people-page blockquote footer, blockquote footer {

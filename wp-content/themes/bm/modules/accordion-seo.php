@@ -8,7 +8,7 @@
        </div>
       <?php if( have_rows('org_tabs') ): ?>
         <div class="left-tab col-12 col-lg-10 col-xl-6">
-          <h3 class="green">For Organisations</h3>
+          <h3 class="green">For organisations</h3>
 
           <div class="accordion" id="accordionNav">
             <?php $count = 0; ?>
@@ -61,7 +61,7 @@
     <div class="right-tab col-12 col-lg-10 col-xl-6">
       <div class="row">
         <div class="col-12">
-          <h3 class="green">For Individuals</h3>
+          <h3 class="green">For individuals</h3>
 
           <div class="accordion" id="accordionNav1">
             <?php while ( have_rows('ind_tabs') ) : the_row();

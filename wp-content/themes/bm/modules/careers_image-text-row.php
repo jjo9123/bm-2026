@@ -4,7 +4,7 @@
     <?php if ( get_sub_field('title') ) : ?>
       <div class="row">
         <div class="col-12 text-center">
-          <h2 class="green"><?php the_sub_field('title'); ?></h2>
+          <h2><?php the_sub_field('title'); ?></h2>
          
         </div>
       </div>

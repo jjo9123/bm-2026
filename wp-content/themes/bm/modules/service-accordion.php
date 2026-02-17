@@ -30,13 +30,12 @@ $ind_count = 0;
       <div class="col-12 col-lg-10 mx-auto">
         <?php if ( get_field('heading', 'option') ) : ?>
           <h2 class="text-center purple"><?php the_field('heading', 'option'); ?></h2>
-          <hr class="heading green">
         <?php endif; ?>
       </div>
 
       <?php if ( in_array('organisations', $tabs_to_show, true) && have_rows('org_tabs', 'option') ) : ?>
         <div class="left-tab col-12 col-lg-10 mx-auto">
-          <h3 class="green">For Organisations</h3>
+          <h3 class="green">For organisations</h3>
 
           <div class="accordion accordion-block" id="accordionNavOrg">
             <?php while ( have_rows('org_tabs', 'option') ) : the_row();
@@ -108,7 +107,7 @@ $ind_count = 0;
         <div class="right-tab col-12 col-lg-10 mx-auto">
           <div class="row">
             <div class="col-12">
-              <h3 class="green">Our Legal Services for Individuals</h3>
+              <h3 class="green">Our legal services for individuals</h3>
 
               <div class="accordion accordion-block" id="accordionNavInd">
                 <?php while ( have_rows('ind_tabs', 'option') ) : the_row();

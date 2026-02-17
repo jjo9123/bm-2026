@@ -612,8 +612,7 @@
             "relevanssi_exclude": 0,
             "choices": {
                 "bm-pink": "BM Pink",
-                "bm-purple": "BM Purple",
-                "bm-beige": "BM Beige"
+                "bm-purple": "BM Purple"
             },
             "default_value": "bm-pink",
             "return_format": "value",
@@ -643,5 +642,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1770046317
+    "modified": 1771327344
 }

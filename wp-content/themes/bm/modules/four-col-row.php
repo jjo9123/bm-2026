@@ -5,7 +5,7 @@
 
     <?php $intro = get_sub_field('intro'); ?>
     <?php if ( $intro ) : ?>
-      <div class="four-col-row__intro text-center mb-5">
+      <div class="four-col-row__intro mb-5">
         <?php echo wpautop( wp_kses_post( $intro ) ); ?>
       </div>
     <?php endif; ?>

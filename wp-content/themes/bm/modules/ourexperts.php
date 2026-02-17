@@ -41,9 +41,7 @@
             <a class="expert-card" href="<?php echo esc_url($link); ?>">
 
               <div class="expert-card__image-wrap position-relative">
-                <?php if ($label): ?>
-                  <span class="expert-card__label position-absolute"><?php echo esc_html($label); ?></span>
-                <?php endif; ?>
+                
 
                 <?php if ($img_url): ?>
                   <img
@@ -64,6 +62,7 @@
 
                 <?php if (!empty($details['job_title'])): ?>
                   <p class="expert-card__role"><?php echo esc_html($details['job_title']); ?></p>
+				  <p class="expert-card__role"><?php echo esc_html($label); ?></p>
                 <?php endif; ?>
 
                 

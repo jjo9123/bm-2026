@@ -124,25 +124,7 @@ $counsel = 0;
 
             <?php endif; ?><!-- close end if for checking if new blog layout is no -->
 
-          <div class="container">
-            <div class="row">
-              <div class="col-12">
-                <p><?php the_tags(); ?></p>
-                <div class="social-share">
-					<p>Share:</p>
-					  <p>
-                        <a href="https://www.facebook.com/sharer/sharer.php?u=<?php the_permalink(); ?>" target="_blank"> <img src="/wp-content/uploads/2020/09/fb-icon.png" alt="Facebook share"> </a>
-
-                        <a href="https://www.linkedin.com/shareArticle?mini=true&url=<?php the_permalink(); ?>&title=&summary=&source=" target="_blank"> <img src="/wp-content/uploads/2020/09/linkedin-icon.png" alt="LinkedIn share"> </a>
-
-                        <a href="https://twitter.com/intent/tweet?url=<?php the_permalink(); ?>" target="_blank"> <img src="/wp-content/themes/bm/theme/img/x-icon.png" alt="x share"> </a>
-
-                        <a href="mailto:?&subject=&body=<?php the_permalink(); ?>" target="_blank"> <img src="/wp-content/uploads/2020/09/mail-icon1.png" alt="e-mail share"> </a>
-					</p>
-				</div>
-              </div>
-            </div>
-          </div>
+          <?php get_template_part('modules/parts/single-post/social-share'); ?>
 
           <!--- AUTHOR INFO ---->
           <?php $featured_authors = get_field('author');

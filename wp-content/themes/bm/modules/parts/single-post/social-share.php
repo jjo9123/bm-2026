@@ -10,7 +10,7 @@ $title     = urlencode(get_the_title());
 <section class="social-share-section py-4">
   <div class="container">
     <div class="row">
-      <div class="col-12 col-md-10 mx-auto">
+      <div class="col-12 mx-auto">
         <div class="social-share d-flex align-items-center gap-3 flex-wrap">
 
           <span class="social-share__label">Share:</span>
@@ -38,7 +38,7 @@ $title     = urlencode(get_the_title());
 
           <a href="mailto:?subject=<?php echo $title; ?>&body=<?php echo $permalink; ?>"
              aria-label="Share by email">
-            <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/theme/img/email-purple-icon.svg" alt="Share via Email">
+            <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/theme/img/share-purple-icon.svg" alt="Share via Email">
           </a>
 
         </div>

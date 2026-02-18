@@ -1808,12 +1808,6 @@ body.single-post .author-bio .author-about {
 body.single-post .author-bio .author-name {
   font-weight: 600;
 }
-body.single-post .author-bio .author-name,
-body.single-post .author-bio .author-title {
-  color: #a186be;
-  margin-bottom: 0;
-  text-transform: uppercase;
-}
 body.single-post .author-bio a.btn {
   font-size: 0.9rem;
   margin-right: 20px;

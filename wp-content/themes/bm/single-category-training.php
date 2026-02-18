@@ -481,24 +481,8 @@
     <?php endif; ?><!----- END OF OLD LAYOUT IF STATEMENT ------>
 
         </article>
-                        <div class="container">
-                          <div class="row">
-                            <div class="col-md-10 mx-auto">
-                              <div class="social-share">
-                                  <p>Share:</p>
-                                    <p>
-                                      <a href="https://www.facebook.com/sharer/sharer.php?u=<?php the_permalink(); ?>" target="_blank"> <img src="/wp-content/uploads/2020/09/fb-icon.png" alt="Facebook share"> </a>
-                                      
-                                      <a href="https://www.linkedin.com/shareArticle?mini=true&url=<?php the_permalink(); ?>&title=&summary=&source=" target="_blank"> <img src="/wp-content/uploads/2020/09/linkedin-icon.png" alt="LinkedIn share"> </a>
-                                      
-                                      <a href="https://twitter.com/intent/tweet?url=<?php the_permalink(); ?>" target="_blank"> <img src="/wp-content/uploads/2020/09/twitter-icon.png" alt="Twitter share"> </a>
-                                      
-                                      <a href="mailto:info@example.com?&subject=&body=<?php the_permalink(); ?>" target="_blank"> <img src="/wp-content/uploads/2020/09/mail-icon1.png" alt="e-mail share"> </a>
-                                  </p>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
+        
+        <?php get_template_part('modules/parts/single-post/social-share'); ?>
 
 <?php
   // This continues in the single post loop

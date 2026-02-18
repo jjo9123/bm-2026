@@ -78,127 +78,13 @@
 
             <?php endif; ?>
             
-            <div class="container">
-            <div class="row">
-              <div class="col-12">
-                <p><?php the_tags(); ?></p>
-                <div class="social-share">
-					<p>Share:</p>
-					  <p>
-                        <a href="https://www.facebook.com/sharer/sharer.php?u=<?php the_permalink(); ?>" target="_blank"> <img src="/wp-content/uploads/2020/09/fb-icon.png" alt="Facebook share"> </a>
-                        
-                        <a href="https://www.linkedin.com/shareArticle?mini=true&url=<?php the_permalink(); ?>&title=&summary=&source=" target="_blank"> <img src="/wp-content/uploads/2020/09/linkedin-icon.png" alt="LinkedIn share"> </a>
-                        
-                        <a href="https://twitter.com/intent/tweet?url=<?php the_permalink(); ?>" target="_blank"> <img src="/wp-content/themes/bm/theme/img/x-icon.png" alt="x share"> </a>
-                        
-                        <a href="mailto:info@example.com?&subject=&body=<?php the_permalink(); ?>" target="_blank"> <img src="/wp-content/uploads/2020/09/mail-icon1.png" alt="e-mail share"> </a>
-					</p>
-				</div>
-              </div>
-            </div>
-          </div>
+            <?php get_template_part('modules/parts/single-post/social-share'); ?>
 
     <?php if( get_field('form_show') == 'yes' ): ?>
       <?php get_template_part('modules/blog-form'); ?>
     <?php endif; ?>
     
-    <!---- blog cta ------>
-  <?php if( get_field('add_blog_cta') == 'yes' ): ?>
-    <?php $cta_post_object = get_field('choose_cta');
-          if( $cta_post_object ):
-            $post = $cta_post_object;
-          ?>
-    <?php setup_postdata($post); ?>
-    <?php if( get_field('blog_or_page') == 'blog' ): ?>
-          <section class="cta-banner text-center" style="background: url('<?php echo the_field('background_image'); ?>') 50%/cover no-repeat; color: #FFFFFF;">
-            <div class="container">
-              <div class="row">
-                <!--- if you want to include image on cta --->
-                <?php if( get_field('add_image') == 'yes' ): ?>
-                  <div class="col-8 col-md-6 ml-auto">
-
-                    <?php $image = get_field('image');
-
-                      if( !empty($image) ): ?>
-
-                        <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" />
-
-                      <?php endif; ?>
-
-                  </div>
-
-                  <div class="col-12 w-image col-md-6" style="text-align: left;">
-                    <div>
-                      <h2 class="header"><?php the_field('title'); ?></h2>
-
-                      <p class="regular"><?php the_field('sub_title'); ?></p>
-
-                      <?php if( get_field('add_button') == 'yes' ): ?>
-
-                        <?php if( get_field('popup_or_pagelink') == 'pagelink' ): ?>
-
-                        <a href="<?php the_field('button_link'); ?>" class="btn btn-green header" tabindex="0"><?php the_field('button_text'); ?></a>
-
-                        <?php elseif( get_field('popup_or_pagelink') == 'external' ): ?>
-
-                          <a href="<?php the_field('external_link'); ?>" class="btn btn-green header" tabindex="0"><?php the_field('button_text'); ?></a>
-
-                        <?php elseif( get_field('popup_or_pagelink') == 'popup' ): ?>
-
-                            <a href="javascript:void(0)" class="btn btn-green header" data-toggle="modal" data-name="<?php echo $mypost->post_title; ?>" data-target="#btn-customcta-modal-<?php echo get_the_ID(); ?>145">
-                              <?php the_field('button_text'); ?>
-                            </a>
-
-                            <?php get_template_part('modules/modal-cta'); ?>
-
-                        <?php endif; ?>
-                      <?php endif; ?>
-                    </div>
-                  </div>
-
-                  <?php elseif( get_field('add_image') == 'no' ): ?>
-                   <!---- if you want a full width column with no image just text ---->
-
-                  <div class="col-12">
-
-                    <h2 class="header"><?php the_field('title'); ?></h2>
-
-                    <p class="regular"><?php the_field('sub_title'); ?></p>
-                    
-                    <?php if( get_field('add_button') == 'yes' ): ?>
-
-                        <?php if( get_field('popup_or_pagelink') == 'pagelink' ): ?>
-
-                        <a href="<?php the_field('button_link'); ?>" class="btn btn-green header" tabindex="0"><?php the_field('button_text'); ?></a>
-
-                        <?php elseif( get_field('popup_or_pagelink') == 'external' ): ?>
-
-                          <a href="<?php the_field('external_link'); ?>" class="btn btn-green header" tabindex="0"><?php the_field('button_text'); ?></a>
-
-                        <?php elseif( get_field('popup_or_pagelink') == 'popup' ): ?>
-
-                            <a href="javascript:void(0)" class="btn btn-green header" data-toggle="modal" data-name="<?php echo $mypost->post_title; ?>" data-target="#btn-customcta-modal-<?php echo get_the_ID(); ?>145">
-                              <?php the_field('button_text'); ?>
-                            </a>
-
-                            <?php get_template_part('modules/modal-cta'); ?>
-
-                        <?php endif; ?>
-                      <?php endif; ?>
-
-                  </div>
-
-
-              <?php endif; ?>
-              </div>
-
-            </div>
-          </section>
-        <?php wp_reset_postdata(); ?>
-      <?php endif; ?>
-    <?php endif; ?>
-  <?php endif; ?>
-  <!---- end of blog cta ------>
+    <?php get_template_part('modules/parts/single-post/blog-cta'); ?>
 
 
     <section class="blog recent" style="background: url('/wp-content/uploads/2019/01/recent_bg.jpg') 50%/cover no-repeat; color: #FFFFFF;">

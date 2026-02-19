@@ -2,13 +2,12 @@
     get_header();
     b4st_main_before();
 
-    $banner_section = get_field('banner_section', 'option');
 ?>
 
 <main id="main" class="blog press">
   <div id="content" role="main">
 
-    <section class="hero" style="background: url('<?php echo $banner_section['background_image']; ?>') 50%/cover no-repeat; color: #FFFFFF;">
+    <section class="hero bm-pink">
       <div class="container">
         <div class="row">
           <div class="col-12 col-md-7">
@@ -30,21 +29,17 @@
     </section>
 
 
-    <section class="blog" style="background: url('/wp-content/uploads/2019/01/recent_bg.jpg') 50%/cover no-repeat; color: #FFFFFF;">
-      <div class="container">
-        <div class="row">
-          <div class="col-12 blog-filter">
-            <div class="text-center">
-              <h2 class="dpurple">Search Press</h2>
-
-              <hr class="heading green">
-            </div>
-          </div>
-        </div>
+    <section class="blog">
+        <div class="container-fluid bm-pink">
 
         <div class="row search">
-          <div class="col-12 col-md-10 mx-auto">
-            <?php echo do_shortcode('[searchandfilter id="686"]'); ?>
+          <div class="col-12 col-md-10">
+            <div class="text-center pb-4">
+              <h2>Search Press</h2>
+            </div>
+            <div class="blog-filter__form">
+              <?php echo do_shortcode('[searchandfilter id="686"]'); ?>
+            </div>
           </div>
         </div>
       </div>

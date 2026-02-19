@@ -157,6 +157,8 @@ add_action('admin_init', 'additional_admin_color_schemes');
 add_action( 'after_setup_theme', 'wpdocs_theme_setup' );
 function wpdocs_theme_setup() {
   add_image_size( 'recent_fimg', 350, 175, true );
+  add_image_size('blog-hero', 1140, 760, true);
+
 }
 
 
@@ -771,3 +773,96 @@ function inc_sentence_case($text) {
     $text = mb_strtolower($text);
     return mb_strtoupper(mb_substr($text, 0, 1)) . mb_substr($text, 1);
 }
+/**
+ * Image bank: ACF Options Gallery field name "blog_image_bank"
+ * Lock meta: _bm_bank_image_id
+ * Applies to: post + press
+ * Excludes (posts only): events, pastevents
+ */
+
+function bm_get_image_bank_ids(): array {
+  static $ids = null;
+  if ($ids !== null) return $ids;
+
+  $cached = get_transient('bm_blog_image_bank_ids');
+  if (is_array($cached)) {
+    $ids = $cached;
+    return $ids;
+  }
+
+  if (!function_exists('get_field')) {
+    $ids = [];
+    return $ids;
+  }
+
+  $bank = get_field('blog_image_bank', 'option');
+  if (empty($bank) || !is_array($bank)) {
+    $ids = [];
+    set_transient('bm_blog_image_bank_ids', $ids, HOUR_IN_SECONDS);
+    return $ids;
+  }
+
+  $tmp = [];
+  foreach ($bank as $item) {
+    if (is_numeric($item)) $tmp[] = (int)$item;
+    elseif (is_array($item) && !empty($item['ID'])) $tmp[] = (int)$item['ID'];
+  }
+
+  $ids = array_values(array_unique(array_filter($tmp)));
+  set_transient('bm_blog_image_bank_ids', $ids, 12 * HOUR_IN_SECONDS);
+
+  return $ids;
+}
+
+add_action('acf/save_post', function ($post_id) {
+  if ($post_id === 'options') {
+    delete_transient('bm_blog_image_bank_ids');
+  }
+}, 20);
+
+function bm_post_has_excluded_category(int $post_id, array $excluded = ['events', 'pastevents']): bool {
+  foreach ($excluded as $slug) {
+    if (has_category($slug, $post_id)) return true;
+  }
+  return false;
+}
+
+/**
+ * Get locked bank image for this post, or pick+lock one.
+ */
+function bm_get_locked_bank_image_id(int $post_id): int {
+  $locked = (int) get_post_meta($post_id, '_bm_bank_image_id', true);
+  if ($locked) return $locked;
+
+  $ids = bm_get_image_bank_ids();
+  if (empty($ids)) return 0;
+
+  $picked = (int) $ids[$post_id % count($ids)];
+  update_post_meta($post_id, '_bm_bank_image_id', $picked);
+
+  return $picked;
+}
+
+add_action('save_post', function ($post_id, $post, $update) {
+
+  if (wp_is_post_revision($post_id) || wp_is_post_autosave($post_id)) return;
+  if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) return;
+  if (!$post || empty($post->post_type) || empty($post->post_status)) return;
+
+  if ($post->post_status !== 'publish') return;
+
+  // Apply to posts + press
+  if (!in_array($post->post_type, ['post', 'press'], true)) return;
+
+  // Exclude events/pastevents only for posts
+  if ($post->post_type === 'post' && bm_post_has_excluded_category((int)$post_id)) return;
+
+  // Manual override
+  if (has_post_thumbnail($post_id)) return;
+
+  $thumb_id = bm_get_locked_bank_image_id((int)$post_id);
+  if (!$thumb_id) return;
+
+  set_post_thumbnail($post_id, $thumb_id);
+
+}, 20, 3);

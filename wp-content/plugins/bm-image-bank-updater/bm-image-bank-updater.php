@@ -2,7 +2,7 @@
 /**
  * Plugin Name: BM Image Bank Updater (Dry Run + Batch, Split Post Types)
  * Description: Bulk-assign featured images from ACF image bank to Posts or Press, with dry-run support and locking.
- * Version: 1.1
+ * Version: 1.2
  */
 
 if (!defined('ABSPATH')) exit;
@@ -81,21 +81,28 @@ class BM_Image_Bank_Updater_Split {
     return (int) $q->found_posts;
   }
 
-  private function pick_and_lock(int $post_id, array $bank_ids, bool $dry_run): int {
-    $locked = (int) get_post_meta($post_id, self::META_LOCK, true);
-    if ($locked) return $locked;
+  /**
+   * Deterministic “random” pick per post ID.
+   * Used for save_post style behaviour (not list-order aware).
+   */
+  private function pick_hashed(int $post_id, array $bank_ids): int {
+    $count = count($bank_ids);
+    if ($count === 0) return 0;
 
-    // Hash-based index to avoid visible modulo patterns in date-sorted lists
-    $index  = abs(crc32('bm-blog-bank-' . $post_id)) % count($bank_ids);
-    $picked = (int) $bank_ids[$index];
-
-    if (!$dry_run) {
-      update_post_meta($post_id, self::META_LOCK, $picked);
-    }
-
-    return $picked;
+    $index = abs(crc32('bm-blog-bank-' . $post_id)) % $count;
+    return (int) $bank_ids[$index];
   }
 
+  /**
+   * List-order aware pick: cycles through bank in the same order as the bulk query.
+   * This gives best distribution on date-sorted index pages.
+   */
+  private function pick_cycled(int $position, array $bank_ids): int {
+    $count = count($bank_ids);
+    if ($count === 0) return 0;
+
+    return (int) $bank_ids[$position % $count];
+  }
 
   public function page() {
     if (!current_user_can('manage_options')) return;
@@ -265,6 +272,7 @@ class BM_Image_Bank_Updater_Split {
         <strong>Notes:</strong><br>
         - Posts exclude categories <code>events</code> and <code>pastevents</code>.<br>
         - Press has no exclusions (runs on all press).<br>
+        - Bulk assignment runs newest → oldest (date DESC) to match your index order and distribute images evenly.<br>
         - When you’re done, deactivate and delete this plugin.
       </p>
     </div>
@@ -295,14 +303,15 @@ class BM_Image_Bank_Updater_Split {
 
     $offset = $this->get_saved_offset($post_type);
 
+    // IMPORTANT: order by DATE DESC to match the index page order, so images cycle nicely.
     $args = [
       'post_type'      => $post_type,
       'post_status'    => 'publish',
       'posts_per_page' => $batch,
       'offset'         => $offset,
       'fields'         => 'ids',
-      'orderby'        => 'ID',
-      'order'          => 'ASC',
+      'orderby'        => 'date',
+      'order'          => 'DESC',
     ];
 
     if ($post_type === 'post') {
@@ -320,7 +329,9 @@ class BM_Image_Bank_Updater_Split {
     $skipped_count = 0;
     $samples = [];
 
-    foreach ($ids as $post_id) {
+    $bank_count = count($bank_ids);
+
+    foreach ($ids as $i => $post_id) {
       $post_id = (int) $post_id;
 
       $old_thumb = (int) get_post_thumbnail_id($post_id);
@@ -331,9 +342,14 @@ class BM_Image_Bank_Updater_Split {
         continue;
       }
 
-      $new_thumb = $lock
-        ? $this->pick_and_lock($post_id, $bank_ids, $dry_run)
-        : (int) $bank_ids[ abs(crc32('bm-blog-bank-' . $post_id)) % count($bank_ids) ];
+      // Position-aware cycling gives best visible distribution on date-sorted listings
+      $position = $offset + (int)$i;
+      $new_thumb = $this->pick_cycled($position, $bank_ids);
+
+      // If you ever run without lock, fall back to hashed per-post (still decent)
+      if (!$new_thumb) {
+        $new_thumb = $this->pick_hashed($post_id, $bank_ids);
+      }
 
       if ($old_thumb === $new_thumb) {
         $skipped_count++;
@@ -352,7 +368,6 @@ class BM_Image_Bank_Updater_Split {
       }
 
       if ($lock) {
-        // if lock is enabled and we picked a new thumb, ensure the meta matches
         update_post_meta($post_id, self::META_LOCK, $new_thumb);
       }
 

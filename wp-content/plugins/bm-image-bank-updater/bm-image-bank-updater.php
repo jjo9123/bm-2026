@@ -85,7 +85,9 @@ class BM_Image_Bank_Updater_Split {
     $locked = (int) get_post_meta($post_id, self::META_LOCK, true);
     if ($locked) return $locked;
 
-    $picked = (int) $bank_ids[$post_id % count($bank_ids)];
+    // Hash-based index to avoid visible modulo patterns in date-sorted lists
+    $index  = abs(crc32('bm-blog-bank-' . $post_id)) % count($bank_ids);
+    $picked = (int) $bank_ids[$index];
 
     if (!$dry_run) {
       update_post_meta($post_id, self::META_LOCK, $picked);
@@ -93,6 +95,7 @@ class BM_Image_Bank_Updater_Split {
 
     return $picked;
   }
+
 
   public function page() {
     if (!current_user_can('manage_options')) return;
@@ -330,7 +333,7 @@ class BM_Image_Bank_Updater_Split {
 
       $new_thumb = $lock
         ? $this->pick_and_lock($post_id, $bank_ids, $dry_run)
-        : (int) $bank_ids[$post_id % count($bank_ids)];
+        : (int) $bank_ids[ abs(crc32('bm-blog-bank-' . $post_id)) % count($bank_ids) ];
 
       if ($old_thumb === $new_thumb) {
         $skipped_count++;

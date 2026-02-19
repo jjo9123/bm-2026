@@ -1,5 +1,5 @@
 <?php
-$thumb      = get_the_post_thumbnail_url(get_the_ID(), 'large');
+$thumb      = get_the_post_thumbnail_url(get_the_ID(), 'blog-hero');
 
 $event_date = get_field('event_date2');      // if you still want this line
 $date_time  = get_field('date_time');
@@ -56,13 +56,16 @@ $btn_text = get_field('event_button_text');
       <div class="col-12 col-lg-6">
         <?php if ($thumb) : ?>
           <div class="hero__image-wrap">
-            <img
-              src="<?php echo esc_url($thumb); ?>"
-              alt=""
-              class="img-fluid w-100"
-              loading="eager"
-              decoding="async"
-            >
+            <?php echo wp_get_attachment_image(
+                get_post_thumbnail_id(),
+                'blog-hero',
+                false,
+                [
+                    'class' => 'img-fluid w-100',
+                    'loading' => 'eager',
+                    'decoding' => 'async'
+                ]
+            ); ?>
           </div>
         <?php endif; ?>
       </div>

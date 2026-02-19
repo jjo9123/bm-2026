@@ -97,7 +97,7 @@
 # Except for plugins containing custom code managed by Generate UK:
 
 !/wp-content/plugins/site-data-updates
-!/wp-content/plugins/MY_PLUGIN
+!/wp-content/plugins/bm-image-bank-updater
 
 #--------------------------------------
 # Language files:

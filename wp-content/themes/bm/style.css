@@ -3886,3 +3886,9 @@ section.cta-banner.slider .home-slider[data-theme="bm-beige"] .slick-arrow {
   align-items: center;
   padding:0;
 }
+.hero.img-banner.hero--align-top {
+    align-items: flex-start;
+}
+.hero.img-banner.hero--align-bottom {
+    align-items: flex-end;
+}

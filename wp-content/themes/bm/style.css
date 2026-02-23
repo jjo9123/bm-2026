@@ -2925,6 +2925,12 @@ p.lp_form-txt {
 }
 /* nav search */
 .nav-search { position: relative; display: flex; align-items: center; }
+/* Hide navbar search on mobile */
+@media (max-width: 767.98px) {
+  .nav-search {
+    display: none !important;
+  }
+}
 
 .nav-search__toggle{
   background: transparent;
@@ -3882,13 +3888,76 @@ section.cta-banner.slider .home-slider[data-theme="bm-beige"] .slick-arrow {
   background-repeat: no-repeat;
 
   min-height: clamp(500px, 45vh, 600px);
-  display: flex;
-  align-items: center;
+  display: block;
   padding:0;
+}
+.hero.img-banner > .container {
+  height: 100%;
 }
 .hero.img-banner.hero--align-top {
     align-items: flex-start;
 }
 .hero.img-banner.hero--align-bottom {
     align-items: flex-end;
+}
+.hero.img-banner .container,
+.hero.img-banner .row {
+    min-height: inherit; /* inherit the hero's min-height */
+}
+.hero.img-banner .hero__text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: inherit;
+}
+.hero.img-banner .hero__image-col {
+    display: flex;
+    min-height: inherit;
+    justify-content: flex-end; /* keeps right alignment visually */
+}
+
+/* vertical alignment options */
+.hero.img-banner .hero__image-col.is-v-center { align-items: center; }
+.hero.img-banner .hero__image-col.is-v-top    { align-items: flex-start; }
+.hero.img-banner .hero__image-col.is-v-bottom { align-items: flex-end; }
+@media (min-width: 768px) {
+  .hero__side-image {
+    opacity: 0;
+    transform: translateY(18px);
+    animation:
+      heroReveal 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards,
+      heroFloat 10s ease-in-out 1s infinite;
+    will-change: transform, opacity; /* OK for one hero asset */
+  }
+
+  @keyframes heroReveal {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes heroFloat {
+    0%   { transform: translateY(0); }
+    50%  { transform: translateY(-5px); }
+    100% { transform: translateY(0); }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__side-image {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    will-change: auto;
+  }
+}
+@media (max-width: 767.98px) {
+  .hero.img-banner { 
+    min-height: unset;
+  }
+  .hero__side-image {
+    max-width: 400px;
+    margin: auto;
+  }
+  .hero.img-banner .hero__text {
+    padding-top: 35px;
+  }
 }

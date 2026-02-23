@@ -9,29 +9,22 @@ $title       = $banner['title'] ?? '';
 $sub         = $banner['sub_title'] ?? '';
 $text_colour = $banner['text_colour'] ?? 'light'; // light | dark
 
-$side_img = $banner['ft_image'] ?? null;
-$img_align = $banner['ft_image_alignment'] ?? 'center';
+$side_img   = $banner['ft_image'] ?? null;
+$img_align  = $banner['ft_image_alignment'] ?? 'center';
 
-// Map alignment choice to Bootstrap utility classes
-// Keep row align-items-center so left text stays centred.
-// align image col
-$img_col_align_class = match ($img_align) {
-  'top'    => 'align-self-md-start',
-  'bottom' => 'align-self-md-end',
-  default  => '',
-};
-// align section
-$section_align_class = match ($img_align) {
-  'top'    => 'hero--align-top',
-  'bottom' => 'hero--align-bottom',
-  default  => '',
-};
-
+// Horizontal alignment (desktop)
 $img_col_text_class = match ($img_align) {
   'left'   => 'text-md-start',
   'center' => 'text-md-center',
   'right'  => 'text-md-end',
   default  => 'text-md-end',
+};
+
+// Vertical alignment for image column (desktop)
+$img_v_class = match ($img_align) {
+  'top'    => 'is-v-top',
+  'bottom' => 'is-v-bottom',
+  default  => 'is-v-center', // includes 'center' and any horizontal-only values
 };
 
 // Normalise background if ACF returns an array
@@ -43,7 +36,7 @@ $has_text  = ($title || $sub);
 $has_image = (is_array($side_img) && !empty($side_img['url']));
 ?>
 <section
-  class="hero img-banner hero--<?php echo esc_attr($text_colour); ?> <?php echo esc_attr($section_align_class); ?>"
+  class="hero img-banner hero--<?php echo esc_attr($text_colour); ?>"
   <?php if ( $bg ) : ?>
     style="--hero-bg: url('<?php echo esc_url($bg); ?>');"
   <?php else : ?>
@@ -52,10 +45,10 @@ $has_image = (is_array($side_img) && !empty($side_img['url']));
 >
 
   <div class="container">
-    <div class="row align-items-center">
+    <div class="row hero__row">
 
       <!-- Text column -->
-      <div class="col-12 <?php echo $has_image ? 'col-md-7' : 'col-md-7'; ?>">
+      <div class="col-12 <?php echo $has_image ? 'col-md-7' : 'col-md-12'; ?> hero__text">
         <?php if ( ! $has_text ) : ?>
           <style>
             section.hero { padding: 145px 0; }
@@ -75,7 +68,7 @@ $has_image = (is_array($side_img) && !empty($side_img['url']));
 
       <!-- Right image column (only if set) -->
       <?php if ( $has_image ) : ?>
-        <div class="col-12 col-md-5 mt-4 mt-md-0 text-center <?php echo esc_attr(trim($img_col_text_class . ' ' . $img_col_align_class)); ?>">
+        <div class="col-12 col-md-5 mt-4 mt-md-0 hero__image-col <?php echo esc_attr($img_v_class); ?> text-center <?php echo esc_attr($img_col_text_class); ?>">
           <img
             class="img-fluid hero__side-image"
             src="<?php echo esc_url($side_img['url']); ?>"

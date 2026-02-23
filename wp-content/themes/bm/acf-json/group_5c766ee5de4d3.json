@@ -445,6 +445,44 @@
                     "preview_size": "medium"
                 },
                 {
+                    "key": "field_699c33635725f",
+                    "label": "Featured image alignment",
+                    "name": "ft_image_alignment",
+                    "aria-label": "",
+                    "type": "select",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_6994591d67e39",
+                                "operator": "!=empty"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "relevanssi_exclude": 0,
+                    "choices": {
+                        "center": "Centre",
+                        "top": "Top",
+                        "bottom": "Bottom"
+                    },
+                    "default_value": "center",
+                    "return_format": "value",
+                    "multiple": 0,
+                    "allow_null": 0,
+                    "allow_in_bindings": 0,
+                    "ui": 0,
+                    "ajax": 0,
+                    "placeholder": "",
+                    "create_options": 0,
+                    "save_options": 0
+                },
+                {
                     "key": "field_5c80e3bd95405",
                     "label": "Background Video",
                     "name": "bg_video",
@@ -823,5 +861,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1771329860
+    "modified": 1771844514
 }

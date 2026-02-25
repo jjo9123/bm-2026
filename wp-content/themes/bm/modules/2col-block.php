@@ -3,7 +3,7 @@
     <div class="row">
         <div class="col-12 col-lg-12 mx-auto">
            <?php if( get_sub_field('heading') ): ?>
-                <h2 class="purple" style="margin-bottom: 20px;">
+                <h2 style="margin-bottom: 20px;">
                   <?php the_sub_field('heading'); ?>
                 </h2>
             <?php endif; ?>

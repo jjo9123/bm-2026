@@ -1,4 +1,4 @@
-<section class="cards infographic" style="background: url('/wp-content/uploads/2019/03/infographic-bg_1440x900_1360x850.jpg') 50%/cover no-repeat; color: #FFFFFF;">
+<section class="cards infographic bm-beige">
 	<div class="container-fluid practice">
 		<div class="container">
 			<div class="row">
@@ -17,7 +17,7 @@
 			if( have_rows('infographic_box') ): ?>
 				<div class="row infographic-row">
 					<?php while ( have_rows('infographic_box') ) : the_row(); ?>
-						<div class="col-12 col-sm-6 col-md-5 mx-auto text-center recent-item">
+						<div class="col-12 col-md-2 mx-auto recent-item">
 							<div class="infographic-box">
 								<div class="title-box">
 									<?php $box_icon = get_sub_field('box_icon');
@@ -26,7 +26,7 @@
 									<?php endif; ?>
 
 									<div class="info-content">
-										<h5 class="purple">
+										<h5>
 											<?php the_sub_field('box_title'); ?>
 										</h5>
 
@@ -34,7 +34,7 @@
 											<?php while ( have_rows('box_list') ) : the_row(); ?>
 
 												<p>
-													<span class="green">
+													<span>
 														<?php the_sub_field('green_title'); ?>
 													</span>
 
@@ -47,7 +47,7 @@
 							</div>
 						</div>
 
-						<span class="divider"></span>
+						
 					<?php endwhile; ?>
 				</div>
 			<?php endif; ?>

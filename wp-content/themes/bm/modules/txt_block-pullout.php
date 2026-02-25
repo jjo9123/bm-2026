@@ -1,9 +1,9 @@
-<section class="txt grey" style="<?php if( get_sub_field('bg_choice')=='img' ): ?>background: url('<?php the_sub_field('bg_image'); ?>') 50% / cover no-repeat;<?php endif; ?> <?php if( get_sub_field('txt_col')=='light'): ?>color: #FFFFFF;<?php endif; ?>">
+<section class="txt bm-beige">
   <div class="container">
     <div class="row">
       <div class="col-12 col-lg-10 col-xl-12 mx-auto">
         <?php if( the_sub_field('heading') ): ?>
-          <h2 style="text-align: center;">
+          <h2>
             <?php the_sub_field('heading'); ?>
           </h2>
         <?php endif; ?>

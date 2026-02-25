@@ -907,7 +907,9 @@ section.hero .slick-dots, section.cta-banner .slick-dots {
 section.hero .slick-dotted.slick-slider, section.cta-banner .slick-dotted.slick-slider {
   margin-bottom: 0;
 }
-
+.img-txt-cards.bm-pink .card-content {
+  color: var(--bm-purple);
+}
 section.txt, section.quote-section {
   padding: 40px 0 50px;
 }
@@ -921,9 +923,7 @@ section.txt .btn-row {
     display: flex;
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+    justify-content: flex-start;
 
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
@@ -1637,11 +1637,15 @@ section.cards h6 {
   font-size: 1.4rem;
 }
 section.cards .excerpt {
-  background-color: #FFFFFF;
+  /*background-color: #FFFFFF;*/
   color: #000000;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+section.txt li > a {
+  color: var(--bm-purple);
+  text-decoration: underline;
 }
 section.cards .excerpt a.btn {
   /*margin: 0 auto;*/

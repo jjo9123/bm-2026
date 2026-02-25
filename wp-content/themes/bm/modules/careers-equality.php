@@ -1,4 +1,4 @@
-<section class="clients equality text-center" style="background: url('<?php the_sub_field('bgimg'); ?>') 50%/cover no-repeat;">
+<section class="clients equality bm-beige">
   <div class="container">
     <?php
       if( have_rows('section') ): ?>

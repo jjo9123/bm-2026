@@ -1,4 +1,4 @@
-<section class="txt <?php if( get_sub_field('background_colour') == 'grey'): ?> grey<?php endif; ?>">
+<section class="txt <?php if( get_sub_field('background_colour') == 'grey'): ?> bm-beige<?php endif; ?>">
   <div class="container">
     <div class="row">
       <?php if( get_sub_field('heading_show') == 'yes'): ?>

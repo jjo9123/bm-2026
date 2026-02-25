@@ -2,7 +2,7 @@
 	<div class="container supporting-documents">
 		<div class="row">
 			<?php if( get_sub_field('txt') ): ?>
-				<div class="col-lg-8 mx-auto text-center">
+				<div class="col-lg-10">
 					<p><?php the_sub_field('txt'); ?></p>
 				</div>
 			<?php endif; ?>
@@ -14,9 +14,9 @@
 					if( have_rows('files') ):
 						while ( have_rows('files') ) : the_row(); ?>
 							<div class="col-12 col-sm-6 col-md-4 col-lg-3 text-center recent-item">
-								<div class="img title-box" style="background: url('/wp-content/uploads/2019/01/download-pdf.jpg') 50%/cover no-repeat; color: #FFFFFF;"></div>
+								<!--<div class="img title-box" style="background: url('/wp-content/uploads/2019/01/download-pdf.jpg') 50%/cover no-repeat; color: #FFFFFF;"></div>-->
 
-								<div class="excerpt">
+								<div class="excerpt bm-pink">
 									<h6 style="color: #fff;"><?php the_sub_field('name'); ?></h6>
 
 									<a href="<?php the_sub_field('file'); ?>" target="_blank" class="btn btn-dpurple">Download</a>
@@ -32,17 +32,17 @@
 					if( have_rows('files') ):
 						while ( have_rows('files') ) : the_row(); ?>
 							<div class="col-12 col-sm-6 col-md-4 col-lg-3 text-center recent-item">
-								<div class="title" style="background-color: #32214c; color: #FFFFFF; text-transform: uppercase;">
+								<div class="title">
 								  <p>Case Study</p>
 								</div>
 
-								<div class="img title-box" style="background: url('/wp-content/uploads/Careers/careers_docs-cs.jpg') 50%/cover no-repeat; color: #FFFFFF;"></div>
+								<!--<div class="img title-box" style="background: url('/wp-content/uploads/Careers/careers_docs-cs.jpg') 50%/cover no-repeat; color: #FFFFFF;"></div>-->
 
-								<div class="excerpt" style="background-color: #32214c;">
+								<div class="excerpt bm-pink">
 									<h6 style="color: #fff;"><?php the_sub_field('name'); ?></h6>
 								</div>
 
-								<div class="excerpt" style="background-color: #FFFFFF;">
+								<div class="excerpt bm-pink">
 									<p><?php the_sub_field('txt'); ?></p>
 
 									<a href="<?php the_sub_field('file'); ?>" target="_blank" class="btn btn-dpurple">Read More</a>

@@ -1,8 +1,8 @@
-<section class="img-txt-row" style="background-color: #E3E3E3;">
+<section class="img-txt-row bm-beige">
   <div class="container">
     <div class="row">
       <div class="col-12">
-        <h2 class="text-center"><?php the_sub_field('title'); ?></h2>
+        <h2><?php the_sub_field('title'); ?></h2>
 
       </div>
     </div>

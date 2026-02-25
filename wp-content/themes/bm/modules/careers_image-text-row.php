@@ -1,9 +1,9 @@
-<section class="img-txt-cards" style="background-color:#E3E3E3;">
+<section class="img-txt-cards bm-pink">
   <div class="container">
 
     <?php if ( get_sub_field('title') ) : ?>
       <div class="row">
-        <div class="col-12 text-center">
+        <div class="col-12">
           <h2><?php the_sub_field('title'); ?></h2>
          
         </div>

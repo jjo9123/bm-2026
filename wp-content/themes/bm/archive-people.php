@@ -16,7 +16,7 @@
       </div>
     </section>
 
-    <section class="staff-details people-listing" style="background: url('/wp-content/uploads/2019/03/people_bg.jpg') 50%/cover no-repeat; color: #FFFFFF;">
+    <section class="staff-details people-listing">
 
         <div class="container">
           <div class="row">

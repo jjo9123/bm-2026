@@ -1,4 +1,4 @@
-<section class="careers-info pt-5 pb-4" style="background: url('/wp-content/uploads/Careers/careers_learning-infobg.jpg') 50%/cover no-repeat;">
+<section class="careers-info pt-5 pb-4 bm-beige">
 	<div class="container">
 		<div class="row no-gutters">
 			<div class="col text-center">

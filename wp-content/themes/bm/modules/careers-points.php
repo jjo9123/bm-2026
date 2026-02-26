@@ -1,6 +1,6 @@
-<section class="clients" style="background: url('<?php the_sub_field('bgimg'); ?>') 50%/cover no-repeat;">
+<section class="clients bm-beige">
   <div class="container">
-    <div class="col-sm-12 col-md-10 col-lg-8 mx-auto">
+    <div class="col-sm-12 col-md-12 col-lg-8">
       <ul class="row">
           <?php
           if( have_rows('points') ):

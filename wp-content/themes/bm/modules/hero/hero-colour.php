@@ -19,7 +19,7 @@ if ( ! in_array($bg_class, $allowed, true) ) {
 $has_text = ($title || $sub);
 ?>
 
-<section class="hero hero--<?php echo esc_attr($text_colour); ?> <?php echo esc_attr($bg_class); ?> text-center">
+<section class="hero hero--<?php echo esc_attr($text_colour); ?> <?php echo esc_attr($bg_class); ?>">
   <div class="container">
     <div class="row">
       <div class="col-12 col-md-7">

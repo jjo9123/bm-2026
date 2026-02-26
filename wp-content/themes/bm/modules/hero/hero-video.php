@@ -12,7 +12,7 @@ $bg_video    = $banner['bg_video'] ?? '';
 $poster      = $banner['background_image'] ?? '';
 $video_embed = $banner['video_embed'] ?? '';
 ?>
-<section class="hero hero--<?php echo esc_attr($text_colour); ?> text-center" style="padding: 0;">
+<section class="hero hero--<?php echo esc_attr($text_colour); ?>" style="padding: 0;">
   <div class="video-container">
     <div class="filter"></div>
 

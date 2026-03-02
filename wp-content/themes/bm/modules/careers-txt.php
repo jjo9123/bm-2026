@@ -15,7 +15,7 @@
         $link = get_sub_field('btn_link'); ?>
           <div class="row">
             <div class="col-12">
-              <a href="<?php echo the_sub_field('btn_link'); ?>" class="btn btn-green header">
+              <a href="<?php echo the_sub_field('btn_link'); ?>" class="btn btn-green">
                 <?php echo the_sub_field('btn_txt'); ?>
               </a>
             </div>

@@ -1657,6 +1657,29 @@ section.cards .excerpt a.btn {
   /*margin: 0 auto;*/
   padding: 1px 20px;
 }
+section.txt ul.related-expertise a {
+  position: relative;
+  padding-left: 1.5rem;
+  display: inline-block;
+  padding-bottom: 15px;
+  text-decoration: none!important;
+}
+section.txt ul.related-expertise a::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.35em;
+  width: 16px;
+  height: 16px;
+  background: url('/wp-content/themes/bm/theme/img/purple-arrow.svg') no-repeat center;
+  background-size: contain;
+}
+section.txt ul.related-expertise a::before {
+  transition: transform 0.2s ease;
+}
+section.txt ul.related-expertise a:hover::before {
+  transform: translateX(3px);
+}
 ul.related-expertise {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -3510,6 +3533,7 @@ section.cta-banner.slider .home-slider[data-theme="bm-beige"] .slick-arrow {
   display: inline-block;
   color: var(--bm-purple);
   font-size: 1.1rem;
+  text-decoration: none!important;
 }
 .pricing-list .pricing-link::before {
   content: '';

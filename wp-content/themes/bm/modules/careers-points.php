@@ -1,11 +1,11 @@
 <section class="clients bm-beige">
   <div class="container">
-    <div class="col-sm-12 col-md-12 col-lg-8">
+    <div class="col-sm-12 col-md-12">
       <ul class="row">
           <?php
           if( have_rows('points') ):
             while ( have_rows('points') ) : the_row(); ?>
-              <li class="col-sm-6" style="background-image: url('<?php the_sub_field('icon'); ?>');"><?php the_sub_field('txt'); ?></li>
+              <li class="col-sm-4" style="background-image: url('<?php the_sub_field('icon'); ?>');"><?php the_sub_field('txt'); ?></li>
             <?php endwhile;
           endif;
         ?>
@@ -20,7 +20,7 @@
   background-position: left center;
   background-size: 20px;
   margin: 0;
-  padding: 5px 0 5px 35px;
+  padding: 5px 15px 5px 35px;
   list-style: none;
 }
 </style>

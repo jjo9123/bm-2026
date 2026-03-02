@@ -83,7 +83,7 @@
 		<?php if ( get_sub_field('btn_show') == 'yes' ): ?>
 			<?php if ( get_sub_field('btn_type') == 'link' ): ?>
 				<div class="row justify-content-center">
-					<a href="<?php the_sub_field('btn_link'); ?>" class="btn btn-green header">
+					<a href="<?php the_sub_field('btn_link'); ?>" class="btn btn-green">
 						<?php the_sub_field('btn_txt'); ?>
 					</a>
 				</div>
@@ -95,7 +95,7 @@
 					<?php setup_postdata( $post ); ?>
 
 					<div class="row justify-content-center">
-						<a href="<?php the_sub_field('btn_link'); ?>" class="btn btn-dpurple header" data-toggle="modal" data-target="#btn-cta-modal-<?php echo get_the_ID(); ?>">
+						<a href="<?php the_sub_field('btn_link'); ?>" class="btn btn-dpurple" data-toggle="modal" data-target="#btn-cta-modal-<?php echo get_the_ID(); ?>">
 							<?php the_sub_field('btn_txt'); ?>
 						</a>
 					</div>

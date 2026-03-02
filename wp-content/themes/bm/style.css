@@ -1617,6 +1617,10 @@ section.cards .img.title-box,
 section.cards .excerpt {
   padding: 20px 30px;
 }
+section.cards .img.title-box {
+  justify-content: center;
+  text-align: center;
+}
 section.cards .experts .excerpt {
   padding: 20px 15px;
 }
@@ -1627,7 +1631,9 @@ section.cards .practice .header {
   background-color: #a395b7;
   color: #FFFFFF;
 }
-
+.blog.post-type-archive-people .cards.experts-cards {
+  background-color: var(--bm-text-light);
+}
 section.cards h6 {
   font-family: var(--font-heading);
   font-style: normal;
@@ -3278,9 +3284,10 @@ ul.sitemap-nav.privacy li > a{
 /* Slide layout: let the quote icon take up real space */
 section.quotes .highlights-slide,
 section.highlights .highlights-slide, .quotes .quote {
-  display: flex;
+  /*display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: center;*/
+  margin: 20px auto 12px;
 }
 
 /* Quote SVG (IN FLOW — no absolute positioning) */
@@ -3290,7 +3297,7 @@ section.highlights .highlights-slide::before, .txt.quotes .quote:before {
   display: block;
   width: 55px;
   height: 55px;
-  margin: 20px 0 12px;
+  margin: 20px auto 12px;
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
@@ -3375,6 +3382,7 @@ section.cta-banner.slider .home-slider[data-theme="bm-beige"] .slick-arrow {
   padding-left: 1.5rem;
   display: inline-block;
   padding-bottom: 15px;
+  text-decoration: none!important;
 }
 
 .services.bm-purple .services-list li a::before, .services.bm-dark-grey .services-list li a::before {

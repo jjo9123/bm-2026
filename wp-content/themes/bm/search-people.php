@@ -6,7 +6,7 @@
 <main id="main" class="blog post-type-archive-people">
   <div id="content" role="main">
 
-    <section class="hero" style="background: url('/wp-content/uploads/home/home_hero.jpg') 50%/cover no-repeat; color: #FFFFFF;">
+    <section class="hero bm-pink">
       <div class="container">
         <div class="row">
           <div class="col-12 col-md-7">
@@ -17,7 +17,7 @@
       </div>
     </section>
 
-    <section class="staff-details people-listing" style="background: url('/wp-content/uploads/2019/03/people_bg.jpg') 50%/cover no-repeat; color: #FFFFFF;">
+    <section class="staff-details people-listing">
       <div class="container-fluid news">
         <div class="container">
           <div class="row">

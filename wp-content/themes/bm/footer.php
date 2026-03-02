@@ -302,7 +302,7 @@
 }(jQuery));*/
 
 
- jQuery('.home-slider').slick({
+ /*jQuery('.home-slider').slick({
 	 arrows: true,
 	 dots: true,
 	 infinite: true,
@@ -320,7 +320,8 @@
 	 arrows: true,
 	 dots: true,
 	 infinite: true
- });
+ });*/
+})(jQuery);
 </script>
 
 

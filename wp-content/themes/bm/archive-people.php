@@ -5,7 +5,7 @@
 
 <main id="main" class="blog post-type-archive-people">
 
-    <section class="hero text-center" style="background: url('/wp-content/uploads/Images/Hero/Expertise-Organisations/F3A6467_edit.jpg') 50%/cover no-repeat; color: #FFFFFF;">
+    <section class="hero bm-pink">
       <div class="container">
         <div class="row">
           <div class="col-12">
@@ -20,10 +20,8 @@
 
         <div class="container">
           <div class="row">
-              <div class="col-12 blog-filter text-center">
-                <h2 class="dpurple">Search The Directory</h2>
-
-                <hr class="heading green">
+              <div class="col-12 blog-filter text-center bm-purple">
+                <h2>Search The Directory</h2>
 
                 <div class="alphabet">
                   <a href="/people/?query=a">A</a>
@@ -57,7 +55,7 @@
             </div>
 
 
-                <div class="row search">
+                <div class="row search bm-purple">
                   <div class="col-12 col-md-10 mx-auto">
                     <?php echo do_shortcode('[searchandfilter id="680"]'); ?>
 
@@ -69,10 +67,8 @@
 
 
 
-      <div class="container news">
-        <h2 class="white text-center mt-5">Directory</h2>
-
-        <hr class="heading green">
+      <div class="container news bm-white">
+        <h2 class="mt-5">Directory</h2>
 
         <?php get_template_part('loops/people-loop'); ?>
       </div>

@@ -49,7 +49,7 @@ if ( $char !== '' ) {
       endif; ?>
   </div>
 
-  <div class="row pagination-row">
+  <div class="row pagination-row justify-content-center">
       <?php if ( function_exists('b4st_pagination') ) { b4st_pagination(); } else if ( is_paged() ) { ?>
       <ul class="pagination">
         <li class="page-item older">

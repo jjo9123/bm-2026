@@ -13,8 +13,12 @@
     if (bg) $s[0].style.backgroundColor = bg;
   }
 
-  // ---- Slick init (run once per element) ----
+  /* ------------------------------
+     SLICK INITIALISATION
+  ------------------------------ */
+
   $(window).on("load", function () {
+
     $(".home-slider").not(".slick-initialized").slick({
       arrows: true,
       dots: true,
@@ -35,31 +39,58 @@
       infinite: true
     });
 
-    // CTA banner bg updates
+    /* CTA banner background colour updates */
     $("section.cta-banner.slider .home-slider").each(function () {
       var $s = $(this);
       $s.on("init afterChange", function () {
         setCtaBannerBg($s);
       });
-      if ($s.hasClass("slick-initialized")) setCtaBannerBg($s);
+      if ($s.hasClass("slick-initialized")) {
+        setCtaBannerBg($s);
+      }
     });
 
-    // Reduce "Blocked aria-hidden..." warnings:
-    // If focus is inside a slide when Slick hides it, move focus to the new active slide.
-    $(".quotes-slider, .highlights-slider, .home-slider").on("afterChange", function (e, slick, current) {
-      if (!slick || !slick.$slides || typeof current !== "number") return;
-      $(slick.$slides[current]).attr("tabindex", "-1").trigger("focus");
-    });
+    /* ---------------------------------------
+       Accessibility focus fix (NO SCROLL JUMP)
+       Only moves focus if user is interacting
+    --------------------------------------- */
 
-    // If anything changes layout after load, this helps prevent insane widths.
+    let sliderHadFocus = false;
+
+    $(".quotes-slider, .highlights-slider, .home-slider")
+      .on("focusin", function () {
+        sliderHadFocus = true;
+      })
+      .on("focusout", function () {
+        sliderHadFocus = false;
+      })
+      .on("afterChange", function (e, slick, current) {
+
+        if (!sliderHadFocus) return;
+        if (!slick || !slick.$slides || typeof current !== "number") return;
+
+        var el = slick.$slides[current];
+        if (el && el.focus) {
+          el.setAttribute("tabindex", "-1");
+          el.focus({ preventScroll: true });
+        }
+      });
+
+    /* Recalculate layout on resize */
     $(window).on("resize orientationchange", function () {
       $(".home-slider.slick-initialized, .quotes-slider.slick-initialized, .highlights-slider.slick-initialized")
         .slick("setPosition");
     });
+
   });
 
-  // ---- Your existing DOMReady stuff ----
+
+  /* ------------------------------
+     DOCUMENT READY
+  ------------------------------ */
+
   $(document).ready(function () {
+
     var a;
     var b = document.getElementById("pojo-a11y-toolbar");
     if (b) b.setAttribute("aria-label", "Accessibility Toolbar");
@@ -70,6 +101,7 @@
     $("input[type=submit]").addClass("btn btn-primary");
     $(".pagination .dots").addClass("page-link").parent().addClass("disabled");
 
+    /* Video modal */
     $(".btn-herovid").click(function () {
       a = $(this).data("src");
     });
@@ -83,8 +115,9 @@
       $("#video").attr("src", a);
     });
 
+    /* Nav search toggle */
     var c = $(".nav-search__toggle"),
-      d = $("#navSearchPanel");
+        d = $("#navSearchPanel");
 
     function closeNavSearch() {
       d.attr("hidden", true);
@@ -92,6 +125,7 @@
     }
 
     if (c.length && d.length) {
+
       c.on("click", function (e) {
         e.preventDefault();
         if (d.is("[hidden]")) {
@@ -120,6 +154,7 @@
       });
     }
 
+    /* Gravity Forms textarea counter */
     function bindTextareaCounters() {
       $("textarea[data-maxlength]").each(function () {
         var $t = $(this);
@@ -128,8 +163,6 @@
         var max = parseInt($t.data("maxlength"), 10);
         if (isNaN(max)) return;
 
-        // NOTE: your original code had "$el.textareaCount" which looks like a bug.
-        // I'm keeping the intent, but calling it on the textarea itself:
         if (typeof $t.textareaCount === "function") {
           $t.textareaCount({
             maxCharacterSize: max,
@@ -145,6 +178,7 @@
     $(document).on("gform_post_render", function () {
       setTimeout(bindTextareaCounters, 200);
     });
+
   });
 
 }(jQuery);

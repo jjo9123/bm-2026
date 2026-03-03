@@ -1,13 +1,13 @@
 <style>
   .table tr:nth-child(even) {background: #e7e7e7;}
 </style>
-<section class="txt table">
+<section class="txt table bm-white">
   <div class="container">
     <div class="row">
       
         <div class="col-12 col-lg-12 mx-auto" style="padding-bottom: 20px;">
            <?php if( get_sub_field('title') ): ?>
-                <h2 class="purple">
+                <h2>
                   <?php the_sub_field('title'); ?>
                 </h2>
            <?php endif; ?>

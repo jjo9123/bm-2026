@@ -80,7 +80,7 @@ html { scroll-behavior: smooth; }
 .highlights-slider.slick-initialized {
     visibility: visible;
 }
-body p>a, body p>em>a, :is(h1, h2, h3, h4, h5, h6) a {
+body p>a, body p>em>a, :is(h1, h2, h3, h4, h5, h6) a, body p>strong>a {
   color: var(--bm-purple);
   text-decoration: underline;
 }
@@ -375,8 +375,7 @@ section.contact .gform_confirmation_message,
 .modal-content .modal-form .gform_confirmation_message {
   color: #32204c!important;
 }
-section.contact .gform_wrapper .ginput_container textarea,
-.modal-content .modal-form .gform_wrapper .ginput_container textarea {
+section.contact .gform_wrapper .ginput_container textarea {
   max-height: 150px !important;
 }
 section.contact p {
@@ -1168,15 +1167,9 @@ section.blog.recent div.row.justify-content-center {
 .h5.author-title {
   padding-bottom: 20px!important;
 }
-section.blog .row,
-section.staff-details .row {
+section.blog .row {
   justify-content: center;
   padding: 60px 0 0;
-}
-section.staff-details .row {
-  -webkit-box-pack: start;
-       -ms-flex-pack: start;
-           justify-content: flex-start;
 }
 section.contact.blog .form-footer p {
   text-align: left!important;
@@ -1261,6 +1254,12 @@ section.staff-details .row.search {
 }
 section.staff-details .blog-filter {
   padding: 20px 40px;
+}
+.staff-details .intro-col {
+  padding-top: 30px;
+}
+.staff-contact.mobile h6 {
+  color: var(--bm-text-light)!important;
 }
 section.staff-details .searchandfilter ul {
   justify-content: center;
@@ -2183,6 +2182,11 @@ div.modal {
 .modal-copy {
   min-height: 280px;
   width: 50%;
+  padding-right: 20px;
+}
+.modal-copy h2, .modal-copy h3, .modal-copy h4,
+.modal-copy h5, .modal-copy h6 {
+  color: var(--bm-text-light)!important;
 }
 .modal-copy h5 {
   font-size: 2rem;
@@ -2356,13 +2360,16 @@ a#cookie_action_close_header {
     margin-bottom: 10px;
   }
 /* END OF PEOPLE LISTING */
-
+.modal-content {
+  background-color: var(--bm-pink)!important;
+  color: var(--bm-text-light)!important;
+}
 /* PROFILE PAGE */
 .post-type-archive-people .staff-expertise h3, section.staff-details .intro-col h1,
   section.staff-details .intro-col h2, section.staff-details .intro-col h3,
   section.staff-details .intro-col h4, section.staff-details .intro-col h5,
   section.staff-details .intro-col h6 {
-    color: #a395b7;
+    color: var(--bm-purple);
     padding-bottom: 15px;
     padding-top: 15px;
   }
@@ -2435,7 +2442,7 @@ a#cookie_action_close_header {
     padding: 15px 20px;
   }
   section .staff-contact .header, section .expertise-list .header, section .staff-additional .header {
-    background: #8ed300;
+    background: var(--bm-purple);
     padding: 10px 25px;
   }
   section.people-listing .staff-contact .header {
@@ -3026,6 +3033,9 @@ ul.sitemap-nav.privacy li > a{
 /* latest content block */
 /*.latest-content h2, .latest-card__excerpt, a.latest-card:hover {color: var(--bm-purple); }*/
 .latest-card__image-wrap { overflow: hidden; }
+.latest-card {
+  padding-bottom: 30px;
+}
 .latest-card__label, .expert-card__label {
   top: 0px;
   right: 0px;
@@ -3037,6 +3047,10 @@ ul.sitemap-nav.privacy li > a{
   font-size: 14px;
   min-width: 150px;
   text-align: right;
+}
+.latest-card img, .hero-media, .author-img img,
+.expert-card__image {
+  border-radius: 2px;
 }
 .latest-card__label.blog-header {
   padding: 8px 14px;

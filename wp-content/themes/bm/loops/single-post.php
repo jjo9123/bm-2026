@@ -148,7 +148,7 @@ $counsel = 0;
                         <?php endif; ?>
                     </div>
 
-                    <div class="col-12 col-md-4">
+                    <div class="col-12 col-md-4 pb-3">
                         <div class="media-body author-detail">
 
                           <p class="h5 author-name">

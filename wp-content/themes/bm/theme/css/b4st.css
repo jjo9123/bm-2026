@@ -543,7 +543,7 @@ nav.ubermenu-main {
   border: none;
   color: #fff;
 }
-@media screen and (max-width: 991px) {
+/*@media screen and (max-width: 991px) {
   body .ubermenu-responsive-default.ubermenu-responsive .ubermenu-nav .ubermenu-item .ubermenu-submenu.ubermenu-submenu-drop {
     z-index: 200!Important;
   }
@@ -613,7 +613,7 @@ nav.ubermenu-main {
   nav#ubermenu-main-27074-navbar-2 .ubermenu-nav .ubermenu-item-level-0:after {
     display: none;
   }
-}
+}*/
 
 .topnav .ubermenu {
   display: flex !important;
@@ -2633,9 +2633,7 @@ p.lp_form-txt {
 .contact.blog #blogform p, .contact.blog .gform_confirmation_message {
   color: #32214c!important;
 }
-section.contact .gform_confirmation_message a {
-  color: #8ed300!important;
-}
+
 section.contact {
       padding: 20px 0 60px!important;
 }

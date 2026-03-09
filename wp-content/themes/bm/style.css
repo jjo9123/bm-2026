@@ -4037,7 +4037,7 @@ section.cta-banner.slider .home-slider[data-theme="bm-beige"] .slick-arrow {
 .ubermenu-submenu .ubermenu-column-1-4:first-child h2{
   font-family: var(--font-body);
   font-size: 1.3rem;
-  font-weight: 700;
+  font-weight: 500;
   letter-spacing: 1px;
 }
 .ubermenu-item.ubermenu-item-level-0:hover>.ubermenu-target {

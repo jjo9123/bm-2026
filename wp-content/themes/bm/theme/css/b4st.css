@@ -125,7 +125,7 @@ body {
   color: #32214c;
   font-style: normal;
   font-weight: 300;
-  letter-spacing: .015em;
+  /*letter-spacing: .015em;*/
   word-break: break-word;
 }
 strong {

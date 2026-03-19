@@ -16,7 +16,7 @@ Version: 5.7
   --bm-text-dark: #111111;
   --bm-text-light: #ffffff;
   --font-heading: "sitka-heading", Georgia, serif;
-  --font-body: Corbel, "Segoe UI", Arial, sans-serif;
+  --font-body: Corbel, "Segoe UI", system-ui, sans-serif;
   --btn-lspacing: 1.1px;
 }
 html { scroll-behavior: smooth; }
@@ -93,7 +93,7 @@ h1, h2, h3, h4, h5, h6 {
   font-style: normal;
   font-weight: 600;
   text-transform: none;
-  letter-spacing: -0.6px;
+  letter-spacing: 0.2px;
 }
 
 body {
@@ -122,7 +122,7 @@ strong {
   font-style: normal;
   font-weight: 600;
   text-transform: none;
-  letter-spacing: -0.6px;
+  letter-spacing: 0.2px;
 }
 .white {
   color: #FFFFFF;
@@ -155,10 +155,9 @@ a:hover {
 
 a.btn, .btn {
   border-radius: 6px;
-  padding: 10px 40px;
+  padding: 5px 25px;
   white-space: normal;
   font-weight: 700;
-  letter-spacing: var(--btn-lspacing);
   font-size: 1.1rem;
 }
 a.btn-green, .btn-green, .gform_wrapper form .gform_footer input[type=submit], .sf-field-submit input[type=submit] {
@@ -168,7 +167,6 @@ a.btn-green, .btn-green, .gform_wrapper form .gform_footer input[type=submit], .
               color 0.2s ease,
               border-color 0.2s ease,
               box-shadow 0.2s ease;
-  letter-spacing: var(--btn-lspacing);
 }
 section.cta-banner div a {
   font-family: var(--font-body);
@@ -842,8 +840,12 @@ nav#ubermenu-main-27074-navbar-2 {
 section.hero {
   padding: 120px 0;
 }
+.hero .btn {
+  margin-top: 20px;
+}
 section.hero p {
   font-size: 1.8em;
+  line-height: 35px;
 }
 section.hero.slider, section.cta-banner.slider {
   padding: 0;
@@ -873,7 +875,7 @@ body.home h1.header, body.home p.header {
   font-weight: 600;
   font-size: 4rem;
   text-transform: none;
-  letter-spacing: -0.6px;
+  letter-spacing: 0.2px;
   line-height: 1.2;
 }
 section.cta-banner img {
@@ -1126,17 +1128,20 @@ section.clients {
   padding: 80px 0 60px;
 }
 section.clients .row {
-  padding: 20px 0 40px;
+  padding: 20px 0 20px;
 }
 section.clients .client-logo {
   padding-top: 20px;
 }
 section.clients .clients-txt {
   padding-bottom: 0;
+  padding-top: 35px;
 }
 section.clients .clients-img {
   padding-top: 0;
+  border-bottom: 1px solid #ffffff;
 }
+
 
 
 section.blog .blog-filter,
@@ -1149,7 +1154,7 @@ section.blog.recent:nth-of-type(odd) .container-fluid:nth-of-type(odd) {
   background-color: rgba(0,0,0,0.2);
 }
 section.blog.recent.light .container-fluid {
-  background-color: rgba(255,255,255,0.6) !important;
+  background-color: rgba(237, 223, 223, 0.6) !important;
 }
 section.blog.recent div.row.justify-content-center {
   width: 100%;
@@ -1470,7 +1475,7 @@ section.contact p {
   padding: 8px 20px;
   width: 100%;
   border-radius: 0;
-  letter-spacing: .045em;
+  letter-spacing: 0;
   text-align: left;
   }
 .tabbed-navigation button.btn-link:hover, button.btn-link[aria-expanded="true"] {
@@ -2921,6 +2926,12 @@ p.lp_form-txt {
 }
 .four-col-row__intro p {
   font-size: 1.4rem;
+  font-weight: 400;
+  line-height: 1.4;         /* more flexible than fixed px */
+  letter-spacing: 0;        /* remove excess spacing */
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 .four-col-row .btn {
     width: auto;
@@ -3066,7 +3077,12 @@ ul.sitemap-nav.privacy li > a{
 }
 .latest-card__title, .press-module__item-title, .press-module__featured-title {
   font-family: var(--font-body);
+  font-style: normal;
   font-weight: 700;
+  line-height: 25px;
+  letter-spacing: 0.1px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 /*.latest-content__cta, .latest-content__cta:hover {
   color: var(--bm-purple);

@@ -33,12 +33,17 @@ if ( $header_choice === 'banner' && ! empty($banner_section) ) {
 
   // ACF safety: default to img if missing/empty/unexpected
   $type = $banner_section['image_or_video'] ?? 'img';
-  if ( ! in_array($type, ['img', 'video', 'colour'], true) ) {
+  if ( ! in_array($type, ['img', 'video', 'colour', 'new-vid'], true) ) {
     $type = 'img';
   }
 
   if ( $type === 'video' ) {
     get_template_part('modules/hero/hero-video');
+    return;
+  }
+
+  if ( $type === 'new-vid' ) {
+    get_template_part('modules/hero/hero-newvideo');
     return;
   }
 

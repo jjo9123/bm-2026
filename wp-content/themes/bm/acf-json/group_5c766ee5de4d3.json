@@ -79,6 +79,7 @@
                     "max": 0,
                     "layout": "row",
                     "button_label": "Add Row",
+                    "rows_per_page": 20,
                     "sub_fields": [
                         {
                             "key": "field_695e38f55519c",
@@ -271,8 +272,7 @@
                             "allow_in_bindings": 1,
                             "parent_repeater": "field_5c7670acc6e81"
                         }
-                    ],
-                    "rows_per_page": 20
+                    ]
                 }
             ]
         },
@@ -345,6 +345,7 @@
                     "choices": {
                         "img": "Image",
                         "video": "Video",
+                        "new-vid": "New video",
                         "colour": "Solid colour"
                     },
                     "default_value": "img",
@@ -861,5 +862,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1771844514
+    "modified": 1773920703
 }

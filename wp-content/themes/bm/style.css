@@ -17,7 +17,7 @@ Version: 5.7
   --bm-text-light: #ffffff;
   --font-heading: "sitka-heading", Georgia, serif;
   --font-body: Corbel, "Segoe UI", system-ui, sans-serif;
-  --btn-lspacing: 0.1px;
+  --btn-lspacing: 0.15px;
 }
 html { scroll-behavior: smooth; }
 .bm-pink {
@@ -3058,7 +3058,7 @@ ul.sitemap-nav.privacy li > a{
   font-size: 14px;
   min-width: 150px;
   text-align: right;
-  letter-spacing: 0.1px;
+  letter-spacing: 0.15px;
 }
 .latest-card img, .hero-media, .author-img img,
 .expert-card__image {
@@ -3081,7 +3081,7 @@ ul.sitemap-nav.privacy li > a{
   font-style: normal;
   font-weight: 700;
   line-height: 25px;
-  letter-spacing: 0.1px;
+  letter-spacing: 0.15px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

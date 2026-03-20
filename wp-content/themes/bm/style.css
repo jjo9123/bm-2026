@@ -101,6 +101,7 @@ body {
   font-family: corbel, sans-serif;
   font-weight: 400;
   word-break: break-word;
+  line-height: 1.2;
 }
 strong {
   font-weight: 600;
@@ -3080,10 +3081,12 @@ ul.sitemap-nav.privacy li > a{
   font-family: var(--font-body);
   font-style: normal;
   font-weight: 700;
-  line-height: 27px;
   letter-spacing: 0.15px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+.press-module__featured-title {
+  line-height: 20px;
 }
 /*.latest-content__cta, .latest-content__cta:hover {
   color: var(--bm-purple);

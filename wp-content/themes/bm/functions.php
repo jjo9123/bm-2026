@@ -866,3 +866,22 @@ add_action('save_post', function ($post_id, $post, $update) {
   set_post_thumbnail($post_id, $thumb_id);
 
 }, 20, 3);
+
+// Remove s from category label
+function bm_get_label_from_category($post_id) {
+  $cats = get_the_category($post_id);
+
+  if (empty($cats)) return 'Insights';
+
+  $slug = $cats[0]->slug;
+
+  $map = [
+    'articles'       => 'Article',
+    'case-studies'   => 'Case Study',
+    'events'         => 'Event',
+    'guides'         => 'Guide',
+    'newsletters'    => 'Newsletter',
+  ];
+
+  return $map[$slug] ?? $cats[0]->name;
+}

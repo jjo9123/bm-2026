@@ -3178,7 +3178,7 @@ ul.sitemap-nav.privacy li > a{
   position: relative;
 }
 .press-module__featured .btn {
-  max-width: 175px;
+  max-width: 135px;
 }
 .press-module__arrow {
   font-size: 2rem;
@@ -3196,6 +3196,8 @@ ul.sitemap-nav.privacy li > a{
 .press-module__featured {
   border-top: 1px solid var(--bm-text-light);
   border-bottom: 1px solid var(--bm-text-light);
+  padding-left: 20px;
+  padding-right: 20px;
 }
 .press-module__item::before {
   content: "";

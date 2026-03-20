@@ -2,9 +2,9 @@
 
 	<div class="container experts">
 		<div class="row mb-5">
-			<div class="col-lg-12 mb-4 text-center">
+			<div class="col-lg-12 mb-4">
 				<?php if( get_sub_field('heading') ): ?>
-					<h2 class="text-center"><?php echo the_sub_field('heading'); ?></h2>
+					<h2><?php echo the_sub_field('heading'); ?></h2>
 				<?php endif; ?>
 			</div>
 
@@ -82,10 +82,12 @@
 
 		<?php if ( get_sub_field('btn_show') == 'yes' ): ?>
 			<?php if ( get_sub_field('btn_type') == 'link' ): ?>
-				<div class="row justify-content-center">
-					<a href="<?php the_sub_field('btn_link'); ?>" class="btn btn-green">
-						<?php the_sub_field('btn_txt'); ?>
-					</a>
+				<div class="row">
+					<div class="col-lg-12">
+						<a href="<?php the_sub_field('btn_link'); ?>" class="btn btn-green">
+							<?php the_sub_field('btn_txt'); ?>
+						</a>
+					</div>
 				</div>
 			<?php else: ?>
 				<?php $post_object = get_sub_field('modal');
@@ -94,10 +96,12 @@
 				?>
 					<?php setup_postdata( $post ); ?>
 
-					<div class="row justify-content-center">
-						<a href="<?php the_sub_field('btn_link'); ?>" class="btn btn-dpurple" data-toggle="modal" data-target="#btn-cta-modal-<?php echo get_the_ID(); ?>">
-							<?php the_sub_field('btn_txt'); ?>
-						</a>
+					<div class="row">
+						<div class="col-lg-12">
+							<a href="<?php the_sub_field('btn_link'); ?>" class="btn btn-dpurple" data-toggle="modal" data-target="#btn-cta-modal-<?php echo get_the_ID(); ?>">
+								<?php the_sub_field('btn_txt'); ?>
+							</a>
+						</div>
 					</div>
 
 					<?php get_template_part('modules/modal'); ?>

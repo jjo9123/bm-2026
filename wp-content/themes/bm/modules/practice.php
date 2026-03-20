@@ -2,8 +2,8 @@
 	<div class="container-fluid practice">
 		<div class="container">
 			<div class="row justify-content-center">
-				<div class="col-lg-10 text-center">
-					<h2 class="text-center"><?php the_sub_field('heading'); ?></h2>
+				<div class="col-lg-12">
+					<h2><?php the_sub_field('heading'); ?></h2>
 
 					<p><?php the_sub_field('txt'); ?></p>
 				</div>

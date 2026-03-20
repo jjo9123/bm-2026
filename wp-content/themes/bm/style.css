@@ -3361,6 +3361,10 @@ section.highlights .highlights-slide::before, .txt.quotes .quote:before {
   background-size: contain;
   background-position: center;
 }
+.txt ul li {
+  font-size: 1.1rem;
+  padding-bottom: 15px;
+}
 /* If you want it "higher", use margin-top (still in-flow) */
 section.quotes .quotes-slider .highlights-slide::before, .txt.quotes .quote:before{
   margin-top: 20px; /* tweak this instead of top:-20px */

@@ -20,17 +20,17 @@ if (!isset($query) || !$query instanceof WP_Query || !$query->have_posts()) retu
           $excerpt = get_the_excerpt();
           if (!$excerpt) $excerpt = wp_trim_words(wp_strip_all_tags(get_the_content()), 24, '…');
 
-          // Label: prefer first category for posts, otherwise post type label
-          $label = '';
+
+          // Label: category (mapped to singular) OR post type label
           if (get_post_type() === 'post') {
-            $cats = get_the_category();
-            if (!empty($cats) && !empty($cats[0]->name)) $label = $cats[0]->name;
-          }
-          if (!$label) {
+            $label = bm_get_label_from_category(get_the_ID());
+          } else {
             $pt = get_post_type_object(get_post_type());
-            $label = $pt && !empty($pt->labels->singular_name) ? $pt->labels->singular_name : 'Update';
+            $label = ($pt && !empty($pt->labels->singular_name))
+              ? $pt->labels->singular_name
+              : 'Update';
           }
-        ?>
+          ?>
 
         <div class="col-12 col-lg-4">
           <article class="latest-card h-100 d-flex flex-column">

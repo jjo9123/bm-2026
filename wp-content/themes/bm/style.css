@@ -33,6 +33,9 @@ html { scroll-behavior: smooth; }
 .bm-beige {
   background-color: var(--bm-beige);
 }
+.bm-blue {
+  background-color: var(--bm-blue);
+}
 .bm-dark-grey {
   background-color: var(--bm-dark-grey);
 }

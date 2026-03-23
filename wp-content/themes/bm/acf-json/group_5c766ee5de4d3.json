@@ -382,7 +382,8 @@
                     "choices": {
                         "bm-pink": "Pink",
                         "bm-purple": "Purple",
-                        "bm-beige": "Beige"
+                        "bm-beige": "Beige",
+                        "bm-blue": "Blue"
                     },
                     "default_value": "bm-pink",
                     "return_format": "value",
@@ -862,5 +863,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1773920703
+    "modified": 1774276870
 }

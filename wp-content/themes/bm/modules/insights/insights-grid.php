@@ -160,9 +160,38 @@ $default_heading = 'Insights';
           if (!is_string($excerpt_src)) $excerpt_src = '';
           $excerpt = wp_trim_words(wp_strip_all_tags($excerpt_src), 22, '…');
 
-          // Label: for events module we want subcategory; for content module we want type/category
+          // Label: events use subcategory; everything else uses mapped singular category/post type
           $is_event_post = ($pt === 'post' && $events_id) ? has_category($events_id, $post_id) : false;
-          $label = $is_event_post ? $event_label_for_post($post_id) : $content_label_for_post($post_id);
+
+          if ($is_event_post) {
+            $label = $event_label_for_post($post_id);
+          } elseif ($pt === 'post') {
+            if ($exclude_events_label) {
+              $label = 'Insight';
+              $cats = get_the_category($post_id);
+
+              if (!empty($cats)) {
+                foreach ($cats as $c) {
+                  $is_events_parent = ($events_id && (int) $c->term_id === $events_id);
+                  $is_events_child  = ($events_id && (int) $c->parent === $events_id);
+
+                  if ($is_events_parent || $is_events_child) {
+                    continue;
+                  }
+
+                  $label = bm_get_label_from_category($post_id);
+                  break;
+                }
+              }
+            } else {
+              $label = bm_get_label_from_category($post_id);
+            }
+          } else {
+            $obj = get_post_type_object($pt);
+            $label = ($obj && !empty($obj->labels->singular_name))
+              ? $obj->labels->singular_name
+              : 'Insight';
+          }
         ?>
 
         <div class="col-12 col-md-6 col-lg-4 pb-5">

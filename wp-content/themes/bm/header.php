@@ -130,7 +130,7 @@ jQuery(function() {
               'walker'          => new b4st_walker_nav_menu()
             ) );
           ?>
-          <div class="nav-search">
+          <!--<div class="nav-search">
               <button class="nav-search__toggle" type="button"
                       aria-expanded="false" aria-controls="navSearchPanel"
                       aria-label="Open site search">
@@ -148,10 +148,10 @@ jQuery(function() {
 
               <div id="navSearchPanel" class="nav-search__panel" hidden>
                 <div role="search" aria-label="Site search">
-                  <?php echo do_shortcode('[searchandfilter id="5671"]'); ?>
+                  <?php // echo do_shortcode('[searchandfilter id="5671"]'); ?>
                 </div>
               </div>
-            </div>
+            </div>-->
 
 
 

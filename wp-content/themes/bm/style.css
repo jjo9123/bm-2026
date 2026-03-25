@@ -13,6 +13,7 @@ Version: 5.7
   --bm-dark-grey: #3C3C3B;
   --bm-gold: #AF8D41;
   --bm-blue: #65d1fa;
+  --bm-cool-blue: #4f76e3;
 
   --bm-text-dark: #111111;
   --bm-text-light: #ffffff;
@@ -23,6 +24,9 @@ Version: 5.7
 html { scroll-behavior: smooth; }
 .bm-pink {
   background-color: var(--bm-pink);
+}
+.bm-cool-blue {
+  background-color: var(--bm-cool-blue);
 }
 .bm-purple {
   background-color: var(--bm-purple)!important;

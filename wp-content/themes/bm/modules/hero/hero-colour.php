@@ -11,7 +11,7 @@ $text_colour = $banner['text_colour'] ?? 'light';
 $bg_class = $banner['bg_colour'] ?? 'bm-purple';
 
 // Optional whitelist to prevent unexpected class values
-$allowed = ['bm-pink', 'bm-purple', 'bm-beige', 'bm-blue'];
+$allowed = ['bm-pink', 'bm-purple', 'bm-beige', 'bm-blue', 'bm-cool-blue'];
 if ( ! in_array($bg_class, $allowed, true) ) {
   $bg_class = 'bm-purple';
 }

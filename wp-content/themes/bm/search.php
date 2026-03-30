@@ -16,7 +16,7 @@
         <div class="row search">
           <div class="col-12 col-md-10">
             <div class="text-center pb-4">
-              <h2>Search Insights</h2>
+              <h2>Search insights</h2>
             </div>
             <div class="blog-filter__form">
               <?php echo do_shortcode('[searchandfilter id="455"]'); ?>

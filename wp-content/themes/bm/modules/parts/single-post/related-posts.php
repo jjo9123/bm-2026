@@ -66,7 +66,7 @@ if (!$query->have_posts()) {
 
 // Hardcoded section options
 $bg_class = 'bm-white';
-$intro = '<h2 class="text-center mb-0">Enjoy That? You Might Like These:</h2>';
+$intro = '<h2 class="text-center mb-0">Enjoy that? You might like these:</h2>';
 ?>
 
 <section class="py-5 latest-content <?php echo esc_attr($bg_class); ?>">

@@ -12,7 +12,7 @@
       <div class="container">
         <div class="row">
           <div class="col-12 col-md-7">
-            <h1 class="header">Search Results</h1>
+            <h1 class="header">Search results</h1>
           </div>
         </div>
       </div>

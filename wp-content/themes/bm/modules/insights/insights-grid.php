@@ -23,11 +23,11 @@ $exclude_events_label = isset($exclude_events_label) ? (bool)$exclude_events_lab
 // Resolve CTA
 if (is_array($cta) && !empty($cta['url'])) {
   $cta_url    = $cta['url'];
-  $cta_title  = !empty($cta['title']) ? $cta['title'] : ($cta_text ?: 'More Insights');
+  $cta_title  = !empty($cta['title']) ? $cta['title'] : ($cta_text ?: 'More insights');
   $cta_target = !empty($cta['target']) ? $cta['target'] : '_self';
 } else {
   $cta_url    = '/blog';
-  $cta_title  = 'More Insights';
+  $cta_title  = 'More insights';
   $cta_target = '_self';
 }
 

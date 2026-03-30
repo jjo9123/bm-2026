@@ -10,7 +10,7 @@
       <div class="container">
         <div class="row">
           <div class="col-12 col-md-7">
-            <h1 class="header">Our People</h1>
+            <h1 class="header">Our people</h1>
 
           </div>
         </div>
@@ -21,7 +21,7 @@
       <div class="container">
           <div class="row">
               <div class="col-12 blog-filter text-center bm-purple">
-                <h2>Search The Directory</h2>
+                <h2>Search the directory</h2>
 
                 <div class="alphabet">
                   <a href="/people/?query=a">A</a>

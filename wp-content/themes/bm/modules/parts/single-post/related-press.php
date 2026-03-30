@@ -8,7 +8,7 @@
  *  - $cta (array ACF link OR string URL)
  */
 
-$heading = $heading ?? 'Enjoy That? You Might Like These:';
+$heading = $heading ?? 'Enjoy that? You might like these:';
 
 // CTA defaults (supports string URL or ACF link array)
 $cta_url    = '';
@@ -24,7 +24,7 @@ if (isset($cta)) {
     $cta_rel    = ($cta_target === '_blank') ? 'noopener' : '';
   } elseif (is_string($cta)) {
     $cta_url   = $cta;
-    $cta_title = 'More News';
+    $cta_title = 'More news';
   }
 }
 

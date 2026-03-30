@@ -102,7 +102,7 @@ section.map-section.infographic .info-box-content p span {
 
             <p>Blake Morgan is a full service law firm with offices across the UK. With 130 partners and 1000 staff we use our unique blend of technical expertise, broader experience and commercial realism to get the best results possible for our clients - be they small businesses, corporates, individuals, families, government, or not for profits.</p>
 
-            <a href="javascript:void(0)" class="btn btn-green header">CONTACT US FOR MORE INFORMATION</a>
+            <a href="javascript:void(0)" class="btn btn-green header">Contact us for more information</a>
           </div>
         </div>
       </div>
@@ -177,14 +177,14 @@ section.map-section.infographic .info-box-content p span {
       <div class="container">
         <div class="row">
           <div class="col-lg-12">
-            <h2 class="text-center" style="color: #32214c;">Get In Contact</h2>
+            <h2 class="text-center" style="color: #32214c;">Get in contact</h2>
 
             <hr class="heading white">
           </div>
 
           <div class="col-lg-5 text-right">
             <p>
-              Need Advice?<br/>
+              Need advice?<br/>
               Call 0800 543 2101<br/>
               Or Fill in The Form
             </p>

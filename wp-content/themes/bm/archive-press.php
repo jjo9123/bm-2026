@@ -11,7 +11,7 @@
       <div class="container">
         <div class="row">
           <div class="col-12 col-md-7">
-            <h1 class="header">Press Releases</h1>
+            <h1 class="header">Press releases</h1>
           </div>
         </div>
       </div>
@@ -35,7 +35,7 @@
         <div class="row search">
           <div class="col-12 col-md-10">
             <div class="text-center pb-4">
-              <h2>Search Press</h2>
+              <h2>Search press</h2>
             </div>
             <div class="blog-filter__form">
               <?php echo do_shortcode('[searchandfilter id="686"]'); ?>

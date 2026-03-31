@@ -4170,3 +4170,15 @@ section.cta-banner.slider .home-slider[data-theme="bm-beige"] .slick-arrow {
     padding: 20px;
   }
 }
+.ubermenu-submenu-type-block li.ubermenu-item,
+.ubermenu-submenu.ubermenu-submenu-type-stack li.ubermenu-item{
+  padding-left: 20px;
+}
+.ubermenu-submenu-type-block li.ubermenu-item:hover,
+.ubermenu-submenu.ubermenu-submenu-type-stack li.ubermenu-item:hover {
+  background-image: url('/wp-content/themes/bm/theme/img/gold-right-arrow.svg');
+  background-repeat: no-repeat;
+  background-position: left center;
+  background-size: 10px;
+  padding-left: 20px;
+}

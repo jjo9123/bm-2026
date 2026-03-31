@@ -4,8 +4,7 @@
 
       <div class="col-12 col-lg-10 mx-auto">
         <?php if ( get_field('heading', 'option') ) : ?>
-          <h2 class="text-center purple"><?php the_field('heading', 'option'); ?></h2>
-          <hr class="heading green">
+          <h2><?php the_field('heading', 'option'); ?></h2>
         <?php endif; ?>
       </div>
 

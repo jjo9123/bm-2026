@@ -67,7 +67,7 @@ $extra_classes = trim(
     <div class="latest-card__image-wrap position-relative mb-3">
       <?php if ($category_name) : ?>
         <span class="latest-card__label position-absolute">
-          <?php echo esc_html($category_name); ?>
+          <?php echo esc_html( bm_get_label_from_category($post_id) ); ?>
         </span>
       <?php endif; ?>
 

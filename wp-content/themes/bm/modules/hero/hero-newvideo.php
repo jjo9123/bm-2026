@@ -45,5 +45,5 @@
   min-height: 100%;
   transform: translate(calc(-50% + var(--video-x-offset)), -50%);
 }
-.hero { --video-x-offset: -80px; }
+.hero { --video-x-offset: 0; }
 </style>

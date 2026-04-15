@@ -7,6 +7,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://use.typekit.net/rbe3fzj.css">
   <link rel="stylesheet" href="https://use.typekit.net/naz3qki.css">
+  <style>
+@import url('https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,700;1,700&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap');
+</style>
 
 
   <?php if (get_field('sector') == 'org'): ?>

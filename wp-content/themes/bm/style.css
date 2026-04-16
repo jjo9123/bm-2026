@@ -493,6 +493,8 @@ section.contact .gform_wrapper li.hidden_label input {
 }
 .gform_wrapper li.gsection.gf_scroll_text {
   height: auto!important;
+  overflow: visible !important;
+  max-height: none !important;
 }
 /*.gfield.gsection.gf_scroll_text {
   background-color: none;
@@ -1020,14 +1022,14 @@ section.services ul li a {
 
 /* CLIENTS (EXPERTISE) */
 section.exp-clients {
-  padding: 60px 0 20px;
+  padding: 40px 0 20px;
 }
 /*section.exp-clients .row {
   justify-content: center;
 }*/
 section.exp-clients .text-section p {
   font-size: 1.2rem;
-  margin-top: 40px;
+  margin-top: 20px;
 }
 section.exp-clients .client-logo {
   margin: auto 40px;
@@ -3865,6 +3867,9 @@ section.cta-banner.slider .home-slider[data-theme="bm-beige"] .slick-arrow {
 .blog .blog-filter__form {
   max-width: 1100px;
   margin: 0 auto;
+}
+.single-post .blog .hero h1 {
+  margin-top: 10px;
 }
 
 /* Card wrapper (put this on .blog-filter__form in your template) */

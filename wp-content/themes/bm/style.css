@@ -107,7 +107,7 @@ h1, h2, h3, h4, h5, h6 {
   font-style: normal;
   font-weight: 600;
   text-transform: none;
-  letter-spacing: 0.2px;
+  letter-spacing: 0.1px;
 }
 
 body {
@@ -4220,4 +4220,10 @@ section.cta-banner.slider .home-slider[data-theme="bm-beige"] .slick-arrow {
   background-position: left center;
   background-size: 10px;
   padding-left: 20px;
+}
+section.services p {
+  font-size: 1.2rem;
+}
+.home h1 {
+  font-size: 2.1rem;
 }

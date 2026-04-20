@@ -960,7 +960,6 @@ section.txt .btn-row {
             align-items: center;
 }
 section.txt .btn-row a.btn {
-  margin-left: 10px;
   margin-right: 10px;
 }
 section.txt a.btn {
@@ -1201,6 +1200,9 @@ section.blog .row {
   justify-content: center;
   padding: 60px 0 0;
 }
+.post-type-archive-press section.blog .row {
+  padding-top: 30px;
+}
 section.contact.blog .form-footer p {
   text-align: left!important;
   font-size: 1rem;
@@ -1419,7 +1421,7 @@ main.press .pagination .page-item .dots.page-link {
 /* PRESS */
 section.press-intro {
   font-size: 1.2rem;
-  padding: 80px 0 120px;
+  padding: 40px 0 40px;
 }
 main.press .searchandfilter ul li.sf-field-taxonomy-expertise,
 main.press .searchandfilter ul li.sf-field-taxonomy-location {

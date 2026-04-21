@@ -46,6 +46,35 @@ $slug       = ! empty($categories) ? $categories[0]->slug : '';
               <?php echo esc_html(get_the_date('jS F Y')); ?>
             </time>
           <?php endif; ?>
+
+          
+          <?php $featured_authors = get_field('author');
+            if( $featured_authors ): ?>
+
+            <p class="s-txt mb-1 mt-2 bm-purple-txt">Written by</p>
+
+            <?php 
+            $authors_output = [];
+
+            foreach ($featured_authors as $post) {
+                setup_postdata($post);
+                $details_post = get_field('contact_details');
+
+                if (!empty($details_post['first_name']) || !empty($details_post['last_name'])) {
+                    $name = trim($details_post['first_name'] . ' ' . $details_post['last_name']);
+                    $url = get_permalink();
+
+                    $authors_output[] = '<a href="' . esc_url($url) . '" class="author-name">' . esc_html($name) . '</a>';
+                }
+            }
+
+            echo implode(', ', $authors_output);
+
+            wp_reset_postdata();
+            ?>
+
+        <?php endif; ?>
+                        
         </div>
       </div>
 

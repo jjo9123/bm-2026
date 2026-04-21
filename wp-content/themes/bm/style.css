@@ -101,7 +101,9 @@ body p>a:hover {
 .btn.btn-primary {
   border: 0!important;
 }
-
+.s-txt {
+  font-size: 1rem!important;
+}
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
   font-style: normal;

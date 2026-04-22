@@ -164,7 +164,7 @@ $default_heading = 'Insights';
           $is_event_post = ($pt === 'post' && $events_id) ? has_category($events_id, $post_id) : false;
 
           if ($is_event_post) {
-            $label = $event_label_for_post($post_id);
+            $label = bm_get_event_label($post_id);
           } elseif ($pt === 'post') {
             if ($exclude_events_label) {
               $label = 'Insight';

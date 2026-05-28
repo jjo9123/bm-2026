@@ -5,7 +5,6 @@
       <div class="row">
         <div class="col-12">
           <h2><?php the_sub_field('title'); ?></h2>
-         
         </div>
       </div>
     <?php endif; ?>
@@ -13,7 +12,7 @@
     <?php if ( have_rows('content_row') ) : ?>
       <div class="row g-4 pt-5 pb-5">
 
-        <?php $i = 0; while ( have_rows('content_row') ) : the_row(); $i++; ?>
+        <?php while ( have_rows('content_row') ) : the_row(); ?>
           <div class="col-md-6 col-lg-4 pt-4">
 
             <div class="info-card h-100">
@@ -32,13 +31,12 @@
 
               <h3><?php the_sub_field('title'); ?></h3>
 
-              <div class="card-content is-collapsed" id="content-<?php echo $i; ?>">
+              <div class="card-content is-collapsed">
                 <?php the_sub_field('content'); ?>
               </div>
 
               <button class="btn btn-green mt-2 card-toggle"
                       type="button"
-                      data-target="#content-<?php echo $i; ?>"
                       aria-expanded="false">
                 Read more
               </button>
@@ -87,8 +85,9 @@
 
   </div>
 </section>
+
 <style>
-  .img-txt-cards .info-card {
+.img-txt-cards .info-card {
   background: #fff;
   padding: 1.5rem;
   border-radius: 6px;
@@ -105,43 +104,70 @@
 }
 
 .card-content {
-  transition: max-height 0.3s ease;
+  overflow: hidden;
 }
 
-/* collapsed state */
 .card-content.is-collapsed {
   display: -webkit-box;
   -webkit-line-clamp: 3;
+  line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
 
-/* expanded state */
 .card-content.is-expanded {
   display: block;
+  overflow: visible;
 }
 
 .card-toggle {
-  margin-top: 20px!important;
+  margin-top: 20px !important;
   font-weight: 600;
   text-decoration: none;
 }
-
 </style>
 
 <script>
-document.addEventListener('DOMContentLoaded', function () {
-  document.querySelectorAll('.card-toggle').forEach(function (btn) {
-    btn.addEventListener('click', function () {
-      const target = document.querySelector(btn.dataset.target);
-      const expanded = btn.getAttribute('aria-expanded') === 'true';
+(function () {
+  if (window.imgTxtCardsInitialised) return;
+  window.imgTxtCardsInitialised = true;
 
-      target.classList.toggle('is-collapsed');
-      target.classList.toggle('is-expanded');
+  function initCardToggles() {
+    var cards = document.querySelectorAll('.img-txt-cards .info-card');
 
-      btn.setAttribute('aria-expanded', !expanded);
-      btn.textContent = expanded ? 'Read more' : 'Read less';
-    });
-  });
-});
+    for (var i = 0; i < cards.length; i++) {
+      var card = cards[i];
+      var content = card.querySelector('.card-content');
+      var btn = card.querySelector('.card-toggle');
+
+      if (!content || !btn) continue;
+
+      btn.onclick = function (e) {
+        e.preventDefault();
+
+        var thisCard = this.closest('.info-card');
+        var thisContent = thisCard.querySelector('.card-content');
+        var expanded = this.getAttribute('aria-expanded') === 'true';
+
+        if (expanded) {
+          thisContent.classList.add('is-collapsed');
+          thisContent.classList.remove('is-expanded');
+          this.setAttribute('aria-expanded', 'false');
+          this.innerHTML = 'Read more';
+        } else {
+          thisContent.classList.remove('is-collapsed');
+          thisContent.classList.add('is-expanded');
+          this.setAttribute('aria-expanded', 'true');
+          this.innerHTML = 'Read less';
+        }
+      };
+    }
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initCardToggles);
+  } else {
+    initCardToggles();
+  }
+})();
 </script>

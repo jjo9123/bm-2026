@@ -881,7 +881,41 @@ function bm_get_label_from_category($post_id) {
     'events'         => 'Event',
     'guides'         => 'Guide',
     'newsletters'    => 'Newsletter',
+    'press'          => 'Press Release',
+    'pastevents'     => 'Past Event',
+    'past-events'    => 'Past Event',
   ];
 
   return $map[$slug] ?? $cats[0]->name;
+}
+
+function bm_get_event_label($post_id) {
+  $cats = get_the_category($post_id);
+
+  if (empty($cats)) return 'Event';
+
+  // Prioritise specific event types
+  foreach ($cats as $cat) {
+    if ($cat->slug === 'past-events' || $cat->slug === 'pastevents') {
+      return 'Past Event';
+    }
+
+    if ($cat->slug === 'training') {
+      return 'Training';
+    }
+  }
+
+  // Fallback: any child of Events
+  $events_term = get_category_by_slug('events');
+  $events_id   = ($events_term && !is_wp_error($events_term)) ? (int) $events_term->term_id : 0;
+
+  if ($events_id) {
+    foreach ($cats as $cat) {
+      if ((int)$cat->parent === $events_id) {
+        return $cat->name ?: 'Event';
+      }
+    }
+  }
+
+  return 'Event';
 }

@@ -1,30 +1,5 @@
 <?php
 if (!isset($query) || !$query instanceof WP_Query || !$query->have_posts()) return;
-
-// IMPORTANT: set this to match controller
-$events_category_slug = 'events';
-
-// Get the Events category term
-$events_term = get_category_by_slug($events_category_slug);
-$events_term_id = $events_term ? (int) $events_term->term_id : 0;
-
-// Helper: get first child category name under Events
-$get_event_label = function(int $post_id) use ($events_term_id) : string {
-  if (!$events_term_id) return 'Event';
-
-  $cats = get_the_category($post_id);
-  if (empty($cats)) return 'Event';
-
-  // Look for any category whose parent is the Events category
-  foreach ($cats as $cat) {
-    if ((int) $cat->parent === $events_term_id) {
-      return $cat->name ?: 'Event';
-    }
-  }
-
-  // If the post is in Events but no child category chosen, fallback
-  return 'Event';
-};
 ?>
 
 <section class="py-5 latest-content latest-events <?php echo esc_attr($bg_class); ?>">
@@ -43,18 +18,20 @@ $get_event_label = function(int $post_id) use ($events_term_id) : string {
           $post_id = get_the_ID();
           $thumb   = get_the_post_thumbnail_url($post_id, 'large');
 
-          // Label: subcategory (child of Events) or fallback "Event"
-          $label = $get_event_label($post_id);
+          $label = bm_get_event_label($post_id);
 
-          // Date: if you have a custom event date field, use it, else post date
-          // If you already use event_date meta elsewhere, keep consistent:
+          // Date logic
           $event_date = get_post_meta($post_id, 'event_date', true);
           $date = $event_date ? $event_date : get_the_date('d F', $post_id);
 
           // Snippet
           $excerpt = get_the_excerpt($post_id);
           if (!$excerpt) {
-            $excerpt = wp_trim_words(wp_strip_all_tags(get_the_content(null, false, $post_id)), 24, '…');
+            $excerpt = wp_trim_words(
+              wp_strip_all_tags(get_the_content(null, false, $post_id)),
+              24,
+              '…'
+            );
           }
         ?>
 
@@ -63,15 +40,18 @@ $get_event_label = function(int $post_id) use ($events_term_id) : string {
 
             <a class="latest-card__image-wrap position-relative d-block mb-3" href="<?php the_permalink(); ?>">
               <?php if ($thumb) : ?>
-                <img class="img-fluid w-100" src="<?php echo esc_url($thumb); ?>" alt="<?php echo esc_attr(get_the_title()); ?>" loading="lazy">
+                <img
+                  class="img-fluid w-100"
+                  src="<?php echo esc_url($thumb); ?>"
+                  alt="<?php echo esc_attr(get_the_title()); ?>"
+                  loading="lazy"
+                >
               <?php endif; ?>
 
               <span class="latest-card__label position-absolute">
                 <?php echo esc_html($label); ?>
               </span>
             </a>
-
-            
 
             <h3 class="latest-card__title mb-2">
               <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>

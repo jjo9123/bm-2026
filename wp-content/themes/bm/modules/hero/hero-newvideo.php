@@ -2,7 +2,7 @@
   <div class="hero-inner">
     <div class="hero-video">
       <iframe
-        src="https://player.vimeo.com/video/1170631839?background=1&autoplay=1&muted=1&loop=1&autopause=0"
+        src="https://player.vimeo.com/video/1181298865?background=1&autoplay=1&muted=1&loop=1&autopause=0"
         frameborder="0"
         allow="autoplay; fullscreen"
         allowfullscreen
@@ -45,5 +45,5 @@
   min-height: 100%;
   transform: translate(calc(-50% + var(--video-x-offset)), -50%);
 }
-.hero { --video-x-offset: -80px; }
+.hero { --video-x-offset: 0px; }
 </style>

@@ -24,7 +24,7 @@
           $target = is_array($link) && !empty($link['target']) ? $link['target'] : '_self';
           $rel    = ($target === '_blank') ? 'noopener' : '';
         ?>
-          <div class="col-12 col-md-6 col-lg-3">
+          <div class="col-6 col-md-6 col-lg-3 pb-4">
             <article class="grid-col h-100 d-flex flex-column">
 
               <?php if ( is_array($image) && !empty($image['url']) ) : ?>

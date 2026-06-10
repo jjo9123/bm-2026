@@ -10,7 +10,7 @@
 			<?php
 				if( have_rows('files') ):
 					while ( have_rows('files') ) : the_row(); ?>
-						<div class="col-12 col-sm-6 col-md-4 col-lg-3 recent-item">
+						<div class="col-12 col-sm-6 col-md-4 recent-item">
                           
                           <?php if( get_sub_field('add_document_image') == 'yes'): ?>
 							<div class="img title-box" style="background: url('<?php the_sub_field('document_image'); ?>') 50%/cover no-repeat; color: #FFFFFF;"></div>

@@ -109,7 +109,7 @@ if ( is_singular( 'expertise' ) ) {
 
             <?php else: ?>
 
-              <div class="col-12 col-md-10 mx-auto">
+              <div class="col-12 mx-auto">
                 <div>
                   <h2 class="header"><?php echo esc_html($title); ?></h2>
                   <p class="regular"><?php echo esc_html($sub_title); ?></p>

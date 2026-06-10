@@ -927,6 +927,7 @@ $services = get_posts([
     'fields'         => 'ids',
 ]);
 
+/*
 foreach ($services as $post_id) {
 
     $banner_section = get_field('banner_section', $post_id);
@@ -940,3 +941,4 @@ foreach ($services as $post_id) {
 
     update_field('banner_section', $banner_section, $post_id);
 }
+    */

@@ -919,3 +919,24 @@ function bm_get_event_label($post_id) {
 
   return 'Event';
 }
+
+$services = get_posts([
+    'post_type'      => 'service',
+    'post_status'    => 'any',
+    'posts_per_page' => -1,
+    'fields'         => 'ids',
+]);
+
+foreach ($services as $post_id) {
+
+    $banner_section = get_field('banner_section', $post_id);
+
+    if (!is_array($banner_section)) {
+        $banner_section = [];
+    }
+
+    $banner_section['image_or_video'] = 'colour';
+    $banner_section['bg_colour'] = 'bm-pink';
+
+    update_field('banner_section', $banner_section, $post_id);
+}

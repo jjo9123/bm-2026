@@ -2,7 +2,7 @@
   <div class="hero-inner">
     <div class="hero-video">
       <iframe
-        src="https://player.vimeo.com/video/1181298865?background=1&autoplay=1&muted=1&loop=1&autopause=0"
+        src="https://player.vimeo.com/video/1200348375?background=1&autoplay=1&muted=1&loop=1&autopause=0"
         frameborder="0"
         allow="autoplay; fullscreen"
         allowfullscreen

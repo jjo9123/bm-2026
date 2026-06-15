@@ -3531,7 +3531,7 @@ section.cta-banner.slider .home-slider[data-theme="bm-beige"] .slick-arrow {
   content: '';
   position: absolute;
   left: 0;
-  top: 0.35em;
+  top: 0.20em;
   width: 16px;
   height: 16px;
   background: url('/wp-content/themes/bm/theme/img/white-arrow.svg') no-repeat center;

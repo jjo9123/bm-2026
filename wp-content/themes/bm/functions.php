@@ -895,10 +895,10 @@ function bm_get_event_label($post_id) {
     if (empty($cats)) return 'Event';
 
     $map = [
-        'in-person-events'   => 'In-person Event',
-        'past-events'        => 'Past Event',
-        'pastevents'         => 'Past Event',
-        'webinar-recordings' => 'Webinar Recording',
+        'in-person-events'   => 'In-person event',
+        'past-events'        => 'Past event',
+        'pastevents'         => 'Past event',
+        'webinar-recordings' => 'Webinar recording',
         'webinars'           => 'Webinar',
         'training'           => 'Training',
     ];

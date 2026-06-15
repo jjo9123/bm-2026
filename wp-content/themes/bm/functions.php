@@ -890,38 +890,24 @@ function bm_get_label_from_category($post_id) {
 }
 
 function bm_get_event_label($post_id) {
-  $cats = get_the_category($post_id);
+    $cats = get_the_category($post_id);
 
-  if (empty($cats)) return 'Event';
+    if (empty($cats)) return 'Event';
 
-  $map = [
-    'events'             => 'Event',
-    'in-person-events'   => 'In-person Event',
-    'past-events'        => 'Past Event',
-    'pastevents'         => 'Past Event',
-    'webinar-recordings' => 'Webinar Recording',
-    'webinars'           => 'Webinar',
-    'training'           => 'Training',
-  ];
+    $map = [
+        'in-person-events'   => 'In-person Event',
+        'past-events'        => 'Past Event',
+        'pastevents'         => 'Past Event',
+        'webinar-recordings' => 'Webinar Recording',
+        'webinars'           => 'Webinar',
+        'training'           => 'Training',
+    ];
 
-  // Prioritise mapped event categories
-  foreach ($cats as $cat) {
-    if (isset($map[$cat->slug])) {
-      return $map[$cat->slug];
+    foreach ($map as $slug => $label) {
+        if (has_category($slug, $post_id)) {
+            return $label;
+        }
     }
-  }
 
-  // Fallback: any child of Events
-  $events_term = get_category_by_slug('events');
-  $events_id   = ($events_term && !is_wp_error($events_term)) ? (int) $events_term->term_id : 0;
-
-  if ($events_id) {
-    foreach ($cats as $cat) {
-      if ((int) $cat->parent === $events_id) {
-        return rtrim($cat->name, 's');
-      }
-    }
-  }
-
-  return 'Event';
+    return 'Event';
 }

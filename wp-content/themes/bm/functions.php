@@ -894,14 +894,20 @@ function bm_get_event_label($post_id) {
 
   if (empty($cats)) return 'Event';
 
-  // Prioritise specific event types
-  foreach ($cats as $cat) {
-    if ($cat->slug === 'past-events' || $cat->slug === 'pastevents') {
-      return 'Past Event';
-    }
+  $map = [
+    'events'             => 'Event',
+    'in-person-events'   => 'In-person Event',
+    'past-events'        => 'Past Event',
+    'pastevents'         => 'Past Event',
+    'webinar-recordings' => 'Webinar Recording',
+    'webinars'           => 'Webinar',
+    'training'           => 'Training',
+  ];
 
-    if ($cat->slug === 'training') {
-      return 'Training';
+  // Prioritise mapped event categories
+  foreach ($cats as $cat) {
+    if (isset($map[$cat->slug])) {
+      return $map[$cat->slug];
     }
   }
 
@@ -911,34 +917,11 @@ function bm_get_event_label($post_id) {
 
   if ($events_id) {
     foreach ($cats as $cat) {
-      if ((int)$cat->parent === $events_id) {
-        return $cat->name ?: 'Event';
+      if ((int) $cat->parent === $events_id) {
+        return rtrim($cat->name, 's');
       }
     }
   }
 
   return 'Event';
 }
-
-$services = get_posts([
-    'post_type'      => 'service',
-    'post_status'    => 'any',
-    'posts_per_page' => -1,
-    'fields'         => 'ids',
-]);
-
-/*
-foreach ($services as $post_id) {
-
-    $banner_section = get_field('banner_section', $post_id);
-
-    if (!is_array($banner_section)) {
-        $banner_section = [];
-    }
-
-    $banner_section['image_or_video'] = 'colour';
-    $banner_section['bg_colour'] = 'bm-pink';
-
-    update_field('banner_section', $banner_section, $post_id);
-}
-    */

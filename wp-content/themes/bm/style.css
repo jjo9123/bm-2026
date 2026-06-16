@@ -3543,6 +3543,7 @@ section.cta-banner.slider .home-slider[data-theme="bm-beige"] .slick-arrow {
 .txt .col-12 img {
   text-align: center!important;
   display:block;
+  max-width: 450px;
   margin: auto;
 }
 .services.bm-beige .services-list li a::before {

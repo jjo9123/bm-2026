@@ -8,11 +8,14 @@
 <main id="main" class="blog">
   <div id="content" role="main">
 
-    <section class="hero text-center" style="background: url('<?php echo $banner_section['background_image']; ?>') 50%/cover no-repeat; color: #FFFFFF;">
+    <section class="hero text-center bm-pink">
       <div class="container">
         <div class="row">
           <div class="col-12">
-            <h1 class="header">Page not found</h1>
+            <h1 class="header pb-5">Page not found</h1>
+            <p class="pb-2">Unfortunately the page you are looking for no longer exists. Try going to our <a href="/">home page</a> or using the search below:</p>
+
+            <?php echo do_shortcode('[searchandfilter id="5671"]'); ?>
           </div>
         </div>
       </div>
@@ -20,12 +23,7 @@
 
 
 
-    <section class="blog bm-white">
-        <h4 class="pb-2">Unfortunately the page you are looking for no longer exists. Try going to our <a href="/">home page</a> or using the search below:</h4>
-
-        <?php echo do_shortcode('[searchandfilter id="5671"]'); ?>
-      </div>
-    </section>
+    
 
   </div><!-- /#content -->
 </main><!-- /.container -->

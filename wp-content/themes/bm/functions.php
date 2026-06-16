@@ -871,10 +871,13 @@ add_action('save_post', function ($post_id, $post, $update) {
 function bm_get_label_from_category($post_id) {
 
   // Press CPT always shows News
-  if (get_post_type($post_id) === 'press') {
+  if (
+      get_post_type($post_id) === 'press' ||
+      strpos(get_permalink($post_id), '/press/') !== false
+  ) {
       return 'News';
   }
-  
+
   $cats = get_the_category($post_id);
 
   if (empty($cats)) return 'Insights';

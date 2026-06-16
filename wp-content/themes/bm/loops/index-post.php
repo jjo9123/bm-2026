@@ -65,7 +65,7 @@ $extra_classes = trim(
   <a class="latest-card d-block h-100 text-decoration-none" href="<?php the_permalink(); ?>">
 
     <div class="latest-card__image-wrap position-relative mb-3">
-      <?php if ($category_name) : ?>
+      <?php if ($category_name || get_post_type($post_id) === 'press' || strpos(get_permalink($post_id), '/press/') !== false) : ?>
         <span class="latest-card__label position-absolute">
           <?php echo esc_html( bm_get_label_from_category($post_id) ); ?>
         </span>

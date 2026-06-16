@@ -869,6 +869,12 @@ add_action('save_post', function ($post_id, $post, $update) {
 
 // Remove s from category label
 function bm_get_label_from_category($post_id) {
+
+  // Press CPT always shows News
+  if (get_post_type($post_id) === 'press') {
+      return 'News';
+  }
+  
   $cats = get_the_category($post_id);
 
   if (empty($cats)) return 'Insights';

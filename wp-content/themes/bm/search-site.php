@@ -21,6 +21,7 @@
 
 
     <section class="blog bm-white">
+      <div class="container">
         <?php get_template_part('loops/search-loop'); ?>
       </div>
     </section>

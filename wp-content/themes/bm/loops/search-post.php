@@ -38,7 +38,7 @@ $post_id = get_the_ID();
     <ul>
         <li>
             <a href="<?php the_permalink(); ?>">
-                <h6><?php the_title(); ?></h6>
+                <h2><?php the_title(); ?></h2>
             </a>
 
             <?php

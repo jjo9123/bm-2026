@@ -3559,6 +3559,9 @@ section.cta-banner.slider .home-slider[data-theme="bm-beige"] .slick-arrow {
 .services-list li a::before {
   transition: transform 0.2s ease;
 }
+.search-results a h2 {
+  color: var(--bm-purple);
+}
 
 .services-list li a:hover::before {
   transform: translateX(3px);

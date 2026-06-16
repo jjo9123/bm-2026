@@ -3540,6 +3540,10 @@ section.cta-banner.slider .home-slider[data-theme="bm-beige"] .slick-arrow {
 .txt.services .services-list li a:before{
 	top: 0.7em;
 }
+.txt .col-12 img {
+  text-align: center!important;
+  display:block;
+}
 .services.bm-beige .services-list li a::before {
   content: '';
   position: absolute;

@@ -253,10 +253,12 @@
                                 "class": "",
                                 "id": ""
                             },
+                            "relevanssi_exclude": 0,
                             "default_value": "",
+                            "allow_in_bindings": 1,
                             "tabs": "all",
                             "toolbar": "full",
-                            "media_upload": 0,
+                            "media_upload": 1,
                             "delay": 0
                         },
                         {
@@ -2184,6 +2186,7 @@
                             "max": 0,
                             "layout": "block",
                             "button_label": "Add Row",
+                            "rows_per_page": 20,
                             "sub_fields": [
                                 {
                                     "key": "field_5c77eea04435c",
@@ -2311,8 +2314,7 @@
                                     "default_value": "",
                                     "parent_repeater": "field_5c77ee834435b"
                                 }
-                            ],
-                            "rows_per_page": 20
+                            ]
                         }
                     ],
                     "min": "",
@@ -2470,6 +2472,7 @@
                             "max": 0,
                             "layout": "table",
                             "button_label": "Add Row",
+                            "rows_per_page": 20,
                             "sub_fields": [
                                 {
                                     "key": "field_5c6e86bf5aad4",
@@ -2492,8 +2495,7 @@
                                     "new_lines": "",
                                     "parent_repeater": "field_5c6e86af5aad3"
                                 }
-                            ],
-                            "rows_per_page": 20
+                            ]
                         }
                     ],
                     "min": "",
@@ -2550,6 +2552,7 @@
                             "max": 0,
                             "layout": "table",
                             "button_label": "Add Row",
+                            "rows_per_page": 20,
                             "sub_fields": [
                                 {
                                     "key": "field_5cb8811debae1",
@@ -2572,8 +2575,7 @@
                                     "new_lines": "br",
                                     "parent_repeater": "field_5cb8811debae0"
                                 }
-                            ],
-                            "rows_per_page": 20
+                            ]
                         }
                     ],
                     "min": "",
@@ -3182,6 +3184,7 @@
                             "max": 0,
                             "layout": "row",
                             "button_label": "Add Row",
+                            "rows_per_page": 20,
                             "sub_fields": [
                                 {
                                     "key": "field_5c6eb9da839a3",
@@ -3235,8 +3238,7 @@
                                     "bidirectional_target": [],
                                     "parent_repeater": "field_5c6eb9d1839a2"
                                 }
-                            ],
-                            "rows_per_page": 20
+                            ]
                         }
                     ],
                     "min": "",
@@ -3287,6 +3289,7 @@
                             "max": 0,
                             "layout": "block",
                             "button_label": "Add Row",
+                            "rows_per_page": 20,
                             "sub_fields": [
                                 {
                                     "key": "field_5c7ea3a9dba27",
@@ -3356,8 +3359,7 @@
                                     "delay": 0,
                                     "parent_repeater": "field_5c7ea38bdba26"
                                 }
-                            ],
-                            "rows_per_page": 20
+                            ]
                         }
                     ],
                     "min": "",
@@ -3408,6 +3410,7 @@
                             "max": 0,
                             "layout": "table",
                             "button_label": "Add Row",
+                            "rows_per_page": 20,
                             "sub_fields": [
                                 {
                                     "key": "field_5c6ec9abb015d",
@@ -3480,8 +3483,7 @@
                                     "preview_size": "medium",
                                     "parent_repeater": "field_5c6ec96ab015c"
                                 }
-                            ],
-                            "rows_per_page": 20
+                            ]
                         }
                     ],
                     "min": "",
@@ -3666,6 +3668,7 @@
                             "max": 0,
                             "layout": "table",
                             "button_label": "Add Row",
+                            "rows_per_page": 20,
                             "sub_fields": [
                                 {
                                     "key": "field_5c8f765b284ea",
@@ -3688,8 +3691,7 @@
                                     "maxlength": "",
                                     "parent_repeater": "field_5c8f7642284e9"
                                 }
-                            ],
-                            "rows_per_page": 20
+                            ]
                         }
                     ],
                     "min": "",
@@ -3758,6 +3760,7 @@
                             "max": 0,
                             "layout": "block",
                             "button_label": "Add Row",
+                            "rows_per_page": 20,
                             "sub_fields": [
                                 {
                                     "key": "field_5c810f31cebf1",
@@ -3809,8 +3812,7 @@
                                     "bidirectional_target": [],
                                     "parent_repeater": "field_5c810f04cebf0"
                                 }
-                            ],
-                            "rows_per_page": 20
+                            ]
                         },
                         {
                             "key": "field_5c812bed58908",
@@ -3849,6 +3851,7 @@
                             "max": 0,
                             "layout": "block",
                             "button_label": "Add Row",
+                            "rows_per_page": 20,
                             "sub_fields": [
                                 {
                                     "key": "field_5c812b2e58906",
@@ -3900,8 +3903,7 @@
                                     "bidirectional_target": [],
                                     "parent_repeater": "field_5c812b2e58905"
                                 }
-                            ],
-                            "rows_per_page": 20
+                            ]
                         }
                     ],
                     "min": "",
@@ -4074,6 +4076,7 @@
                             "max": 0,
                             "layout": "block",
                             "button_label": "Add Row",
+                            "rows_per_page": 20,
                             "sub_fields": [
                                 {
                                     "key": "field_5c9224a6fe6ab",
@@ -4142,6 +4145,8 @@
                                     "max": 0,
                                     "layout": "block",
                                     "button_label": "Add Row",
+                                    "rows_per_page": 20,
+                                    "parent_repeater": "field_5c922474fe6aa",
                                     "sub_fields": [
                                         {
                                             "key": "field_5c922540fe6ae",
@@ -4185,12 +4190,9 @@
                                             "maxlength": "",
                                             "parent_repeater": "field_5c92251cfe6ad"
                                         }
-                                    ],
-                                    "rows_per_page": 20,
-                                    "parent_repeater": "field_5c922474fe6aa"
+                                    ]
                                 }
-                            ],
-                            "rows_per_page": 20
+                            ]
                         }
                     ],
                     "min": "",
@@ -4581,6 +4583,7 @@
                             "max": 0,
                             "layout": "table",
                             "button_label": "Add Row",
+                            "rows_per_page": 20,
                             "sub_fields": [
                                 {
                                     "key": "field_5cc31232d4b59",
@@ -4630,8 +4633,7 @@
                                     "new_lines": "br",
                                     "parent_repeater": "field_5cc311ecd4b55"
                                 }
-                            ],
-                            "rows_per_page": 20
+                            ]
                         }
                     ],
                     "min": "",
@@ -4732,6 +4734,7 @@
                             "max": 0,
                             "layout": "table",
                             "button_label": "Add Row",
+                            "rows_per_page": 20,
                             "sub_fields": [
                                 {
                                     "key": "field_5cc3170f577c6",
@@ -4804,8 +4807,7 @@
                                     "new_lines": "",
                                     "parent_repeater": "field_5cc3170f577c5"
                                 }
-                            ],
-                            "rows_per_page": 20
+                            ]
                         }
                     ],
                     "min": "",
@@ -4856,6 +4858,7 @@
                             "max": 0,
                             "layout": "block",
                             "button_label": "Add Row",
+                            "rows_per_page": 20,
                             "sub_fields": [
                                 {
                                     "key": "field_5cdd238778b4b",
@@ -5085,8 +5088,7 @@
                                     "maxlength": "",
                                     "parent_repeater": "field_5cdd238778b4a"
                                 }
-                            ],
-                            "rows_per_page": 20
+                            ]
                         }
                     ],
                     "min": "",
@@ -5157,6 +5159,7 @@
                             "max": 0,
                             "layout": "block",
                             "button_label": "Add Row",
+                            "rows_per_page": 20,
                             "sub_fields": [
                                 {
                                     "key": "field_5cc2d6eae9a7f",
@@ -5225,6 +5228,8 @@
                                     "max": 0,
                                     "layout": "block",
                                     "button_label": "Add Row",
+                                    "rows_per_page": 20,
+                                    "parent_repeater": "field_5cc2d6eae9a7e",
                                     "sub_fields": [
                                         {
                                             "key": "field_5cc2d6eae9a82",
@@ -5268,12 +5273,9 @@
                                             "maxlength": "",
                                             "parent_repeater": "field_5cc2d6eae9a81"
                                         }
-                                    ],
-                                    "rows_per_page": 20,
-                                    "parent_repeater": "field_5cc2d6eae9a7e"
+                                    ]
                                 }
-                            ],
-                            "rows_per_page": 20
+                            ]
                         }
                     ],
                     "min": "",
@@ -5330,6 +5332,7 @@
                             "max": 0,
                             "layout": "table",
                             "button_label": "Add Row",
+                            "rows_per_page": 20,
                             "sub_fields": [
                                 {
                                     "key": "field_5cc32ebe1fbd8",
@@ -5379,8 +5382,7 @@
                                     "maxlength": "",
                                     "parent_repeater": "field_5cc32ead1fbd7"
                                 }
-                            ],
-                            "rows_per_page": 20
+                            ]
                         }
                     ],
                     "min": "",
@@ -5462,6 +5464,7 @@
                             "max": 0,
                             "layout": "table",
                             "button_label": "Add Row",
+                            "rows_per_page": 20,
                             "sub_fields": [
                                 {
                                     "key": "field_5cc972f7e0dd7",
@@ -5503,6 +5506,8 @@
                                     "max": 0,
                                     "layout": "table",
                                     "button_label": "Add Row",
+                                    "rows_per_page": 20,
+                                    "parent_repeater": "field_5cc97168e0dd6",
                                     "sub_fields": [
                                         {
                                             "key": "field_5cc97317e0dd9",
@@ -5546,12 +5551,9 @@
                                             "mime_types": "",
                                             "parent_repeater": "field_5cc97306e0dd8"
                                         }
-                                    ],
-                                    "rows_per_page": 20,
-                                    "parent_repeater": "field_5cc97168e0dd6"
+                                    ]
                                 }
-                            ],
-                            "rows_per_page": 20
+                            ]
                         }
                     ],
                     "min": "",
@@ -5582,6 +5584,7 @@
                             "max": 0,
                             "layout": "block",
                             "button_label": "Add Row",
+                            "rows_per_page": 20,
                             "sub_fields": [
                                 {
                                     "key": "field_5d07691497b57",
@@ -5642,8 +5645,7 @@
                                     "multiple": 1,
                                     "parent_repeater": "field_5d0767c997b56"
                                 }
-                            ],
-                            "rows_per_page": 20
+                            ]
                         }
                     ],
                     "min": "",
@@ -6332,5 +6334,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1770293999
+    "modified": 1781623469
 }

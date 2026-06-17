@@ -3997,6 +3997,8 @@ section.cta-banner.slider .home-slider[data-theme="bm-beige"] .slick-arrow {
   font-weight: 700;
   white-space: nowrap;
   cursor: pointer;
+  grid-column: 1 / -1;
+  justify-self: center;
 }
 
 @media (max-width: 991px) {

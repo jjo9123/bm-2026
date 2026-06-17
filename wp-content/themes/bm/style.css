@@ -175,7 +175,7 @@ a.btn, .btn {
   padding: 5px 25px;
   white-space: normal;
   font-weight: 600;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
 }
 a.btn-green, .btn-green, .gform_wrapper form .gform_footer input[type=submit], .sf-field-submit input[type=submit] {
   background-color: var(--bm-gold);

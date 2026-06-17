@@ -55,7 +55,7 @@
             </div>
 
 
-                <div class="row search bm-purple">
+                <div class="row search bm-purple pb-3">
                   <div class="col-12 col-md-10 mx-auto">
                     <?php echo do_shortcode('[searchandfilter id="680"]'); ?>
 

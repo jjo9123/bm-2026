@@ -3988,6 +3988,10 @@ section.cta-banner.slider .home-slider[data-theme="bm-beige"] .slick-arrow {
 .blog .blog-filter__form select:focus {
   box-shadow: 0 0 0 3px rgba(255,255,255,0.25);
 }
+.searchandfilter ul li.sf-field-submit {
+  grid-column: 1 / -1;
+  justify-self: center;
+}
 
 .blog .blog-filter__form li.sf-field-submit input[type="submit"] {
   height: 44px;
@@ -4009,6 +4013,27 @@ section.cta-banner.slider .home-slider[data-theme="bm-beige"] .slick-arrow {
 
   .blog .blog-filter__form li.sf-field-submit input[type="submit"] {
     width: 100%;
+  }
+}
+@media (min-width: 992px) {
+  .post-type-archive-press #search-filter-form-686 > ul {
+    grid-template-columns: repeat(2, 340px) !important;
+    justify-content: center;
+    gap: 1rem 2rem;
+  }
+
+  .post-type-archive-press #search-filter-form-686 > ul > li.sf-field-search,
+  .post-type-archive-press #search-filter-form-686 > ul > li.sf-field-submit {
+    grid-column: 1 / -1 !important;
+    justify-self: center;
+  }
+
+  .post-type-archive-press #search-filter-form-686 > ul > li.sf-field-search {
+    width: 100%;
+    max-width: 700px;
+  }
+  .post-type-archive-press .sf-field-taxonomy-expertise, .post-type-archive-press .sf-field-taxonomy-location {
+    width: 100%!important;
   }
 }
 

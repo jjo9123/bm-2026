@@ -922,14 +922,19 @@
                                 "class": "",
                                 "id": ""
                             },
+                            "relevanssi_exclude": 0,
                             "post_type": [
                                 "service",
-                                "expertise"
+                                "expertise",
+                                "location"
                             ],
+                            "post_status": "",
                             "taxonomy": "",
-                            "allow_null": 0,
-                            "multiple": 1,
                             "return_format": "id",
+                            "multiple": 1,
+                            "allow_null": 0,
+                            "allow_in_bindings": 1,
+                            "bidirectional": 0,
                             "ui": 1,
                             "bidirectional_target": []
                         },
@@ -6334,5 +6339,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1781623469
+    "modified": 1781773595
 }

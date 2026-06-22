@@ -171,7 +171,7 @@ wp_reset_postdata();
             </p>
           <?php endif; ?>
 
-          <a class="btn btn-green" href="<?php echo esc_url($featured_url); ?>">Read More</a>
+          <a class="btn btn-green" href="<?php echo esc_url($featured_url); ?>">More</a>
         </div>
       </div>
 

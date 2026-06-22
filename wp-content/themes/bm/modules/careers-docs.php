@@ -19,7 +19,7 @@
 								<div class="excerpt bm-pink">
 									<h6 style="color: #fff;"><?php the_sub_field('name'); ?></h6>
 
-									<a href="<?php the_sub_field('file'); ?>" target="_blank" class="btn btn-dpurple">Download</a>
+									<a href="<?php the_sub_field('file'); ?>" target="_blank" class="btn btn-green">Download</a>
 
 								</div>
 							</div>
@@ -45,7 +45,7 @@
 								<div class="excerpt bm-pink">
 									<p><?php the_sub_field('txt'); ?></p>
 
-									<a href="<?php the_sub_field('file'); ?>" target="_blank" class="btn btn-dpurple">Read More</a>
+									<a href="<?php the_sub_field('file'); ?>" target="_blank" class="btn btn-green">Read More</a>
 
 								</div>
 							</div>

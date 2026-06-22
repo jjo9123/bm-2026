@@ -69,7 +69,7 @@ if ( is_singular( 'expertise' ) ) {
         $pageorexternal= get_field('pageorexternal', $mypost->ID);
 
         // ACF bg-colour OR fallback rotation
-        $bg = get_field('bg-colour', $mypost->ID);
+        $bg = get_field('bg_colour', $mypost->ID);
         if ( empty($bg) ) {
           $bg = $fallbacks[$i % count($fallbacks)];
         }

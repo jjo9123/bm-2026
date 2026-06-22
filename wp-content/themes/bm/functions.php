@@ -393,13 +393,13 @@ add_action( 'wpseo_register_extra_replacements', function() {
 } );
 
 function jobtitle() {
-$value = '';
+    $jobtitle = get_field('contact_details');
 
-$jobtitle = get_field('contact_details');
-$value = $jobtitle['job_title'];
-//$value = 'hello';
+    if (is_array($jobtitle)) {
+        return $jobtitle['job_title'] ?? '';
+    }
 
-return $value;
+    return '';
 }
 
 /* Remove Yoast SEO Prev/Next URL from all pages

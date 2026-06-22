@@ -1,4 +1,5 @@
 <section class="hero">
+  <a href="#intro-content" class="hero-link" aria-label="Learn more about Blake Morgan's services"></a>
   <div class="hero-inner">
     <div class="hero-video">
       <iframe
@@ -6,7 +7,7 @@
         frameborder="0"
         allow="autoplay; fullscreen"
         allowfullscreen
-        title="Hero Video"
+        title="Blake Morgan Feature Video"
       ></iframe>
     </div>
   </div>
@@ -20,6 +21,16 @@
   overflow: hidden;
   padding: 0 !important;
   background-color: #f1efe6;
+}
+.hero-link {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  display: block;
+}
+
+.hero-video iframe {
+  pointer-events: none;
 }
 
 .hero-inner {

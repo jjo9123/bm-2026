@@ -1622,7 +1622,7 @@ section.cards {
   padding: 60px 0;
 }
 section.cards.grey {
-  background-color: #e7e7e7!important;
+  background-color: var(--bm-beige);
 }
 section.cards .row {
   /*-webkit-box-pack: center;
@@ -1720,8 +1720,13 @@ section.txt ul.related-expertise a::before {
 section.txt ul.related-expertise a::before {
   transition: transform 0.2s ease;
 }
+.section.txt ul.related-expertise a:hover {
+  color: var(--bm-pink);
+  text-decoration: underline;
+}
 section.txt ul.related-expertise a:hover::before {
   transform: translateX(3px);
+  color: var(--bm-pink);
 }
 ul.related-expertise {
   display: -webkit-box;
@@ -3474,6 +3479,9 @@ section.quotes.bm-beige  .slick-arrow,
 section.highlights.bm-beige .slick-arrow,
 section.highlights.bm-purple .slick-arrow, .exp-clients .slick-arrow {
   color: var(--bm-gold)!important;
+}
+.clients.equality img {
+  max-width: 250px;
 }
 section.quotes.bm-pink .slick-arrow, section.highlights.bm-pink .slick-arrow {
   color: var(--bm-text-light)!important;

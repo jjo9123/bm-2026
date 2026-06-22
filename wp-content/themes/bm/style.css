@@ -2814,7 +2814,7 @@ footer .btn-purple {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  justify-content: space-around;
+  justify-content: end!important;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
 }

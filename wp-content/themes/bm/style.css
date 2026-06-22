@@ -195,9 +195,9 @@ a.btn-green:focus-visible, .experts-cards .expert-card__cta .btn:hover,
 .info-card .btn:hover {
   background-color: var(--bm-pink);
 }
-.bm-pink .btn-green, .bm-purple .gform_wrapper form .gform_footer input[type=submit] {
+/*.bm-pink .btn-green, .bm-purple .gform_wrapper form .gform_footer input[type=submit] {
   background-color: var(--bm-purple);
-}
+}*/
 .gform_wrapper form .gform_footer input[type=submit]:hover, .gform_wrapper form .gform_footer input[type=submit]:focus,
 .blog .blog-filter__form li.sf-field-submit input[type=submit]:hover {
   background-color: var(--bm-purple);

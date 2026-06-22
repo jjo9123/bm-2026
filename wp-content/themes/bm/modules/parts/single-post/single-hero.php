@@ -33,9 +33,9 @@ $slug       = ! empty($categories) ? $categories[0]->slug : '';
             }
           ?>
 
-          <span class="latest-card__label blog-header mb-0">
-            <?php echo esc_html( $name ); ?>
-          </span>
+          <!--<span class="latest-card__label blog-header mb-0">
+            <?php // echo esc_html( $name ); ?>
+          </span>-->
 
         <?php endif; ?>
 

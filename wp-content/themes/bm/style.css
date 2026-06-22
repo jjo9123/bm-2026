@@ -1522,7 +1522,7 @@ section.contact p {
   text-decoration: none;
 }
 .accordion .card-header .btn:focus {
-outline: 2px solid #A93690;
+outline: 2px solid var(--bm-purple);
 }
   .tabbed-navigation .card .collapse.show {
     border-bottom: 2px solid #A93690;

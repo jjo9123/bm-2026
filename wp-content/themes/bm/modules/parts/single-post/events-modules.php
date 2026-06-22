@@ -56,7 +56,7 @@ $intro_title    = get_field('intro_title');
 
                   <?php if ($show_button && $btn_link && $btn_text) : ?>
                     <div class="col-12 col-lg-7 mx-auto">
-                      <a href="<?php echo esc_url($btn_link); ?>" class="btn btn-green ga-event" style="width:100%; margin-bottom:20px;">
+                      <a href="<?php echo esc_url($btn_link); ?>" class="btn btn-green ga-event" style="margin-left:auto;margin-right:auto;margin-bottom:20px;">
                         <?php echo esc_html($btn_text); ?>
                       </a>
                     </div>

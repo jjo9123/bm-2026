@@ -205,6 +205,9 @@ a.btn-green:focus-visible {
 .bm-pink  a.btn-green:focus-visible {
   background-color: var(--bm-gold);
 }
+[data-bg="bm-pink"] .btn-green:hover {
+  background-color: var(--bm-purple);
+}
 .bm-pink .validation_message.gfield_validation_message, .bm-pink .gform_submission_error.hide_summary,
 .bm-pink .gform_legacy_markup_wrapper .gfield_error .gfield_label {
   color: var(--bm-text-light);

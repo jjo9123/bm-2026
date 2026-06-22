@@ -2436,6 +2436,24 @@ a#cookie_action_close_header {
   section.staff-details blockquote, section.highlights.people-page blockquote, blockquote {
     padding-bottom: 20px;
   }
+  section.staff-details blockquote::before {
+    content: "";
+    display: block;
+    width: 55px;
+    height: 55px;
+    margin: 20px auto 12px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    background-image: url(/wp-content/themes/bm/theme/img/quotes-purp.svg);
+  }
+  section.staff-details blockquote, section.highlights.people-page blockquote {
+    font-weight: 400;
+    font-size: 1.2rem;
+  }
+  section.staff-details blockquote p {
+    font-weight: 400!important;
+  }
   section.staff-details .intro-col .intro-content p:first-of-type {
     font-weight: bold;
   }

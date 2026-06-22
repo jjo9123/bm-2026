@@ -2454,9 +2454,6 @@ a#cookie_action_close_header {
   section.staff-details blockquote p {
     font-weight: 400!important;
   }
-  section.staff-details .intro-col .intro-content p:first-of-type {
-    font-weight: bold;
-  }
   .intro-content .staff-contact {
     margin-top: 50px;
   }

@@ -34,11 +34,11 @@ $excerpt     = wp_trim_words(wp_strip_all_tags($snippet_src), 18, '…');
         >
       <?php endif; ?>
 
-      <?php if ($label) : ?>
-        <span class="latest-card__label position-absolute">
-          <?php echo esc_html($label); ?>
-        </span>
-      <?php endif; ?>
+      <?php //if ($label) : ?>
+        <!--<span class="latest-card__label position-absolute">
+          <?php //echo esc_html($label); ?>
+        </span>-->
+      <?php //endif; ?>
     </a>
 
     <p class="latest-card__date mb-2">

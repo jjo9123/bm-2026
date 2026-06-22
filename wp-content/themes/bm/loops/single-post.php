@@ -168,7 +168,7 @@ $counsel = 0;
 
                           <!--<a href="javascript:void(0)" class="btn btn-purple">Contact The Author</a>-->
 
-                          <a href="<?php the_permalink(); ?>" class="btn btn-purple">View Author Profile</a>
+                          <a href="<?php the_permalink(); ?>" class="btn btn-green">View Author Profile</a>
                         </div>
                     </div>
                 <?php endforeach; ?>

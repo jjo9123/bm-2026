@@ -1720,13 +1720,12 @@ section.txt ul.related-expertise a::before {
 section.txt ul.related-expertise a::before {
   transition: transform 0.2s ease;
 }
-.section.txt ul.related-expertise a:hover {
+section.txt ul.related-expertise a:hover {
   color: var(--bm-pink);
   text-decoration: underline;
 }
 section.txt ul.related-expertise a:hover::before {
   transform: translateX(3px);
-  color: var(--bm-pink);
 }
 ul.related-expertise {
   display: -webkit-box;

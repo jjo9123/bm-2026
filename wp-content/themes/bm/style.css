@@ -205,7 +205,7 @@ a.btn-green:focus-visible, .experts-cards .expert-card__cta .btn:hover,
 .bm-pink a.btn-green:hover,
 .bm-pink  a.btn-green:focus,
 .bm-pink  a.btn-green:focus-visible {
-  background-color: var(--bm-gold);
+  background-color: var(--bm-purple);
 }
 [data-bg="bm-pink"] .btn-green:hover {
   background-color: var(--bm-purple);

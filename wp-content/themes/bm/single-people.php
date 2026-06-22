@@ -263,7 +263,6 @@
               <?php if ( ! empty( $additionalcontent['additional_quotes_heading'] ) ) : ?>
                 <div class="col-12">
                   <h2><?php echo htmlspecialchars( $additionalcontent['additional_quotes_heading'] ); ?></h2>
-                  <hr class="heading dpurple">
                 </div>
               <?php endif; ?>
 

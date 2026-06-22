@@ -48,9 +48,11 @@
 
     <?php get_template_part('modules/parts/single-post/hero-events'); ?>
 
+    <?php get_template_part('modules/parts/single-post/social-share'); ?>
+
     <?php get_template_part('modules/parts/single-post/events-modules'); ?>
 
-    <?php get_template_part('modules/parts/single-post/social-share'); ?>
+    
 
     <?php if (get_field('form_show') === 'yes') : ?>
       <?php get_template_part('modules/blog-form'); ?>

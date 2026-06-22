@@ -1,5 +1,10 @@
 <section class="clients bm-beige">
   <div class="container">
+    <div class="col-12">
+      <?php if ($intro = get_sub_field('intro')) : ?>
+          <?= $intro ?>
+      <?php endif; ?>
+    </div>
     <div class="col-sm-12 col-md-12">
       <ul class="row">
           <?php

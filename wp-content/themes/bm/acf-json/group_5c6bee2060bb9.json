@@ -5319,6 +5319,28 @@
                             "default_value": ""
                         },
                         {
+                            "key": "field_6a3945d77e9d3",
+                            "label": "Intro",
+                            "name": "intro",
+                            "aria-label": "",
+                            "type": "wysiwyg",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "relevanssi_exclude": 0,
+                            "default_value": "",
+                            "allow_in_bindings": 0,
+                            "tabs": "all",
+                            "toolbar": "full",
+                            "media_upload": 1,
+                            "delay": 0
+                        },
+                        {
                             "key": "field_5cc32ead1fbd7",
                             "label": "Points",
                             "name": "points",
@@ -6339,5 +6361,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1781773595
+    "modified": 1782138418
 }

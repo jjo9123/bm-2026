@@ -159,7 +159,7 @@
         </div><!-- /.row -->
 
         <!-- ACCREDITATIONS / MEMBERSHIPS -->
-        <div class="row col-md-10">
+        <div class="row col-md-12">
           <?php if ( $person_intro['add_accreditations'] == 'yes' ) : ?>
             <?php if ( ! empty( $person_intro['accreditations'] ) ) : ?>
               <div class="col-md-5">
@@ -204,7 +204,7 @@
         <section class="video text-center pb-5" style="background-color:#e7e7e7;">
           <div class="container">
             <div class="row">
-              <div class="col-12 col-md-10 mx-auto">
+              <div class="col-12 col-md-12 mx-auto">
                 <?php if ( $additionalcontent['video_title'] ) : ?>
                   <h3><?php echo $additionalcontent['video_title']; ?></h3>
                 <?php endif; ?>
@@ -224,7 +224,7 @@
         <section class="txt pull-out bm-white">
           <div class="container">
             <div class="row">
-              <div class="col-md-10 mx-auto">
+              <div class="col-md-12 mx-auto">
                 <h3>Significant Experience</h3>
                 <ul class="styled">
                   <?php foreach ( $additionalcontent['pull_out_list'] as $item ) : ?>
@@ -246,7 +246,7 @@
           <section class="staff-expertise bm-beige">
             <div class="container">
               <div class="row">
-                <div class="col-md-10 mx-auto">
+                <div class="col-md-12 mx-auto">
                   <h3>Additional Expertise</h3>
                   <?php echo $additionalcontent['additional_text']; ?>
                 </div>
@@ -267,7 +267,7 @@
                 </div>
               <?php endif; ?>
 
-              <div class="col-10 mx-auto">
+              <div class="col-12 mx-auto">
                 <div class="slider highlights-slider">
                   <?php if ( ! empty( $additionalcontent['additional_quotes'] ) && is_array( $additionalcontent['additional_quotes'] ) ) : ?>
                     <?php foreach ( $additionalcontent['additional_quotes'] as $quote ) : ?>

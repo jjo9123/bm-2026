@@ -8,20 +8,25 @@ if ( get_field('add_blog_cta') !== 'yes' ) return;
 $cta_post_object = get_field('choose_cta');
 if ( ! $cta_post_object ) return;
 
-$bg_class = get_field('bg_colour') ?: 'bm-pink';
 // Preserve original post object + setup CTA post
 $original_post = $post;
 $post = $cta_post_object;
 setup_postdata($post);
 
+$cta_id = get_the_ID();
+
 // Only render if set to blog
-if ( get_field('blog_or_page') !== 'blog' ) {
+if ( get_field('blog_or_page', $cta_id) !== 'blog' ) {
   wp_reset_postdata();
   $post = $original_post;
   return;
 }
 
-$bg = get_field('background_image');
+// Background colour from selected CTA post
+$bg_class = get_field('bg_colour', $cta_id) ?: 'bm-pink';
+
+// Old background image option kept in case needed later.
+// $bg = get_field('background_image', $cta_id);
 ?>
 
 <section class="cta-banner text-center <?php echo esc_attr($bg_class); ?>">

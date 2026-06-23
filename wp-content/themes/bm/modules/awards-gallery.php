@@ -14,7 +14,7 @@
 .exp-clients .client-logo {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
   padding: 10px;
   text-align: center;

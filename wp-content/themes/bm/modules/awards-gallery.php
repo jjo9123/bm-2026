@@ -26,6 +26,25 @@
   max-width: 100%;
   display: block;
 }
+.exp-clients .client-logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    text-align: center;
+    height: 100%;
+}
+
+.exp-clients .client-logo img {
+    height: 80px;
+    width: auto;
+    object-fit: contain;
+}
+
+.exp-clients .client-logo p {
+    margin-top: 10px;
+    min-height: 3em; /* reserve space for 2 lines */
+}
 </style>
 <?php
   if (is_singular('expertise')) {

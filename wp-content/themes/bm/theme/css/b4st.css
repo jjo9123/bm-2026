@@ -845,9 +845,9 @@ section.exp-clients .text-section p {
   font-size: 1.2rem;
   margin-top: 40px;
 }
-section.exp-clients .client-logo {
+/*section.exp-clients .client-logo {
   margin: auto 40px;
-}
+}*/
 .award-gallery img {
   max-width: 200px;
   object-fit: contain;

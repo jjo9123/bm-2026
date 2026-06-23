@@ -1045,9 +1045,9 @@ section.exp-clients .text-section p {
   font-size: 1.2rem;
   margin-top: 20px;
 }
-section.exp-clients .client-logo {
+/*section.exp-clients .client-logo {
   margin: auto 40px;
-}
+}*/
 section.exp-clients .client-logo p {
   font-size: 0.9rem;
   padding-top: 10px;

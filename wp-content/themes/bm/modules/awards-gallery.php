@@ -36,7 +36,7 @@
 }
 
 .exp-clients .client-logo img {
-    height: 80px;
+    height: 90px;
     width: auto;
     object-fit: contain;
 }

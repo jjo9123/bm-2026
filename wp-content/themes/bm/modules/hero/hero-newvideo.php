@@ -47,11 +47,12 @@
 }
 
 .hero-brand {
-  font-size: clamp(3rem, 8vw, 6rem);
+  font-size: clamp(3rem, 8vw, 6rem)!important;
   line-height: 1;
   font-weight: 700;
   margin: 0 0 1rem;
   font-family: var(--font-heading);
+  color: var(--bm-purple);
 }
 
 .hero-video {

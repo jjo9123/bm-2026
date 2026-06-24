@@ -3255,6 +3255,15 @@ ul.sitemap-nav.privacy li > a{
   .single-post .blog section.hero .col-12 {
     padding-top: 20px;
   } 
+  .single-post .blog section.hero p {
+    font-size: 1rem!important;
+  }
+  .single-post .blog .hero h1 {
+    font-size:2rem!important;
+  }
+  .single-post .blog .hero img {
+    aspect-ratio: 16 / 7!important;
+  }
 }
 /*a.press-module__item, .press-module__intro,
 .press-module__featured, .press-module__featured-title>a  {

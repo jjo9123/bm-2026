@@ -4169,6 +4169,7 @@ section.cta-banner.slider .home-slider[data-theme="bm-beige"] .slick-arrow {
 /* vertical alignment options */
 .hero.img-banner .hero__image-col.is-v-center { align-items: center; }
 .hero.img-banner .hero__image-col.is-v-top    { align-items: flex-start; margin-top: -13px!important; }
+.post-1554 .hero.img-banner .hero__image-col.is-v-top    { margin-top: -10px!important; }
 .hero.img-banner .hero__image-col.is-v-bottom { align-items: flex-end; }
 @media (min-width: 768px) {
   .hero__side-image {

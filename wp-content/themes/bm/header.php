@@ -35,7 +35,7 @@
 
   <script type="text/javascript" src="/wp-content/themes/bm/theme/js/jquery.lazy.min.js"></script>
   <script type="text/javascript" src="/wp-content/themes/bm/theme/js/jquery.lazy.plugins.min.js"></script>
-  <script type='text/javascript' src='https://www.blakemorgan.co.uk/wp-content/themes/bm/theme/js/b4st.js'></script>
+  <!--<script type='text/javascript' src='https://www.blakemorgan.co.uk/wp-content/themes/bm/theme/js/b4st.js'></script>-->
 
   <!-- Google Tag Manager -->
   <script data-cookieconsent="ignore">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':

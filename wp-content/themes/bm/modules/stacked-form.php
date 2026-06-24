@@ -69,6 +69,10 @@
   .section.contact.stacked-form h2 {
    color:#a395b7!important;
   }
+  .stacked-form .gform_wrapper.gravity-theme .gsection.gf_scroll_text {
+    height: unset!important;
+    background-color: unset!important;
+  }
   section.contact.stacked-form .gform_wrapper.gravity-theme input[type=color], 
   section.contact.stacked-form .gform_wrapper.gravity-theme input[type=date], 
   section.contact.stacked-form .gform_wrapper.gravity-theme input[type=datetime-local], 

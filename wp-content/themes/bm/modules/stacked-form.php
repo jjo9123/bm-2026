@@ -11,7 +11,7 @@
 
       </div>
 
-      <div class="col-12 col-md-10 form-left mx-auto">
+      <div class="col-12 col-md-12 form-left mx-auto">
           <p><?php the_sub_field('txt'); ?></p>
         <!-- Toggle Button -->
         <div style="display: flex; justify-content: center;">
@@ -64,6 +64,7 @@
   section.contact.stacked-form p {
     text-align: left!important;
     font-weight: 300;
+
   }
   .section.contact.stacked-form h2 {
    color:#a395b7!important;

@@ -153,15 +153,10 @@
     </section>
     <section class="b-footer pt-4 pb-4 bm-white">
       <div class="container">
-      <div class="row text-center disclaimer" style="padding-top: 15px;">
+      <div class="row disclaimer" style="padding-top: 15px;">
         <div class="col-12 col-lg-3">
           <!-- Start of SRA Digital Badge code -->
-          <div class="footer-sra">
-            <div style="position: relative;padding-bottom: 69.1%;height: auto;overflow: hidden;"><iframe style="border: 0px;margin: 0px;padding: 0px;backgroundcolor: transparent;top: 0px;left: 0px;width: 100%;height: 100%;position: absolute;" 
-            title="SRA Digital Compliance Badge for Blake Morgan"
-            src="https://cdn.yoshki.com/iframe/55845r.html"
-                frameborder="0" scrolling="no"></iframe></div>
-          </div>
+          <div style="max-width:275px;max-height:163px;"><div style="position: relative;padding-bottom: 59.1%;height: auto;overflow: hidden;"><iframe frameborder="0" scrolling="no" allowTransparency="true" src="https://cdn.yoshki.com/iframe/55845r.html" style="border:0px; margin:0px; padding:0px; backgroundColor:transparent; top:0px; left:0px; width:100%; height:100%; position: absolute;"></iframe></div></div>
           <!-- End of SRA Digital Badge code -->
         </div>
         <div class="col-12 col-lg-8">

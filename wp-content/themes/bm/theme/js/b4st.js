@@ -116,10 +116,12 @@
     });
 
     /* Nav search toggle */
-    /* Nav search toggle */
-$(document).on("click", ".nav-search__toggle", function (e) {
+   /* Nav search toggle */
+$(document).off(".navSearch");
+
+$(document).on("click.navSearch", ".nav-search__toggle", function (e) {
   e.preventDefault();
-  e.stopPropagation();
+  e.stopImmediatePropagation();
 
   var $toggle = $(this);
   var $panel = $("#" + $toggle.attr("aria-controls"));
@@ -131,15 +133,19 @@ $(document).on("click", ".nav-search__toggle", function (e) {
     $panel.removeClass("is-closed").addClass("is-open");
     $toggle.attr("aria-expanded", "true");
   }
+
+  return false;
 });
 
-$(document).on("click", ".nav-search__panel", function (e) {
+$(document).on("click.navSearch", ".nav-search__panel", function (e) {
   e.stopPropagation();
 });
 
-$(document).on("click", function () {
-  $(".nav-search__panel").removeClass("is-open").addClass("is-closed");
-  $(".nav-search__toggle").attr("aria-expanded", "false");
+$(document).on("click.navSearch", function (e) {
+  if (!$(e.target).closest(".nav-search").length) {
+    $(".nav-search__panel").removeClass("is-open").addClass("is-closed");
+    $(".nav-search__toggle").attr("aria-expanded", "false");
+  }
 });
 
     /* Gravity Forms textarea counter */

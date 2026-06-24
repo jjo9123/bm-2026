@@ -7,7 +7,7 @@
     </div>
   <?php endif; ?>
 
-  <section class="footer pt-5 pb-4 bm-purple">
+  <section class="footer pb-4 bm-purple">
     <div class="container">
       <div class="row">
         <div class="col-12 col-md-9 footer-socials">

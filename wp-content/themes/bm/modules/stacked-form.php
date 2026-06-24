@@ -1,7 +1,7 @@
 <?php $uid = 'form_' . get_row_index(); ?>
 
 <?php $anchor = get_sub_field('anchor_name'); ?>
-<section id="stacked-form" class="contact stacked-form bm-beige">
+<section id="stacked-form" class="contact stacked-form bm-purple">
     <div <?php if ($anchor): ?>id="<?php echo esc_attr($anchor); ?>"<?php endif; ?> class="container">
     <div class="row">
       <div class="col-12 mb-4">

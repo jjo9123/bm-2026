@@ -3252,6 +3252,9 @@ ul.sitemap-nav.privacy li > a{
     margin-top: 10px!important;
     padding-bottom: 20px;
   }
+  .single-post .blog section.hero .col-12 {
+    padding-top: 20px;
+  } 
 }
 /*a.press-module__item, .press-module__intro,
 .press-module__featured, .press-module__featured-title>a  {

@@ -1,7 +1,7 @@
 <?php $uid = 'form_' . get_row_index(); ?>
 
 <?php $anchor = get_sub_field('anchor_name'); ?>
-<section id="stacked-form" class="contact stacked-form" style="background: #404040 url('<?php the_sub_field('bg_image'); ?>') 50%/cover no-repeat;">
+<section id="stacked-form" class="contact stacked-form bm-beige">
     <div <?php if ($anchor): ?>id="<?php echo esc_attr($anchor); ?>"<?php endif; ?> class="container">
     <div class="row">
       <div class="col-12 mb-4">
@@ -15,7 +15,7 @@
           <p><?php the_sub_field('txt'); ?></p>
         <!-- Toggle Button -->
         <div style="display: flex; justify-content: center;">
-        <a id="<?php echo $uid; ?>_btn" class="btn btn-purple header mt-3">Complete Form</a>
+        <a id="<?php echo $uid; ?>_btn" class="btn btn-green mt-3">Complete Form</a>
         </div>
       </div>
 

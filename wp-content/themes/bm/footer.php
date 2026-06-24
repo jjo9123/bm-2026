@@ -151,8 +151,8 @@
       </div>
     </div>
     </section>
-    <section class="b-footer pt-5 pb-4 bm-white">
-      <div class="container pt-4">
+    <section class="b-footer pt-4 pb-4 bm-white">
+      <div class="container">
       <div class="row text-center disclaimer" style="padding-top: 15px;">
         <div class="col-12 col-lg-3">
           <!-- Start of SRA Digital Badge code -->

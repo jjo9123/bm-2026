@@ -123,7 +123,8 @@
     width: 100%;
     max-width: 320px;
     height: auto;
-    margin: 20px auto 2rem;
+    margin-left: auto;
+    margin-top: 1.5rem;
     display: block;
   }
 

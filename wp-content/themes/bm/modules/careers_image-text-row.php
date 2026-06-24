@@ -15,7 +15,7 @@
         <?php while ( have_rows('content_row') ) : the_row(); ?>
           <div class="col-md-6 col-lg-4 pt-4">
 
-            <div class="info-card h-100">
+            <div class="info-card h-100 bm-white">
 
               <?php
               $image = get_sub_field('image');

@@ -92,7 +92,7 @@
                 alt="Blake Morgan Logo"
                 width="160"
               >-->
-              <img src="https://www.blakemorgan.co.uk/wp-content/uploads/Unorganized/bm-pride-logo-1-scaled.png" class="footer-logo" alt="Blake Morgan Footer Logo" width="150">
+              <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/theme/img/BM_Pride_Web_WO-01.png" alt="Blake Morgan Pride Logo" class="footer-logo" width="150">
             </div>
           </div>
 

@@ -113,7 +113,7 @@ jQuery(function() {
             alt="Blake Morgan Logo"
             width="120"
           >-->
-          <img src="/wp-content/uploads/Unorganized/bm-pride-logo-1-scaled.png" alt="Blake Morgan Pride Logo" width="120px">
+          <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/theme/img/BM_Pride_Web_WO-01.png" alt="Blake Morgan Pride Logo" width="120px">
         </a>
 
 

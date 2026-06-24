@@ -190,8 +190,8 @@
 
         <div class="modal-form">
           <?php
-            gravity_form_enqueue_scripts(192', true);
-            gravity_form('192', false, false, false, '', true, 1);
+            gravity_form_enqueue_scripts(192, true);
+            gravity_form(192, false, false, false, '', true, 1);
           ?>
         </div>
       </div>

@@ -3285,6 +3285,9 @@ ul.sitemap-nav.privacy li > a{
     object-position: center top;
     max-height: unset!important;
   }
+  .latest-card__body {
+    padding-top: 15px!important;
+  }
 }
 /*a.press-module__item, .press-module__intro,
 .press-module__featured, .press-module__featured-title>a  {

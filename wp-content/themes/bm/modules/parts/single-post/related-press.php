@@ -8,7 +8,7 @@
  *  - $cta (array ACF link OR string URL)
  */
 
-$heading = $heading ?? 'Enjoy that? You might like these:';
+$heading = $heading ?? 'Explore more insights';
 
 // CTA defaults (supports string URL or ACF link array)
 $cta_url    = '';

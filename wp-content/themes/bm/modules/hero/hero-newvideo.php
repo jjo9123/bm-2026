@@ -12,7 +12,8 @@
     </div>
 
     <div class="hero-mobile-content">
-      <p class="hero-brand">Relevant Realistic Solutions</p>
+      <p class="hero-brand">Blake Morgan</p>
+      <p class="hero-brand">Expert UK law firm</p>
       <a href="#intro-content" class="btn btn-green">Learn More</a>
     </div>
 
@@ -46,7 +47,7 @@
   position: relative;
 }
 
-.hero-brand {
+.hero p.hero-brand {
   font-size: clamp(3rem, 8vw, 6rem)!important;
   line-height: 1;
   font-weight: 700;

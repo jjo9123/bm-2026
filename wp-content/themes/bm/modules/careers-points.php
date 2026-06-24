@@ -6,14 +6,14 @@
       <?php endif; ?>
     </div>
     <div class="col-sm-12 col-md-12">
-      <ul class="styled">
-        <?php
-        if (have_rows('points')) :
-          while (have_rows('points')) : the_row(); ?>
-            <li><?php the_sub_field('txt'); ?></li>
-          <?php endwhile;
-        endif;
-        ?>
+      <ul class="clients-bullets row">
+        <?php if (have_rows('points')) : ?>
+          <?php while (have_rows('points')) : the_row(); ?>
+            <li class="col-12 col-md-6 col-lg-4">
+              <span><?php the_sub_field('txt'); ?></span>
+            </li>
+          <?php endwhile; ?>
+        <?php endif; ?>
       </ul>
     </div>
 
@@ -28,6 +28,31 @@
   padding: 5px 15px 5px 35px;
   list-style: none;
 }*/
+.clients-bullets {
+  padding-left: 0;
+  list-style: none;
+}
+
+.clients-bullets li {
+  margin-bottom: 0.75rem;
+}
+
+.clients-bullets li span {
+  position: relative;
+  display: block;
+  padding-left: 1.25rem;
+}
+
+.clients-bullets li span::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.65em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: currentColor;
+}
 </style>
 
 

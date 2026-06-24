@@ -3270,10 +3270,14 @@ ul.sitemap-nav.privacy li > a{
   }
   .infographic-row .title-box img {
     max-width: 250px;
+    padding-bottom: 20px;
   }
   .cards.infographic .info-content {
     max-width: unset!important;
     margin: unset!important;
+  }
+  article#post_79 .client-logo {
+    max-width: 250px;
   }
 }
 /*a.press-module__item, .press-module__intro,

@@ -3326,7 +3326,17 @@ ul.sitemap-nav.privacy li > a{
   height: 1px;
   background: var(--bm-text-light)
 }
+@media (max-width: 767px) {
+  .press-module__featured {
+    padding-left: 0;
+    padding-right: 0;
+    border-top: 0;
+    border-bottom: 0;
+  }
 
+
+
+}
 /* contact form redesign */
 @media (min-width: 992px) {
 

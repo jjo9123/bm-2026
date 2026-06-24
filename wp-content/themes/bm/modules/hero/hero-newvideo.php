@@ -13,7 +13,7 @@
 
     <div class="hero-mobile-content">
       <p class="hero-brand">Blake Morgan</p>
-      <p class="hero-brand">Expert UK law firm</p>
+      <p class="sub-brand">Expert UK law firm</p>
       <a href="#intro-content" class="btn btn-green">Learn More</a>
     </div>
 
@@ -55,7 +55,14 @@
   font-family: var(--font-heading);
   color: var(--bm-purple);
 }
-
+.hero p.sub-brand {
+  font-size: 1.5rem!important
+  line-height: 1;
+  font-weight: 400;
+  margin: 0 0 2rem;
+  font-family: var(--font-heading);
+  color: var(--bm-dark-grey);
+}
 .hero-video {
   position: absolute;
   inset: 0;

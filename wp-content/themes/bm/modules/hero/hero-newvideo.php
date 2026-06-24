@@ -18,7 +18,7 @@
 
       <img
       class="hero-mobile-image"
-      src="<?php echo esc_url( get_template_directory_uri() ); ?>/theme/img/BM-Man-Tele_Plane.webp"
+      src="<?php echo esc_url( get_template_directory_uri() ); ?>/theme/img/man-plane.webp"
       alt="Home page feature image of Blake Morgan's corporate and commercial law services"
       loading="lazy"
       >

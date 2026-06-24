@@ -18,7 +18,7 @@
 
       <img
       class="hero-mobile-image"
-      src="/wp-content/uploads/New-Expertise-Images/BM-Expertise-Headers-v6-Foreground_Corporate-Commercial.webp"
+      src="<?php echo esc_url( get_template_directory_uri() ); ?>/theme/img/BM-Man-Tele_Plane.webp"
       alt="Home page feature image of Blake Morgan's corporate and commercial law services"
       loading="lazy"
       >
@@ -101,7 +101,7 @@
     align-items: center;
     background-color: #f1efe6;
     padding: 4rem 1.5rem !important;
-    background-image: url('/wp-content/uploads/New-Expertise-Images/BM-Expertise-Background.png');
+    background-image: url('<?php echo esc_url( get_template_directory_uri() ); ?>/theme/img/background-video-mobile.webp');
     background-size: cover;
     background-position: center;
     color: var(--bm-purple);

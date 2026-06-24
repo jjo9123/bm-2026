@@ -3279,7 +3279,7 @@ ul.sitemap-nav.privacy li > a{
   article#post_79 .client-logo {
     max-width: 250px;
   }
-  .experts-cards .expert-card__image {
+  .experts-cards .expert-card__image, section .staff-contact .img {
     aspect-ratio: 4 / 3;
     object-fit: cover;
     object-position: center top;

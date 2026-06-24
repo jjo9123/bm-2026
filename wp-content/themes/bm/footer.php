@@ -10,7 +10,98 @@
   <section class="footer pb-4 bm-purple">
     <div class="container">
       <div class="row">
-        <div class="col-12 col-md-9 footer-socials">
+        <div class="col-12 col-sm-6 col-md-4 mx-auto footer-socials">
+          <?php if( get_field('social_show', 'option') == 'yes' ): ?>
+            <div class="social-links">
+              <h3 style="color: #32204c;">
+                <?php the_field('social_heading', 'option'); ?>
+              </h3>
+
+              <div class="social-icons">
+                <?php if( get_field('social_fb', 'option') ): ?>
+                  <a href="<?php the_field('social_fb', 'option'); ?>" target="_blank" rel="noopener" aria-label="Visit Our Facebook.com Profile (opens in a new tab)">
+                    <img src="/wp-content/themes/bm/theme/img/fb-icon.png" alt="facebook" >
+                  </a>
+                <?php endif; ?>
+
+                <?php if( get_field('social_li', 'option') ): ?>
+                  <a href="<?php the_field('social_li', 'option'); ?>" target="_blank" rel="noopener" aria-label="Visit Our LinkedIn.com Profile (opens in a new tab)">
+                    <img src="/wp-content/themes/bm/theme/img/linkedin-icon.png" alt="linkedin">
+                  </a>
+                <?php endif; ?>
+
+                <?php if( get_field('social_tw', 'option') ): ?>
+                  <a href="<?php the_field('social_tw', 'option'); ?>" target="_blank" rel="noopener" aria-label="Visit Our X.com Profile (opens in a new tab)">
+                    <img src="/wp-content/themes/bm/theme/img/x-icon.png" alt="x logo">
+                  </a>
+                <?php endif; ?>
+              </div>
+            </div>
+          <?php endif; ?>
+
+          <?php if( get_field('newsletter_show', 'option') == 'yes' ): ?>
+            <div class="newsletter-signup">
+              <?php if( get_field('form_or_button', 'option') == 'form' ): ?>
+                <h3 style="color: #32204c;">Newsletter Signup:</h3>
+                <?php gravity_form(3, false, false, false, '', true, 12); ?>
+              <?php else: ?>
+                <a href="<?php the_field('news_button_link', 'option'); ?>" target="_blank" class="btn btn-purple header" data-name="Newsletter">Sign up to our newsletter</a>
+              <?php endif; ?>
+            </div>
+          <?php endif; ?>
+        </div>
+
+        <div class="col-12 col-md-4 mx-auto footer-mid">
+          <?php if( get_field('middle_show', 'option') == 'yes' ): ?>
+              <img src="https://www.blakemorgan.co.uk/wp-content/uploads/Unorganized/logo.png" class="footer-logo" alt="Blake Morgan Footer Logo" width="150">
+            <!--<img src="https://www.blakemorgan.co.uk/wp-content/uploads/Unorganized/bm-pride-logo-1-scaled.png" class="footer-logo" alt="Blake Morgan Footer Logo" width="150">-->
+            <?php the_field('middle_email', 'option'); ?>
+
+            <?php $post_object = get_field('middle_btnmodal', 'option');
+              if( $post_object ):
+              $post = $post_object;
+              setup_postdata( $post );
+            ?>
+              <div class="arrange-call">
+                <a href="javascript:void(0)" class="btn btn-purple header" data-toggle="modal" data-target="#btn-cta-modal-<?php echo get_the_ID(); ?>" data-name="Arrange a Call">
+                  <?php the_field('middle_btntxt', 'option'); ?>
+                </a>
+              </div>
+
+              <?php get_template_part('modules/modal'); ?>
+
+              <?php wp_reset_postdata(); ?>
+            <?php endif;
+          endif; ?>
+        </div>
+        <div class="col-12 col-md-2 mx-auto footer-contact">
+          <?php
+            $posts = get_field('q_links', 'option');
+            if( $posts ):
+          ?>
+            <div class="footer-links">
+              <h3>
+                Quicklinks:
+              </h3>
+              <ul class="footer-locations">
+                <?php foreach( $posts as $post): ?>
+                  <?php setup_postdata($post); ?>
+
+                  <li>
+                    <a href="<?php the_permalink(); ?>">
+                      <?php the_title(); ?>
+                    </a>
+                  </li>
+
+                  <?php wp_reset_postdata(); ?>
+                <?php endforeach; ?>
+              </ul>
+            </div>
+          <?php endif; ?>
+        </div>
+        <div class="col-12 col-md-2 mx-auto footer-contact">
+
+
           <?php if( get_field('office_show', 'option') == 'yes' ): ?>
             <div class="footer-links">
               <h3>

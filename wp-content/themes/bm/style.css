@@ -3090,6 +3090,13 @@ p.lp_form-txt {
 .nav-search__panel .searchandfilter select{
   width:100%;
 }
+.nav-search__panel.is-closed {
+  display: none;
+}
+
+.nav-search__panel.is-open {
+  display: block;
+}
 .footer-links {
     display: flex;
     align-items: center;

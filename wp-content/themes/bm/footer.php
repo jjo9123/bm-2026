@@ -87,12 +87,12 @@
 
           </div>
             <div class="col-12 col-md-3 footer-mid">
-              <img 
+              <!--<img 
                 src="<?php echo esc_url( get_template_directory_uri() ); ?>/theme/img/BM_Logo_white.svg"
                 alt="Blake Morgan Logo"
                 width="160"
-              >
-              <!--<img src="https://www.blakemorgan.co.uk/wp-content/uploads/Unorganized/bm-pride-logo-1-scaled.png" class="footer-logo" alt="Blake Morgan Footer Logo" width="150">-->
+              >-->
+              <img src="https://www.blakemorgan.co.uk/wp-content/uploads/Unorganized/bm-pride-logo-1-scaled.png" class="footer-logo" alt="Blake Morgan Footer Logo" width="150">
             </div>
           </div>
 
@@ -190,8 +190,8 @@
 
         <div class="modal-form">
           <?php
-            gravity_form_enqueue_scripts('2', true);
-            gravity_form('2', false, false, false, '', true, 1);
+            gravity_form_enqueue_scripts(192', true);
+            gravity_form('192', false, false, false, '', true, 1);
           ?>
         </div>
       </div>

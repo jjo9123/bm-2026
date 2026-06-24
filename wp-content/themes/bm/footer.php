@@ -150,7 +150,8 @@
         </div>
       </div>
     </div>
-
+    </section>
+    <section class="b-footer pt-5 pb-4 bm-white">
       <div class="container pt-4">
       <div class="row text-center disclaimer" style="padding-top: 15px;">
         <div class="col-12 col-lg-3">
@@ -168,7 +169,8 @@
         </div>
       </div>
     </div>
-  </section>
+    </section>
+  
 </footer>
 
 

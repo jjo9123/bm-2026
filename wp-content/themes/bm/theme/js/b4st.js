@@ -116,44 +116,42 @@
     });
 
     /* Nav search toggle */
-var c = $(".nav-search__toggle"),
-    d = $("#navSearchPanel");
+    /* Nav search toggle */
+    var c = $(".nav-search__toggle"),
+        d = $("#navSearchPanel");
 
-function closeNavSearch() {
-  d.attr("hidden", "hidden").prop("hidden", true);
-  c.attr("aria-expanded", "false");
-}
-
-if (c.length && d.length) {
-  c.on("click", function (e) {
-    console.log("Search clicked");
-    e.preventDefault();
-
-    if (d.prop("hidden")) {
-      d.removeAttr("hidden").prop("hidden", false);
-      c.attr("aria-expanded", "true");
-      d.find("input, select, textarea, button").first().focus();
-    } else {
-      closeNavSearch();
+    function closeNavSearch() {
+      d.attr("hidden", "hidden").prop("hidden", true);
+      c.attr("aria-expanded", "false");
     }
-  });
 
-  $(document).on("click", function (e) {
-    if (
-      !d.prop("hidden") &&
-      !c.is(e.target) &&
-      !c.has(e.target).length &&
-      !d.is(e.target) &&
-      !d.has(e.target).length
-    ) {
-      closeNavSearch();
+    if (c.length && d.length) {
+      c.on("click", function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        if (d.prop("hidden")) {
+          d.removeAttr("hidden").prop("hidden", false);
+          c.attr("aria-expanded", "true");
+          d.find("input, select, textarea, button").first().focus();
+        } else {
+          closeNavSearch();
+        }
+      });
+
+      $(document).on("click", function (e) {
+        if (
+          !d.prop("hidden") &&
+          !$(e.target).closest(".nav-search").length
+        ) {
+          closeNavSearch();
+        }
+      });
+
+      $(document).on("keydown", function (e) {
+        if (e.key === "Escape") closeNavSearch();
+      });
     }
-  });
-
-  $(document).on("keydown", function (e) {
-    if (e.key === "Escape") closeNavSearch();
-  });
-}
 
     /* Gravity Forms textarea counter */
     function bindTextareaCounters() {

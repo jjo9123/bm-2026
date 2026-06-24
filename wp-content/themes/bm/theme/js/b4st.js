@@ -124,40 +124,22 @@ $(document).on("click", ".nav-search__toggle", function (e) {
   var $toggle = $(this);
   var $panel = $("#" + $toggle.attr("aria-controls"));
 
-  $panel.removeAttr("hidden").prop("hidden", false);
-
   if ($panel.hasClass("is-open")) {
     $panel.removeClass("is-open").addClass("is-closed");
     $toggle.attr("aria-expanded", "false");
   } else {
     $panel.removeClass("is-closed").addClass("is-open");
     $toggle.attr("aria-expanded", "true");
-    $panel.find("input, select, textarea, button").first().focus();
   }
 });
 
-$(document).on("click", function (e) {
-  if (!$(e.target).closest(".nav-search").length) {
-    $(".nav-search__panel")
-      .removeAttr("hidden")
-      .prop("hidden", false)
-      .removeClass("is-open")
-      .addClass("is-closed");
-
-    $(".nav-search__toggle").attr("aria-expanded", "false");
-  }
+$(document).on("click", ".nav-search__panel", function (e) {
+  e.stopPropagation();
 });
 
-$(document).on("keydown", function (e) {
-  if (e.key === "Escape") {
-    $(".nav-search__panel")
-      .removeAttr("hidden")
-      .prop("hidden", false)
-      .removeClass("is-open")
-      .addClass("is-closed");
-
-    $(".nav-search__toggle").attr("aria-expanded", "false");
-  }
+$(document).on("click", function () {
+  $(".nav-search__panel").removeClass("is-open").addClass("is-closed");
+  $(".nav-search__toggle").attr("aria-expanded", "false");
 });
 
     /* Gravity Forms textarea counter */

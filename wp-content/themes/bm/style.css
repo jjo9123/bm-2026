@@ -490,7 +490,7 @@ section.contact .gform_wrapper input:not([type=radio]):not([type=checkbox]):not(
 .gform_legacy_markup_wrapper .gfield_required {
   margin-left: 0!important;
 }
-.gfield--input-type-captcha .gform-field-label {
+.gfield--input-type-captcha .gform-field-label, .gfield--type-captcha .gform-field-label {
     position: absolute !important;
     width: 1px;
     height: 1px;

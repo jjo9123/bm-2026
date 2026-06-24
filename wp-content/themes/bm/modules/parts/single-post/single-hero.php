@@ -18,9 +18,9 @@ $slug       = ! empty($categories) ? $categories[0]->slug : '';
         <div>
           <?php if ( $post_type === 'press' ) : ?>
 
-          <span class="latest-card__label blog-header mb-0">
+          <!--<span class="latest-card__label blog-header mb-0">
             News
-          </span>
+          </span>-->
 
         <?php elseif ( ! empty( $categories ) ) : ?>
 

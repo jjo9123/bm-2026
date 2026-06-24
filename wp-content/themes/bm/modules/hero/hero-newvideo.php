@@ -15,6 +15,13 @@
       <p class="hero-brand">Blake Morgan</p>
       <p class="sub-brand">Expert UK law firm</p>
       <a href="#intro-content" class="btn btn-green">Learn More</a>
+
+      <img
+      class="hero-mobile-image"
+      src="/wp-content/uploads/New-Expertise-Images/BM-Expertise-Headers-v6-Foreground_Corporate-Commercial.webp"
+      alt="Home page feature image of Blake Morgan's corporate and commercial law services"
+      loading="lazy"
+      >
     </div>
 
   </div>
@@ -112,6 +119,14 @@
     width: 100%;
   }
 
+  .hero-mobile-image {
+    width: 100%;
+    max-width: 320px;
+    height: auto;
+    margin: 0 auto 2rem;
+    display: block;
+  }
+  
   .hero-mobile-content {
     display: block;
     position: relative;

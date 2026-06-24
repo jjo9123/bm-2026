@@ -3256,16 +3256,16 @@ ul.sitemap-nav.privacy li > a{
     margin-top: 10px!important;
     padding-bottom: 20px;
   }
-  .single-post .blog section.hero .col-12 {
+  .single-post .blog section.hero .col-12, .single-press .blog section.hero .col-12 {
     padding-top: 20px;
   } 
   .single-post .blog section.hero p {
     font-size: 1rem!important;
   }
-  .single-post .blog .hero h1 {
+  .single-post .blog .hero h1, .single-press .blog .hero h1 {
     font-size:2rem!important;
   }
-  .single-post .blog .hero img {
+  .single-post .blog .hero img, .single-press .blog .hero img {
     aspect-ratio: 16 / 7!important;
   }
 }

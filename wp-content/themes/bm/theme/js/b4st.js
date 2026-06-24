@@ -117,41 +117,48 @@
 
     /* Nav search toggle */
     /* Nav search toggle */
-    var c = $(".nav-search__toggle"),
-        d = $("#navSearchPanel");
+$(document).on("click", ".nav-search__toggle", function (e) {
+  e.preventDefault();
+  e.stopPropagation();
 
-    function closeNavSearch() {
-      d.attr("hidden", "hidden").prop("hidden", true);
-      c.attr("aria-expanded", "false");
-    }
+  var $toggle = $(this);
+  var $panel = $("#" + $toggle.attr("aria-controls"));
 
-    if (c.length && d.length) {
-      c.on("click", function (e) {
-        e.preventDefault();
-        e.stopPropagation();
+  $panel.removeAttr("hidden").prop("hidden", false);
 
-        if (d.prop("hidden")) {
-          d.removeAttr("hidden").prop("hidden", false);
-          c.attr("aria-expanded", "true");
-          d.find("input, select, textarea, button").first().focus();
-        } else {
-          closeNavSearch();
-        }
-      });
+  if ($panel.hasClass("is-open")) {
+    $panel.removeClass("is-open").addClass("is-closed");
+    $toggle.attr("aria-expanded", "false");
+  } else {
+    $panel.removeClass("is-closed").addClass("is-open");
+    $toggle.attr("aria-expanded", "true");
+    $panel.find("input, select, textarea, button").first().focus();
+  }
+});
 
-      $(document).on("click", function (e) {
-        if (
-          !d.prop("hidden") &&
-          !$(e.target).closest(".nav-search").length
-        ) {
-          closeNavSearch();
-        }
-      });
+$(document).on("click", function (e) {
+  if (!$(e.target).closest(".nav-search").length) {
+    $(".nav-search__panel")
+      .removeAttr("hidden")
+      .prop("hidden", false)
+      .removeClass("is-open")
+      .addClass("is-closed");
 
-      $(document).on("keydown", function (e) {
-        if (e.key === "Escape") closeNavSearch();
-      });
-    }
+    $(".nav-search__toggle").attr("aria-expanded", "false");
+  }
+});
+
+$(document).on("keydown", function (e) {
+  if (e.key === "Escape") {
+    $(".nav-search__panel")
+      .removeAttr("hidden")
+      .prop("hidden", false)
+      .removeClass("is-open")
+      .addClass("is-closed");
+
+    $(".nav-search__toggle").attr("aria-expanded", "false");
+  }
+});
 
     /* Gravity Forms textarea counter */
     function bindTextareaCounters() {

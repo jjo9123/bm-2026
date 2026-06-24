@@ -220,12 +220,12 @@ a.btn-green:focus-visible, .experts-cards .expert-card__cta .btn:hover,
 .bm-pink .gform_legacy_markup_wrapper .gform_validation_errors {
   border: 1px solid var(--bm-text-light)!important;
 }
-.contact .gfield--input-type-select label {
-  clip: rect(1px, 1px, 1px, 1px)!important;
-  position: absolute !important;
-  height: 1px!important;
-  width: 1px!important;
-  overflow: hidden!important;
+.contact .gfield--input-type-select label, .single-location .contact .gfield--type-select label {
+    clip: rect(1px, 1px, 1px, 1px) !important;
+    position: absolute !important;
+    height: 1px !important;
+    width: 1px !important;
+    overflow: hidden !important;
 }
 
 a.btn-purple {
@@ -491,7 +491,15 @@ section.contact .gform_wrapper input:not([type=radio]):not([type=checkbox]):not(
   margin-left: 0!important;
 }
 .gfield--input-type-captcha .gform-field-label {
-  display: none!important;
+    position: absolute !important;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    white-space: nowrap;
+    border: 0;
 }
 section.contact .gform_wrapper li.hidden_label input {
   margin-top: 0;

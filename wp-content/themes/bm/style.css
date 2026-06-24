@@ -3243,6 +3243,10 @@ ul.sitemap-nav.privacy li > a{
   .latest-card__image-wrap img {
     max-height: fit-content;
   }
+  .latest-card__image-wrap,
+  .latest-card__image-wrap img {
+    aspect-ratio: 16 / 7;
+  }
   .footer-links, .footer ul.sitemap-nav {
     display: block!important;
     text-align: left;

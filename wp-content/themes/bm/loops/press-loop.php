@@ -9,7 +9,7 @@
 
 
 <?php if(have_posts()) : ?>
-  <div id="results" class="test">
+  <div id="results" class="test1">
     <div class="row">
       <?php while(have_posts()) : the_post(); ?>
       

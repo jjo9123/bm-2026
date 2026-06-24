@@ -39,7 +39,7 @@ $sanitized_embed_code = wp_kses($custom_script, $allowed_tags);
             <?php endif; ?>
 
                 <?php if (get_sub_field('title')): ?>
-                    <h2 class="purple">
+                    <h2>
                         <?php the_sub_field('title'); ?>
                     </h2>
                 <?php endif; ?>

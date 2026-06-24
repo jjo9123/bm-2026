@@ -1,4 +1,4 @@
-<section class="clients equality text-center" style="background: url('<?php the_sub_field('bgimg'); ?>') 50%/cover no-repeat;">
+<section class="clients equality bm-beige">
   <div class="container">
     <?php
       if( have_rows('section') ): ?>
@@ -7,7 +7,7 @@
           $icon = get_sub_field('icon'); ; ?>
 
           
-            <div class="col-6 col-md-4 pb-4">
+            <div class="col-12 col-sm-6 col-md-4 pb-4">
               <?php $icon = get_sub_field('icon');
                 $size = 'full';
                 echo wp_get_attachment_image( $icon, $size );

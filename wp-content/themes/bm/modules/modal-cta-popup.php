@@ -11,7 +11,7 @@
 
           <p><?php the_field('txt', $mypost->ID); ?></p>
 
-          <img src="/wp-content/uploads/2019/02/logo-white.png" alt="Blake Morgan Logo" style="bottom: 20px; max-width: 180px; position: absolute;">
+          <img src="/wp-content/uploads/2019/02/logo-white.png" alt="Blake Morgan Logo" style="bottom: 20px; max-width: 150px; position: absolute;">
         </div>
 
         <div class="modal-form">

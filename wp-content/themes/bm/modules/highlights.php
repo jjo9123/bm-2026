@@ -1,10 +1,10 @@
-<section class="highlights text-center" style="background: url('<?php the_sub_field('bg_image'); ?>') 50%/cover no-repeat; color: #FFFFFF;">
+<?php $bg_class = get_sub_field('bg_colour') ?: 'bm-beige'; ?>
+<section class="highlights text-center <?php echo esc_attr($bg_class); ?>">
   <div class="container">
     <div class="row">
       <div class="col-12">
         <h2><?php the_sub_field('heading'); ?></h2>
 
-        <hr class="heading dpurple">
       </div>
 
       <div class="col-10 mx-auto">
@@ -13,7 +13,7 @@
             if( have_rows('highlight') ):
               while ( have_rows('highlight') ) : the_row(); ?>
               <div class="highlights-slide">
-                <p><?php the_sub_field('txt'); ?> </p>
+                <p><?php the_sub_field('txt'); ?></p>
               </div>
               <?php endwhile;
             endif;

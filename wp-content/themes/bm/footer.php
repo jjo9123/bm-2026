@@ -1,13 +1,13 @@
 <?php b4st_footer_before();?>
 
-<footer id="footer" class="mt-5 mb-4 bg-light">
+<footer id="footer" class="pt-5 pb-4 bm-purple">
   <?php if(is_active_sidebar('footer-widget-area')): ?>
     <div class="row pt-5 pb-4" id="footer" role="navigation">
       <?php dynamic_sidebar('footer-widget-area'); ?>
     </div>
   <?php endif; ?>
 
-  <section class="footer" style="background-color: #ffffff;">
+  <section class="footer pb-4 bm-purple">
     <div class="container">
       <div class="row">
         <div class="col-12 col-sm-6 col-md-4 mx-auto footer-socials">
@@ -103,8 +103,8 @@
 
 
           <?php if( get_field('office_show', 'option') == 'yes' ): ?>
-            <div class="footer-contact-locations">
-              <h3 style="color: #32204c;">
+            <div class="footer-links">
+              <h3>
                 <?php the_field('office_heading', 'option'); ?>
               </h3>
 
@@ -112,35 +112,56 @@
                 $posts = get_field('offices', 'option');
                 if( $posts ):
               ?>
+              <ul class="footer-locations sitemap-nav">
                 <?php foreach( $posts as $post): ?>
                   <?php setup_postdata($post); ?>
 
-                  <ul class="footer-locations">
+                  
                     <li>
                       <a href="<?php the_permalink(); ?>#contact-footer">
                         <?php the_title(); ?>
                       </a>
                     </li>
-                  </ul>
+                  
 
                   <?php wp_reset_postdata(); ?>
                 <?php endforeach; ?>
+                </ul>
               <?php endif; ?>
             </div>
           <?php endif; ?>
-        </div>
-      </div>
 
-      <div class="row">
-        <div class="col-12 mx-auto text-center">
-          <p>&copy; Blake Morgan <?php echo date('Y'); ?>. All Rights reserved.</p>
+          
+
+          <?php
+            $posts = get_field('q_links', 'option');
+            if( $posts ):
+          ?>
+            <div class="footer-links">
+              <h3>
+                Quicklinks:
+              </h3>
+              <ul class="sitemap-nav">
+                <?php foreach( $posts as $post): ?>
+                  <?php setup_postdata($post); ?>
+
+                  <li>
+                    <a href="<?php the_permalink(); ?>">
+                      <?php the_title(); ?>
+                    </a>
+                  </li>
+
+                  <?php wp_reset_postdata(); ?>
+                <?php endforeach; ?>
+              </ul>
+            </div>
+          <?php endif; ?>
 
           <?php
             $posts = get_field('links', 'option');
             if( $posts ):
           ?>
-
-            <ul class="sitemap-nav">
+            <ul class="sitemap-nav privacy">
               <?php foreach( $posts as $post): ?>
                 <?php setup_postdata($post); ?>
 
@@ -154,18 +175,79 @@
               <?php endforeach; ?>
             </ul>
           <?php endif; ?>
+
+          </div>
+            <div class="col-12 col-md-3 footer-mid">
+              <!--<img 
+                src="<?php echo esc_url( get_template_directory_uri() ); ?>/theme/img/BM_Logo_white.svg"
+                alt="Blake Morgan Logo"
+                width="160"
+              >-->
+              <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/theme/img/BM_Pride_Web_WO-01.png" alt="Blake Morgan Pride Logo" class="footer-logo" width="150">
+            </div>
+          </div>
+
+          <?php if( get_field('newsletter_show', 'option') == 'yes' ): ?>
+            <div class="newsletter-signup">
+              <?php if( get_field('form_or_button', 'option') == 'form' ): ?>
+                <h3 style="color: #32204c;">Newsletter Signup:</h3>
+                <?php gravity_form(3, false, false, false, '', true, 12); ?>
+              <?php else: ?>
+                <a href="<?php the_field('news_button_link', 'option'); ?>" target="_blank" class="btn btn-purple header" data-name="Newsletter">Sign up to our newsletter</a>
+              <?php endif; ?>
+            </div>
+          <?php endif; ?>
+        </div>
+
+                
+        
+      <div class="container legal pb-4 pt-4">
+      <div class="row align-items-center">
+        <div class="col-12 col-md-10">
+          <p>&copy; Blake Morgan <?php echo date('Y'); ?>. All Rights reserved.</p>
+        </div>
+          <?php if( get_field('social_show', 'option') == 'yes' ): ?>
+            <div class="col-12 col-md-2">
+            <div class="social-links pt-3 pt-md-0">
+
+              <div class="social-icons ">
+                <?php if( get_field('social_fb', 'option') ): ?>
+                  <a href="<?php the_field('social_fb', 'option'); ?>" target="_blank" rel="noopener" aria-label="Visit Our Facebook.com Profile (opens in a new tab)">
+                    
+                    <img 
+                      src="<?php echo esc_url( get_template_directory_uri() ); ?>/theme/img/fb.svg" alt="Follow Blake Morgan on Facebook"
+                    >                
+                  </a>
+                <?php endif; ?>
+
+                <?php if( get_field('social_li', 'option') ): ?>
+                  <a href="<?php the_field('social_li', 'option'); ?>" target="_blank" rel="noopener" aria-label="Visit Our LinkedIn.com Profile (opens in a new tab)">
+                      <img 
+                      src="<?php echo esc_url( get_template_directory_uri() ); ?>/theme/img/linkedin.svg" alt="Follow Blake Morgan on LinkedIn"
+                      >                  
+                    </a>
+                <?php endif; ?>
+
+                <?php if( get_field('social_tw', 'option') ): ?>
+                  <a href="<?php the_field('social_tw', 'option'); ?>" target="_blank" rel="noopener" aria-label="Visit Our X.com Profile (opens in a new tab)">
+                    <img 
+                      src="<?php echo esc_url( get_template_directory_uri() ); ?>/theme/img/x-icon.svg" alt="Follow Blake Morgan on X.com"
+                    >
+                  </a>
+                <?php endif; ?>
+                </div>
+            </div>
+          <?php endif; ?>
         </div>
       </div>
-
-      <div class="row text-center disclaimer" style="padding-top: 15px;">
+    </div>
+    </section>
+    <section class="b-footer pt-4 pb-4 bm-white">
+      <div class="container">
+      <div class="row disclaimer" style="padding-top: 15px;">
         <div class="col-12 col-lg-3">
           <!-- Start of SRA Digital Badge code -->
-          <div class="footer-sra">
-            <div style="position: relative;padding-bottom: 69.1%;height: auto;overflow: hidden;"><iframe style="border: 0px;margin: 0px;padding: 0px;backgroundcolor: transparent;top: 0px;left: 0px;width: 100%;height: 100%;position: absolute;" 
-            title="SRA Digital Compliance Badge for Blake Morgan"
-            src="https://cdn.yoshki.com/iframe/55845r.html"
-                frameborder="0" scrolling="no"></iframe></div>
-          </div>
+          <div style="max-width:275px;max-height:163px;"><div style="position: relative;padding-bottom: 59.1%;height: auto;overflow: hidden;"><iframe frameborder="0" scrolling="no" allowTransparency="true" src="https://cdn.yoshki.com/iframe/55845r.html" style="border:0px; margin:0px; padding:0px; backgroundColor:transparent; top:0px; left:0px; width:100%; height:100%; position: absolute;"></iframe></div></div>
           <!-- End of SRA Digital Badge code -->
         </div>
         <div class="col-12 col-lg-8">
@@ -173,7 +255,8 @@
         </div>
       </div>
     </div>
-  </section>
+    </section>
+  
 </footer>
 
 
@@ -195,8 +278,8 @@
 
         <div class="modal-form">
           <?php
-            gravity_form_enqueue_scripts('2', true);
-            gravity_form('2', false, false, false, '', true, 1);
+            gravity_form_enqueue_scripts(192, true);
+            gravity_form(192, false, false, false, '', true, 1);
           ?>
         </div>
       </div>
@@ -255,10 +338,6 @@
 </section>-->
 
 <style>
-body.home h1.header {
-  font-size: 2.3rem;
-  margin-bottom: 40px;
-}
 #cookiebtn {
   background-color: rgb(255, 255, 255);
   color: rgb(50, 33, 76);
@@ -300,7 +379,7 @@ body.home h1.header {
 
   'use strict';
 
-  $( "#cookiechange" ).click(function() {
+  /*$( "#cookiechange" ).click(function() {
     setTimeout(
       function() {
         Cookiebot.withdraw();
@@ -308,10 +387,10 @@ body.home h1.header {
       300);
   });
 
-}(jQuery));
+}(jQuery));*/
 
 
- jQuery('.home-slider').slick({
+ /*jQuery('.home-slider').slick({
 	 arrows: true,
 	 dots: true,
 	 infinite: true,
@@ -329,7 +408,8 @@ body.home h1.header {
 	 arrows: true,
 	 dots: true,
 	 infinite: true
- });
+ });*/
+})(jQuery);
 </script>
 
 

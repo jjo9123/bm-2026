@@ -3,28 +3,14 @@
   .single section.quotes {
     padding: 20px 0 30px;
   }
-  section.quotes .quote:before {
-    color: #8ed300;
-    content: '“';
-    display: block;
-    font-family: gil-sans-nova;
-    font-size: 4rem;
-    font-weight: 500;
-    line-height: 10px;
-    margin-top: 40px;
-  }
-   section.quotes .quote:after {
-    color: #8ed300;
-    content: '”';
-    display: block;
-    font-family: gil-sans-nova;
-    font-size: 4rem;
-    font-weight: 500;
-    line-height: 10px;
-    margin-top: 40px;
-  }
 </style>
-<section class="quotes text-center <?php if( get_sub_field('white_or_grey') == 'grey'): ?> grey<?php endif; ?>">
+<?php
+$bg_class = (get_sub_field('white_or_grey') === 'grey')
+  ? 'bm-beige'
+  : 'bm-white';
+?>
+
+<section class="txt quotes text-center <?php echo esc_attr($bg_class); ?>">
   <div class="container">
     <div class="row">
       

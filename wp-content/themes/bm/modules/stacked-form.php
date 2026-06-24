@@ -1,7 +1,7 @@
 <?php $uid = 'form_' . get_row_index(); ?>
 
 <?php $anchor = get_sub_field('anchor_name'); ?>
-<section id="stacked-form" class="contact stacked-form" style="background: #404040 url('<?php the_sub_field('bg_image'); ?>') 50%/cover no-repeat;">
+<section id="stacked-form" class="contact stacked-form bm-purple">
     <div <?php if ($anchor): ?>id="<?php echo esc_attr($anchor); ?>"<?php endif; ?> class="container">
     <div class="row">
       <div class="col-12 mb-4">
@@ -9,14 +9,13 @@
           <?php the_sub_field('heading'); ?>
         </h2>
 
-        <hr class="heading purple">
       </div>
 
-      <div class="col-12 col-md-10 form-left mx-auto">
+      <div class="col-12 col-md-12 form-left mx-auto">
           <p><?php the_sub_field('txt'); ?></p>
         <!-- Toggle Button -->
         <div style="display: flex; justify-content: center;">
-        <a id="<?php echo $uid; ?>_btn" class="btn btn-purple header mt-3">Complete Form</a>
+        <a id="<?php echo $uid; ?>_btn" class="btn btn-green mt-3">Complete Form</a>
         </div>
       </div>
 
@@ -65,9 +64,14 @@
   section.contact.stacked-form p {
     text-align: left!important;
     font-weight: 300;
+
   }
   .section.contact.stacked-form h2 {
    color:#a395b7!important;
+  }
+  .stacked-form .gform_wrapper.gravity-theme .gsection.gf_scroll_text {
+    height: unset!important;
+    background-color: unset!important;
   }
   section.contact.stacked-form .gform_wrapper.gravity-theme input[type=color], 
   section.contact.stacked-form .gform_wrapper.gravity-theme input[type=date], 

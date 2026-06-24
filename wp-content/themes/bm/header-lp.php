@@ -5,6 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://use.typekit.net/rbe3fzj.css">
+  <link rel="stylesheet" href="https://use.typekit.net/naz3qki.css">
   <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="ee989279-a08f-4195-bd3f-418ca9f881f2" type="text/javascript" data-blockingmode="auto"></script>
   <?php wp_head(); ?>
 
@@ -95,7 +96,11 @@ body #quadmenu.quadmenu-default_theme .quadmenu-navbar-nav > li:not(.quadmenu-it
         <!-- <?php b4st_navbar_brand();?> -->
 
         <a class="navbar-brand" href="<?php echo esc_url( home_url('/') ); ?>">
-          <img src="/wp-content/themes/bm/theme/img/bmfooter-logo.png" alt="Blake Morgan Logo" width="120px">
+          <img 
+            src="<?php echo esc_url( get_template_directory_uri() ); ?>/theme/img/BM_Logo_white.svg"
+            alt="Blake Morgan Logo"
+            width="120"
+          >
         </a>
 
 

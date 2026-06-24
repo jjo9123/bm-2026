@@ -5,16 +5,23 @@
  * Used by index.php, category.php and author.php
  */
 
-$categories = get_the_category();
-$category = $category1 = $name = '';
+$post_id = get_the_ID();
+
+// Categories (label + optional extra class)
+$categories = get_the_category($post_id);
+$category_slug  = '';
+$category_slug2 = '';
+$category_name  = '';
+
 if (!empty($categories)) {
-  $category = esc_html($categories[0]->slug);
+  $category_slug = $categories[0]->slug ?? '';
+  $category_name = $categories[0]->name ?? '';
   if (isset($categories[1])) {
-    $category1 = esc_html($categories[1]->slug);
+    $category_slug2 = $categories[1]->slug ?? '';
   }
-  $name = esc_html($categories[0]->name);
 }
 
+// Author (ACF post object)
 $post_object = get_field('author');
 $details = null;
 if ($post_object) {
@@ -23,52 +30,87 @@ if ($post_object) {
   $details = get_field('contact_details');
   wp_reset_postdata();
 }
+
+// Thumb + date
+$thumb = get_the_post_thumbnail_url($post_id, 'large');
+$date  = get_the_date('d F', $post_id);
+
+// Event date (ACF)
+$event_date = get_field('event_date', $post_id);
+
+// Excerpt logic (your existing rules)
+$getpost = get_post($post_id);
+$excerpt_src = $getpost ? $getpost->post_content : '';
+
+if (empty($excerpt_src) && get_field('new_blog_layout', $post_id) == 'yes') {
+  $excerpt_src = get_field('blog_intro', $post_id);
+} elseif ($category_slug === 'events' || $category_slug === 'training') {
+  $excerpt_src = get_field('intro_title', $post_id);
+}
+
+if (!is_string($excerpt_src)) $excerpt_src = '';
+$excerpt = wp_trim_words(wp_strip_all_tags($excerpt_src), 18, '…');
+
+// Hide date line for some categories (same behaviour as before)
+$hide_date = in_array($category_slug, ['guides', 'events', 'training'], true);
+
+// Column classes: keep your old category hooks as extra classes (optional)
+$extra_classes = trim(
+  'i' . sanitize_html_class($category_slug) .
+  (!empty($category_slug2) ? ' ' . sanitize_html_class($category_slug2) : '')
+);
 ?>
 
-<div class="col-md-6 col-lg-4 text-center item i<?php echo $category; ?><?php if (!empty($category1)) echo ' ' . $category1; ?>">
-  <div class="title">
-    <p>
-      <?php if (!empty($name)) echo mb_strtolower($name, 'utf8'); ?>
-    </p>
-  </div>
+<div class="col-md-6 col-lg-4 pb-5 <?php echo esc_attr($extra_classes); ?>">
+  <a class="latest-card d-block h-100 text-decoration-none" href="<?php the_permalink(); ?>">
 
-  <div class="img" style="background: url('<?php echo esc_url(get_the_post_thumbnail_url(get_the_ID(), 'recent_fimg')); ?>') 50%/cover no-repeat; color: #FFFFFF;"></div>
-
-  <div class="header">
-    <?php if (!empty($categories) && $categories[0]->slug === 'events'): ?>
-      <a href="<?php the_permalink(); ?>">
-        <h6><?php echo esc_html(get_the_title()); ?> - <?php echo esc_html(get_field('event_date')); ?></h6>
-      </a>
-    <?php else: ?>
-      <a href="<?php the_permalink(); ?>" data-name="<?php echo esc_attr(get_the_title()); ?>">
-        <h6><?php echo esc_html(get_the_title()); ?></h6>
-      </a>
-    <?php endif; ?>
-  </div>
-
-  <div class="excerpt">
-    <p class="date">
-      <?php if (!in_array($category, ['guides', 'events', 'training'])): ?>
-        <?php the_time('j F'); ?>
-        <?php if (!empty($details['first_name']) || !empty($details['last_name'])): ?>
-          - <?php echo esc_html(trim($details['first_name'] . ' ' . $details['last_name'])); ?>
-        <?php endif; ?>
+    <div class="latest-card__image-wrap position-relative mb-3">
+      <?php if ($category_name || get_post_type($post_id) === 'press' || strpos(get_permalink($post_id), '/press/') !== false) : ?>
+        <span class="latest-card__label position-absolute">
+          <?php echo esc_html( bm_get_label_from_category($post_id) ); ?>
+        </span>
       <?php endif; ?>
-    </p>
 
-    <?php
-      $getpost = get_post(get_the_ID());
-      $excerpt = $getpost ? $getpost->post_content : '';
+      <?php if ($thumb) : ?>
+        <img
+          class="latest-card__image w-100"
+          src="<?php echo esc_url($thumb); ?>"
+          alt="<?php echo esc_attr(get_the_title($post_id)); ?>"
+          loading="lazy"
+        >
+      <?php endif; ?>
+    </div>
 
-      if (empty($excerpt) && get_field('new_blog_layout') == 'yes') {
-        $excerpt = get_field('blog_intro');
-      } elseif ($category === 'events' || $category === 'training') {
-        $excerpt = get_field('intro_title');
-      }
+    <div class="latest-card__body">
 
-      echo wp_trim_words($excerpt, 30, '...');
-    ?>
+      <?php if (!$hide_date) : ?>
+        <p class="latest-card__date mb-2">
+          <?php echo esc_html($date); ?>
+          <?php if (!empty($details['first_name']) || !empty($details['last_name'])) : ?>
+            - <?php echo esc_html(trim(($details['first_name'] ?? '') . ' ' . ($details['last_name'] ?? ''))); ?>
+          <?php endif; ?>
+        </p>
+      <?php endif; ?>
 
-    <a href="<?php echo esc_url(get_permalink()); ?>" class="btn btn-purple test" data-name="<?php echo esc_attr(get_the_title()); ?>">Read More</a>
-  </div>
+      <h3 class="latest-card__title py-2">
+        <?php if ($category_slug === 'events' && $event_date) : ?>
+          <?php echo esc_html(get_the_title($post_id) . ' - ' . $event_date); ?>
+        <?php else : ?>
+          <?php the_title(); ?>
+        <?php endif; ?>
+      </h3>
+
+      <?php if ($excerpt) : ?>
+        <p class="latest-card__excerpt mb-4">
+          <?php echo esc_html($excerpt); ?>
+        </p>
+      <?php endif; ?>
+
+      <div class="mt-auto">
+        <span class="btn btn-green">More</span>
+      </div>
+
+    </div>
+
+  </a>
 </div>

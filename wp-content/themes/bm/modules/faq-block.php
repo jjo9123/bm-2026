@@ -9,8 +9,8 @@
 
       <?php if ( get_sub_field('heading') ) : ?>
         <div class="col-12 col-lg-12 mx-auto">
-          <h2 class="purple text-center"><?php echo esc_html( get_sub_field('heading') ); ?></h2>
-          <hr class="heading green">
+          <h2><?php echo esc_html( get_sub_field('heading') ); ?></h2>
+
         </div>
       <?php endif; ?>
 

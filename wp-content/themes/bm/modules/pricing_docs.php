@@ -1,30 +1,40 @@
-<section id="pricing" class="txt" style="background: url('<?php the_sub_field('bgimg'); ?>') 50% / cover no-repeat; <?php if( get_sub_field('txt_col') == 'light'): ?>color: #FFFFFF;<?php endif; ?>">
-	<div class="container">
-		<div class="row">
-			<div class="col-md-8 mx-auto">
-				<?php if( have_rows('section') ):
-					while ( have_rows('section') ) : the_row(); ?>
-						<h5 class="text-uppercase"><?php echo the_sub_field('heading'); ?></h5>
+<section id="pricing" class="txt">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-lg-10 col-xl-12 mx-auto">
 
-						<ul class="related-expertise pricing-docs">
-						<?php if( have_rows('docs') ):
-							while ( have_rows('docs') ) : the_row(); ?>
-							<li>
-								<a href="<?php echo the_sub_field('doc'); ?>" target="_blank"><?php echo the_sub_field('name'); ?></a>
-			        </li>
-							<?php endwhile;
-						endif; ?>
-						</ul>
-					<?php endwhile;
-				endif; ?>
-			</div>
-		</div>
-	</div>
+        <?php if ( have_rows('section') ) : ?>
+          <?php while ( have_rows('section') ) : the_row(); ?>
+
+            <?php $heading = get_sub_field('heading'); ?>
+            <?php if ( $heading ) : ?>
+              <h2><?php echo esc_html($heading); ?></h2>
+            <?php endif; ?>
+
+            <?php if ( have_rows('docs') ) : ?>
+              <ul class="row g-3 list-unstyled mb-4 pricing-list">
+                <?php while ( have_rows('docs') ) : the_row(); ?>
+
+                  <?php
+                    $url  = get_sub_field('doc');  // url/file
+                    $name = get_sub_field('name');
+                    if ( empty($url) || empty($name) ) continue;
+                  ?>
+
+                  <li class="col-12 col-md-6 col-lg-4">
+                    <a class="pricing-link d-block py-2" href="<?php echo esc_url($url); ?>" target="_blank" rel="noopener">
+                      <?php echo esc_html($name); ?>
+                    </a>
+                  </li>
+
+                <?php endwhile; ?>
+              </ul>
+            <?php endif; ?>
+
+          <?php endwhile; ?>
+        <?php endif; ?>
+
+      </div>
+    </div>
+  </div>
 </section>
-
-<?php if( get_sub_field('txt_col') == 'light'): ?>
-<style>
-	ul.related-expertise.pricing-docs { margin-bottom: 60px; }
-	ul.related-expertise.pricing-docs  > li > a { color: #FFFFFF; }
-</style>
-<?php endif; ?>

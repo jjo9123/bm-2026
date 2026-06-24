@@ -8,11 +8,11 @@
 <main id="main" class="blog">
   <div id="content" role="main">
 
-    <section class="hero text-center" style="background: url('<?php echo $banner_section['background_image']; ?>') 50%/cover no-repeat; color: #FFFFFF;">
+    <section class="hero bm-pink">
       <div class="container">
         <div class="row">
-          <div class="col-12">
-            <h1 class="header">Search Results</h1>
+          <div class="col-12 col-md-7">
+            <h1 class="header">Search results</h1>
           </div>
         </div>
       </div>
@@ -20,8 +20,8 @@
 
 
 
-    <section class="blog" style="background: url('/wp-content/uploads/2019/02/blog-bg.jpg') 50%/cover no-repeat; color: #FFFFFF;">
-      <div class="container news">
+    <section class="blog bm-white">
+      <div class="container">
         <?php get_template_part('loops/search-loop'); ?>
       </div>
     </section>

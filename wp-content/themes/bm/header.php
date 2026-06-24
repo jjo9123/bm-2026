@@ -6,6 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://use.typekit.net/rbe3fzj.css">
+  <link rel="stylesheet" href="https://use.typekit.net/naz3qki.css">
+  <style>
+@import url('https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,700;1,700&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap');
+</style>
+
 
   <?php if (get_field('sector') == 'org'): ?>
     <script data-cookieconsent="ignore">
@@ -92,38 +97,9 @@ jQuery(function() {
     visibleOnly: true
   });
 });
+
 </script>
 
-<nav id="navtop" class="navbar navbar-expand-md">
-  <div class="container">
-    <div class="row ml-auto">
-        <div class="col-12">
-
-            <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarDropdown" aria-controls="navbarDropdown" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button> -->
-
-            <div class="topnav d-flex">
-              <?php
-                wp_nav_menu( array(
-                  'theme_location'  => 'top',
-                  'container'       => false,
-                  'menu_class'      => '',
-                  'fallback_cb'     => '__return_false',
-                  'items_wrap'      => '<ul id="%1$s" class="navbar-nav mr-auto mt-2 mt-lg-0 %2$s">%3$s</ul>',
-                  'depth'           => 4,
-                  'walker'          => new b4st_walker_nav_menu2()
-                ) );
-              ?>
-              <div role="search" aria-label="Site search">
-              <?php echo do_shortcode('[searchandfilter id="5671"]'); ?>
-              </div>
-            </div>
-
-        </div>
-      </div>
-  </div>
-</nav>
 
 <nav id="navbar" class="navbar navbar-expand-md navbar-light bg-light">
   <div class="container">
@@ -132,8 +108,12 @@ jQuery(function() {
         <!-- <?php b4st_navbar_brand();?> -->
 
         <a class="navbar-brand" href="<?php echo esc_url( home_url('/') ); ?>">
-          <img src="https://www.blakemorgan.co.uk/wp-content/uploads/Unorganized/logo.png" alt="Blake Morgan Logo" width="120px">
-          <!--<img src="https://www.blakemorgan.co.uk/wp-content/uploads/Unorganized/bm-pride-logo-1-scaled.png" alt="Blake Morgan Logo" width="120px">-->
+          <!--<img 
+            src="<?php echo esc_url( get_template_directory_uri() ); ?>/theme/img/BM_Logo_white.svg"
+            alt="Blake Morgan Logo"
+            width="120"
+          >-->
+          <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/theme/img/BM_Pride_Web_WO-01.png" alt="Blake Morgan Pride Logo" width="120px">
         </a>
 
 
@@ -154,6 +134,29 @@ jQuery(function() {
               'walker'          => new b4st_walker_nav_menu()
             ) );
           ?>
+          <!--<div class="nav-search">
+              <button class="nav-search__toggle" type="button"
+                      aria-expanded="false" aria-controls="navSearchPanel"
+                      aria-label="Open site search">
+                <svg class="nav-search__svg" width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+                  <g clip-path="url(#clip0_8002_162)">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M21.6413 20.103L20.0563 21.6312L15.2853 17.0386L16.8703 15.5104L21.6413 20.103ZM8.15308 15.1427C4.60312 14.9711 1.8699 11.9229 2.03972 8.33543C2.20953 4.74794 5.22578 1.98582 8.77573 2.15743C12.2044 2.32904 14.8972 5.18105 14.8972 8.64596C14.8001 12.3152 11.7839 15.2162 8.15308 15.1345V15.1427ZM8.15308 2.90303e-05C3.4225 0.237016 -0.216403 4.29848 0.0100182 9.07907C0.236439 13.8597 4.26349 17.5371 8.99407 17.3082C13.5548 17.0794 17.1452 13.2795 17.1452 8.6623C17.0239 3.75913 12.9969 -0.114378 8.15308 2.90303e-05Z" fill="#AF8D41"/>
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_8002_162">
+                      <rect width="21.6393" height="21.6393" fill="white"/>
+                    </clipPath>
+                  </defs>
+                </svg>
+              </button>
+
+              <div id="navSearchPanel" class="nav-search__panel" hidden>
+                <div role="search" aria-label="Site search">
+                  <?php // echo do_shortcode('[searchandfilter id="5671"]'); ?>
+                </div>
+              </div>
+            </div>-->
+
 
 
 

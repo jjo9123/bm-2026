@@ -7,87 +7,57 @@
 ?>
 
 <?php
-  $person = get_field('contact_details');
-  $link = get_permalink(); ?>
+$details = get_field('contact_details');
+$link    = get_permalink();
 
-  <div class="col-md-5 col-lg-4 col-xl-3 mx-auto staff-contact details">
-    <a href="<?php the_permalink(); ?>">
-      <div class="img" style="background: url('<?php echo $person['img']; ?>') 50%/cover no-repeat; color: #FFFFFF;"></div>
-    </a>
+// image (field storing a URL)
+$img_url = !empty($details['img']) ? $details['img'] : '';
 
-    <div class="header">
-      <a href="<?php the_permalink(); ?>" class="people-name">
-        <h5><?php echo $person['first_name']; ?> <?php echo $person['last_name']; ?></h5>
-      </a>
+// location title (if location is a post object)
+$location_title = '';
+$post_object = $details['location'] ?? null;
+if ( $post_object ) {
+  $location_title = get_the_title( $post_object->ID );
+}
 
-      <h6 class="dpurple"><?php echo $person['job_title']; ?></h6>
+// label (optional) – using location if present, otherwise “Expert”
+$label = $location_title ? $location_title : 'Expert';
 
+// name for alt text
+$full_name = trim(($details['first_name'] ?? '') . ' ' . ($details['last_name'] ?? ''));
+?>
 
+<div class="col-sm-6 col-md-3 mb-4">
+  <a class="expert-card" href="<?php echo esc_url($link); ?>">
+
+    <div class="expert-card__image-wrap position-relative">
+      <?php if ( $img_url ): ?>
+        <img
+          class="expert-card__image"
+          src="<?php echo esc_url($img_url); ?>"
+          alt="<?php echo esc_attr($full_name); ?>"
+          loading="lazy"
+        >
+      <?php endif; ?>
     </div>
 
-    <div class="excerpt">
-      <div class="contact-listing">
-        <?php if( $person['mobile_number'] ): ?>
-        <p class="mobile"><?php echo $person['mobile_number']; ?></p>
-        <?php endif; ?>
+    <div class="expert-card__body">
+      <h3 class="expert-card__name">
+        <?php echo esc_html($details['first_name'] ?? ''); ?>
+        <?php if (!empty($details['last_name'])): ?> <?php endif; ?>
+        <?php echo esc_html($details['last_name'] ?? ''); ?>
+      </h3>
 
-        <?php if( $person['landline_number'] ): ?>
-        <p class="phone"><?php echo $person['landline_number']; ?></p>
-        <?php endif; ?>
-
-        <?php if( $person['email_address'] ): ?>
-        <a class="staff-email" href="mailto:<?php echo $person['email_address']; ?>?bcc=BD@blakemorgan.co.uk">
-          <p class="email">Email me</p>
-        </a>
-        <?php endif; ?>
-
-        <?php
-        $post_object = $person['location'];
-        if( $post_object ):
-          $post = $post_object;
-          setup_postdata( $post );
-        ?>
-
-          <p class="location">
-            <a href="<?php the_permalink(); ?>"><?php echo get_the_title($post_object->ID); ?></a>
-          </p>
-
-          <?php wp_reset_postdata(); ?>
-
-        <? else: ?>
-
-         <p class="location" style="visibility: hidden;"></p>
-
-        <?php endif; ?>
-      </div>
-
-      <?php
-      if( $person['twitter_link'] && $person['linkedin_link'] ): ?>
-
-        <div class="social">
-          <?php if( $person['twitter_link'] ): ?>
-            <a href="<?php echo $person['twitter_link']; ?>">
-              <p class="twitter"></p>
-            </a>
-          <?php endif; ?>
-
-          <?php if( $person['linkedin_link'] ): ?>
-            <a href="<?php echo $person['linkedin_link']; ?>">
-              <p class="linkedin"></p>
-            </a>
-          <?php endif; ?>
-        </div>
-
-      <? else : ?>
-      <div class="social" style="visibility: hidden;">
-        <p class="twitter"></p>
-        <p class="linkedin"></p>
-      </div>
-
+      <?php if (!empty($details['job_title'])): ?>
+        <p class="expert-card__role"><?php echo esc_html($details['job_title']); ?></p>
       <?php endif; ?>
 
-      <div class="view-profile">
-        <a href="<?php echo $link; ?>" class="btn btn-purple">View Profile</a>
+      <p class="expert-card__role"><?php echo esc_html($label); ?></p>
+
+      <div class="expert-card__cta">
+        <span class="btn btn-green">View profile</span>
       </div>
     </div>
-  </div>
+
+  </a>
+</div>

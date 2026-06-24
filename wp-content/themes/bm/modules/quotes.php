@@ -1,4 +1,6 @@
-<section class="quotes text-center">
+<?php $bg_class = get_sub_field('bg_colour') ?: 'bm-purple'; ?>
+
+<section class="quotes text-center <?php echo esc_attr($bg_class); ?>">
   <div class="container">
     <div class="row">
 
@@ -8,7 +10,7 @@
             if( have_rows('quote') ):
               while ( have_rows('quote') ) : the_row(); ?>
               <div class="highlights-slide">
-                <p><?php the_sub_field('txt'); ?> </p>
+                <p><?php the_sub_field('txt'); ?></p>
               </div>
               <?php endwhile;
             endif;

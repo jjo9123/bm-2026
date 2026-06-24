@@ -167,6 +167,16 @@
   .pull-out-section .img-box {
     display: none;
   }
+  .footer .social-icons {
+    margin: auto;
+    justify-content: flex-start !important;
+  }
+  .b-footer .col-lg-8 {
+    padding-top: 20px;
+  }
+  .footer .footer-logo {
+    margin: unset;
+  }
 }
 
 
@@ -205,7 +215,7 @@
   }
   .footer .social-icons {
     margin: auto;
-    max-width: 135px;
+    justify-content: flex-start !important;
   }
   .footer .newsletter-signup a {
     max-width: unset;

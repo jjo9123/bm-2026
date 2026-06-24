@@ -2,11 +2,9 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-12">
-				<h2 class="text-center dpurple"><?php the_sub_field('heading'); ?></h2>
+				<h2 class="text-center"><?php the_sub_field('heading'); ?></h2>
 
-				<hr class="heading purple">
-
-				<p class="text-center dpurple"><?php the_sub_field('txt'); ?></p>
+				<p class="text-center"><?php the_sub_field('txt'); ?></p>
 			</div>
 		</div>
 

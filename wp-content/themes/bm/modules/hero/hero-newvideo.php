@@ -14,7 +14,7 @@
     <div class="hero-mobile-content">
       <p class="hero-brand">Blake Morgan</p>
       <p class="sub-brand">Expert UK law firm</p>
-      <a href="#intro-content" class="btn btn-green">Learn More</a>
+      <a href="#intro-content" class="btn btn-green">Learn more</a>
 
       <img
       class="hero-mobile-image"

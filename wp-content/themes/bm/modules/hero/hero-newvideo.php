@@ -123,10 +123,10 @@
     width: 100%;
     max-width: 320px;
     height: auto;
-    margin: 0 auto 2rem;
+    margin: 20px auto 2rem;
     display: block;
   }
-  
+
   .hero-mobile-content {
     display: block;
     position: relative;

@@ -51,6 +51,7 @@
   line-height: 1;
   font-weight: 700;
   margin: 0 0 1rem;
+  font-family: var(--font-heading);
 }
 
 .hero-video {
@@ -87,6 +88,7 @@
     background-image: url('/wp-content/uploads/New-Expertise-Images/BM-Expertise-Background.png');
     background-size: cover;
     background-position: center;
+    color: var(--bm-purple);
   }
 
   .hero-video {
@@ -105,18 +107,9 @@
     display: block;
     position: relative;
     z-index: 2;
-    text-align: center;
+    text-align: left;
     max-width: 500px;
     margin: 0 auto;
-  }
-
-  .hero-mobile-content h1 {
-    margin-bottom: 1rem;
-  }
-
-  .hero-mobile-content p {
-    margin-bottom: 2rem;
-    font-size: 1.125rem;
   }
 }
 </style>

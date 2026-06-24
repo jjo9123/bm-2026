@@ -139,7 +139,7 @@ $intro_title    = get_field('intro_title');
                           ?>
                             <?php if (!empty($details_post)) : ?>
                               <div class="row regional-info mx-auto">
-                                <div class="col-6 col-lg-3" style="background:url('<?php echo esc_url($details_post['img']); ?>') 50%/cover no-repeat; min-height:200px; max-height:200px; margin-bottom:20px;"></div>
+                                <div class="col-6 col-lg-3" style="background:url('<?php echo esc_url($details_post['img']); ?>') 50%/cover no-repeat; min-height:230px; max-height:200px; margin-bottom:20px;"></div>
                                 <div class="col-lg-8 mx-auto">
                                   <h4 style="margin-top:0;"><?php echo esc_html($details_post['first_name'] . ' ' . $details_post['last_name']); ?></h4>
                                   <p><?php echo esc_html($details_post['job_title']); ?></p>

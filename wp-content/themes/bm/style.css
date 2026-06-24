@@ -195,7 +195,7 @@ section.cta-banner div a {
 a.btn-green:hover,
 a.btn-green:focus,
 a.btn-green:focus-visible, .experts-cards .expert-card__cta .btn:hover,
-.info-card .btn:hover {
+.info-card .btn:hover, .latest-card__body span.btn-green:hover {
   background-color: var(--bm-pink);
 }
 /*.bm-pink .btn-green, .bm-purple .gform_wrapper form .gform_footer input[type=submit] {

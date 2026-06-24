@@ -3268,6 +3268,13 @@ ul.sitemap-nav.privacy li > a{
   .single-post .blog .hero img, .single-press .blog .hero img {
     aspect-ratio: 16 / 7!important;
   }
+  .infographic-row .title-box img {
+    max-width: 250px;
+  }
+  .cards.infographic .info-content {
+    max-width: unset!important;
+    margin: unset!important;
+  }
 }
 /*a.press-module__item, .press-module__intro,
 .press-module__featured, .press-module__featured-title>a  {

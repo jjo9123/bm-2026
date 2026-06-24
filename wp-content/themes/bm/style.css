@@ -3279,6 +3279,12 @@ ul.sitemap-nav.privacy li > a{
   article#post_79 .client-logo {
     max-width: 250px;
   }
+  .experts-cards .expert-card__image {
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    object-position: center top;
+    max-height: unset!important;
+  }
 }
 /*a.press-module__item, .press-module__intro,
 .press-module__featured, .press-module__featured-title>a  {

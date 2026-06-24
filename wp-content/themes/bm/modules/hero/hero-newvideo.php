@@ -101,7 +101,7 @@
     align-items: center;
     background-color: #f1efe6;
     padding: 4rem 1.5rem !important;
-    background-image: url('<?php echo esc_url( get_template_directory_uri() ); ?>/theme/img/background-video-mobile.webp');
+    background-image: url('<?php echo esc_url( get_template_directory_uri() . '/theme/img/background-video-mobile.webp' ); ?>');
     background-size: cover;
     background-position: center;
     color: var(--bm-purple);

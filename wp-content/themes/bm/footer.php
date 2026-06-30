@@ -87,12 +87,12 @@
 
           </div>
             <div class="col-12 col-md-3 footer-mid">
-              <!--<img 
+              <img 
                 src="<?php echo esc_url( get_template_directory_uri() ); ?>/theme/img/BM_Logo_white.svg"
                 alt="Blake Morgan Logo"
                 width="160"
-              >-->
-              <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/theme/img/BM_Pride_Web_WO-01.png" alt="Blake Morgan Pride Logo" class="footer-logo" width="150">
+              >
+              <!--<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/theme/img/BM_Pride_Web_WO-01.png" alt="Blake Morgan Pride Logo" class="footer-logo" width="150">-->
             </div>
           </div>
 

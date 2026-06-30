@@ -108,12 +108,12 @@ jQuery(function() {
         <!-- <?php b4st_navbar_brand();?> -->
 
         <a class="navbar-brand" href="<?php echo esc_url( home_url('/') ); ?>">
-          <!--<img 
+          <img 
             src="<?php echo esc_url( get_template_directory_uri() ); ?>/theme/img/BM_Logo_white.svg"
             alt="Blake Morgan Logo"
             width="120"
-          >-->
-          <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/theme/img/BM_Pride_Web_WO-01.png" alt="Blake Morgan Pride Logo" width="120px">
+          >
+          <!--<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/theme/img/BM_Pride_Web_WO-01.png" alt="Blake Morgan Pride Logo" width="120px">-->
         </a>
 
 

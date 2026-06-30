@@ -4282,7 +4282,9 @@ section.cta-banner.slider .home-slider[data-theme="bm-beige"] .slick-arrow {
   padding-top: 30px;
 }
 .ubermenu-submenu .ubermenu-column-1-3:first-child h2, 
-.ubermenu-submenu .ubermenu-column-1-4:first-child h2{
+.ubermenu-submenu .ubermenu-column-1-4:first-child h2,
+.ubermenu-submenu .ubermenu-column-1-3:first-child p, 
+.ubermenu-submenu .ubermenu-column-1-4:first-child p{
   font-family: var(--font-body);
   font-size: 1.3rem;
   font-weight: 500;

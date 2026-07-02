@@ -80,7 +80,7 @@ $ind_cols = $chunk3($ind_items);
 
       <?php if (!empty($org_items)) : ?>
         <div class="left-tab col-12 col-lg-12 mx-auto">
-          <h3 class="pb-3">For organisations</h3>
+          <h3 class="pb-3">For business and organisations</h3>
           <hr class="bm-white">
 
           <div class="row">

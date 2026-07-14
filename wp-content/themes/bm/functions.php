@@ -880,7 +880,24 @@ function bm_get_label_from_category($post_id) {
 
   $cats = get_the_category($post_id);
 
-  if (empty($cats)) return 'Insights';
+  if (empty($cats)) {
+      return 'Insights';
+  }
+
+  // If this post is in the Events category or any child of Events,
+  // use the dedicated event label function.
+  $events = get_category_by_slug('events');
+
+  if ($events) {
+      foreach ($cats as $cat) {
+          if (
+              $cat->term_id === $events->term_id ||
+              cat_is_ancestor_of($events->term_id, $cat->term_id)
+          ) {
+              return bm_get_event_label($post_id);
+          }
+      }
+  }
 
   $slug = $cats[0]->slug;
 

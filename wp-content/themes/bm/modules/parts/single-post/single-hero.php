@@ -43,7 +43,7 @@ $slug       = ! empty($categories) ? $categories[0]->slug : '';
 
           <?php if ( $slug !== 'guides' ) : ?>
             <time class="post-date" datetime="<?php echo esc_attr(get_the_date('Y-m-d')); ?>">
-              <?php echo esc_html(get_the_date('jS F Y')); ?>
+              <?php echo esc_html(get_the_date('j F Y')); ?>
             </time>
           <?php endif; ?>
 

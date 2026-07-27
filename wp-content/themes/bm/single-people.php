@@ -53,7 +53,7 @@
                   <?php endif; ?>
 
                   <?php if ( $person['email_address'] ) : ?>
-                    <a class="staff-email" href="mailto:<?php echo $person['email_address']; ?>?bcc=BD@blakemorgan.co.uk">
+                    <a class="staff-email" href="mailto:<?php echo $person['email_address']; ?>">
                       <p class="email">Email <?php echo $person['first_name']; ?></p>
                     </a>
                   <?php endif; ?>
@@ -136,7 +136,7 @@
                   <?php endif; ?>
 
                   <?php if ( $person['email_address'] ) : ?>
-                    <a href="mailto:<?php echo $person['email_address']; ?>?bcc=BD@blakemorgan.co.uk">
+                    <a href="mailto:<?php echo $person['email_address']; ?>">
                       <p class="email">Email <?php echo $person['first_name']; ?></p>
                     </a>
                   <?php endif; ?>

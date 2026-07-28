@@ -51,7 +51,9 @@ $slug       = ! empty($categories) ? $categories[0]->slug : '';
           <?php $featured_authors = get_field('author');
             if( $featured_authors ): ?>
 
-            <p class="s-txt mb-1 mt-2 bm-purple-txt">Written by</p>
+            <p class="s-txt mb-1 mt-2 bm-purple-txt">
+                <?php echo has_category( 'personal-profiles' ) ? 'In conversation with' : 'Written by'; ?>
+            </p>
 
             <?php 
             $authors_output = [];

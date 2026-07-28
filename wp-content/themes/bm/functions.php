@@ -910,6 +910,7 @@ function bm_get_label_from_category($post_id) {
     'press'          => 'Press Release',
     'pastevents'     => 'Past Event',
     'past-events'    => 'Past Event',
+    'personal-profiles' => 'Personal profile',
   ];
 
   return $map[$slug] ?? $cats[0]->name;

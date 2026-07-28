@@ -99,6 +99,7 @@
 !/wp-content/plugins/site-data-updates
 !/wp-content/plugins/bm-image-bank-updater
 !/wp-content/plugins/ubermenu-menu-backup-clone
+!/wp-content/plugins/simple-taxonomy-search-master
 
 #--------------------------------------
 # Language files:

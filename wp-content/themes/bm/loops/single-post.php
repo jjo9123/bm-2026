@@ -134,7 +134,7 @@ $counsel = 0;
                     <div class="container">
                       <div class="row">
                         <div class="col-12">
-                          <p>Written by</p>
+                          <p><?php echo has_category( 'personal-profiles' ) ? 'In conversation with' : 'Written by'; ?></p>
                         </div>
 
                 <?php foreach( $featured_authors as $post ): 

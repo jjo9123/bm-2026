@@ -11,6 +11,13 @@
   $person            = get_field('contact_details');
   $person_intro      = get_field('intro_section');
   $additionalcontent = get_field('additional_content');
+  
+  // Normalise LinkedIn URL
+  $linkedin = $person['linkedin_link'] ?? '';
+
+  if ( $linkedin && ! preg_match( '~^https?://~i', $linkedin ) ) {
+      $linkedin = 'https://' . $linkedin;
+  }
 ?>
 
 <?php if ( $person ) : ?>
@@ -66,8 +73,10 @@
                     <a href="<?php echo $person['twitter_link']; ?>"><p class="twitter">Twitter</p></a>
                   <?php endif; ?>
 
-                  <?php if ( $person['linkedin_link'] ) : ?>
-                    <a href="<?php echo $person['linkedin_link']; ?>"><p class="linkedin">LinkedIn</p></a>
+                  <?php if ( $linkedin ) : ?>
+                      <a href="<?php echo esc_url( $linkedin ); ?>" target="_blank" rel="noopener noreferrer">
+                          <p class="linkedin">LinkedIn</p>
+                      </a>
                   <?php endif; ?>
                 </div>
               <?php endif; ?>
@@ -149,8 +158,10 @@
                     <a href="<?php echo $person['twitter_link']; ?>"><p class="twitter">Twitter</p></a>
                   <?php endif; ?>
 
-                  <?php if ( $person['linkedin_link'] ) : ?>
-                    <a href="<?php echo $person['linkedin_link']; ?>"><p class="linkedin">LinkedIn</p></a>
+                  <?php if ( $linkedin ) : ?>
+                      <a href="<?php echo esc_url( $linkedin ); ?>" target="_blank" rel="noopener noreferrer">
+                          <p class="linkedin">LinkedIn</p>
+                      </a>
                   <?php endif; ?>
                 </div>
               <?php endif; ?>

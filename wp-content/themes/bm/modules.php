@@ -7,6 +7,9 @@ if( have_rows('options') ):
     elseif( get_row_layout() == 'stacked_form' ):
       get_template_part('modules/stacked-form');
 
+    elseif( get_row_layout() == 'form' ):
+      get_template_part('modules/new-form');
+
     elseif( get_row_layout() == 'faq_block' ):
       get_template_part('modules/faq-block');
 

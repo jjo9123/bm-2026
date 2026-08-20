@@ -298,7 +298,8 @@ iframe {
   margin: 0;
   text-align: right;
 }
-.gform_wrapper form .gform_footer input[type=submit] {
+.gform_wrapper form .gform_footer input[type=submit],
+.gform_wrapper form .gform_footer button[type="submit"] {
   border: none;
   color: #FFFFFF;
   cursor: pointer;

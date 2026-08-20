@@ -371,7 +371,8 @@ section.contact .gform_wrapper li.hidden_label input {
   color: #32214c;
 }*/
 #contact-footer .gform_wrapper .gform_fields li.gsection.gf_scroll_text,
-.modal-content .gform_wrapper .gform_fields li.gsection.gf_scroll_text{
+.modal-content .gform_wrapper .gform_fields li.gsection.gf_scroll_text, 
+.contact__form .gform_wrapper .gform_fields li.gsection.gf_scroll_text{
   background-color: unset!important;
   border: none!important;
   border-bottom: 0!important;

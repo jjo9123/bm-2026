@@ -22,26 +22,30 @@
       
 
       <div class="col-12 col-md-10 mx-auto">
-        <?php
+       <?php
           $form_object = get_sub_field('form');
 
-          gravity_form_enqueue_scripts($form_object['id'], true);
+          if (is_array($form_object) && !empty($form_object['id'])) {
 
-          // Set a global "current module form id" just for this render
-          $GLOBALS['bm_contact_footer_form_id'] = (int) $form_object['id'];
+              $form_id = (int) $form_object['id'];
 
-          gravity_form(
-            $form_object['id'],
-            false,
-            false,
-            false,
-            null,   // no field_values needed
-            true,
-            1
-          );
+              gravity_form_enqueue_scripts($form_id, true);
 
-          // Unset so it can't affect anything else later on the page
-          unset($GLOBALS['bm_contact_footer_form_id']);
+              $GLOBALS['bm_contact_footer_form_id'] = $form_id;
+
+              gravity_form(
+                  $form_id,
+                  false,
+                  false,
+                  false,
+                  null,
+                  true,
+                  1
+              );
+
+              unset($GLOBALS['bm_contact_footer_form_id']);
+
+          }
           ?>
 
       </div>

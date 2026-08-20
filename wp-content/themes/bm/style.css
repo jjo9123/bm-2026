@@ -170,7 +170,7 @@ a:hover {
   color: #8ed300;
 }*/
 
-a.btn, .btn, .gform_footer input[type=submit] {
+a.btn, .btn, .gform_footer .gform_button {
   border-radius: 6px;
   padding: 5px 25px;
   white-space: normal;

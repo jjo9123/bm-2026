@@ -8,7 +8,7 @@ $anchor_link = get_sub_field('anchor_link');
     <div class="row"<?php if ($anchor_link) : ?> id="<?php echo esc_attr(sanitize_title($anchor_link)); ?>"<?php endif; ?>>
 
       <div class="col-12 mb-4">
-        <h2 class="text-center">
+        <h2>
           <?php the_sub_field('heading'); ?>
         </h2>
       </div>

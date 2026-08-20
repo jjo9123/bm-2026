@@ -2993,129 +2993,6 @@
                     "min": "",
                     "max": ""
                 },
-                "layout_6a87099a96ce5": {
-                    "key": "layout_6a87099a96ce5",
-                    "name": "new_form",
-                    "label": "Form",
-                    "display": "block",
-                    "sub_fields": [
-                        {
-                            "key": "field_6a87099a96ce7",
-                            "label": "Background colour",
-                            "name": "bg_colour",
-                            "aria-label": "",
-                            "type": "button_group",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "relevanssi_exclude": 0,
-                            "choices": {
-                                "bm-pink": "Pink",
-                                "bm-purple": "Purple",
-                                "bm-beige": "Beige",
-                                "bm-dark-grey": "Dark grey",
-                                "bm-white": "White"
-                            },
-                            "default_value": "bm-pink",
-                            "return_format": "value",
-                            "allow_null": 0,
-                            "allow_in_bindings": 0,
-                            "layout": "horizontal"
-                        },
-                        {
-                            "key": "field_6a87099a96ce8",
-                            "label": "Heading",
-                            "name": "heading",
-                            "aria-label": "",
-                            "type": "text",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "relevanssi_exclude": 0,
-                            "default_value": "Get in contact",
-                            "maxlength": "",
-                            "allow_in_bindings": 1,
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": ""
-                        },
-                        {
-                            "key": "field_6a8709ae96cec",
-                            "label": "Anchor link",
-                            "name": "anchor_link",
-                            "aria-label": "",
-                            "type": "text",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "relevanssi_exclude": 0,
-                            "default_value": "Get in contact",
-                            "maxlength": "",
-                            "allow_in_bindings": 1,
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": ""
-                        },
-                        {
-                            "key": "field_6a87099a96cea",
-                            "label": "Text",
-                            "name": "txt",
-                            "aria-label": "",
-                            "type": "textarea",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "relevanssi_exclude": 0,
-                            "default_value": "Need Advice?\r\nCall 0800 543 2101\r\nOr Fill in The Form\r\n\r\nOur Experts are here to help",
-                            "maxlength": "",
-                            "allow_in_bindings": 1,
-                            "rows": "",
-                            "placeholder": "",
-                            "new_lines": "br"
-                        },
-                        {
-                            "key": "field_6a87099a96ceb",
-                            "label": "Form",
-                            "name": "form",
-                            "aria-label": "",
-                            "type": "gravity_forms_field",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "relevanssi_exclude": 0,
-                            "allow_null": 0,
-                            "allow_multiple": 0,
-                            "allow_in_bindings": 1
-                        }
-                    ],
-                    "min": "",
-                    "max": ""
-                },
                 "layout_6a86ce1efa568": {
                     "key": "layout_6a86ce1efa568",
                     "name": "new_form",
@@ -3141,8 +3018,7 @@
                                 "bm-pink": "Pink",
                                 "bm-purple": "Purple",
                                 "bm-beige": "Beige",
-                                "bm-dark-grey": "Dark grey",
-                                "bm-white": "White"
+                                "bm-dark-grey": "Dark grey"
                             },
                             "default_value": "bm-pink",
                             "return_format": "value",
@@ -6607,5 +6483,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1787234751
+    "modified": 1787235404
 }

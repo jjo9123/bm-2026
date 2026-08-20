@@ -24,7 +24,7 @@ $anchor_link = get_sub_field('anchor_link');
       <div class="col-12 col-md-6">
         <div class="contact__form">
           <?php
-          $form_object = get_sub_field('form');
+          $form_object = get_sub_field('new_form');
 
           if ($form_object && !empty($form_object['id'])) {
               $form_id = (int) $form_object['id'];

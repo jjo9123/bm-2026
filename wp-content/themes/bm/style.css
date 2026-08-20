@@ -186,9 +186,11 @@ a.btn-green, .btn-green, .gform_wrapper form .gform_footer input[type=submit], .
               border-color 0.2s ease,
               box-shadow 0.2s ease;
 }
-.people-listing .sf-field-submit input[type=submit]:hover,
-.gform_wrapper form .gform_footer button[type="submit"]:hover {
+.people-listing .sf-field-submit input[type=submit]:hover {
   background-color: var(--bm-pink);
+}
+.gform_wrapper form .gform_footer button[type="submit"]:hover {
+  background-color: var(--bm-purple);
 }
 section.cta-banner div a {
   font-family: var(--font-body);

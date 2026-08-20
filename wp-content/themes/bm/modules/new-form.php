@@ -31,8 +31,6 @@ $anchor_link = get_sub_field('anchor_link');
 
               gravity_form_enqueue_scripts($form_id, true);
 
-              $GLOBALS['bm_contact_footer_form_id'] = $form_id;
-
               gravity_form(
                   $form_id,
                   false,
@@ -42,8 +40,6 @@ $anchor_link = get_sub_field('anchor_link');
                   true,
                   1
               );
-
-              unset($GLOBALS['bm_contact_footer_form_id']);
           }
           ?>
         </div>

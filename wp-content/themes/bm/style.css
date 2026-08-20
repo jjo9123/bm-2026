@@ -177,7 +177,8 @@ a.btn, .btn {
   font-weight: 600;
   font-size: 1.2rem;
 }
-a.btn-green, .btn-green, .gform_wrapper form .gform_footer input[type=submit], .sf-field-submit input[type=submit] {
+a.btn-green, .btn-green, .gform_wrapper form .gform_footer input[type=submit], .sf-field-submit input[type=submit],
+.gform_wrapper form .gform_footer button[type="submit"] {
   background-color: var(--bm-gold);
   color: #FFFFFF;
   transition: background-color 0.2s ease,
@@ -185,7 +186,8 @@ a.btn-green, .btn-green, .gform_wrapper form .gform_footer input[type=submit], .
               border-color 0.2s ease,
               box-shadow 0.2s ease;
 }
-.people-listing .sf-field-submit input[type=submit]:hover {
+.people-listing .sf-field-submit input[type=submit]:hover,
+.gform_wrapper form .gform_footer button[type="submit"]:hover {
   background-color: var(--bm-pink);
 }
 section.cta-banner div a {

@@ -911,3 +911,55 @@ function bm_get_event_label($post_id) {
 
     return 'Event';
 }
+
+add_action( 'init', function () {
+    if ( ! wp_next_scheduled( 'gf_cleanup_old_entries' ) ) {
+        wp_schedule_event( time(), 'weekly', 'gf_cleanup_old_entries' );
+    }
+} );
+
+add_action( 'gf_cleanup_old_entries', function () {
+
+    if ( ! class_exists( 'GFAPI' ) ) {
+        return;
+    }
+
+    $cutoff = gmdate( 'Y-m-d H:i:s', strtotime( '-6 months' ) );
+
+    $forms = GFAPI::get_forms();
+
+    foreach ( $forms as $form ) {
+
+        $search_criteria = [
+            'end_date' => $cutoff,
+        ];
+
+        do {
+            $entries = GFAPI::get_entries(
+                $form['id'],
+                $search_criteria,
+                null,
+                [
+                    'offset'    => 0,
+                    'page_size' => 100,
+                ]
+            );
+
+            if ( is_wp_error( $entries ) || empty( $entries ) ) {
+                break;
+            }
+
+            foreach ( $entries as $entry ) {
+                error_log(
+                    'GF retention dry run: would delete entry ' .
+                    $entry['id'] .
+                    ' from form ' .
+                    $form['id'] .
+                    ' created ' .
+                    $entry['date_created']
+                );
+            }
+
+        } while ( count( $entries ) === 100 );
+    }
+} );

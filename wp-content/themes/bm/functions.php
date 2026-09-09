@@ -919,6 +919,7 @@ add_action( 'gf_cleanup_old_entries', function () {
     }
 
     $cutoff = gmdate( 'Y-m-d H:i:s', strtotime( '-6 months' ) );
+    $deleted_count = 0;
 
     $forms = GFAPI::get_forms();
 
@@ -928,15 +929,13 @@ add_action( 'gf_cleanup_old_entries', function () {
             'end_date' => $cutoff,
         ];
 
-        $offset = 0;
-
         do {
             $entries = GFAPI::get_entries(
                 $form['id'],
                 $search_criteria,
                 null,
                 [
-                    'offset'    => $offset,
+                    'offset'    => 0,
                     'page_size' => 100,
                 ]
             );
@@ -946,18 +945,20 @@ add_action( 'gf_cleanup_old_entries', function () {
             }
 
             foreach ( $entries as $entry ) {
-                error_log(
-                    'GF retention dry run: would delete entry ' .
-                    $entry['id'] .
-                    ' from form ' .
-                    $form['id'] .
-                    ' created ' .
-                    $entry['date_created']
-                );
-            }
+                $result = GFAPI::delete_entry( $entry['id'] );
 
-            $offset += 100;
+                if ( ! is_wp_error( $result ) ) {
+                    $deleted_count++;
+                }
+            }
 
         } while ( count( $entries ) === 100 );
     }
+
+    error_log(
+        'GF retention cleanup completed. Deleted ' .
+        $deleted_count .
+        ' entries older than ' .
+        $cutoff
+    );
 } );

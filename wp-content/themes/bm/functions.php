@@ -938,3 +938,54 @@ function bm_get_event_label($post_id) {
 
     return 'Event';
 }
+
+add_action( 'gf_cleanup_old_entries', function () {
+
+    if ( ! class_exists( 'GFAPI' ) ) {
+        return;
+    }
+
+    $cutoff = gmdate( 'Y-m-d H:i:s', strtotime( '-6 months' ) );
+    $deleted_count = 0;
+
+    $forms = GFAPI::get_forms();
+
+    foreach ( $forms as $form ) {
+
+        $search_criteria = [
+            'end_date' => $cutoff,
+        ];
+
+        do {
+            $entries = GFAPI::get_entries(
+                $form['id'],
+                $search_criteria,
+                null,
+                [
+                    'offset'    => 0,
+                    'page_size' => 100,
+                ]
+            );
+
+            if ( is_wp_error( $entries ) || empty( $entries ) ) {
+                break;
+            }
+
+            foreach ( $entries as $entry ) {
+                $result = GFAPI::delete_entry( $entry['id'] );
+
+                if ( ! is_wp_error( $result ) ) {
+                    $deleted_count++;
+                }
+            }
+
+        } while ( count( $entries ) === 100 );
+    }
+
+    error_log(
+        'GF retention cleanup completed. Deleted ' .
+        $deleted_count .
+        ' entries older than ' .
+        $cutoff
+    );
+} );

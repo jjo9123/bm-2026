@@ -912,12 +912,6 @@ function bm_get_event_label($post_id) {
     return 'Event';
 }
 
-add_action( 'init', function () {
-    if ( ! wp_next_scheduled( 'gf_cleanup_old_entries' ) ) {
-        wp_schedule_event( time(), 'weekly', 'gf_cleanup_old_entries' );
-    }
-} );
-
 add_action( 'gf_cleanup_old_entries', function () {
 
     if ( ! class_exists( 'GFAPI' ) ) {
@@ -934,13 +928,15 @@ add_action( 'gf_cleanup_old_entries', function () {
             'end_date' => $cutoff,
         ];
 
+        $offset = 0;
+
         do {
             $entries = GFAPI::get_entries(
                 $form['id'],
                 $search_criteria,
                 null,
                 [
-                    'offset'    => 0,
+                    'offset'    => $offset,
                     'page_size' => 100,
                 ]
             );
@@ -959,6 +955,8 @@ add_action( 'gf_cleanup_old_entries', function () {
                     $entry['date_created']
                 );
             }
+
+            $offset += 100;
 
         } while ( count( $entries ) === 100 );
     }

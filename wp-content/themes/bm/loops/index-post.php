@@ -33,7 +33,7 @@ if ($post_object) {
 
 // Thumb + date
 $thumb = get_the_post_thumbnail_url($post_id, 'large');
-$date  = get_the_date('d F', $post_id);
+$date  = get_the_date('d F Y', $post_id);
 
 // Event date (ACF)
 $event_date = get_field('event_date', $post_id);

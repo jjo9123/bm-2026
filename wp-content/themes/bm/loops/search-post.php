@@ -5,14 +5,18 @@
  * Used by index.php, category.php and author.php
  */
 
+$post_id = get_the_ID();
+
 // CATEGORY HANDLING (SAFE)
-$categories = get_the_category();
+$categories = get_the_category($post_id);
 $category_slug = '';
 $category_name = '';
+$category_slugs = [];
 
 if (!empty($categories)) {
-    $category_slug = esc_html($categories[0]->slug);
-    $category_name = esc_html($categories[0]->name);
+    $category_slug  = $categories[0]->slug ?? '';
+    $category_name  = $categories[0]->name ?? '';
+    $category_slugs = wp_list_pluck($categories, 'slug');
 }
 
 // AUTHOR HANDLING (SAFE)
@@ -24,6 +28,7 @@ if ($post_object) {
     setup_postdata($post);
 
     $details = get_field('contact_details', $post->ID);
+
     if (!empty($details['name'])) {
         $author = $details['name'];
     }
@@ -31,7 +36,16 @@ if ($post_object) {
     wp_reset_postdata();
 }
 
-$post_id = get_the_ID();
+// DATE
+$date = get_the_date('d F Y', $post_id);
+
+// Hide date for guides, events and training
+$hide_date = !empty(
+    array_intersect(
+        $category_slugs,
+        ['guides', 'events', 'training']
+    )
+);
 ?>
 
 <div class="col-12 search-results">
@@ -40,6 +54,16 @@ $post_id = get_the_ID();
             <a href="<?php the_permalink(); ?>">
                 <h2><?php the_title(); ?></h2>
             </a>
+
+            <?php if (!$hide_date) : ?>
+                <p class="search-results__date">
+                    <?php echo esc_html($date); ?>
+
+                    <?php if (!empty($author)) : ?>
+                        - <?php echo esc_html($author); ?>
+                    <?php endif; ?>
+                </p>
+            <?php endif; ?>
 
             <?php
             // SAFE EXCERPT HANDLING
@@ -53,8 +77,12 @@ $post_id = get_the_ID();
             }
 
             // Events / training override
-            if ($category_slug === 'events' || $category_slug === 'training') {
+            if (
+                in_array('events', $category_slugs, true) ||
+                in_array('training', $category_slugs, true)
+            ) {
                 $intro = get_field('intro_title', $post_id);
+
                 if (!empty($intro)) {
                     $excerpt = $intro;
                 }
@@ -65,7 +93,13 @@ $post_id = get_the_ID();
                 $excerpt = '';
             }
 
-            echo wp_trim_words($excerpt, 30, '...');
+            echo esc_html(
+                wp_trim_words(
+                    wp_strip_all_tags($excerpt),
+                    30,
+                    '...'
+                )
+            );
             ?>
         </li>
     </ul>

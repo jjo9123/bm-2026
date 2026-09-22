@@ -7,33 +7,35 @@
 
 $post_id = get_the_ID();
 
-// CATEGORY HANDLING (SAFE)
+// CATEGORY HANDLING
 $categories = get_the_category($post_id);
-$category_slug = '';
-$category_name = '';
 $category_slugs = [];
 
 if (!empty($categories)) {
-    $category_slug  = $categories[0]->slug ?? '';
-    $category_name  = $categories[0]->name ?? '';
     $category_slugs = wp_list_pluck($categories, 'slug');
 }
 
-// AUTHOR HANDLING (SAFE)
-$post_object = get_field('author');
+// AUTHOR HANDLING
+$post_object = get_field('author', $post_id);
 $author = '';
+$author_id = 0;
 
-if ($post_object) {
-    $post = $post_object;
-    setup_postdata($post);
-
-    $details = get_field('contact_details', $post->ID);
-
-    if (!empty($details['name'])) {
-        $author = $details['name'];
+if (!empty($post_object)) {
+    if ($post_object instanceof WP_Post) {
+        $author_id = $post_object->ID;
+    } elseif (is_array($post_object) && !empty($post_object['ID'])) {
+        $author_id = (int) $post_object['ID'];
+    } elseif (is_numeric($post_object)) {
+        $author_id = (int) $post_object;
     }
 
-    wp_reset_postdata();
+    if ($author_id) {
+        $details = get_field('contact_details', $author_id);
+
+        if (is_array($details) && !empty($details['name'])) {
+            $author = $details['name'];
+        }
+    }
 }
 
 // DATE
@@ -46,13 +48,40 @@ $hide_date = !empty(
         ['guides', 'events', 'training']
     )
 );
+
+// EXCERPT HANDLING
+
+// Default post content
+$excerpt = get_post_field('post_content', $post_id);
+
+// New blog layout fallback
+if (empty($excerpt) && get_field('new_blog_layout', $post_id) === 'yes') {
+    $excerpt = get_field('blog_intro', $post_id);
+}
+
+// Events / training override
+if (
+    in_array('events', $category_slugs, true) ||
+    in_array('training', $category_slugs, true)
+) {
+    $intro = get_field('intro_title', $post_id);
+
+    if (!empty($intro)) {
+        $excerpt = $intro;
+    }
+}
+
+// Ensure excerpt is always a string
+if (!is_string($excerpt)) {
+    $excerpt = '';
+}
 ?>
 
 <div class="col-12 search-results">
     <ul>
         <li>
-            <a href="<?php the_permalink(); ?>">
-                <h2><?php the_title(); ?></h2>
+            <a href="<?php echo esc_url(get_permalink($post_id)); ?>">
+                <h2><?php echo esc_html(get_the_title($post_id)); ?></h2>
             </a>
 
             <?php if (!$hide_date) : ?>
@@ -66,33 +95,6 @@ $hide_date = !empty(
             <?php endif; ?>
 
             <?php
-            // SAFE EXCERPT HANDLING
-
-            // Default post content
-            $excerpt = get_post_field('post_content', $post_id);
-
-            // New blog layout fallback
-            if (empty($excerpt) && get_field('new_blog_layout', $post_id) === 'yes') {
-                $excerpt = get_field('blog_intro', $post_id);
-            }
-
-            // Events / training override
-            if (
-                in_array('events', $category_slugs, true) ||
-                in_array('training', $category_slugs, true)
-            ) {
-                $intro = get_field('intro_title', $post_id);
-
-                if (!empty($intro)) {
-                    $excerpt = $intro;
-                }
-            }
-
-            // Ensure $excerpt is always a string
-            if (!is_string($excerpt)) {
-                $excerpt = '';
-            }
-
             echo esc_html(
                 wp_trim_words(
                     wp_strip_all_tags($excerpt),

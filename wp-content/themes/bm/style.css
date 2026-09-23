@@ -1234,6 +1234,9 @@ section.blog.recent div.row.justify-content-center {
 .blog section.txt.new-blog {
   padding-top: 20px;
 }
+.section.txt.new-blog .col-12 img {
+  max-width: unset;
+}
 .author-bio.mt-3 {
     display: none;
   }

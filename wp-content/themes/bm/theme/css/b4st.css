@@ -2637,7 +2637,7 @@ section.contact {
 section.new-blog img.aligncenter {
   margin: auto;
 }
-.section.new-blog .txt .col-12 img {
+.section.txt.new-blog .col-12 img {
   max-width: unset;
 }
 /* accordion update */

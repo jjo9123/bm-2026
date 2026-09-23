@@ -2637,6 +2637,9 @@ section.contact {
 section.new-blog img.aligncenter {
   margin: auto;
 }
+.section.new-blog .txt .col-12 img {
+  max-width: unset;
+}
 /* accordion update */
 .tabbed-navigation.grey {
   background-color: #e7e7e7;

@@ -530,19 +530,14 @@ function delete_old_gravity_forms_entries() {
     }
 }*/
 
+
 /**
  * Extend Yoast's Organization schema for Blake Morgan.
  *
- * Replaces the previous standalone LegalService JSON-LD
- * on the homepage.
+ * Keep one parent organisation entity throughout the website.
  */
 function bm_extend_yoast_organization_schema( $data ) {
 
-    if ( ! is_front_page() ) {
-        return $data;
-    }
-
-    // Identify Blake Morgan as both an organisation and legal service.
     $data['@type'] = array(
         'Organization',
         'LegalService',
@@ -551,7 +546,7 @@ function bm_extend_yoast_organization_schema( $data ) {
     $data['name']      = 'Blake Morgan';
     $data['legalName'] = 'Blake Morgan LLP';
 
-    // Remove predecessor names as aliases.
+    // Remove predecessor names as alternate names.
     unset( $data['alternateName'] );
 
     $data['description'] =
@@ -596,7 +591,6 @@ function bm_extend_yoast_organization_schema( $data ) {
         'availableLanguage' => 'English',
     );
 
-    // Geographic service coverage.
     $data['areaServed'] = array(
         '@type' => 'Country',
         'name'  => 'United Kingdom',
@@ -609,32 +603,366 @@ function bm_extend_yoast_organization_schema( $data ) {
         'The Legal 500 Top Tier Firm 2023',
     );
 
-    // Remove incorrect credential modelling.
     unset( $data['hasCredential'] );
 
-    // External identity profiles.
-    $data['sameAs'] = array_values(
-        array_unique(
-            array_merge(
-                isset( $data['sameAs'] ) && is_array( $data['sameAs'] )
-                    ? $data['sameAs']
-                    : array(),
-                array(
-                    'https://en.wikipedia.org/wiki/Blake_Morgan_LLP',
-                    'https://www.wikidata.org/wiki/Q6911608',
-                    'https://www.facebook.com/blakemorganllp/',
-                    'https://x.com/BlakeMorganLLP',
-                )
-            )
+    // Preserve Yoast profiles and add verified identity links.
+    $profiles = isset( $data['sameAs'] ) && is_array( $data['sameAs'] )
+        ? $data['sameAs']
+        : array();
+
+    $profiles = array_merge(
+        $profiles,
+        array(
+            'https://en.wikipedia.org/wiki/Blake_Morgan_LLP',
+            'https://www.wikidata.org/wiki/Q6911608',
+            'https://www.facebook.com/blakemorganllp/',
+            'https://x.com/BlakeMorganLLP',
         )
     );
 
+    // Deduplicate profiles, ignoring trailing slashes.
+    $unique_profiles = array();
+
+    foreach ( $profiles as $profile ) {
+        if ( ! is_string( $profile ) || empty( $profile ) ) {
+            continue;
+        }
+
+        $key = untrailingslashit( $profile );
+
+        if ( ! isset( $unique_profiles[ $key ] ) ) {
+            $unique_profiles[ $key ] = $profile;
+        }
+    }
+
+    $data['sameAs'] = array_values( $unique_profiles );
+
+    /**
+     * Link published office locations to the organisation.
+     * Only include offices with complete ACF address details.
+     */
+    if ( function_exists( 'get_field' ) ) {
+
+        $locations = get_posts( array(
+            'post_type'      => 'location',
+            'post_status'    => 'publish',
+            'posts_per_page' => -1,
+            'fields'         => 'ids',
+            'no_found_rows'  => true,
+        ) );
+
+        $departments = array();
+
+        foreach ( $locations as $location_id ) {
+
+            $street   = get_field( 'schema_street_address', $location_id );
+            $city     = get_field( 'schema_city', $location_id );
+            $postcode = get_field( 'schema_postcode', $location_id );
+
+            if (
+                ! is_string( $street ) ||
+                ! is_string( $city ) ||
+                ! is_string( $postcode ) ||
+                '' === trim( $street ) ||
+                '' === trim( $city ) ||
+                '' === trim( $postcode )
+            ) {
+                continue;
+            }
+
+            $office_url = get_permalink( $location_id );
+
+            if ( $office_url ) {
+                $departments[] = array(
+                    '@id' => trailingslashit( $office_url ) . '#office',
+                );
+            }
+        }
+
+        if ( ! empty( $departments ) ) {
+            $data['department'] = $departments;
+        }
+    }
+
     return $data;
 }
+
 add_filter(
     'wpseo_schema_organization',
     'bm_extend_yoast_organization_schema'
 );
+
+
+
+/**
+ * Extend Yoast's Organization schema for Blake Morgan.
+ *
+ * Keep one parent organisation entity throughout the website.
+ */
+function bm_extend_yoast_organization_schema( $data ) {
+
+    $data['@type'] = array(
+        'Organization',
+        'LegalService',
+    );
+
+    $data['name']      = 'Blake Morgan';
+    $data['legalName'] = 'Blake Morgan LLP';
+
+    // Remove predecessor names as alternate names.
+    unset( $data['alternateName'] );
+
+    $data['description'] =
+        'Blake Morgan LLP is a full-service UK law firm with offices ' .
+        'in Cardiff, London, Manchester, Oxford, Reading and Southampton. ' .
+        'It was formed in 2014 by the merger of Morgan Cole and Blake Lapthorn.';
+
+    $data['foundingDate'] = '2014';
+
+    // Registered office.
+    $data['address'] = array(
+        '@type'           => 'PostalAddress',
+        'streetAddress'   => "New Kings Court, Tollgate, Chandler's Ford",
+        'addressLocality' => 'Eastleigh',
+        'addressRegion'   => 'Hampshire',
+        'postalCode'      => 'SO53 3LG',
+        'addressCountry'  => 'GB',
+    );
+
+    // Official identifiers.
+    $data['identifier'] = array(
+        array(
+            '@type'      => 'PropertyValue',
+            'propertyID' => 'Companies House registration number',
+            'value'      => 'OC392078',
+        ),
+        array(
+            '@type'      => 'PropertyValue',
+            'propertyID' => 'Solicitors Regulation Authority number',
+            'value'      => '613716',
+        ),
+    );
+
+    $data['vatID'] = 'GB189077069';
+
+    // Main contact number.
+    $data['contactPoint'] = array(
+        '@type'             => 'ContactPoint',
+        'telephone'         => '+44 20 7405 2000',
+        'contactType'       => 'customer service',
+        'areaServed'        => 'GB',
+        'availableLanguage' => 'English',
+    );
+
+    $data['areaServed'] = array(
+        '@type' => 'Country',
+        'name'  => 'United Kingdom',
+    );
+
+    // Rankings and recognitions.
+    $data['award'] = array(
+        'The Legal 500 Top Tier Firm 2025',
+        'Chambers and Partners High Net Worth 2024',
+        'The Legal 500 Top Tier Firm 2023',
+    );
+
+    unset( $data['hasCredential'] );
+
+    // Preserve Yoast profiles and add verified identity links.
+    $profiles = isset( $data['sameAs'] ) && is_array( $data['sameAs'] )
+        ? $data['sameAs']
+        : array();
+
+    $profiles = array_merge(
+        $profiles,
+        array(
+            'https://en.wikipedia.org/wiki/Blake_Morgan_LLP',
+            'https://www.wikidata.org/wiki/Q6911608',
+            'https://www.facebook.com/blakemorganllp/',
+            'https://x.com/BlakeMorganLLP',
+        )
+    );
+
+    // Deduplicate profiles, ignoring trailing slashes.
+    $unique_profiles = array();
+
+    foreach ( $profiles as $profile ) {
+        if ( ! is_string( $profile ) || empty( $profile ) ) {
+            continue;
+        }
+
+        $key = untrailingslashit( $profile );
+
+        if ( ! isset( $unique_profiles[ $key ] ) ) {
+            $unique_profiles[ $key ] = $profile;
+        }
+    }
+
+    $data['sameAs'] = array_values( $unique_profiles );
+
+    /**
+     * Link published office locations to the organisation.
+     * Only include offices with complete ACF address details.
+     */
+    if ( function_exists( 'get_field' ) ) {
+
+        $locations = get_posts( array(
+            'post_type'      => 'location',
+            'post_status'    => 'publish',
+            'posts_per_page' => -1,
+            'fields'         => 'ids',
+            'no_found_rows'  => true,
+        ) );
+
+        $departments = array();
+
+        foreach ( $locations as $location_id ) {
+
+            $street   = get_field( 'schema_street_address', $location_id );
+            $city     = get_field( 'schema_city', $location_id );
+            $postcode = get_field( 'schema_postcode', $location_id );
+
+            if (
+                ! is_string( $street ) ||
+                ! is_string( $city ) ||
+                ! is_string( $postcode ) ||
+                '' === trim( $street ) ||
+                '' === trim( $city ) ||
+                '' === trim( $postcode )
+            ) {
+                continue;
+            }
+
+            $office_url = get_permalink( $location_id );
+
+            if ( $office_url ) {
+                $departments[] = array(
+                    '@id' => trailingslashit( $office_url ) . '#office',
+                );
+            }
+        }
+
+        if ( ! empty( $departments ) ) {
+            $data['department'] = $departments;
+        }
+    }
+
+    return $data;
+}
+
+add_filter(
+    'wpseo_schema_organization',
+    'bm_extend_yoast_organization_schema'
+);
+
+
+/**
+ * Add LegalService schema to individual location CPT pages.
+ */
+function bm_add_location_schema( $graph, $context ) {
+
+    if (
+        ! is_singular( 'location' ) ||
+        ! function_exists( 'get_field' )
+    ) {
+        return $graph;
+    }
+
+    $post_id = get_queried_object_id();
+
+    if ( ! $post_id ) {
+        return $graph;
+    }
+
+    $url = get_permalink( $post_id );
+
+    if ( ! $url ) {
+        return $graph;
+    }
+
+    // Office-specific ACF fields.
+    $street   = get_field( 'schema_street_address', $post_id );
+    $city     = get_field( 'schema_city', $post_id );
+    $postcode = get_field( 'schema_postcode', $post_id );
+    $phone    = get_field( 'schema_telephone', $post_id );
+
+    // Only generate schema when the address is complete.
+    if (
+        ! is_string( $street ) ||
+        ! is_string( $city ) ||
+        ! is_string( $postcode ) ||
+        '' === trim( $street ) ||
+        '' === trim( $city ) ||
+        '' === trim( $postcode )
+    ) {
+        return $graph;
+    }
+
+    // Avoid duplicating the company name in office titles.
+    $office_name = trim( get_the_title( $post_id ) );
+
+    if ( stripos( $office_name, 'Blake Morgan' ) !== 0 ) {
+        $office_name = 'Blake Morgan ' . $office_name;
+    }
+
+    $office = array(
+        '@type' => 'LegalService',
+
+        '@id' => trailingslashit( $url ) . '#office',
+
+        'name' => $office_name,
+
+        'url' => $url,
+
+        'parentOrganization' => array(
+            '@id' => 'https://www.blakemorgan.co.uk/#organization',
+        ),
+
+        'address' => array(
+            '@type'           => 'PostalAddress',
+            'streetAddress'   => sanitize_text_field( $street ),
+            'addressLocality' => sanitize_text_field( $city ),
+            'postalCode'      => sanitize_text_field( $postcode ),
+            'addressCountry'  => 'GB',
+        ),
+
+        // Reference the existing Yoast organisation logo.
+        'image' => array(
+            '@id' => 'https://www.blakemorgan.co.uk/#/schema/logo/image/',
+        ),
+
+        'mainEntityOfPage' => array(
+            '@id' => $url,
+        ),
+    );
+
+    if ( is_string( $phone ) && '' !== trim( $phone ) ) {
+        $office['telephone'] = sanitize_text_field( $phone );
+    }
+
+    // Prevent duplicate office nodes.
+    foreach ( $graph as $node ) {
+        if (
+            isset( $node['@id'] ) &&
+            $node['@id'] === $office['@id']
+        ) {
+            return $graph;
+        }
+    }
+
+    $graph[] = $office;
+
+    return $graph;
+}
+
+add_filter(
+    'wpseo_schema_graph',
+    'bm_add_location_schema',
+    20,
+    2
+);
+
+
 
 // Match expertise taxonomy to taxonomy pages
 add_filter('term_link', 'link_expertise_term_to_exact_page', 10, 3);

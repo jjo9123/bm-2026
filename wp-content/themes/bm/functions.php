@@ -622,7 +622,6 @@ function bm_extend_yoast_organization_schema( $data ) {
                 array(
                     'https://en.wikipedia.org/wiki/Blake_Morgan_LLP',
                     'https://www.wikidata.org/wiki/Q6911608',
-                    'https://www.linkedin.com/company/blake-morgan-llp/',
                     'https://www.facebook.com/blakemorganllp/',
                     'https://x.com/BlakeMorganLLP',
                 )

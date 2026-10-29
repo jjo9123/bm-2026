@@ -530,129 +530,112 @@ function delete_old_gravity_forms_entries() {
     }
 }*/
 
-function add_blake_morgan_schema_to_homepage() {
-    if (is_front_page()) {
-        ?>
-        <script type="application/ld+json">
-        {
-          "@context": "https://schema.org",
-          "@type": "LegalService",
-          "@id": "https://www.blakemorgan.co.uk/#organization",
-          "name": "Blake Morgan",
-          "legalName": "Blake Morgan LLP",
-          "alternateName": [
-            "Morgan Cole LLP",
-            "Blake Lapthorn LLP"
-          ],
-          "url": "https://www.blakemorgan.co.uk/",
-          "logo": "https://www.blakemorgan.co.uk/wp-content/uploads/Unorganized/logo.png",
-          "description": "Blake Morgan LLP is a large full-service commercial law firm with offices in Cardiff, London, Manchester, Oxford, Reading and Southampton in the United Kingdom. It was formed in 2014 following a merger between the Cardiff-based Morgan Cole and the Portsmouth-based Blake Lapthorn.",
-          "foundingDate": "2014",
-          "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "New Kings Court, Tollgate, Chandlers Ford",
-            "addressLocality": "Eastleigh",
-            "addressRegion": "Hampshire",
-            "postalCode": "SO53 3LG",
-            "addressCountry": "GB"
-          },
-          "hasCredential": [
-            {
-              "@type": "EducationalOccupationalCredential",
-              "@id": "https://www.blakemorgan.co.uk/#credential-top-tier-2025",
-              "credentialCategory": "Top Tier Firm 2025",
-              "recognizedBy": {
-                "@type": "Organization",
-                "name": "The Legal 500"
-              }
-            },
-            {
-              "@type": "EducationalOccupationalCredential",
-              "@id": "https://www.blakemorgan.co.uk/#credential-family-mediation",
-              "credentialCategory": "Family Mediation",
-              "recognizedBy": {
-                "@type": "Organization",
-                "name": "The Law Society"
-              }
-            },
-            {
-              "@type": "EducationalOccupationalCredential",
-              "@id": "https://www.blakemorgan.co.uk/#credential-high-net-worth-2024",
-              "credentialCategory": "High Net Worth 2024",
-              "recognizedBy": {
-                "@type": "Organization",
-                "name": "Chambers and Partners"
-              }
-            },
-            {
-              "@type": "EducationalOccupationalCredential",
-              "@id": "https://www.blakemorgan.co.uk/#credential-top-tier-2023",
-              "credentialCategory": "Top Tier Firm 2023",
-              "recognizedBy": {
-                "@type": "Organization",
-                "name": "The Legal 500"
-              }
-            }
-          ],
-          "contactPoint": {
-            "@type": "ContactPoint",
-            "@id": "https://www.blakemorgan.co.uk/#contact",
-            "telephone": "+44 207 405 2000",
-            "contactType": "Customer Service",
-            "areaServed": [
-              "Cardiff",
-              "London",
-              "Manchester",
-              "Oxford",
-              "Reading",
-              "Southampton"
-            ],
-            "availableLanguage": ["English"]
-          },
-          "areaServed": [
-            {
-              "@type": "City",
-              "@id": "https://www.blakemorgan.co.uk/#cardiff",
-              "name": "Cardiff"
-            },
-            {
-              "@type": "City",
-              "@id": "https://www.blakemorgan.co.uk/#london",
-              "name": "London"
-            },
-            {
-              "@type": "City",
-              "@id": "https://www.blakemorgan.co.uk/#manchester",
-              "name": "Manchester"
-            },
-            {
-              "@type": "City",
-              "@id": "https://www.blakemorgan.co.uk/#oxford",
-              "name": "Oxford"
-            },
-            {
-              "@type": "City",
-              "@id": "https://www.blakemorgan.co.uk/#reading",
-              "name": "Reading"
-            },
-            {
-              "@type": "City",
-              "@id": "https://www.blakemorgan.co.uk/#southampton",
-              "name": "Southampton"
-            }
-          ],
-          "sameAs": [
-            "https://www.facebook.com/blakemorganllp",
-            "https://www.linkedin.com/company/blake-morgan-llp/",
-            "https://x.com/BlakeMorganLLP",
-            "https://en.wikipedia.org/wiki/Blake_Morgan_LLP"
-          ]
-        }
-        </script>
-        <?php
+/**
+ * Extend Yoast's Organization schema for Blake Morgan.
+ *
+ * Replaces the previous standalone LegalService JSON-LD
+ * on the homepage.
+ */
+function bm_extend_yoast_organization_schema( $data ) {
+
+    if ( ! is_front_page() ) {
+        return $data;
     }
+
+    // Identify Blake Morgan as both an organisation and legal service.
+    $data['@type'] = array(
+        'Organization',
+        'LegalService',
+    );
+
+    $data['name']      = 'Blake Morgan';
+    $data['legalName'] = 'Blake Morgan LLP';
+
+    // Remove predecessor names as aliases.
+    unset( $data['alternateName'] );
+
+    $data['description'] =
+        'Blake Morgan LLP is a full-service UK law firm with offices ' .
+        'in Cardiff, London, Manchester, Oxford, Reading and Southampton. ' .
+        'It was formed in 2014 by the merger of Morgan Cole and Blake Lapthorn.';
+
+    $data['foundingDate'] = '2014';
+
+    // Registered office.
+    $data['address'] = array(
+        '@type'           => 'PostalAddress',
+        'streetAddress'   => "New Kings Court, Tollgate, Chandler's Ford",
+        'addressLocality' => 'Eastleigh',
+        'addressRegion'   => 'Hampshire',
+        'postalCode'      => 'SO53 3LG',
+        'addressCountry'  => 'GB',
+    );
+
+    // Official identifiers.
+    $data['identifier'] = array(
+        array(
+            '@type'      => 'PropertyValue',
+            'propertyID' => 'Companies House registration number',
+            'value'      => 'OC392078',
+        ),
+        array(
+            '@type'      => 'PropertyValue',
+            'propertyID' => 'Solicitors Regulation Authority number',
+            'value'      => '613716',
+        ),
+    );
+
+    $data['vatID'] = 'GB189077069';
+
+    // Main contact number.
+    $data['contactPoint'] = array(
+        '@type'             => 'ContactPoint',
+        'telephone'         => '+44 20 7405 2000',
+        'contactType'       => 'customer service',
+        'areaServed'        => 'GB',
+        'availableLanguage' => 'English',
+    );
+
+    // Geographic service coverage.
+    $data['areaServed'] = array(
+        '@type' => 'Country',
+        'name'  => 'United Kingdom',
+    );
+
+    // Rankings and recognitions.
+    $data['award'] = array(
+        'The Legal 500 Top Tier Firm 2025',
+        'Chambers and Partners High Net Worth 2024',
+        'The Legal 500 Top Tier Firm 2023',
+    );
+
+    // Remove incorrect credential modelling.
+    unset( $data['hasCredential'] );
+
+    // External identity profiles.
+    $data['sameAs'] = array_values(
+        array_unique(
+            array_merge(
+                isset( $data['sameAs'] ) && is_array( $data['sameAs'] )
+                    ? $data['sameAs']
+                    : array(),
+                array(
+                    'https://en.wikipedia.org/wiki/Blake_Morgan_LLP',
+                    'https://www.wikidata.org/wiki/Q6911608',
+                    'https://www.linkedin.com/company/blake-morgan-llp/',
+                    'https://www.facebook.com/blakemorganllp/',
+                    'https://x.com/BlakeMorganLLP',
+                )
+            )
+        )
+    );
+
+    return $data;
 }
-add_action('wp_head', 'add_blake_morgan_schema_to_homepage');
+add_filter(
+    'wpseo_schema_organization',
+    'bm_extend_yoast_organization_schema'
+);
 
 // Match expertise taxonomy to taxonomy pages
 add_filter('term_link', 'link_expertise_term_to_exact_page', 10, 3);

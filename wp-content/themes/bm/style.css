@@ -3425,6 +3425,20 @@ ul.sitemap-nav.privacy li > a{
 #contact-footer .gform_fields > .gfield:last-child {
     margin-bottom: 0;
 }
+/* Spacing for fields with hidden labels */
+#contact-footer .gform_fields > .gfield.hidden_label {
+    margin-bottom: 20px;
+}
+
+/* Keep spacing consistent between all fields */
+#contact-footer .gform_fields > .gfield {
+    margin-bottom: 20px;
+}
+
+/* Prevent hidden labels from taking up space */
+#contact-footer .gfield.hidden_label > .gfield_label {
+    display: none;
+}
 @media (min-width: 992px) {
 
   /* tweakables */
@@ -3545,11 +3559,11 @@ ul.sitemap-nav.privacy li > a{
 }
 .gform_wrapper.gravity-theme .gsection.gf_scroll_text {
   height: unset!important;
-  background-color: unset;
-  border: none;
-  padding: 0;
-  margin: 0;
-  margin-top: 10px;
+  background-color: unset!important;
+  border: none!important;
+  padding: 0!important;
+  margin: 0!important;
+  margin-top: 10px!important;
 }
 /* Desktop and tablet */
 @media only screen and (min-width: 641px) {

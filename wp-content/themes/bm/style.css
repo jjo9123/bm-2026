@@ -3411,171 +3411,190 @@ ul.sitemap-nav.privacy li > a{
 
 
 }
-/* contact form redesign - legacy + modern Gravity Forms */
-/* Field spacing - modern and legacy Gravity Forms */
-#contact-footer .gform_fields {
-    row-gap: 20px;
-}
 
+/* ==========================================
+   CONTACT FORM REDESIGN
+   Legacy + Modern Gravity Forms
+========================================== */
+
+/* General field spacing */
 #contact-footer .gform_fields > .gfield {
     margin-bottom: 20px;
 }
 
-/* Remove extra spacing from final field */
-#contact-footer .gform_fields > .gfield:last-child {
-    margin-bottom: 0;
-}
-/* Spacing for fields with hidden labels */
-#contact-footer .gform_fields > .gfield.hidden_label {
-    margin-bottom: 20px;
-}
-
-/* Keep spacing consistent between all fields */
-#contact-footer .gform_fields > .gfield {
-    margin-bottom: 20px;
-}
-
-/* Prevent hidden labels from taking up space */
+/* Hidden label fields */
 #contact-footer .gfield.hidden_label > .gfield_label {
     display: none;
 }
+
+/* ==========================================
+   DESKTOP - TWO COLUMNS
+========================================== */
+
 @media (min-width: 992px) {
 
-  /* tweakables */
-  #contact-footer {
-    --gf-gap: 40px;
-    --gf-reserve: 70px;
-    --gf-btn-w: 140px;
-    --gf-cap-gap: 24px;
-  }
+    #contact-footer {
+        --gf-gap: 40px;
+        --gf-reserve: 70px;
+        --gf-btn-w: 140px;
+    }
 
-  /* make the form a positioning context */
-  #contact-footer .gform_wrapper form {
-    position: relative;
-  }
+    /* Form positioning context */
+    #contact-footer .gform_wrapper form {
+        position: relative;
+    }
 
-  /* reserve space above captcha + button */
-  #contact-footer .gform-body {
-    padding-bottom: var(--gf-reserve);
-  }
+    /* Space for submit button */
+    #contact-footer .gform-body {
+        padding-bottom: var(--gf-reserve);
+    }
 
-  /* override modern Gravity Forms grid with independent columns */
-  #contact-footer .gform_fields {
-    display: block;
-    column-count: 2;
-    column-gap: var(--gf-gap);
-  }
+    /* Independent columns */
+    #contact-footer .gform_fields {
+        display: block;
+        column-count: 2;
+        column-gap: var(--gf-gap);
+    }
 
-  /* support both LI (legacy) and DIV (modern) fields */
-  #contact-footer .gform_fields > .gfield {
+    /* All fields - legacy LI and modern DIV */
+    #contact-footer .gform_fields > .gfield {
     break-inside: avoid;
     -webkit-column-break-inside: avoid;
     display: inline-block;
     width: 100%;
     vertical-align: top;
-    margin: 0 0 8px;
-  }
-
-  /* hide non-layout fields */
-  #contact-footer .gform_fields > .gform_hidden,
-  #contact-footer .gform_fields > .gform_validation_container,
-  #contact-footer .gform_fields > .gfield--type-honeypot {
-    display: none !important;
-  }
-
-  /* force Message into column 2 */
-  #contact-footer .gform_fields > .gf-split-message {
-    break-before: column;
-    -webkit-column-break-before: always;
-  }
-
-  /* message sizing */
-  #contact-footer .gf-split-message textarea {
-    min-height: 320px;
-  }
-
-  /* CAPTCHA: bottom-left of right column */
-  #contact-footer .gform_fields > .gfield--type-captcha {
-    position: absolute;
-    bottom: 0;
-    left: calc(50% + (var(--gf-gap) / 2));
-    right: calc(var(--gf-btn-w) + var(--gf-cap-gap));
-    width: auto;
-    margin: 0 !important;
-  }
-
-  /* submit button: bottom-right */
-  #contact-footer .gform_footer {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    width: auto;
-    margin: 0 !important;
-    display: flex;
-    justify-content: flex-end;
-    z-index: 2;
-  }
-
-  #contact-footer .gform_footer input[type="submit"],
-  #contact-footer .gform_footer button[type="submit"] {
-    width: var(--gf-btn-w);
-    min-width: var(--gf-btn-w);
-  }
+    margin: 0 0 20px !important;
 }
 
-/* Mobile: single-column Gravity Forms layout */
+/* Consistent spacing between labels and inputs */
+#contact-footer .gfield_label {
+    margin-bottom: 8px !important;
+}
+
+/* Hidden labels should not reserve space */
+#contact-footer .gfield.hidden_label > .gfield_label {
+    display: none !important;
+}
+
+/* Remove extra input container margins */
+#contact-footer .ginput_container {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+}
+
+    /* Hide non-layout fields */
+    #contact-footer .gform_fields > .gform_hidden,
+    #contact-footer .gform_fields > .gform_validation_container,
+    #contact-footer .gform_fields > .gfield--type-honeypot {
+        display: none !important;
+    }
+
+    /* Force message into second column */
+    #contact-footer .gform_fields > .gf-split-message {
+        break-before: column;
+        -webkit-column-break-before: always;
+    }
+
+    /* Message textarea */
+    #contact-footer .gf-split-message textarea {
+        min-height: 320px;
+    }
+
+    /* CAPTCHA - normal flow below message */
+    #contact-footer .gform_fields > .gfield--type-captcha {
+        position: static !important;
+        bottom: auto !important;
+        left: auto !important;
+        right: auto !important;
+        width: 100%;
+        margin: 0 0 20px !important;
+        break-inside: avoid;
+        -webkit-column-break-inside: avoid;
+    }
+
+    /* Submit button - bottom right */
+    #contact-footer .gform_footer {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: auto;
+        margin: 0 !important;
+        display: flex;
+        justify-content: flex-end;
+        z-index: 2;
+    }
+
+    #contact-footer .gform_footer input[type="submit"],
+    #contact-footer .gform_footer button[type="submit"] {
+        width: var(--gf-btn-w);
+        min-width: var(--gf-btn-w);
+    }
+}
+
+/* ==========================================
+   MOBILE - SINGLE COLUMN
+========================================== */
+
 @media (max-width: 991.98px) {
 
-  #contact-footer .gform_wrapper form {
-    position: static;
-  }
+    #contact-footer .gform_wrapper form {
+        position: static;
+    }
 
-  #contact-footer .gform-body {
-    padding-bottom: 0;
-  }
+    #contact-footer .gform-body {
+        padding-bottom: 0;
+    }
 
-  #contact-footer .gform_fields {
-    display: block;
-    column-count: 1;
-    column-gap: 0;
-  }
+    #contact-footer .gform_fields {
+        display: block;
+        column-count: 1;
+        column-gap: 0;
+    }
 
-  #contact-footer .gform_fields > .gfield {
-    display: block;
-    width: 100%;
-  }
+    #contact-footer .gform_fields > .gfield {
+        display: block;
+        width: 100%;
+        margin-bottom: 20px;
+    }
 
-  #contact-footer .gform_fields > .gfield--type-captcha,
-  #contact-footer .gform_footer {
-    position: static;
-    width: auto;
-  }
+    #contact-footer .gform_fields > .gfield--type-captcha,
+    #contact-footer .gform_footer {
+        position: static !important;
+        width: auto;
+    }
 }
 
-/* Gravity Forms scroll text section headings */
+/* ==========================================
+   SCROLL TEXT / PRIVACY NOTICE
+========================================== */
+
+/* Section headings */
 .gform_wrapper .gsection.gf_scroll_text .gsection_title {
-    font-family: var(--font-body)!important;
-    font-size: 1.1rem!important;
+    font-family: var(--font-body) !important;
+    font-size: 1.1rem !important;
 }
+
+/* Remove default Gravity Forms section styling */
 .gform_wrapper.gravity-theme .gsection.gf_scroll_text {
-  height: unset!important;
-  background-color: unset!important;
-  border: none!important;
-  padding: 0!important;
-  margin: 0!important;
-  margin-top: 10px!important;
+    height: unset !important;
+    background-color: unset !important;
+    border: none !important;
+    padding: 0 !important;
+    margin: 10px 0 0 !important;
 }
-/* Desktop and tablet */
-@media only screen and (min-width: 641px) {
+
+/* Desktop and tablet heading margins */
+@media (min-width: 641px) {
     .gform_wrapper .gsection.gf_scroll_text .gsection_title {
         margin: 10px 10px 0 8px !important;
     }
 }
 
-/* Scroll text links - legacy + modern */
+/* Privacy Notice links */
 .gform_wrapper .gsection.gf_scroll_text > a {
-  color: var(--bm-text-light);
+    color: var(--bm-text-light);
 }
+
 @media (min-width: 768px) {
     .navbar-expand-md>.container, .navbar-expand-md>.container-fluid {
         -ms-flex-wrap: nowrap;

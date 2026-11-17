@@ -3412,6 +3412,7 @@ ul.sitemap-nav.privacy li > a{
 
 }
 
+
 /* ==========================================
    CONTACT FORM REDESIGN
    Legacy + Modern Gravity Forms
@@ -3419,14 +3420,35 @@ ul.sitemap-nav.privacy li > a{
 
 /* General field spacing */
 #contact-footer .gform_fields > .gfield {
-    margin-bottom: 20px;
+    margin: 0 0 20px !important;
 }
 
-/* Hidden label fields */
-#contact-footer .gfield.hidden_label > .gfield_label {
-    display: none;
+/* Show hidden labels on legacy and modern forms */
+#contact-footer .gform_fields > .gfield.hidden_label > .gfield_label {
+    display: block !important;
+    visibility: visible !important;
+    position: static !important;
+    width: auto !important;
+    height: auto !important;
+    overflow: visible !important;
+    clip: auto !important;
+    clip-path: none !important;
+    white-space: normal !important;
+    opacity: 1 !important;
 }
 
+/* Consistent spacing between labels and inputs */
+#contact-footer .gfield_label {
+    margin-bottom: 8px !important;
+}
+
+/* Remove extra input container margins */
+#contact-footer .ginput_container {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+}
+
+/* Character counter */
 #contact-footer .ginput_counter {
     color: #fff !important;
 }
@@ -3448,7 +3470,7 @@ ul.sitemap-nav.privacy li > a{
         position: relative;
     }
 
-    /* Space for submit button */
+    /* Reserve space for submit button */
     #contact-footer .gform-body {
         padding-bottom: var(--gf-reserve);
     }
@@ -3462,29 +3484,13 @@ ul.sitemap-nav.privacy li > a{
 
     /* All fields - legacy LI and modern DIV */
     #contact-footer .gform_fields > .gfield {
-    break-inside: avoid;
-    -webkit-column-break-inside: avoid;
-    display: inline-block;
-    width: 100%;
-    vertical-align: top;
-    margin: 0 0 20px !important;
-}
-
-/* Consistent spacing between labels and inputs */
-#contact-footer .gfield_label {
-    margin-bottom: 8px !important;
-}
-
-/* Hidden labels should not reserve space */
-#contact-footer .gfield.hidden_label > .gfield_label {
-    display: none !important;
-}
-
-/* Remove extra input container margins */
-#contact-footer .ginput_container {
-    margin-top: 0 !important;
-    margin-bottom: 0 !important;
-}
+        break-inside: avoid;
+        -webkit-column-break-inside: avoid;
+        display: inline-block;
+        width: 100%;
+        vertical-align: top;
+        margin: 0 0 20px !important;
+    }
 
     /* Hide non-layout fields */
     #contact-footer .gform_fields > .gform_hidden,
@@ -3493,7 +3499,7 @@ ul.sitemap-nav.privacy li > a{
         display: none !important;
     }
 
-    /* Force message into second column */
+    /* Force Message into second column */
     #contact-footer .gform_fields > .gf-split-message {
         break-before: column;
         -webkit-column-break-before: always;
@@ -3533,20 +3539,6 @@ ul.sitemap-nav.privacy li > a{
         width: var(--gf-btn-w);
         min-width: var(--gf-btn-w);
     }
-    /* Consistent spacing between fields */
-    #contact-footer .gform_fields > .gfield {
-        margin-bottom: 20px !important;
-    }
-
-    /* Consistent label spacing */
-    #contact-footer .gfield_label {
-        margin-bottom: 8px !important;
-    }
-
-    /* Add spacing to dropdowns without visible labels */
-    #contact-footer .gfield.hidden_label {
-        margin-bottom: 28px !important;
-    }
 }
 
 /* ==========================================
@@ -3572,7 +3564,7 @@ ul.sitemap-nav.privacy li > a{
     #contact-footer .gform_fields > .gfield {
         display: block;
         width: 100%;
-        margin-bottom: 20px;
+        margin-bottom: 20px !important;
     }
 
     #contact-footer .gform_fields > .gfield--type-captcha,

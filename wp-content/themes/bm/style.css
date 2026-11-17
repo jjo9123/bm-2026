@@ -3427,6 +3427,10 @@ ul.sitemap-nav.privacy li > a{
     display: none;
 }
 
+#contact-footer .ginput_counter {
+    color: #fff !important;
+}
+
 /* ==========================================
    DESKTOP - TWO COLUMNS
 ========================================== */
@@ -3528,6 +3532,20 @@ ul.sitemap-nav.privacy li > a{
     #contact-footer .gform_footer button[type="submit"] {
         width: var(--gf-btn-w);
         min-width: var(--gf-btn-w);
+    }
+    /* Consistent spacing between fields */
+    #contact-footer .gform_fields > .gfield {
+        margin-bottom: 20px !important;
+    }
+
+    /* Consistent label spacing */
+    #contact-footer .gfield_label {
+        margin-bottom: 8px !important;
+    }
+
+    /* Add spacing to dropdowns without visible labels */
+    #contact-footer .gfield.hidden_label {
+        margin-bottom: 28px !important;
     }
 }
 

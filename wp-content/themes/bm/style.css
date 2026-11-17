@@ -3412,6 +3412,19 @@ ul.sitemap-nav.privacy li > a{
 
 }
 /* contact form redesign - legacy + modern Gravity Forms */
+/* Field spacing - modern and legacy Gravity Forms */
+#contact-footer .gform_fields {
+    row-gap: 20px;
+}
+
+#contact-footer .gform_fields > .gfield {
+    margin-bottom: 20px;
+}
+
+/* Remove extra spacing from final field */
+#contact-footer .gform_fields > .gfield:last-child {
+    margin-bottom: 0;
+}
 @media (min-width: 992px) {
 
   /* tweakables */
@@ -3523,6 +3536,26 @@ ul.sitemap-nav.privacy li > a{
     position: static;
     width: auto;
   }
+}
+
+/* Gravity Forms scroll text section headings */
+.gform_wrapper .gsection.gf_scroll_text .gsection_title {
+    font-family: var(--font-body)!important;
+    font-size: 1.1rem!important;
+}
+.gform_wrapper.gravity-theme .gsection.gf_scroll_text {
+  height: unset!important;
+  background-color: unset;
+  border: none;
+  padding: 0;
+  margin: 0;
+  margin-top: 10px;
+}
+/* Desktop and tablet */
+@media only screen and (min-width: 641px) {
+    .gform_wrapper .gsection.gf_scroll_text .gsection_title {
+        margin: 10px 10px 0 8px !important;
+    }
 }
 
 /* Scroll text links - legacy + modern */

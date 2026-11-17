@@ -3411,15 +3411,15 @@ ul.sitemap-nav.privacy li > a{
 
 
 }
-/* contact form redesign */
+/* contact form redesign - legacy + modern Gravity Forms */
 @media (min-width: 992px) {
 
   /* tweakables */
   #contact-footer {
-    --gf-gap: 40px;        /* gap between the 2 columns */
-    --gf-reserve: 70px;   /* space reserved under fields */
-    --gf-btn-w: 140px;     /* submit button width */
-    --gf-cap-gap: 24px;    /* space between captcha and button */
+    --gf-gap: 40px;
+    --gf-reserve: 70px;
+    --gf-btn-w: 140px;
+    --gf-cap-gap: 24px;
   }
 
   /* make the form a positioning context */
@@ -3427,19 +3427,20 @@ ul.sitemap-nav.privacy li > a{
     position: relative;
   }
 
-  /* reserve space ABOVE pinned captcha + button */
+  /* reserve space above captcha + button */
   #contact-footer .gform-body {
     padding-bottom: var(--gf-reserve);
   }
 
-  /* two independent columns (no equal-height rows) */
+  /* override modern Gravity Forms grid with independent columns */
   #contact-footer .gform_fields {
+    display: block;
     column-count: 2;
     column-gap: var(--gf-gap);
   }
 
-  /* normalise fields inside columns */
-  #contact-footer .gform_fields > li.gfield {
+  /* support both LI (legacy) and DIV (modern) fields */
+  #contact-footer .gform_fields > .gfield {
     break-inside: avoid;
     -webkit-column-break-inside: avoid;
     display: inline-block;
@@ -3449,14 +3450,14 @@ ul.sitemap-nav.privacy li > a{
   }
 
   /* hide non-layout fields */
-  #contact-footer .gform_fields > li.gform_hidden,
-  #contact-footer .gform_fields > li.gform_validation_container,
-  #contact-footer .gform_fields > li.gfield--type-honeypot {
+  #contact-footer .gform_fields > .gform_hidden,
+  #contact-footer .gform_fields > .gform_validation_container,
+  #contact-footer .gform_fields > .gfield--type-honeypot {
     display: none !important;
   }
 
   /* force Message into column 2 */
-  #contact-footer .gform_fields > li.gf-split-message {
+  #contact-footer .gform_fields > .gf-split-message {
     break-before: column;
     -webkit-column-break-before: always;
   }
@@ -3466,39 +3467,36 @@ ul.sitemap-nav.privacy li > a{
     min-height: 320px;
   }
 
-  /* --- CAPTCHA: bottom-left of RIGHT column, stops before button --- */
-  #contact-footer .gform_fields > li.gfield--type-captcha {
+  /* CAPTCHA: bottom-left of right column */
+  #contact-footer .gform_fields > .gfield--type-captcha {
     position: absolute;
     bottom: 0;
-
     left: calc(50% + (var(--gf-gap) / 2));
     right: calc(var(--gf-btn-w) + var(--gf-cap-gap));
-
     width: auto;
     margin: 0 !important;
   }
 
-  /* --- Submit button: bottom-right, independent --- */
+  /* submit button: bottom-right */
   #contact-footer .gform_footer {
     position: absolute;
     bottom: 0;
     right: 0;
-
     width: auto;
     margin: 0 !important;
-
     display: flex;
     justify-content: flex-end;
     z-index: 2;
   }
 
-  #contact-footer .gform_footer input[type="submit"] {
+  #contact-footer .gform_footer input[type="submit"],
+  #contact-footer .gform_footer button[type="submit"] {
     width: var(--gf-btn-w);
     min-width: var(--gf-btn-w);
   }
 }
 
-/* Mobile: default Gravity Forms flow */
+/* Mobile: single-column Gravity Forms layout */
 @media (max-width: 991.98px) {
 
   #contact-footer .gform_wrapper form {
@@ -3510,17 +3508,25 @@ ul.sitemap-nav.privacy li > a{
   }
 
   #contact-footer .gform_fields {
+    display: block;
     column-count: 1;
     column-gap: 0;
   }
 
-  #contact-footer .gform_fields > li.gfield--type-captcha,
+  #contact-footer .gform_fields > .gfield {
+    display: block;
+    width: 100%;
+  }
+
+  #contact-footer .gform_fields > .gfield--type-captcha,
   #contact-footer .gform_footer {
     position: static;
     width: auto;
   }
 }
-.gform_wrapper li.gsection.gf_scroll_text > a {
+
+/* Scroll text links - legacy + modern */
+.gform_wrapper .gsection.gf_scroll_text > a {
   color: var(--bm-text-light);
 }
 @media (min-width: 768px) {
